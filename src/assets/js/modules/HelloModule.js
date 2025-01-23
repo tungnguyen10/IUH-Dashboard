@@ -1,6 +1,7 @@
 import BaseModule from "./BaseModule";
 export default class HelloModule extends BaseModule {
   register() {
+    
     window.tailwind.config = {
       content: ["./src/**/*.{html,js,twig}", "./src/_templates/**/*.twig"],
       theme: {
@@ -84,7 +85,6 @@ export default class HelloModule extends BaseModule {
     };
     this.onModal();
     const loadingScreen = document.querySelector("#loading-screen");
-    // Handle loading screen
     if (loadingScreen) {
       // Prevent scrolling while loading
       document.body.style.overflow = "hidden";
