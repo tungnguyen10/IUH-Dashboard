@@ -97,7 +97,14 @@
     <!---->
 
     <!-- MAIN CONTENT -->
-    <div class="mt-[80px] lg:mt-[120px]">{% block page %}{% endblock %}</div>
+    <div class="mt-[80px] lg:mt-[120px]">
+      {% if breadcrumbs is defined %}
+        {% include './components/_Breadcrumb.twig' with {
+          breadcrumbs: breadcrumbs
+        } %}
+      {% endif %}
+      {% block page %}{% endblock %}
+    </div>
     <!---->
 
     <!-- FOOTER -->
