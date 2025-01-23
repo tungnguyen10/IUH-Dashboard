@@ -1,0 +1,65 @@
+<div class="iuh-research w-full pt-10 lg:pt-16" data-module="HomeResearch">
+  <div
+    class="w-full max-w-[1200px] px-4 mx-auto pb-10 lg:pb-[65px] flex flex-col gap-5"
+  >
+    <div class="flex flex-col justify-between items-center">
+      <h2
+        class="text-2xl lg:text-4xl font-bold text-left lg:text-center text-titleColor w-full"
+      >
+        Nghiên cứu khoa học
+      </h2>
+    </div>
+  </div>
+ 
+  <div class="w-full -mt-3 md:-mt-10 max-w-[1580px] mx-auto">
+    <div class="swiper swiper_research">
+      <div class="swiper-wrapper">
+        {% for i in 1..10 %}
+        <div class="swiper-slide relative group">
+          <div
+            class="w-full aspect-[780/500] relative rounded-xl overflow-hidden research-picture"
+          >
+            <img
+              src="assets/images/research.png"
+              alt=""
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+          </div>
+
+          <div
+            class="research-title shadow-lg md:shadow-none absolute bottom-[-35%] md:bottom-[-10%] left-1/2 -translate-x-1/2 w-[90%] md:w-[80%] bg-white rounded-xl flex flex-col justify-center items-center gap-2 md:gap-4 p-2 md:p-4 transition-all duration-500 group-hover:translate-y-[-1rem] group-hover:shadow-lg"
+          >
+            <div
+              class="flex items-center gap-1 border border-stroke italic text-xs md:text-sm font-normal rounded-1.25 bg-stroke1 pl-1.25 pr-2.5 py-1 transition-colors duration-300 group-hover:bg-navyBlue-50 group-hover:border-navyBlue-200"
+            >
+              <span class="text-red">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="size-4 md:size-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M16 15.3018V16.9893L16.9 18.0018M9 11.1018H4M20 9.10181V7.10181C20 5.99724 19.1046 5.10181 18 5.10181H6C4.89543 5.10181 4 5.99724 4 7.10181V19.1018C4 20.2064 4.89543 21.1018 6 21.1018H9M15 3.10181V7.10181M9 3.10181V7.10181M20.5 17.1018C20.5 19.5871 18.4853 21.6018 16 21.6018C13.5147 21.6018 11.5 19.5871 11.5 17.1018C11.5 14.6165 13.5147 12.6018 16 12.6018C18.4853 12.6018 20.5 14.6165 20.5 17.1018Z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+              </span>
+              29/10/2024
+            </div>
+            <h3
+              class="text-black1 text-sm md:text-lg lg:text-2xl font-semibold text-center line-clamp-2 transition-colors duration-300 group-hover:text-navyBlue-900"
+            >
+              Ứng dụng AI trong hoạt động nghiên cứu khoa học
+            </h3>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {# <div class="swiper-pagination"></div> #}
+    </div>
+  </div>
+</div>

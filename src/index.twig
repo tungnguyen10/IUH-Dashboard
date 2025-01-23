@@ -1,0 +1,100 @@
+{% extends "./_templates/layout.twig" %}
+{# If rename this file, rename in gulp
+'html' task as well #}
+{% block page %}
+	{% include './_templates/components/_Modal.twig' with {
+  id: 'onSearch', 
+  title: 'Tìm kiếm', 
+  body: '
+    <form action="" class="w-full">
+      <div class="relative group">
+        <input 
+          type="text" 
+          class="search-input w-full bg-white text-lg md:text-2xl border-2 rounded-full 
+            px-6 py-4 pr-14
+            outline-none text-navyBlue-900 
+            border-navyBlue-100 
+            placeholder:text-navyBlue-400
+            transition-all duration-300
+            focus:border-navyBlue-500 focus:shadow-lg
+            focus:shadow-navyBlue-900/5" 
+          placeholder="Nhập từ khóa tìm kiếm..."
+        />
+        <button 
+          type="submit"
+          class="absolute right-3 top-1/2 -translate-y-1/2
+            p-2 rounded-full
+            text-navyBlue-400
+            transition-all duration-300
+            hover:text-navyBlue-900 hover:bg-navyBlue-50
+            active:scale-95"
+        >
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path 
+              d="M20 20L15.8033 15.8033M15.8033 15.8033C17.1605 14.4461 18 12.5711 18 10.5C18 6.35786 14.6421 3 10.5 3C6.35786 3 3 6.35786 3 10.5C3 14.6421 6.35786 18 10.5 18C12.5711 18 14.4461 17.1605 15.8033 15.8033Z" 
+              stroke="currentColor" 
+              stroke-width="1.5" 
+              stroke-linecap="round" 
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="mt-6 flex flex-wrap gap-2">
+        <span class="text-sm text-navyBlue-500 font-medium">Tìm kiếm phổ biến:</span>
+        <div class="flex flex-wrap gap-2">
+          <a href="#" class="text-sm px-4 py-1.5 rounded-full bg-navyBlue-50 text-navyBlue-700 
+            transition-all duration-300 
+            hover:bg-navyBlue-100 hover:text-navyBlue-900
+            active:scale-95">Tuyển sinh</a>
+          <a href="#" class="text-sm px-4 py-1.5 rounded-full bg-navyBlue-50 text-navyBlue-700 
+            transition-all duration-300 
+            hover:bg-navyBlue-100 hover:text-navyBlue-900
+            active:scale-95">Đào tạo</a>
+          <a href="#" class="text-sm px-4 py-1.5 rounded-full bg-navyBlue-50 text-navyBlue-700 
+            transition-all duration-300 
+            hover:bg-navyBlue-100 hover:text-navyBlue-900
+            active:scale-95">Sinh viên</a>
+        </div>
+      </div>
+    </form>
+  ',
+} %}
+	<div class="relative">
+		{% include './_templates/components/_HomeSlideFull.twig' %}
+		{% include
+  './_templates/components/_HomeAbout.twig' %}
+		{% include
+  './_templates/components/_HomeNewsNoti.twig' %}
+		{% include
+  './_templates/components/_HomeEvent.twig' %}
+		{% include
+  './_templates/components/_HomeGallery.twig' %}
+		{% include
+  './_templates/components/_HomeProgram.twig' %}
+		{% include
+  './_templates/components/_HomeCooperation.twig' %}
+		{% include
+  './_templates/components/_HomeAccredited.twig' %}
+		{% include
+  './_templates/components/_HomeResearch.twig' %}
+		{% include
+  './_templates/components/_HomeAwards.twig' %}
+		{% include
+  './_templates/components/_HomeActives.twig' %}
+		{% include
+  './_templates/components/_HomePartner.twig' %}
+{#   
+		{% include './_templates/components/_Modal.twig' with {
+  id: 'openVideoEvent', title: 'Giới thiệu về Đại học Công nghiệp Thành phố Hồ Chí Minh', body: '
+  <div class="w-full aspect-video"> <iframe class="size-full" src="https://www.youtube.com/embed/cXyNKPR9WA4?si=v-ZsIsax5lnghoov" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  ',  } %}
+		{% include './_templates/components/_Modal.twig' with {
+  id: 'openVideoGallery', title: 'HƯỚNG DẪN TÂN SINH VIÊN K20', body: '
+  <div class="w-full aspect-video"> <iframe class="size-full" src="https://www.youtube.com/embed/k3yulaa7PL0?si=mDgz7cfULeb6yX3m" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  ',  } %} #}
+	</div>
+
+{% endblock %}
