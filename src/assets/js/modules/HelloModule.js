@@ -104,25 +104,45 @@ export default class HelloModule extends BaseModule {
     }
   }
   onPulseIocn() {
-    const socialIcons = document.querySelectorAll(".social-icon");
-    let currentIndex = 0;
-    function rotateIcons() {
-      socialIcons.forEach((icon, index) => {
-        if (index === currentIndex) {
-          icon.style.opacity = "1";
-          icon.style.transform = "scale(1)";
-          icon.style.pointerEvents = "auto";
+    const socialToggle = document.getElementById('socialToggle');
+    const socialList = document.getElementById('socialList');
+    const socialIcons = document.querySelectorAll('.social-icon');
+    let isOpen = false;
+
+    if (socialToggle && socialList) {
+      socialToggle.addEventListener('click', () => {
+        isOpen = !isOpen;
+        
+        if (isOpen) {
+          // Show the list
+          socialList.classList.remove('invisible', 'opacity-0');
+          socialList.classList.add('visible', 'opacity-100');
+          
+          // Animate each icon with delay
+          socialIcons.forEach((icon, index) => {
+            setTimeout(() => {
+              icon.classList.add('translate-y-0', 'opacity-100');
+              icon.classList.remove('-translate-y-4', 'opacity-0');
+            }, index * 100);
+          });
         } else {
-          icon.style.opacity = "0";
-          icon.style.transform = "scale(0.8)";
-          icon.style.pointerEvents = "none";
+          // Hide the list
+          socialList.classList.remove('visible', 'opacity-100');
+          socialList.classList.add('invisible', 'opacity-0');
+          
+          // Reset icons
+          socialIcons.forEach(icon => {
+            icon.classList.remove('translate-y-0', 'opacity-100');
+            icon.classList.add('-translate-y-4', 'opacity-0');
+          });
         }
       });
 
-      currentIndex = (currentIndex + 1) % socialIcons.length;
+      // Initialize icons state
+      socialIcons.forEach(icon => {
+        icon.classList.add('-translate-y-4', 'opacity-0');
+      });
     }
-
-    setInterval(rotateIcons, 5000);
   }
   onModal() {
     const openModalButtons = document.querySelectorAll("[data-open-modal]");
