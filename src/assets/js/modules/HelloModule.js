@@ -1,7 +1,6 @@
 import BaseModule from "./BaseModule";
 export default class HelloModule extends BaseModule {
   register() {
-    
     window.tailwind.config = {
       content: ["./src/**/*.{html,js,twig}", "./src/_templates/**/*.twig"],
       theme: {
@@ -61,7 +60,7 @@ export default class HelloModule extends BaseModule {
               800: "#0000a8",
               900: "#000080",
             },
-            yellow: "#FFB800",
+            yellow: "#fff434",
             black: "#393939",
             black1: "#333333",
             black2: "#666666",
@@ -84,6 +83,8 @@ export default class HelloModule extends BaseModule {
       plugins: [],
     };
     this.onModal();
+    this.onPulseIocn();
+    this.initScrollToTop();
     const loadingScreen = document.querySelector("#loading-screen");
     if (loadingScreen) {
       // Prevent scrolling while loading
@@ -102,11 +103,49 @@ export default class HelloModule extends BaseModule {
       }, 3000); // 3 seconds delay
     }
   }
+  onPulseIocn() {
+    const socialIcons = document.querySelectorAll(".social-icon");
+    let currentIndex = 0;
+    function rotateIcons() {
+      socialIcons.forEach((icon, index) => {
+        if (index === currentIndex) {
+          icon.style.opacity = "1";
+          icon.style.transform = "scale(1)";
+          icon.style.pointerEvents = "auto";
+        } else {
+          icon.style.opacity = "0";
+          icon.style.transform = "scale(0.8)";
+          icon.style.pointerEvents = "none";
+        }
+      });
 
+      currentIndex = (currentIndex + 1) % socialIcons.length;
+    }
+
+    setInterval(rotateIcons, 5000);
+  }
   onModal() {
     const openModalButtons = document.querySelectorAll("[data-open-modal]");
     const closeModalButtons = document.querySelectorAll(".modal-close");
     const modals = document.querySelectorAll(".modal");
+
+    // Handle ESC key
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        modals.forEach(modal => {
+          if (modal.classList.contains('modalActive')) {
+            modal.classList.remove("modalActive");
+            document.body.style.overflow = "auto";
+            const iframe = modal.querySelector("iframe");
+            if (iframe) {
+              const iframeSrc = iframe.src;
+              iframe.src = "";
+              iframe.src = iframeSrc;
+            }
+          }
+        });
+      }
+    });
 
     openModalButtons.forEach((button) => {
       button.addEventListener("click", () => {
@@ -146,5 +185,34 @@ export default class HelloModule extends BaseModule {
         }
       });
     });
+  }
+  initScrollToTop() {
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    
+    if (!scrollToTopBtn) return;
+
+    const toggleScrollButton = () => {
+      const scrolled = window.scrollY;
+      if (scrolled > 200) {
+        scrollToTopBtn.classList.remove('opacity-0', 'invisible');
+        scrollToTopBtn.classList.add('opacity-100', 'visible');
+      } else {
+        scrollToTopBtn.classList.add('opacity-0', 'invisible');
+        scrollToTopBtn.classList.remove('opacity-100', 'visible');
+      }
+    };
+
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    };
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', toggleScrollButton);
+    
+    // Scroll to top when clicked
+    scrollToTopBtn.addEventListener('click', scrollToTop);
   }
 }

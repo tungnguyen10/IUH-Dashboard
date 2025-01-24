@@ -1113,7 +1113,7 @@ var HelloModule = /*#__PURE__*/function (_BaseModule) {
                 800: "#0000a8",
                 900: "#000080"
               },
-              yellow: "#FFB800",
+              yellow: "#fff434",
               black: "#393939",
               black1: "#333333",
               black2: "#666666",
@@ -1136,6 +1136,8 @@ var HelloModule = /*#__PURE__*/function (_BaseModule) {
         plugins: []
       };
       this.onModal();
+      this.onPulseIocn();
+      this.initScrollToTop();
       var loadingScreen = document.querySelector("#loading-screen");
       if (loadingScreen) {
         // Prevent scrolling while loading
@@ -1155,11 +1157,50 @@ var HelloModule = /*#__PURE__*/function (_BaseModule) {
       }
     }
   }, {
+    key: "onPulseIocn",
+    value: function onPulseIocn() {
+      var socialIcons = document.querySelectorAll(".social-icon");
+      var currentIndex = 0;
+      function rotateIcons() {
+        socialIcons.forEach(function (icon, index) {
+          if (index === currentIndex) {
+            icon.style.opacity = "1";
+            icon.style.transform = "scale(1)";
+            icon.style.pointerEvents = "auto";
+          } else {
+            icon.style.opacity = "0";
+            icon.style.transform = "scale(0.8)";
+            icon.style.pointerEvents = "none";
+          }
+        });
+        currentIndex = (currentIndex + 1) % socialIcons.length;
+      }
+      setInterval(rotateIcons, 5000);
+    }
+  }, {
     key: "onModal",
     value: function onModal() {
       var openModalButtons = document.querySelectorAll("[data-open-modal]");
       var closeModalButtons = document.querySelectorAll(".modal-close");
       var modals = document.querySelectorAll(".modal");
+
+      // Handle ESC key
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          modals.forEach(function (modal) {
+            if (modal.classList.contains('modalActive')) {
+              modal.classList.remove("modalActive");
+              document.body.style.overflow = "auto";
+              var iframe = modal.querySelector("iframe");
+              if (iframe) {
+                var iframeSrc = iframe.src;
+                iframe.src = "";
+                iframe.src = iframeSrc;
+              }
+            }
+          });
+        }
+      });
       openModalButtons.forEach(function (button) {
         button.addEventListener("click", function () {
           var modalId = button.getAttribute("data-open-modal");
@@ -1196,6 +1237,34 @@ var HelloModule = /*#__PURE__*/function (_BaseModule) {
           }
         });
       });
+    }
+  }, {
+    key: "initScrollToTop",
+    value: function initScrollToTop() {
+      var scrollToTopBtn = document.getElementById('scrollToTop');
+      if (!scrollToTopBtn) return;
+      var toggleScrollButton = function toggleScrollButton() {
+        var scrolled = window.scrollY;
+        if (scrolled > 200) {
+          scrollToTopBtn.classList.remove('opacity-0', 'invisible');
+          scrollToTopBtn.classList.add('opacity-100', 'visible');
+        } else {
+          scrollToTopBtn.classList.add('opacity-0', 'invisible');
+          scrollToTopBtn.classList.remove('opacity-100', 'visible');
+        }
+      };
+      var scrollToTop = function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      };
+
+      // Show/hide button based on scroll position
+      window.addEventListener('scroll', toggleScrollButton);
+
+      // Scroll to top when clicked
+      scrollToTopBtn.addEventListener('click', scrollToTop);
     }
   }]);
 }(_BaseModule__WEBPACK_IMPORTED_MODULE_0__["default"]);

@@ -1,0 +1,54 @@
+<div class="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 flex flex-col gap-4">
+	<!-- Scroll to top button -->
+	<button 
+		id="scrollToTop" 
+		class="w-12 h-12 bg-navyBlue-600 hover:bg-navyBlue-700 text-white rounded-full shadow-lg transition-all duration-300 flex items-center justify-center opacity-0 invisible"
+		aria-label="Scroll to top"
+	>
+		<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M12 4L4 12M12 4L20 12M12 4V20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+	</button>
+
+	<!-- Social Icons -->
+	<div class="relative w-12 h-12 pulse-ring">
+		{% set socials = [
+      {
+        name: 'Facebook',
+        icon: '<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M9.19795 21.5H13.198V13.4901H16.8021L17.198 9.50977H13.198V7.5C13.198 6.94772 13.6457 6.5 14.198 6.5H17.198V2.5H14.198C11.4365 2.5 9.19795 4.73858 9.19795 7.5V9.50977H7.19795L6.80206 13.4901H9.19795V21.5Z"/></svg>',
+        url: 'https://facebook.com',
+        bg: 'bg-[#1877F2] hover:bg-[#0d6adf]'
+      },
+      {
+        name: 'Youtube',
+        icon: '<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>',
+        url: 'https://youtube.com',
+        bg: 'bg-[#FF0000] hover:bg-[#cc0000]'
+      },
+      {
+        name: 'Instagram',
+        icon: '<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C14.717 2 15.056 2.01 16.122 2.06C17.187 2.11 17.912 2.277 18.55 2.525C19.21 2.779 19.766 3.123 20.322 3.678C20.8305 4.1779 21.224 4.78259 21.475 5.45C21.722 6.087 21.89 6.813 21.94 7.878C21.987 8.944 22 9.283 22 12C22 14.717 21.99 15.056 21.94 16.122C21.89 17.187 21.722 17.912 21.475 18.55C21.2247 19.2178 20.8311 19.8226 20.322 20.322C19.822 20.8303 19.2173 21.2238 18.55 21.475C17.913 21.722 17.187 21.89 16.122 21.94C15.056 21.987 14.717 22 12 22C9.283 22 8.944 21.99 7.878 21.94C6.813 21.89 6.088 21.722 5.45 21.475C4.78233 21.2245 4.17753 20.8309 3.678 20.322C3.16941 19.8222 2.77593 19.2175 2.525 18.55C2.277 17.913 2.11 17.187 2.06 16.122C2.013 15.056 2 14.717 2 12C2 9.283 2.01 8.944 2.06 7.878C2.11 6.812 2.277 6.088 2.525 5.45C2.77524 4.78218 3.1688 4.17732 3.678 3.678C4.17767 3.16923 4.78243 2.77573 5.45 2.525C6.088 2.277 6.812 2.11 7.878 2.06C8.944 2.013 9.283 2 12 2ZM12 7C10.6739 7 9.40215 7.52678 8.46447 8.46447C7.52678 9.40215 7 10.6739 7 12C7 13.3261 7.52678 14.5979 8.46447 15.5355C9.40215 16.4732 10.6739 17 12 17C13.3261 17 14.5979 16.4732 15.5355 15.5355C16.4732 14.5979 17 13.3261 17 12C17 10.6739 16.4732 9.40215 15.5355 8.46447C14.5979 7.52678 13.3261 7 12 7Z"/></svg>',
+        url: 'https://instagram.com',
+        bg: 'bg-gradient-to-tr from-[#feda75] via-[#fa7e1e] to-[#d62976] hover:from-[#feda75]/90 hover:via-[#fa7e1e]/90 hover:to-[#d62976]/90'
+      },
+      {
+        name: 'Phone',
+        icon: '<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20.01 15.38C18.78 15.38 17.59 15.18 16.48 14.82C16.13 14.7 15.74 14.79 15.47 15.06L13.9 17.03C11.07 15.68 8.42 13.13 7.01 10.2L8.96 8.54C9.23 8.26 9.31 7.87 9.2 7.52C8.83 6.41 8.64 5.22 8.64 3.99C8.64 3.45 8.19 3 7.65 3H4.19C3.65 3 3 3.24 3 3.99C3 13.28 10.73 21 20.01 21C20.72 21 21 20.37 21 19.82V16.37C21 15.83 20.55 15.38 20.01 15.38Z"/></svg>',
+        url: 'tel:+84123456789',
+        bg: 'bg-[#25D366] hover:bg-[#128C7E]'
+      }
+    ] %}
+
+		{% for social in socials %}
+			<a 
+				href="{{ social.url }}" 
+				target="_blank"
+				rel="noopener noreferrer"
+				class="social-icon z-1 cursor-pointer absolute inset-0 flex items-center justify-center {{ social.bg }} text-white rounded-full shadow-lg transition-all duration-300 {% if not loop.first %}opacity-0{% endif %}"
+				data-index="{{ loop.index0 }}"
+			>
+				{{ social.icon | raw }}
+			</a>
+		{% endfor %}
+	</div>
+</div>

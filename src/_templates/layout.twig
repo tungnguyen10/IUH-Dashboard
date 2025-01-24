@@ -116,61 +116,41 @@
         id: 'onSearch',
         title: 'Tìm kiếm',
         body: '
-        <form action="" class="w-full">
-          <div class="relative group">
-            <input
-              type="text"
-              class="search-input w-full bg-white text-lg md:text-2xl border-2 rounded-full px-6 py-4 pr-14 outline-none text-navyBlue-900 border-navyBlue-100 placeholder:text-navyBlue-400 transition-all duration-300 focus:border-navyBlue-500 focus:shadow-lg focus:shadow-navyBlue-900/5"
-              placeholder="Nhập từ khóa tìm kiếm..."
-            />
-            <button
-              type="submit"
-              class="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full text-navyBlue-400 transition-all duration-300 hover:text-navyBlue-900 hover:bg-navyBlue-50 active:scale-95"
-            >
-              <svg
-                class="w-6 h-6"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20 20L15.8033 15.8033M15.8033 15.8033C17.1605 14.4461 18 12.5711 18 10.5C18 6.35786 14.6421 3 10.5 3C6.35786 3 3 6.35786 3 10.5C3 14.6421 6.35786 18 10.5 18C12.5711 18 14.4461 17.1605 15.8033 15.8033Z"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+        <div class="max-w-2xl mx-auto w-full px-4 md:px-0">
+          <form action="" class="w-full">
+            <div class="relative">
+              <div class="relative group">
+                <div class="absolute inset-y-0 left-3 md:left-4 flex items-center pointer-events-none text-gray-400">
+                  <svg class="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none">
+                    <path d="M21 21L16.65 16.65M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <input
+                  type="text"
+                  class="w-full h-12 md:h-14 bg-white text-sm md:text-base border-2 rounded-lg md:rounded-xl pl-10 md:pl-12 pr-[4.5rem] md:pr-14 outline-none text-gray-900 border-gray-100 placeholder:text-gray-400 transition-all duration-300 shadow-sm group-hover:border-navyBlue-200 focus:border-navyBlue-600 focus:shadow-[0_0_0_4px_rgba(0,0,207,0.1)]"
+                  placeholder="Nhập từ khóa tìm kiếm..."
+                  autocomplete="off"
                 />
-              </svg>
-            </button>
-          </div>
-
-          <!-- Quick Links -->
-          <div class="mt-6 flex flex-wrap gap-2 items-center">
-            <span class="text-sm text-navyBlue-500 font-medium"
-              >Tìm kiếm phổ biến:</span
-            >
-            <div class="flex flex-wrap gap-2">
-              <a
-                href="#"
-                class="text-sm px-4 py-1.5 rounded-full bg-navyBlue-50 text-navyBlue-700 transition-all duration-300 hover:bg-navyBlue-100 hover:text-navyBlue-900 active:scale-95"
-                >Tuyển sinh</a
-              >
-              <a
-                href="#"
-                class="text-sm px-4 py-1.5 rounded-full bg-navyBlue-50 text-navyBlue-700 transition-all duration-300 hover:bg-navyBlue-100 hover:text-navyBlue-900 active:scale-95"
-                >Đào tạo</a
-              >
-              <a
-                href="#"
-                class="text-sm px-4 py-1.5 rounded-full bg-navyBlue-50 text-navyBlue-700 transition-all duration-300 hover:bg-navyBlue-100 hover:text-navyBlue-900 active:scale-95"
-                >Sinh viên</a
-              >
+                <button
+                  type="submit"
+                  class="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 px-2 md:px-3 py-1.5 rounded-lg text-white bg-navyBlue-800 hover:bg-navyBlue-700 transition-all duration-300 text-xs md:text-sm font-medium active:scale-95"
+                >
+                  Tìm kiếm
+                </button>
+              </div>
+              <div class="mt-2 text-[11px] md:text-xs text-gray-500 text-center md:text-left">
+                Nhấn Enter để tìm kiếm hoặc ESC để đóng
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
         '
     } %}
+    
+    {% include './components/_SocialFixed.twig' %}
   </body>
+  
+ 
   <!-- inject:js -->
   <!-- endinject -->
 </html>
