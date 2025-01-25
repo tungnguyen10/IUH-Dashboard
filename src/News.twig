@@ -1,0 +1,106 @@
+{% extends "./_templates/layout.twig" %}
+{# If rename this file, rename in gulp
+'html' task as well #}
+{% set breadcrumbs = [ { title: 'Tin tức',
+url: '/news' } ] %}
+{% set pageClass = 'iuhNews' %}
+{% block page %}
+	<div class="w-full py-4 pb-6 lg:pt-0 lg:pb-16 relative" data-module="">
+		<div class="w-full max-w-[1200px] px-4 mx-auto">
+			{% include "./_components/page-header.twig" with { title: 'TIN TỨC' } %}
+			<div
+				class="w-full flex flex-col gap-4 sm:gap-8">
+				<!-- Featured News -->
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+					<div class="group relative h-[300px] lg:h-[400px] rounded-xl overflow-hidden">
+						<img src="assets/images/gallery-2.png" alt="Featured News" class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500"/>
+						<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+						<div class="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
+							<div class="flex items-center gap-2 mb-3">
+								<span class="px-3 py-1 rounded-full bg-red-500/20 backdrop-blur-sm text-xs text-red-500 font-medium">
+									Tin nổi bật
+								</span>
+								<span class="text-xs text-gray-300">29/02/2024</span>
+							</div>
+							<h3 class="text-lg sm:text-xl font-bold text-white mb-2 line-clamp-2 group-hover:text-blue-400 transition-colors">
+								<a href="#">Hội nghị Khoa học Công nghệ lần thứ 24 năm 2024</a>
+							</h3>
+							<p class="text-sm text-gray-300 line-clamp-2">
+								Sự kiện quy tụ các nhà khoa học hàng đầu trong và ngoài nước, mở ra cơ hội hợp tác nghiên cứu mới.
+							</p>
+						</div>
+					</div>
+
+					<!-- News Grid -->
+					<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+						{% for i in 1..4 %}
+							<div class="group flex flex-col bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300">
+								<div class="relative h-48">
+									<img src="assets/images/gallery-2.png" alt="News Image" class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500"/>
+									<div class="absolute top-3 left-3">
+										<span class="px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm text-xs text-navyBlue-800 font-medium">
+											29/02/2024
+										</span>
+									</div>
+								</div>
+								<div class="flex flex-col flex-1 p-4">
+									<div class="flex items-center gap-2 mb-2">
+										<span class="px-2.5 py-1 rounded-full bg-navyBlue-50 text-xs text-navyBlue-600 font-medium">
+											Tin tức
+										</span>
+									</div>
+									<h3 class="text-base font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-navyBlue-600 transition-colors">
+										<a href="#">Sinh viên IUH đạt giải nhất cuộc thi Sáng tạo Khoa học Kỹ thuật</a>
+									</h3>
+									<p class="text-sm text-gray-600 line-clamp-2 mb-4">
+										Đội thi của sinh viên khoa Công nghệ Thông tin đã xuất sắc giành giải nhất với đề tài nghiên cứu về trí tuệ nhân tạo.
+									</p>
+									<div class="mt-auto flex items-center gap-2 text-navyBlue-600">
+										<span class="text-sm font-medium">Xem thêm</span>
+										<svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+										</svg>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+
+				<!-- News List -->
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+					{% for i in 1..6 %}
+						<div class="group flex bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300">
+							<div class="relative w-1/3 shrink-0">
+								<img src="assets/images/gallery-2.png" alt="News Image" class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500"/>
+							</div>
+							<div class="flex-1 p-4">
+								<div class="flex items-center gap-2 mb-2">
+									<span class="text-xs text-gray-500">29/02/2024</span>
+									<span class="w-1 h-1 rounded-full bg-gray-300"></span>
+									<span class="text-xs text-navyBlue-600">Tin tức</span>
+								</div>
+								<h3 class="text-base font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-navyBlue-600 transition-colors">
+									<a href="#">Hợp tác nghiên cứu với Đại học Quốc tế</a>
+								</h3>
+								<p class="text-sm text-gray-600 line-clamp-2">
+									IUH ký kết thỏa thuận hợp tác nghiên cứu với các trường đại học hàng đầu trong khu vực.
+								</p>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+
+				<!-- Load More Button -->
+				<div class="flex justify-center mt-4 sm:mt-8">
+					<button class="px-6 py-3 rounded-full bg-navyBlue-50 text-navyBlue-600 font-medium hover:bg-navyBlue-100 transition-colors flex items-center gap-2">
+						<span>Xem thêm tin tức</span>
+						<svg class="w-4 h-4" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
