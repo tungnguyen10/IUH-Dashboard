@@ -97,7 +97,7 @@
     <!---->
 
     <!-- MAIN CONTENT -->
-    <div class="mt-[80px] menuMb:mt-[120px]">
+    <div class="mt-[80px] menuMb:mt-[120px] {{ pageClass ?? '' }}">
       {% if breadcrumbs is defined %}
         {% include './components/_Breadcrumb.twig' with {
           breadcrumbs: breadcrumbs

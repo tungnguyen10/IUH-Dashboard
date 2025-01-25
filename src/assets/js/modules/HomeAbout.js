@@ -30,17 +30,6 @@ export default class HomeAbout extends BaseModule {
           slidesPerView: 3.2,
         }
       },
-      on: {
-        init: function() {
-          const swiper = this;
-          if (swiper.isBeginning) {
-            document.querySelector('.swiper-button-custom-prev').classList.add('swiper-button-custom-disabled');
-          }
-          if (swiper.isEnd) {
-            document.querySelector('.swiper-button-custom-next').classList.add('swiper-button-custom-disabled');
-          }
-        }
-      }
     });
   }
 }

@@ -1,0 +1,245 @@
+{% extends "./_templates/layout.twig" %}
+{# If rename this file, rename in gulp
+'html' task as well #}
+{% set breadcrumbs = [ { title: 'Chương trình đào tạo',
+url: '/training-programs' } ] %}
+{% set pageClass = 'iuhTrainingPrograms' %}
+{%
+block page %}
+	<div class="w-full py-4 pb-6 lg:pt-0 lg:pb-16 relative">
+		<div class="w-full max-w-[1200px] px-4 mx-auto">
+			{% include "./_components/page-header.twig" with { title: 'CHƯƠNG TRÌNH ĐÀO
+    TẠO' } %}
+      {% include "./_templates/components/_MenuGrid.twig" %}
+
+			<!-- Academic Programs Section -->
+			<div
+				class="flex flex-col gap-5 lg:gap-8">
+				<!-- Academic Programs Section 1-->
+				<div
+					class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+					<!-- Box 1: Chương trình Đại học -->
+					<div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1">
+						<div class="aspect-[16/9] overflow-hidden">
+							<img src="assets/images/program-image.png" alt="Chương trình Đại học" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"/>
+						</div>
+						<div class="p-6 sm:p-8">
+							<h3 class="text-2xl font-semibold text-navyBlue-800 mb-4">
+								Chương trình Đại học
+							</h3>
+							<p class="text-gray-600 leading-relaxed">
+								Dành cho thí sinh đã tốt nghiệp THPT và đủ điều kiện xét tuyển vào
+								              Đại học Công nghiệp Thành phố Hồ Chí Minh
+							</p>
+						</div>
+					</div>
+
+					<!-- Box 2: Training Programs -->
+					<div
+						class="space-y-6">
+						<!-- Regular Program -->
+						<div class="bg-white rounded-xl shadow-lg p-6 sm:p-8 border border-stroke transition-transform duration-300 hover:-translate-y-1">
+							<div class="flex items-start gap-4">
+								<div class="shrink-0 w-12 h-12 rounded-full bg-navyBlue-100 flex items-center justify-center">
+									<svg class="w-6 h-6 text-navyBlue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+									</svg>
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold text-navyBlue-800 mb-3">
+										Chương trình Đào tạo chính quy Tiêu chuẩn
+									</h3>
+									<p class="text-gray-600 leading-relaxed">
+										Chương trình Đào tạo tiêu chuẩn cung cấp trải nghiệm học tập
+										                  toàn diện, giúp người học không chỉ trau dồi kiến thức chuyên
+										                  môn, mà còn trang bị các kỹ năng cần thiết, hình thành và đẩy
+										                  mạnh tư duy nghiên cứu để phát triển sự nghiệp tương lai
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Special Program -->
+						<div class="bg-white rounded-xl shadow-lg p-6 sm:p-8 border border-stroke transition-transform duration-300 hover:-translate-y-1">
+							<div class="flex items-start gap-4">
+								<div class="shrink-0 w-12 h-12 rounded-full bg-navyBlue-100 flex items-center justify-center">
+									<svg class="w-6 h-6 text-navyBlue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+									</svg>
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold text-navyBlue-800 mb-3">
+										Chương trình Đào tạo chính quy Đặc biệt
+									</h3>
+									<p class="text-gray-600 leading-relaxed">
+										Được giảng dạy bằng tiếng Anh, chương trình Đào tạo đặc biệt
+										                  hướng tới đào tạo "Công dân toàn cầu" cùng kiến thức chuyên
+										                  sâu, tư duy nhạy bén và khả năng thích nghi nhanh chóng với
+										                  thế giới hội nhập không ngừng nghỉ.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Academic Programs Section 2-->
+				<div
+					class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center py-5 lg:py-8 border-t border-b border-stroke">
+					<!-- Box 1: Chương trình Đại học -->
+					<div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1 lg:order-2">
+						<div class="aspect-[16/9] overflow-hidden">
+							<img src="assets/images/program-image.png" alt="Chương trình Đại học" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"/>
+						</div>
+						<div class="p-6 sm:p-8">
+							<h3 class="text-2xl font-semibold text-navyBlue-800 mb-4">
+								Chương trình Đại học
+							</h3>
+							<p class="text-gray-600 leading-relaxed">
+								Dành cho thí sinh đã tốt nghiệp THPT và đủ điều kiện xét tuyển vào
+								              Đại học Công nghiệp Thành phố Hồ Chí Minh
+							</p>
+						</div>
+					</div>
+
+					<!-- Box 2: Training Programs -->
+					<div
+						class="space-y-6 lg:order-1">
+						<!-- Regular Program -->
+						<div class="bg-white rounded-xl shadow-lg p-6 sm:p-8 border border-stroke transition-transform duration-300 hover:-translate-y-1">
+							<div class="flex items-start gap-4">
+								<div class="shrink-0 w-12 h-12 rounded-full bg-navyBlue-100 flex items-center justify-center">
+									<svg class="w-6 h-6 text-navyBlue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+									</svg>
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold text-navyBlue-800 mb-3">
+										Chương trình Đào tạo chính quy Tiêu chuẩn
+									</h3>
+									<p class="text-gray-600 leading-relaxed">
+										Chương trình Đào tạo tiêu chuẩn cung cấp trải nghiệm học tập
+										                  toàn diện, giúp người học không chỉ trau dồi kiến thức chuyên
+										                  môn, mà còn trang bị các kỹ năng cần thiết, hình thành và đẩy
+										                  mạnh tư duy nghiên cứu để phát triển sự nghiệp tương lai
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Special Program -->
+						<div class="bg-white rounded-xl shadow-lg p-6 sm:p-8 border border-stroke transition-transform duration-300 hover:-translate-y-1">
+							<div class="flex items-start gap-4">
+								<div class="shrink-0 w-12 h-12 rounded-full bg-navyBlue-100 flex items-center justify-center">
+									<svg class="w-6 h-6 text-navyBlue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+									</svg>
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold text-navyBlue-800 mb-3">
+										Chương trình Đào tạo chính quy Đặc biệt
+									</h3>
+									<p class="text-gray-600 leading-relaxed">
+										Được giảng dạy bằng tiếng Anh, chương trình Đào tạo đặc biệt
+										                  hướng tới đào tạo "Công dân toàn cầu" cùng kiến thức chuyên
+										                  sâu, tư duy nhạy bén và khả năng thích nghi nhanh chóng với
+										                  thế giới hội nhập không ngừng nghỉ.
+									</p>
+								</div>
+							</div>
+						</div>
+						<!-- Special Program -->
+						<div class="bg-white rounded-xl shadow-lg p-6 sm:p-8 border border-stroke transition-transform duration-300 hover:-translate-y-1">
+							<div class="flex items-start gap-4">
+								<div class="shrink-0 w-12 h-12 rounded-full bg-navyBlue-100 flex items-center justify-center">
+									<svg class="w-6 h-6 text-navyBlue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+									</svg>
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold text-navyBlue-800 mb-3">
+										Chương trình Đào tạo chính quy Đặc biệt
+									</h3>
+									<p class="text-gray-600 leading-relaxed">
+										Được giảng dạy bằng tiếng Anh, chương trình Đào tạo đặc biệt
+										                  hướng tới đào tạo "Công dân toàn cầu" cùng kiến thức chuyên
+										                  sâu, tư duy nhạy bén và khả năng thích nghi nhanh chóng với
+										                  thế giới hội nhập không ngừng nghỉ.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Academic Programs Section 1-->
+				<div
+					class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+					<!-- Box 1: Chương trình Đại học -->
+					<div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1">
+						<div class="aspect-[16/9] overflow-hidden">
+							<img src="assets/images/program-image.png" alt="Chương trình Đại học" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"/>
+						</div>
+						<div class="p-6 sm:p-8">
+							<h3 class="text-2xl font-semibold text-navyBlue-800 mb-4">
+								Chương trình Đại học
+							</h3>
+							<p class="text-gray-600 leading-relaxed">
+								Dành cho thí sinh đã tốt nghiệp THPT và đủ điều kiện xét tuyển vào
+								              Đại học Công nghiệp Thành phố Hồ Chí Minh
+							</p>
+						</div>
+					</div>
+
+					<!-- Box 2: Training Programs -->
+					<div
+						class="space-y-6">
+						<!-- Regular Program -->
+						<div class="bg-white rounded-xl shadow-lg p-6 sm:p-8 border border-stroke transition-transform duration-300 hover:-translate-y-1">
+							<div class="flex items-start gap-4">
+								<div class="shrink-0 w-12 h-12 rounded-full bg-navyBlue-100 flex items-center justify-center">
+									<svg class="w-6 h-6 text-navyBlue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+									</svg>
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold text-navyBlue-800 mb-3">
+										Chương trình Đào tạo chính quy Tiêu chuẩn
+									</h3>
+									<p class="text-gray-600 leading-relaxed">
+										Chương trình Đào tạo tiêu chuẩn cung cấp trải nghiệm học tập
+										                  toàn diện, giúp người học không chỉ trau dồi kiến thức chuyên
+										                  môn, mà còn trang bị các kỹ năng cần thiết, hình thành và đẩy
+										                  mạnh tư duy nghiên cứu để phát triển sự nghiệp tương lai
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Special Program -->
+						<div class="bg-white rounded-xl shadow-lg p-6 sm:p-8 border border-stroke transition-transform duration-300 hover:-translate-y-1">
+							<div class="flex items-start gap-4">
+								<div class="shrink-0 w-12 h-12 rounded-full bg-navyBlue-100 flex items-center justify-center">
+									<svg class="w-6 h-6 text-navyBlue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+									</svg>
+								</div>
+								<div>
+									<h3 class="text-xl font-semibold text-navyBlue-800 mb-3">
+										Chương trình Đào tạo chính quy Đặc biệt
+									</h3>
+									<p class="text-gray-600 leading-relaxed">
+										Được giảng dạy bằng tiếng Anh, chương trình Đào tạo đặc biệt
+										                  hướng tới đào tạo "Công dân toàn cầu" cùng kiến thức chuyên
+										                  sâu, tư duy nhạy bén và khả năng thích nghi nhanh chóng với
+										                  thế giới hội nhập không ngừng nghỉ.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

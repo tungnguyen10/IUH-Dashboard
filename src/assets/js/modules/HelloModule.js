@@ -61,6 +61,7 @@ export default class HelloModule extends BaseModule {
               900: "#000080",
             },
             yellow: "#fff434",
+            yellowLogo: "#e9b20f",
             black: "#393939",
             black1: "#333333",
             black2: "#666666",
