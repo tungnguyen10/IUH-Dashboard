@@ -12,7 +12,6 @@ header {
   }
 }
 
-
 .header-nav {
   // Mobile menu overlay
   &::before {
@@ -30,6 +29,7 @@ header {
   .main-nav {
     // Desktop submenu behavior (hover)
     @media (min-width: 1101px) {
+      height: 80px;
       .group\/sub-menu:hover > ul,
       .group\/sub1-menu:hover > ul {
         opacity: 1;
