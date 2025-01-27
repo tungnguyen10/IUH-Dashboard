@@ -7,11 +7,10 @@ export default class Header extends BaseModule {
     this.closeBtn = this.header.querySelector('.close-menu');
     this.mainNav = this.header.querySelector('.main-nav');
     this.overlay = document.createElement('div');
-    
+
     // Create overlay
     this.overlay.className = 'fixed inset-0 bg-black/50 opacity-0 invisible transition-all duration-300 z-40';
     this.header.appendChild(this.overlay);
-
 
     this.languageSwitcher();
     this.initMobileMenu();
@@ -20,7 +19,7 @@ export default class Header extends BaseModule {
     this.initMobileSubmenus();
     this.initLanguageSwitcher();
   }
-  
+
   languageSwitcher() {
     const languageSwitcher = document.querySelector(".language-switcher");
     languageSwitcher.addEventListener("click", () => {
@@ -84,6 +83,42 @@ export default class Header extends BaseModule {
         });
       });
     }
+    // Handle submenu hover on desktop
+    this.subMenuBtns = this.header.querySelectorAll('.group\\/sub-menu > a');
+    this.subMenuBtns1 = this.header.querySelectorAll('.group\\/sub1-menu > a');
+    this.subMenuBtns.forEach(btn => {
+      btn.addEventListener('mouseenter', () => {
+        const submenu = btn.nextElementSibling;
+        if (submenu) {
+          this.adjustSubMenuPosition(submenu, 'primary');
+        }
+      });
+    });
+    this.subMenuBtns1.forEach(btn => {
+      btn.addEventListener('mouseenter', () => {
+        const submenu = btn.nextElementSibling;
+        if (submenu) {
+          this.adjustSubMenuPosition(submenu, 'secondary');
+        }
+      });
+    });
+
+  }
+
+  adjustSubMenuPosition(submenu, type) {
+    if (window.innerWidth > 1100) {
+      const rect = submenu.getBoundingClientRect();
+      const isOffscreen = rect.right > window.innerWidth || rect.bottom > window.innerHeight;
+      if (isOffscreen) {
+        submenu.classList.add('is-offscreen');
+        submenu.style.left = 'auto';
+        if (type === 'primary') {
+          submenu.style.right = '0';
+        } else if (type === 'secondary') {
+          submenu.style.right = '100%';
+        }
+      }
+    }
   }
 
   handleResize() {
@@ -94,18 +129,20 @@ export default class Header extends BaseModule {
     });
   }
 
+
+
   initMobileSubmenus() {
     const subMenuTriggers = this.mainNav.querySelectorAll('.group\\/sub-menu > a, .group\\/sub1-menu > a');
-    
+
     subMenuTriggers.forEach(trigger => {
       trigger.addEventListener('click', (e) => {
         // Only handle clicks on mobile
         if (window.innerWidth <= 1100) {
           e.preventDefault();
-          
+
           const submenu = trigger.nextElementSibling;
           const arrow = trigger.querySelector('svg');
-          
+
           // Close other submenus at the same level
           const parent = trigger.closest('ul');
           parent.querySelectorAll('ul').forEach(menu => {
@@ -115,7 +152,7 @@ export default class Header extends BaseModule {
               otherArrow?.classList.remove('rotate-active');
             }
           });
-          
+
           // Toggle current submenu
           submenu.classList.toggle('submenu-active');
           arrow?.classList.toggle('rotate-active');
@@ -138,17 +175,17 @@ export default class Header extends BaseModule {
 
   initLanguageSwitcher() {
     const langButtons = this.mainNav.querySelectorAll('.lang-btn');
-    
+
     langButtons.forEach(btn => {
       btn.addEventListener('click', () => {
         // Remove active state from all buttons
         langButtons.forEach(button => {
           button.setAttribute('data-active', 'false');
         });
-        
+
         // Set active state on clicked button
         btn.setAttribute('data-active', 'true');
-        
+
         // Additional language switch logic here
         const lang = btn.getAttribute('data-lang');
         console.log(lang);
