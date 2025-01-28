@@ -3,7 +3,10 @@
 .iuhDiploma,
 .iuhContact,
 .iuhTrainingPrograms,
-.iuhResearch {
+.iuhResearch,
+.iuhNotifyDetail,
+.iuhEventDetail,
+.iuhNewsDetail, .iuhCommittee {
   position: relative;
   &::before {
     background: linear-gradient(180deg, #edf9ff 0%, #fff 100%);
@@ -15,5 +18,3 @@
     height: 400px;
   }
 }
-
-/* IUHABOUT */
