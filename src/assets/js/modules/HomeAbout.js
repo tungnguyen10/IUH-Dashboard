@@ -7,15 +7,15 @@ import "swiper/css/navigation";
 export default class HomeAbout extends BaseModule {
   register() {
     Swiper.use([Navigation, Autoplay]);
-    
+
     this.slidefull = new Swiper(".swiper_about", {
       speed: 1000,
       slidesPerView: 1.8,
       spaceBetween: 10,
-      navigation: {  
+      loop: true,
+      navigation: {
         nextEl: ".swiper-button-custom-next",
         prevEl: ".swiper-button-custom-prev",
-        disabledClass: "swiper-button-custom-disabled",
       },
       autoplay: {
         delay: 4000,

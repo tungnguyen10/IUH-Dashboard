@@ -1539,10 +1539,10 @@ var HomeAbout = /*#__PURE__*/function (_BaseModule) {
         speed: 1000,
         slidesPerView: 1.8,
         spaceBetween: 10,
+        loop: true,
         navigation: {
           nextEl: ".swiper-button-custom-next",
-          prevEl: ".swiper-button-custom-prev",
-          disabledClass: "swiper-button-custom-disabled"
+          prevEl: ".swiper-button-custom-prev"
         },
         autoplay: {
           delay: 4000,
