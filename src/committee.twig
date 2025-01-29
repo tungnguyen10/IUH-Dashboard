@@ -133,7 +133,74 @@
             {% endfor %}
           </ul>
         </div>
-        <div class="flex flex-col gap-4 flex-1">
+        <div class="flex flex-col gap-6">
+          <h3 class="text-xl font-bold text-navyBlue-800 flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15" />
+            </svg>
+            Tin tức mới nhất
+          </h3>
+
+          <div class="flex flex-col gap-4 flex-1">
+            {% set recentNews = [
+            {
+            title: "Hội nghị tổng kết công tác Đảng năm 2023",
+            date: "28/02/2024",
+            image: "assets/images/biotech4.jpg",
+            excerpt: "Đánh giá kết quả thực hiện nhiệm vụ công tác xây dựng Đảng năm 2023..."
+            },
+            {
+            title: "Lễ kết nạp đảng viên mới tháng 2/2024",
+            date: "15/02/2024",
+            image: "assets/images/biotech4.jpg",
+            excerpt: "Chi bộ tổ chức lễ kết nạp cho 15 quần chúng ưu tú..."
+            }
+            ] %}
+
+            {% for item in recentNews %}
+            <a href="#" class="group block bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+              <div class="flex gap-3 p-3">
+                <!-- Thumbnail -->
+                <div class="w-20 h-20 shrink-0 rounded-lg overflow-hidden">
+                  <img src="{{ item.image }}" alt="{{ item.title }}"
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+
+                <!-- Content -->
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2 text-xs text-gray-500 mb-1">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    {{ item.date }}
+                  </div>
+                  <h4
+                    class="font-medium text-navyBlue-800 line-clamp-2 group-hover:text-navyBlue-600 transition-colors">
+                    {{ item.title }}
+                  </h4>
+                  <p class="text-sm text-gray-600 line-clamp-2 mt-1">
+                    {{ item.excerpt }}
+                  </p>
+                </div>
+              </div>
+            </a>
+            {% endfor %}
+
+            <!-- View All Link -->
+            <a href="#" class="block text-center py-2 text-sm font-medium text-navyBlue-600 hover:text-navyBlue-800 transition-colors">
+              Xem tất cả tin tức
+              <svg class="w-4 h-4 inline-block ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"></svg>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+
+            </path></a>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-8 flex-1">
+
+
           <!-- Banner Section -->
           <div class="rounded-xl overflow-hidden shadow-lg">
             <div class="relative aspect-[16/9]">
@@ -182,70 +249,9 @@
               </svg>
             </a>
           </div>
+
         </div>
-        <div class="flex flex-col gap-6">
-          <h3 class="text-xl font-bold text-navyBlue-800 flex items-center gap-2">
-            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15"/>
-            </svg>
-            Tin tức mới nhất
-          </h3>
 
-          <div class="">
-            {% set recentNews = [
-              {
-                title: "Hội nghị tổng kết công tác Đảng năm 2023",
-                date: "28/02/2024",
-                image: "assets/images/biotech4.jpg",
-                excerpt: "Đánh giá kết quả thực hiện nhiệm vụ công tác xây dựng Đảng năm 2023..."
-              },
-              {
-                title: "Lễ kết nạp đảng viên mới tháng 2/2024",
-                date: "15/02/2024",
-                image: "assets/images/biotech4.jpg",
-                excerpt: "Chi bộ tổ chức lễ kết nạp cho 15 quần chúng ưu tú..."
-              }
-            ] %}
-
-            {% for item in recentNews %}
-            <a href="#" class="group block bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
-              <div class="flex gap-3 p-3">
-                <!-- Thumbnail -->
-                <div class="w-20 h-20 shrink-0 rounded-lg overflow-hidden">
-                  <img src="{{ item.image }}" alt="{{ item.title }}"
-                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                </div>
-
-                <!-- Content -->
-                <div class="flex-1 min-w-0">
-                  <div class="flex items-center gap-2 text-xs text-gray-500 mb-1">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                    </svg>
-                    {{ item.date }}
-                  </div>
-                  <h4 class="font-medium text-navyBlue-800 line-clamp-2 group-hover:text-navyBlue-600 transition-colors">
-                    {{ item.title }}
-                  </h4>
-                  <p class="text-sm text-gray-600 line-clamp-2 mt-1">
-                    {{ item.excerpt }}
-                  </p>
-                </div>
-              </div>
-            </a>
-            {% endfor %}
-
-            <!-- View All Link -->
-            <a href="#" class="inline-flex items-center gap-2 text-sm font-medium text-navyBlue-600 hover:text-navyBlue-800 transition-colors">
-              Xem tất cả tin tức
-              <svg class="w-4 h-4 transform transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
-            </a>
-          </div>
-        </div>
       </div>
 
       <div class="w-full lg:w-9/12 flex flex-col gap-8 sm:gap-12 flex-1">

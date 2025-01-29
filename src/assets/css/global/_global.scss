@@ -592,14 +592,36 @@ a {
       overflow: hidden;
       transition: all 0.3s ease;
       z-index: 1;
+      &::before {
+        background: radial-gradient(
+          79.23% 88.33% at 35.8% 44.16%,
+          rgba(0, 0, 168, 0.1) 0%,
+          #0000a8 100%
+        );
+        content: "";
+        position: absolute;
+        inset: -10px;
+        z-index: 1;
+        pointer-events: none;
 
+      }
       &:hover,
       &.active {
         background: #f5f5f5;
+        &::before {
+          background: transparent;
+        }
+
         .content {
           font-size: 0;
         }
       }
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+      }
+
       .content {
         font-size: 18px;
         font-weight: 600;
@@ -609,6 +631,7 @@ a {
         position: absolute;
         text-align: center;
         width: 100%;
+        z-index: 2;
         transform: translate(-50%, -50%);
         @media (min-width: 768px) {
           font-size: 30px;
@@ -618,17 +641,8 @@ a {
 
     // Specific corners for each quarter
     .quarter:nth-child(1) {
-      background: radial-gradient(
-          79.23% 88.33% at 35.8% 44.16%,
-          rgba(0, 0, 168, 0.1) 0%,
-          #0000a8 100%
-        ),
-        url(../images/vnu.png) no-repeat center center / cover;
       border-top-left-radius: 100%;
-      &:hover,
-      &.active {
-        background: url(../images/vnu.png) no-repeat center center / cover;
-      }
+
       .content {
         top: 60%;
         left: 60%;
@@ -637,16 +651,7 @@ a {
 
     .quarter:nth-child(2) {
       border-top-right-radius: 100%;
-      background: radial-gradient(
-          79.23% 88.33% at 35.8% 44.16%,
-          rgba(0, 0, 168, 0.1) 0%,
-          #0000a8 100%
-        ),
-        url(../images/asean.png) no-repeat center center / cover;
-      &:hover,
-      &.active {
-        background: url(../images/asean.png) no-repeat center center / cover;
-      }
+
       .content {
         top: 60%;
         left: 40%;
@@ -655,16 +660,7 @@ a {
 
     .quarter:nth-child(3) {
       border-bottom-left-radius: 100%;
-      background: radial-gradient(
-          79.23% 88.33% at 35.8% 44.16%,
-          rgba(0, 0, 168, 0.1) 0%,
-          #0000a8 100%
-        ),
-        url(../images/abet.png) no-repeat center center / cover;
-      &:hover,
-      &.active {
-        background: url(../images/abet.png) no-repeat center center / cover;
-      }
+
       .content {
         top: 40%;
         left: 60%;
@@ -673,16 +669,6 @@ a {
 
     .quarter:nth-child(4) {
       border-bottom-right-radius: 100%;
-      background: radial-gradient(
-          79.23% 88.33% at 35.8% 44.16%,
-          rgba(0, 0, 168, 0.1) 0%,
-          #0000a8 100%
-        ),
-        url(../images/other.png) no-repeat center center / cover;
-      &:hover,
-      &.active {
-        background: url(../images/other.png) no-repeat center center / cover;
-      }
       .content {
         top: 40%;
         left: 40%;
