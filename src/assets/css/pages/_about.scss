@@ -6,7 +6,7 @@
 .iuhResearch,
 .iuhNotifyDetail,
 .iuhEventDetail,
-.iuhNewsDetail, .iuhCommittee {
+.iuhNewsDetail, .iuhCommittee, .iuhNotify {
   position: relative;
   &::before {
     background: linear-gradient(180deg, #edf9ff 0%, #fff 100%);

@@ -1,6 +1,6 @@
 {% extends "./_templates/layout.twig" %}
-{% set breadcrumbs = [  { title: 'Tin tức' } ] %}
-{% set pageClass = 'iuhNews' %}
+{% set breadcrumbs = [ { title: 'Thông báo' } ] %}
+{% set pageClass = 'iuhNotify' %}
 {% block page %}
 <div class="w-full py-4 pb-6 lg:pt-0 lg:pb-16 relative">
   <div class="w-full max-w-[1200px] px-4 mx-auto">
@@ -19,7 +19,7 @@
                 </g>
               </svg>Cơ cấu tổ chức
             </h2>
-            <ul class="flex flex-col justify-between gap-2">
+            <ul class="flex flex-col gap-2">
               {% set mainMenu = [
               {
               title: "Lãnh đạo",
@@ -146,42 +146,116 @@ grid grid-cols-2
                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
           </div>
+          <div class="flex flex-col gap-6">
+            <h3 class="text-xl font-bold text-navyBlue-800 flex items-center gap-2">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15" />
+              </svg>
+              Tin tức mới nhất
+            </h3>
+
+            <div class="flex flex-col gap-4 flex-1">
+              {% set recentNews = [
+              {
+              title: "Hội nghị tổng kết công tác Đảng năm 2023",
+              date: "28/02/2024",
+              image: "assets/images/biotech4.jpg",
+              excerpt: "Đánh giá kết quả thực hiện nhiệm vụ công tác xây dựng Đảng năm 2023..."
+              },
+              {
+              title: "Lễ kết nạp đảng viên mới tháng 2/2024",
+              date: "15/02/2024",
+              image: "assets/images/biotech4.jpg",
+              excerpt: "Chi bộ tổ chức lễ kết nạp cho 15 quần chúng ưu tú..."
+              }
+              ] %}
+
+              {% for item in recentNews %}
+              <a href="#" class="group block bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="flex gap-3 p-3">
+                  <!-- Thumbnail -->
+                  <div class="w-20 h-20 shrink-0 rounded-lg overflow-hidden">
+                    <img src="{{ item.image }}" alt="{{ item.title }}"
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                  </div>
+
+                  <!-- Content -->
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 text-xs text-gray-500 mb-1">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      {{ item.date }}
+                    </div>
+                    <h4
+                      class="font-medium text-navyBlue-800 line-clamp-2 group-hover:text-navyBlue-600 transition-colors">
+                      {{ item.title }}
+                    </h4>
+                    <p class="text-sm text-gray-600 line-clamp-2 mt-1">
+                      {{ item.excerpt }}
+                    </p>
+                  </div>
+                </div>
+              </a>
+              {% endfor %}
+
+              <!-- View All Link -->
+              <a href="#"
+                class="block text-center py-2 text-sm font-medium text-navyBlue-600 hover:text-navyBlue-800 transition-colors">
+                Xem tất cả tin tức
+                <svg class="w-4 h-4 inline-block ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"></svg>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+
+                </path>
+              </a>
+            </div>
+          </div>
           <!-- Ads Banner -->
           <div class="space-y-4">
             <!-- Featured Ad Banner -->
-            <!-- <a href="#" class="group block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
-<div class="relative aspect-[4/3] overflow-hidden">
-<img src="assets/images/biotech1.jpg" alt="Advertisement"
-class="size-full object-cover transform transition-transform duration-700 group-hover:scale-110">
-<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
-<div class="absolute inset-0 flex flex-col justify-end p-4">
-<div class="transform transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-<div class="flex items-center gap-2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity delay-100">
-<span class="px-3 py-1 rounded-full bg-navyBlue-600 text-white text-xs font-medium">Hot</span>
-<span class="px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs">Tuyển sinh 2024</span>
-</div>
-<h4 class="text-lg font-bold text-white mb-2">Chương trình đào tạo Công nghệ Sinh học</h4>
-<div class="flex items-center gap-3 text-white/80 text-sm opacity-0 group-hover:opacity-100 transition-all delay-200">
-<span class="flex items-center gap-1">
-<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-</svg>
-2.5k lượt xem
-</span>
-<span class="flex items-center gap-1 group-hover:text-navyBlue-400 transition-colors">
-Xem thêm
-<svg class="w-4 h-4 transform transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-</svg>
-</span>
-</div>
-</div>
-</div>
-</div>
-</a> -->
+            <a href="#"
+              class="group block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
+              <div class="relative aspect-[4/3] overflow-hidden">
+                <img src="assets/images/biotech1.jpg" alt="Advertisement"
+                  class="size-full object-cover transform transition-transform duration-700 group-hover:scale-110">
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500">
+                </div>
+                <div class="absolute inset-0 flex flex-col justify-end p-4">
+                  <div class="transform transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                    <div
+                      class="flex items-center gap-2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity delay-100">
+                      <span class="px-3 py-1 rounded-full bg-navyBlue-600 text-white text-xs font-medium">Hot</span>
+                      <span class="px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs">Tuyển sinh
+                        2024</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-2">Chương trình đào tạo Công nghệ Sinh học</h4>
+                    <div
+                      class="flex items-center gap-3 text-white/80 text-sm opacity-0 group-hover:opacity-100 transition-all delay-200">
+                      <span class="flex items-center gap-1">
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                        2.5k lượt xem
+                      </span>
+                      <span class="flex items-center gap-1 group-hover:text-navyBlue-400 transition-colors">
+                        Xem thêm
+                        <svg class="w-4 h-4 transform transition-transform group-hover:translate-x-1" fill="none"
+                          viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
 
             {% for i in 1..3 %}
             <!-- Compact Ad Banner -->
@@ -243,53 +317,48 @@ Xem thêm
             {% endfor %}
           </div>
           {% for i in 1..10 %}
-          <div
-            class="group/news flex flex-row gap-2 w-full border border-stroke rounded-md p-2.5 bg-white hover:shadow-news hover:border-navyBlue-800 transition-all duration-500 ease-in-out ">
-            <div class="relative rounded-1.25 overflow-hidden w-5/12 shrink-0">
+          <div class="group/news flex flex-row items-center gap-2 w-full border border-stroke rounded-md p-2.5 bg-white hover:shadow-news hover:border-navyBlue-800 transition-all duration-500 ease-in-out">
+            <div class="relative aspect-square md:aspect-video rounded-1.25 overflow-hidden w-4/12 shrink-0 overflow-hidden">
               <a href="#" class="absolute inset-0 size-full image-hover">
-                <img src="assets/images/news-image.png" alt="news-noti"
-                  class="size-full object-cover transition-transform duration-500 group-hover/news:scale-110" />
-                <div class="absolute bottom-1 left-1 sm:bottom-3 sm:left-3">
-                  <span class="px-2 py-1 rounded-full bg-white/90 text-xs text-navyBlue-800 font-medium">
-                    Tin tức
-                  </span>
-                </div>
+                <img src="assets/images/news-image.png" alt="news-noti" class="size-full object-cover" />
               </a>
             </div>
             <div class="flex flex-col gap-2.5 flex-1">
               <div class="flex gap-2 items-center">
                 <div
-                  class="flex items-center gap-1 border border-stroke italic text-sm font-normal rounded-1.25 bg-stroke1 pl-1.25 pr-2.5 py-1 transition-all duration-500 group-hover/news:bg-navyBlue-50 group-hover/news:border-navyBlue-200">
+                  class="flex max-w-[130px] items-center gap-1 border border-stroke italic text-sm font-normal rounded-1.25 bg-stroke1 pl-1.25 pr-2.5 py-1 transition-all duration-500 group-hover/news:bg-navyBlue-50 group-hover/news:border-navyBlue-200">
                   <span class="text-red transition-colors duration-500 group-hover/news:text-navyBlue-800">
                     <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewbox="0 0 24 24" fill="none">
                       <path
                         d="M16 15.3018V16.9893L16.9 18.0018M9 11.1018H4M20 9.10181V7.10181C20 5.99724 19.1046 5.10181 18 5.10181H6C4.89543 5.10181 4 5.99724 4 7.10181V19.1018C4 20.2064 4.89543 21.1018 6 21.1018H9M15 3.10181V7.10181M9 3.10181V7.10181M20.5 17.1018C20.5 19.5871 18.4853 21.6018 16 21.6018C13.5147 21.6018 11.5 19.5871 11.5 17.1018C11.5 14.6165 13.5147 12.6018 16 12.6018C18.4853 12.6018 20.5 14.6165 20.5 17.1018Z"
-                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                     </svg>
                   </span>
                   29/10/2024
                 </div>
-
+                <span class="px-2 py-1 rounded-full bg-white/90 text-xs text-navyBlue-800 font-medium">
+                  Thông báo
+                </span>
               </div>
               <h3
-                class="text-base lg:text-2xl font-bold text-black1 line-clamp-2 group-hover/news:text-navyBlue-800 transition-all duration-300 ease-in-out">
-                <a href="#"
-                  class="transform group-hover/news:translate-x-1 transition-transform duration-500 line-clamp-2">
-                  Thông báo tuyển sinh trình độ thạc sĩ đợt 2 năm 2024
-                </a>
+                class="text-base font-bold text-black1 line-clamp-2 group-hover/news:text-navyBlue-800 transition-all duration-300 ease-in-out">
+                <a href="#">Thông báo tuyển sinh trình độ thạc sĩ đợt 2 năm 2024</a>
               </h3>
-              <div
-                class="text-sm lg:text-base font-normal leading-[166.667%] text-black2 line-clamp-3 lg:line-clamp-5 transition-colors duration-500 group-hover/news:text-black1">
+              <p class="text-sm lg:text-base font-normal leading-[166.667%] text-black2  line-clamp-2">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum is simply dummy text of the printing and
                 typesetting industry. Lorem Ipsum is simply dummy text of the
                 printing and typesetting industry. Lorem Ipsum is simply dummy
-                text of the printing and typesetting industry.
-              </div>
+                text of the printing and typesetting industry. Lorem Ipsum is
+                simply dummy text of the printing and typesetting industry. Lorem
+                Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry. Lorem Ipsum is simply dummy text of the
+                printing and typesetting industry.
+              </p>
             </div>
           </div>
           {% endfor %}
-          <div class="Pagination"></div>
         </div>
       </div>
 
