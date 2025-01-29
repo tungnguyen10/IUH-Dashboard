@@ -1200,8 +1200,10 @@ var Header = /*#__PURE__*/function (_BaseModule) {
 
           // Additional language switch logic here
           var lang = btn.getAttribute('data-lang');
-          console.log(lang);
-          // Handle language change...
+          if (lang) {
+            window.localStorage.setItem('lang', lang);
+            document.documentElement.lang = lang;
+          }
         });
       });
     }
