@@ -101,7 +101,7 @@ export default class HelloModule extends BaseModule {
           loadingScreen.remove();
           document.body.style.overflow = "auto";
         }, 500); // Wait for fade animation to complete
-      }, 3000); // 3 seconds delay
+      }, 2000); // 3 seconds delay
     }
   }
   onPulseIocn() {
@@ -113,12 +113,12 @@ export default class HelloModule extends BaseModule {
     if (socialToggle && socialList) {
       socialToggle.addEventListener('click', () => {
         isOpen = !isOpen;
-        
+
         if (isOpen) {
           // Show the list
           socialList.classList.remove('invisible', 'opacity-0');
           socialList.classList.add('visible', 'opacity-100');
-          
+
           // Animate each icon with delay
           socialIcons.forEach((icon, index) => {
             setTimeout(() => {
@@ -130,7 +130,7 @@ export default class HelloModule extends BaseModule {
           // Hide the list
           socialList.classList.remove('visible', 'opacity-100');
           socialList.classList.add('invisible', 'opacity-0');
-          
+
           // Reset icons
           socialIcons.forEach(icon => {
             icon.classList.remove('translate-y-0', 'opacity-100');
@@ -209,7 +209,7 @@ export default class HelloModule extends BaseModule {
   }
   initScrollToTop() {
     const scrollToTopBtn = document.getElementById('scrollToTop');
-    
+
     if (!scrollToTopBtn) return;
 
     const toggleScrollButton = () => {
@@ -232,7 +232,7 @@ export default class HelloModule extends BaseModule {
 
     // Show/hide button based on scroll position
     window.addEventListener('scroll', toggleScrollButton);
-    
+
     // Scroll to top when clicked
     scrollToTopBtn.addEventListener('click', scrollToTop);
   }

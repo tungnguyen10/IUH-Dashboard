@@ -1200,10 +1200,8 @@ var Header = /*#__PURE__*/function (_BaseModule) {
 
           // Additional language switch logic here
           var lang = btn.getAttribute('data-lang');
-          if (lang) {
-            window.localStorage.setItem('lang', lang);
-            document.documentElement.lang = lang;
-          }
+          console.log(lang);
+          // Handle language change...
         });
       });
     }
@@ -1354,7 +1352,7 @@ var HelloModule = /*#__PURE__*/function (_BaseModule) {
             loadingScreen.remove();
             document.body.style.overflow = "auto";
           }, 500); // Wait for fade animation to complete
-        }, 3000); // 3 seconds delay
+        }, 2000); // 3 seconds delay
       }
     }
   }, {

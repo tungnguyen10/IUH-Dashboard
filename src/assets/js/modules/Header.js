@@ -188,11 +188,8 @@ export default class Header extends BaseModule {
 
         // Additional language switch logic here
         const lang = btn.getAttribute('data-lang');
-        if (lang) {
-          window.localStorage.setItem('lang', lang);
-          document.documentElement.lang = lang;
-        }
-
+        console.log(lang);
+        // Handle language change...
       });
     });
   }

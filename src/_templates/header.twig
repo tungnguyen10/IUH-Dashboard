@@ -99,7 +99,7 @@
               </a>
               <!-- Primary Submenu -->
               <ul
-                class="menuMb:absolute bg-white w-full menuMb:w-60 top-full left-0 transform opacity-0 invisible group-hover/sub-menu:opacity-100 group-hover/sub-menu:visible translate-y-2 group-hover/sub-menu:translate-y-0 transition-all duration-300 ease-in-out shadow-lg rounded-md border-t-3 border-navyBlue-900 z-50 ">
+                class="menuMb:absolute bg-white w-full menuMb:w-60 top-full left-0 transform opacity-0 invisible group-hover/sub-menu:opacity-100 group-hover/sub-menu:visible translate-y-2 group-hover/sub-menu:translate-y-0 transition-all duration-300 ease-in-out shadow-lg rounded-bl-lg rounded-br-lg  border-t-3 border-navyBlue-900 z-50 ">
                 <li class="group/sub1-menu relative border-t menuMb:border-b border-gray-100 last:border-none">
                   <a href="#"
                     class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
@@ -113,31 +113,15 @@
 
                   <!-- Secondary Submenu -->
                   <ul
-                    class="absolute bg-white w-full menuMb:w-60 top-0 left-full transform opacity-0 invisible group-hover/sub1-menu:opacity-100 group-hover/sub1-menu:visible translate-x-2 group-hover/sub1-menu:translate-x-0 transition-all duration-300 ease-in-out shadow-lg rounded-md border-l-3 border-navyBlue-900 ">
-                    <li class="border-t menuMb:border-b border-gray-100 menuMb:last:border-none">
+                    class="absolute bg-white min-w-full menuMb:w-[350px] grid grid-cols-1 menuMb:grid-cols-2 top-0 left-full transform opacity-0 invisible group-hover/sub1-menu:opacity-100 group-hover/sub1-menu:visible translate-x-2 group-hover/sub1-menu:translate-x-0 transition-all duration-300 ease-in-out shadow-lg rounded-bl-lg rounded-br-lg border-l-3 border-navyBlue-900 ">
+                    {% for i in 1..10 %}
+                    <li class="border-t w-full menuMb:border-b min-w-40 border-gray-100 menuMb:last:border-none">
                       <a href="#"
-                        class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
+                        class="text-sm w-full h-full text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
                         Webdesign
                       </a>
                     </li>
-                    <li class="border-t menuMb:border-b border-gray-100 menuMb:last:border-none">
-                      <a href="#"
-                        class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
-                        Digital marketing
-                      </a>
-                    </li>
-                    <li class="border-t menuMb:border-b border-gray-100 menuMb:last:border-none">
-                      <a href="#"
-                        class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
-                        Digital marketing
-                      </a>
-                    </li>
-                    <li class="border-t menuMb:border-b border-gray-100 menuMb:last:border-none">
-                      <a href="#"
-                        class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
-                        Digital marketing
-                      </a>
-                    </li>
+                    {% endfor %}
                   </ul>
                 </li>
 
@@ -161,7 +145,7 @@
 
                   <!-- Secondary Submenu -->
                   <ul
-                    class="absolute bg-white w-full menuMb:w-60 top-0 left-full transform opacity-0 invisible group-hover/sub1-menu:opacity-100 group-hover/sub1-menu:visible translate-x-2 group-hover/sub1-menu:translate-x-0 transition-all duration-300 ease-in-out shadow-lg rounded-md border-l-3 border-navyBlue-900 ">
+                    class="absolute bg-white w-full menuMb:w-60 top-0 left-full transform opacity-0 invisible group-hover/sub1-menu:opacity-100 group-hover/sub1-menu:visible translate-x-2 group-hover/sub1-menu:translate-x-0 transition-all duration-300 ease-in-out shadow-lg rounded-bl-lg rounded-br-lg  border-l-3 border-navyBlue-900 ">
                     <li class="border-t menuMb:border-b border-gray-100 menuMb:last:border-none">
                       <a href="#"
                         class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
@@ -226,7 +210,7 @@
               </a>
               <!-- Primary Submenu -->
               <ul
-                class="menuMb:absolute bg-white w-full menuMb:w-60 top-full transform opacity-0 invisible group-hover/sub-menu:opacity-100 group-hover/sub-menu:visible translate-y-2 group-hover/sub-menu:translate-y-0 transition-all duration-300 ease-in-out shadow-lg rounded-md border-t-3 border-navyBlue-900 z-50 ">
+                class="menuMb:absolute bg-white w-full menuMb:w-60 top-full transform opacity-0 invisible group-hover/sub-menu:opacity-100 group-hover/sub-menu:visible translate-y-2 group-hover/sub-menu:translate-y-0 transition-all duration-300 ease-in-out shadow-lg rounded-bl-lg rounded-br-lg  border-t-3 border-navyBlue-900 z-50 ">
                 <li class="group/sub1-menu relative border-t menuMb:border-b border-gray-100 last:border-none">
                   <a href="#"
                     class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
@@ -240,7 +224,7 @@
 
                   <!-- Secondary Submenu -->
                   <ul
-                    class="absolute bg-white w-full menuMb:w-60 top-0 left-full transform opacity-0 invisible group-hover/sub1-menu:opacity-100 group-hover/sub1-menu:visible translate-x-2 group-hover/sub1-menu:translate-x-0 transition-all duration-300 ease-in-out shadow-lg rounded-md border-l-3 border-navyBlue-900 ">
+                    class="absolute bg-white min-w-full menuMb:w-60 top-0 left-full transform opacity-0 invisible group-hover/sub1-menu:opacity-100 group-hover/sub1-menu:visible translate-x-2 group-hover/sub1-menu:translate-x-0 transition-all duration-300 ease-in-out shadow-lg rounded-bl-lg rounded-br-lg  border-l-3 border-navyBlue-900 ">
                     <li class="border-t menuMb:border-b border-gray-100 menuMb:last:border-none">
                       <a href="#"
                         class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
@@ -288,20 +272,16 @@
 
                   <!-- Secondary Submenu -->
                   <ul
-                    class="absolute bg-white w-full menuMb:w-60 top-0 left-full transform opacity-0 invisible group-hover/sub1-menu:opacity-100 group-hover/sub1-menu:visible translate-x-2 group-hover/sub1-menu:translate-x-0 transition-all duration-300 ease-in-out shadow-lg rounded-md border-l-3 border-navyBlue-900 ">
-                    <li class="border-t menuMb:border-b border-gray-100 menuMb:last:border-none">
-                      <a href="#"
-                        class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
-                        Webdesign
-                      </a>
-                    </li>
-                    <li class="border-t menuMb:border-b border-gray-100 menuMb:last:border-none">
-                      <a href="#"
-                        class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
-                        Digital marketing
-                      </a>
-                    </li>
-                  </ul>
+                  class="absolute bg-white min-w-full menuMb:w-[350px] grid grid-cols-1 menuMb:grid-cols-2 top-0 left-full transform opacity-0 invisible group-hover/sub1-menu:opacity-100 group-hover/sub1-menu:visible translate-x-2 group-hover/sub1-menu:translate-x-0 transition-all duration-300 ease-in-out shadow-lg rounded-bl-lg rounded-br-lg border-l-3 border-navyBlue-900 ">
+                  {% for i in 1..10 %}
+                  <li class="border-t w-full menuMb:border-b min-w-40 border-gray-100 menuMb:last:border-none">
+                    <a href="#"
+                      class="text-sm w-full h-full text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
+                      Webdesign
+                    </a>
+                  </li>
+                  {% endfor %}
+                </ul>
                 </li>
 
                 <li class="border-b border-gray-100 last:border-none">
