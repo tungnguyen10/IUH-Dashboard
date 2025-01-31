@@ -1,156 +1,114 @@
 <!DOCTYPE html>
 <html class="no-js" lang="vi">
-  <head>
-    <!-- Primary Meta Tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="title" content="{{ title }}" />
-    <meta
-      name="description"
-      content="{{ description | default('Trường Đại học Công nghiệp TP.HCM - IUH là trường đại học công lập đào tạo đa ngành, đa lĩnh vực.') }}"
-    />
-    <meta
-      name="keywords"
-      content="{{ keywords | default('IUH, Đại học Công nghiệp, Trường Đại học Công nghiệp TP.HCM, tuyển sinh, đào tạo') }}"
-    />
-    <meta
-      name="author"
-      content="IUH - Industrial University of Ho Chi Minh City"
-    />
-    <meta name="robots" content="index, follow" />
-    <meta name="language" content="Vietnamese" />
-    <meta name="revisit-after" content="7 days" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content="{{ currentUrl | default('https://iuh.edu.vn/') }}"
-    />
-    <meta property="og:title" content="{{ title }}" />
-    <meta
-      property="og:description"
-      content="{{ description | default('Trường Đại học Công nghiệp TP.HCM - IUH là trường đại học công lập đào tạo đa ngành, đa lĩnh vực.') }}"
-    />
-    <meta
-      property="og:image"
-      content="{{ ogImage | default(data.assetPath ~ '/images/og-image.jpg') }}"
-    />
-    <meta property="og:locale" content="vi_VN" />
-    <meta property="og:site_name" content="IUH - Đại học Công nghiệp TP.HCM" />
+<head>
+  <!-- Primary Meta Tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="title" content="{{ title }}" />
+  <meta name="description"
+    content="{{ description | default('Trường Đại học Công nghiệp TP.HCM - IUH là trường đại học công lập đào tạo đa ngành, đa lĩnh vực.') }}" />
+  <meta name="keywords"
+    content="{{ keywords | default('IUH, Đại học Công nghiệp, Trường Đại học Công nghiệp TP.HCM, tuyển sinh, đào tạo') }}" />
+  <meta name="author" content="IUH - Industrial University of Ho Chi Minh City" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="Vietnamese" />
+  <meta name="revisit-after" content="7 days" />
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:url"
-      content="{{ currentUrl | default('https://iuh.edu.vn/') }}"
-    />
-    <meta name="twitter:title" content="{{ title }}" />
-    <meta
-      name="twitter:description"
-      content="{{ description | default('Trường Đại học Công nghiệp TP.HCM - IUH là trường đại học công lập đào tạo đa ngành, đa lĩnh vực.') }}"
-    />
-    <meta
-      name="twitter:image"
-      content="{{ ogImage | default(data.assetPath ~ '/images/og-image.jpg') }}"
-    />
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ currentUrl | default('https://iuh.edu.vn/') }}" />
+  <meta property="og:title" content="{{ title }}" />
+  <meta property="og:description"
+    content="{{ description | default('Trường Đại học Công nghiệp TP.HCM - IUH là trường đại học công lập đào tạo đa ngành, đa lĩnh vực.') }}" />
+  <meta property="og:image" content="{{ ogImage | default(data.assetPath ~ '/images/og-image.jpg') }}" />
+  <meta property="og:locale" content="vi_VN" />
+  <meta property="og:site_name" content="IUH - Đại học Công nghiệp TP.HCM" />
 
-    <!-- Favicon -->
-    <link
-      rel="icon"
-      type="image/png"
-      href="assets/images/favicons/favicon-32x32.png"
-      sizes="32x32"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="assets/images/favicons/favicon-16x16.png"
-      sizes="16x16"
-    />
-    <link
-      rel="apple-touch-icon"
-      href="assets/images/favicons/apple-touch-icon.png"
-    />
-    <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="{{ currentUrl | default('https://iuh.edu.vn/') }}" />
+  <meta name="twitter:title" content="{{ title }}" />
+  <meta name="twitter:description"
+    content="{{ description | default('Trường Đại học Công nghiệp TP.HCM - IUH là trường đại học công lập đào tạo đa ngành, đa lĩnh vực.') }}" />
+  <meta name="twitter:image" content="{{ ogImage | default(data.assetPath ~ '/images/og-image.jpg') }}" />
 
-    <!-- Canonical URL -->
-    <link
-      rel="canonical"
-      href="{{ currentUrl | default('https://iuh.edu.vn/') }}"
-    />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicons/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="assets/images/favicons/favicon-16x16.png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="assets/images/favicons/apple-touch-icon.png" />
+  <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
 
-    <title>{{ title }} | IUH - Đại học Công nghiệp TP.HCM</title>
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{ currentUrl | default('https://iuh.edu.vn/') }}" />
 
-    <!-- inject:css -->
+  <title>{{ title }} | IUH - Đại học Công nghiệp TP.HCM</title>
 
-    <!-- endinject -->
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
+  <!-- inject:css -->
 
-  <body data-module="HelloModule">
-    <!-- HEADER -->
-    {% include './header.twig' %}
-    <!---->
-
-    <!-- MAIN CONTENT -->
-    <div class="mt-[80px] menuMb:mt-[120px] {{ pageClass ?? '' }}">
-      {% if breadcrumbs is defined %}
-        {% include './components/_Breadcrumb.twig' with {
-          breadcrumbs: breadcrumbs
-        } %}
-      {% endif %}
-      {% block page %}{% endblock %}
-    </div>
-    <!---->
-
-    <!-- FOOTER -->
-    {% include './footer.twig' %}
-    <!---->
-
-    {% include './components/_Loading.twig' %}
-    {% include './components/_Modal.twig' with {
-        id: 'onSearch',
-        title: 'Tìm kiếm',
-        body: '
-        <div class="max-w-2xl mx-auto w-full px-4 md:px-0">
-          <form action="" class="w-full">
-            <div class="relative">
-              <div class="relative group">
-                <div class="absolute inset-y-0 left-3 md:left-4 flex items-center pointer-events-none text-gray-400">
-                  <svg class="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none">
-                    <path d="M21 21L16.65 16.65M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <input
-                  type="text"
-                  class="w-full h-12 md:h-14 bg-white text-sm md:text-base border-2 rounded-lg md:rounded-xl pl-10 md:pl-12 pr-[4.5rem] md:pr-14 outline-none text-gray-900 border-gray-100 placeholder:text-gray-400 transition-all duration-300 shadow-sm group-hover:border-navyBlue-200 focus:border-navyBlue-600 focus:shadow-[0_0_0_4px_rgba(0,0,207,0.1)]"
-                  placeholder="Nhập từ khóa tìm kiếm..."
-                  autocomplete="off"
-                />
-                <button
-                  type="submit"
-                  class="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 px-2 md:px-3 py-1.5 rounded-lg text-white bg-navyBlue-800 hover:bg-navyBlue-700 transition-all duration-300 text-xs md:text-sm font-medium active:scale-95"
-                >
-                  Tìm kiếm
-                </button>
-              </div>
-              <div class="mt-2 text-[11px] md:text-xs text-gray-500 text-center md:text-left">
-                Nhấn Enter để tìm kiếm hoặc ESC để đóng
-              </div>
-            </div>
-          </form>
-        </div>
-        '
-    } %}
-
-    {% include './components/_SocialFixed.twig' %}
-  </body>
-
-
-  <!-- inject:js -->
   <!-- endinject -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body data-module="HelloModule">
+  <!-- HEADER -->
+  {% include './header.twig' %}
+  <!---->
+
+  <!-- MAIN CONTENT -->
+  <div class="mt-[80px] menuMb:mt-[120px] {{ pageClass ?? '' }}">
+    {% if breadcrumbs is defined %}
+    {% include './components/_Breadcrumb.twig' with {
+    breadcrumbs: breadcrumbs
+    } %}
+    {% endif %}
+    {% block page %}{% endblock %}
+  </div>
+  <!---->
+
+  <!-- FOOTER -->
+  {% include './footer.twig' %}
+  <!---->
+
+  <!-- Loading -->
+  {% include './components/_Loading.twig' %}
+  <!-- Modal -->
+  {% include './components/_Modal.twig' with {
+  id: 'onSearch',
+  title: 'Tìm kiếm',
+  body: '
+  <div class="max-w-2xl mx-auto w-full px-4 md:px-0">
+    <form action="" class="w-full">
+      <div class="relative">
+        <div class="relative group">
+          <div class="absolute inset-y-0 left-3 md:left-4 flex items-center pointer-events-none text-gray-400">
+            <svg class="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M21 21L16.65 16.65M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <input type="text"
+            class="w-full h-12 md:h-14 bg-white text-sm md:text-base border-2 rounded-lg md:rounded-xl pl-10 md:pl-12 pr-[4.5rem] md:pr-14 outline-none text-gray-900 border-gray-100 placeholder:text-gray-400 transition-all duration-300 shadow-sm group-hover:border-navyBlue-200 focus:border-navyBlue-600 focus:shadow-[0_0_0_4px_rgba(0,0,207,0.1)]"
+            placeholder="Nhập từ khóa tìm kiếm..." autocomplete="off" />
+          <button type="submit"
+            class="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 px-2 md:px-3 py-1.5 rounded-lg text-white bg-navyBlue-800 hover:bg-navyBlue-700 transition-all duration-300 text-xs md:text-sm font-medium active:scale-95">
+            Tìm kiếm
+          </button>
+        </div>
+        <div class="mt-2 text-[11px] md:text-xs text-gray-500 text-center md:text-left">
+          Nhấn Enter để tìm kiếm hoặc ESC để đóng
+        </div>
+      </div>
+    </form>
+  </div>
+  '
+  } %}
+
+  {% include './components/_SocialFixed.twig' %}
+</body>
+
+<!-- inject:js -->
+<!-- endinject -->
+
 </html>

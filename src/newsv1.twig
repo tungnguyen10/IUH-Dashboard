@@ -162,36 +162,36 @@
               date: "02/02/2024",
               type: "HOT",
               typeColor: "bg-red",
-              img: "assets/images/news-image.png"
+              img: "assets/images/default.png"
               },
               {
               title: "Thông báo Tuyển sinh Thạc sĩ đợt 1 năm 2024",
               date: "25/01/2024",
               type: "Mới",
               typeColor: "bg-green-500",
-              img: "assets/images/news-image.png"
+              img: "assets/images/default.png"
               },
               {
               title: "Kế hoạch Tổ chức Lễ tốt nghiệp Đại học chính quy đợt 3 năm 2023",
               date: "20/01/2024",
               type: "Quan trọng",
               typeColor: "bg-orange-500",
-              img: "assets/images/news-image.png"
+              img: "assets/images/default.png"
               },
               {
               title: "Thông báo Đăng ký học phần học kỳ 2 năm học 2023-2024",
               date: "15/01/2024",
-              img: "assets/images/news-image.png"
+              img: "assets/images/default.png"
               },
               {
               title: "Lịch thi học kỳ 1 năm học 2023-2024 (cập nhật mới)",
               date: "10/01/2024",
-              img: "assets/images/news-image.png"
+              img: "assets/images/default.png"
               },
               {
               title: "Thông báo về việc nộp học phí học kỳ 2 năm học 2023-2024",
               date: "05/01/2024",
-              img: "assets/images/news-image.png"
+              img: "assets/images/default.png"
               }
               ] %}
 
@@ -223,8 +223,85 @@
             </div>
           </div>
 
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg lg:text-xl font-semibold text-navyBlue-800 uppercase flex flex-row items-center gap-2">
+                <svg class="size-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+                </svg>
+                Thông Báo Nổi Bật
+              </h3>
+            </div>
+
+            <!-- Featured Articles -->
+            <div class="space-y-2 ">
+              {% set featuredNews = [
+              {
+              title: "Thông báo V/v nghỉ Tết Nguyên đán Giáp Thìn 2024",
+              date: "02/02/2024",
+              type: "HOT",
+              typeColor: "bg-red",
+              img: "assets/images/default.png"
+              },
+              {
+              title: "Thông báo Tuyển sinh Thạc sĩ đợt 1 năm 2024",
+              date: "25/01/2024",
+              type: "Mới",
+              typeColor: "bg-green-500",
+              img: "assets/images/default.png"
+              },
+              {
+              title: "Kế hoạch Tổ chức Lễ tốt nghiệp Đại học chính quy đợt 3 năm 2023",
+              date: "20/01/2024",
+              type: "Quan trọng",
+              typeColor: "bg-orange-500",
+              img: "assets/images/default.png"
+              },
+              {
+              title: "Thông báo Đăng ký học phần học kỳ 2 năm học 2023-2024",
+              date: "15/01/2024",
+              img: "assets/images/default.png"
+              },
+              {
+              title: "Lịch thi học kỳ 1 năm học 2023-2024 (cập nhật mới)",
+              date: "10/01/2024",
+              img: "assets/images/default.png"
+              },
+              {
+              title: "Thông báo về việc nộp học phí học kỳ 2 năm học 2023-2024",
+              date: "05/01/2024",
+              img: "assets/images/default.png"
+              }
+              ] %}
+
+              {% for item in featuredNews %}
+              <div
+                class="group bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+                <a href="#" class="flex gap-3 p-3">
+                  <div
+                    class="flex flex-col w-12 aspect-[1/1] items-center justify-center shrink-0 border-r border-gray-100">
+                    <span class="text-lg font-bold text-navyBlue-800">{{ item.date|slice(0, 2) }}</span>
+                      <span class="text-xs text-gray-500">Th{{ item.date|slice(3, 2) }}</span>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-1">
+                      {% if item.type %}
+                      <span class="px-2 py-1 rounded-full text-xs text-white {{ item.typeColor }}">{{ item.type
+                        }}</span>
+                      {% endif %}
+                    </div>
+                    <h4 class="font-medium text-black1 line-clamp-2 group-hover:text-navyBlue-600 transition-colors">
+                      {{ item.title }}
+                    </h4>
+                  </div>
+                </a>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
           <!-- Quick Links Box -->
-          <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+          <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
             <div class="bg-navyBlue-800 px-4 py-3">
               <h3 class="text-lg lg:text-xl font-semibold text-white uppercase flex flex-row items-center gap-2">
                 <svg class="size-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -256,7 +333,7 @@
             </div>
           </div>
           <!-- Statistics Box -->
-          <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+          <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
             <div class="bg-gradient-to-r from-navyBlue-800 to-navyBlue-700 px-4 py-3">
               <h3 class="text-lg lg:text-xl font-semibold text-white uppercase flex flex-row items-center gap-2">
                 <svg class="size-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -281,7 +358,7 @@
           </div>
 
           <!-- Contact Box -->
-          <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+          <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
             <div class="bg-gradient-to-r from-navyBlue-700 to-navyBlue-600 px-4 py-3">
               <h3 class="text-lg lg:text-xl font-semibold text-white uppercase flex flex-row items-center gap-2">
                 <svg class="size-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -321,7 +398,7 @@
           </div>
 
           <!-- Events Calendar Box -->
-          <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+          <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
             <div class="bg-gradient-to-r from-navyBlue-600 to-navyBlue-500 px-4 py-3">
               <h3 class="text-lg lg:text-xl font-semibold text-white uppercase flex flex-row items-center gap-2">
                 <svg class="size-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -390,7 +467,7 @@
             </div>
           </div>
           <!-- Popular Tags Box -->
-          <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+          <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
             <div class="bg-gradient-to-r from-navyBlue-500 to-navyBlue-400 px-4 py-3">
               <h3 class="text-lg lg:text-xl font-semibold text-white uppercase flex flex-row items-center gap-2">
                 <svg class="size-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -425,7 +502,7 @@
             </div>
           </div>
           <!-- Social Media Feed -->
-          <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+          <div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
             <div class="bg-gradient-to-r from-navyBlue-400 to-navyBlue-300 px-4 py-3">
               <h3 class="text-lg lg:text-xl font-semibold text-white uppercase flex flex-row items-center gap-2">
                 <svg class="size-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -513,7 +590,7 @@
             class="group/news flex flex-row gap-2 w-full border border-stroke rounded-md p-2.5 bg-white hover:shadow-news hover:border-navyBlue-800 transition-all duration-500 ease-in-out ">
             <div class="relative rounded-1.25 overflow-hidden w-4/12 shrink-0">
               <a href="#" class="absolute inset-0 size-full image-hover">
-                <img src="assets/images/news-image.png" alt="news-noti"
+                <img src="assets/images/default.png" alt="news-noti"
                   class="size-full object-cover transition-transform duration-500 group-hover/news:scale-110" />
                 <div class="absolute bottom-1 left-1 sm:bottom-3 sm:left-3">
                   <span class="px-2 py-1 rounded-full bg-white/90 text-xs text-navyBlue-800 font-medium">
