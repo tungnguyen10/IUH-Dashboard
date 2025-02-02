@@ -8,9 +8,6 @@ export default class HomeAccredited extends BaseModule {
     const quarters = document.querySelectorAll(".quarter");
     const tabPanes = document.querySelectorAll(".tab-pane");
 
-    // Set first tab as active by default
-    quarters[0]?.classList.add("active");
-    tabPanes[0]?.classList.add("active");
 
     quarters.forEach((quarter) => {
       quarter.addEventListener("click", () => {

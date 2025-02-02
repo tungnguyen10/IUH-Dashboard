@@ -1,0 +1,37 @@
+<div class="viewpdf" data-module="PdfViewer">
+  <!-- Download/Print Controls -->
+  <div class="flex flex-col sm:flex-row justify-end items-stretch sm:items-center gap-2 sm:gap-4 mb-4">
+    <!-- Print Button -->
+    <button class="pdf-print flex-1 sm:flex-initial flex items-center justify-center sm:justify-start gap-2 px-3 sm:px-4 py-2.5 sm:py-2
+             text-navyBlue-600 hover:text-navyBlue-800 bg-navyBlue-50 hover:bg-navyBlue-100
+             rounded-lg transition-all duration-300 font-medium text-sm sm:text-base">
+      <!-- Icon - Smaller on mobile -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="size-4 sm:size-5 shrink-0" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path
+          d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+      </svg>
+      <span class="whitespace-nowrap">In file PDF</span>
+    </button>
+
+    <!-- Download Button -->
+    <button class="pdf-download flex-1 sm:flex-initial flex items-center justify-center sm:justify-start gap-2 px-3 sm:px-4 py-2.5 sm:py-2
+             text-white bg-navyBlue-600 hover:bg-navyBlue-700
+             rounded-lg transition-all duration-300 font-medium text-sm sm:text-base
+             active:scale-95 transform">
+      <!-- Icon - Smaller on mobile -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="size-4 sm:size-5 shrink-0" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+      </svg>
+      <span class="whitespace-nowrap">Download file</span>
+    </button>
+  </div>
+  <!-- PDF Display -->
+  <div class="size-full aspect-[210/297] bg-navyBlue-100 rounded-2xl overflow-hidden">
+    <iframe id="pdfViewer" class="border-none size-full"
+      src="assets/images/TB-967-2023.pdf#toolbar=1&scrollbar=1&zoom=page-width&view=Fit" type="application/pdf"
+      allowfullscreen webkitallowfullscreen></iframe>
+  </div>
+</div>

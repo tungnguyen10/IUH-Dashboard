@@ -33,7 +33,11 @@ export default class HomeResearch extends BaseModule {
         type: "bullets",
         clickable: true,
       },
-      
+      navigation: {
+        nextEl: ".swiper-button-custom-next",
+        prevEl: ".swiper-button-custom-prev",
+      },
+
     });
   }
 }

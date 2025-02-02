@@ -3,6 +3,7 @@ import Publisher from "../libs/Publisher"
 import refState from "../libs/ModuleState"
 import { constifyProp } from "../libs/Helper"
 
+
 const setupInitAttr = (el, currentModule) => {
   const name = currentModule.name.toLowerCase()
   const attrs = [...el.attributes]

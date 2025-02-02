@@ -983,7 +983,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _BaseModule__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BaseModule */ "./src/assets/js/modules/BaseModule.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _readOnlyError(r) { throw new TypeError('"' + r + '" is read-only'); }
 function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
 function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
 function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
@@ -1015,22 +1014,23 @@ var Header = /*#__PURE__*/function (_BaseModule) {
       // Create overlay
       this.overlay.className = 'fixed inset-0 bg-black/50 opacity-0 invisible transition-all duration-300 z-40';
       this.header.appendChild(this.overlay);
-      this.languageSwitcher();
+
+      // this.languageSwitcher();
       this.initMobileMenu();
       this.initSubMenus();
       this.handleResize();
       this.initMobileSubmenus();
       this.initLanguageSwitcher();
     }
-  }, {
-    key: "languageSwitcher",
-    value: function languageSwitcher() {
-      var languageSwitcher = document.querySelector(".language-switcher");
-      languageSwitcher.addEventListener("click", function () {
-        languageSwitcher.classList.toggle("active");
-        languageSwitcher.querySelector(".language-switcher__text").textContent = languageSwitcher.classList.contains("active") ? "ENG" : "VNI";
-      });
-    }
+
+    // languageSwitcher() {
+    //   const languageSwitcher = document.querySelector(".language-switcher");
+    //   languageSwitcher.addEventListener("click", () => {
+    //     languageSwitcher.classList.toggle("active");
+    //     languageSwitcher.querySelector(".language-switcher__text").textContent =
+    //       languageSwitcher.classList.contains("active") ? "ENG" : "VNI";
+    //   });
+    // }
   }, {
     key: "initMobileMenu",
     value: function initMobileMenu() {
@@ -1605,13 +1605,8 @@ var HomeAccredited = /*#__PURE__*/function (_BaseModule) {
   }, {
     key: "initTabs",
     value: function initTabs() {
-      var _quarters$, _tabPanes$;
       var quarters = document.querySelectorAll(".quarter");
       var tabPanes = document.querySelectorAll(".tab-pane");
-
-      // Set first tab as active by default
-      (_quarters$ = quarters[0]) === null || _quarters$ === void 0 || _quarters$.classList.add("active");
-      (_tabPanes$ = tabPanes[0]) === null || _tabPanes$ === void 0 || _tabPanes$.classList.add("active");
       quarters.forEach(function (quarter) {
         quarter.addEventListener("click", function () {
           // Remove active class from all quarters and panes
@@ -1650,6 +1645,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": function() { return /* binding */ HomeActives; }
 /* harmony export */ });
 /* harmony import */ var _BaseModule__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BaseModule */ "./src/assets/js/modules/BaseModule.js");
+/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.esm.js");
+/* harmony import */ var swiper_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! swiper/css */ "./node_modules/swiper/swiper.min.css");
+/* harmony import */ var swiper_css_pagination__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! swiper/css/pagination */ "./node_modules/swiper/modules/pagination/pagination.min.css");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
 function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
@@ -1664,6 +1662,11 @@ function _getPrototypeOf(t) { return _getPrototypeOf = Object.setPrototypeOf ? O
 function _inherits(t, e) { if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function"); t.prototype = Object.create(e && e.prototype, { constructor: { value: t, writable: !0, configurable: !0 } }), Object.defineProperty(t, "prototype", { writable: !1 }), e && _setPrototypeOf(t, e); }
 function _setPrototypeOf(t, e) { return _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t, e) { return t.__proto__ = e, t; }, _setPrototypeOf(t, e); }
 
+// core version + navigation, pagination modules:
+
+// import Swiper and modules styles
+
+
 var HomeActives = /*#__PURE__*/function (_BaseModule) {
   function HomeActives() {
     _classCallCheck(this, HomeActives);
@@ -1674,6 +1677,28 @@ var HomeActives = /*#__PURE__*/function (_BaseModule) {
     key: "register",
     value: function register() {
       // console.log('actives');
+      swiper__WEBPACK_IMPORTED_MODULE_1__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_1__.Autoplay, swiper__WEBPACK_IMPORTED_MODULE_1__.EffectFade, swiper__WEBPACK_IMPORTED_MODULE_1__.Pagination]);
+      // ptck
+      this.slidefull = new swiper__WEBPACK_IMPORTED_MODULE_1__["default"](".swiper_actives", {
+        loop: true,
+        speed: 1000,
+        slidesPerView: 1.2,
+        spaceBetween: 10,
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 20
+          }
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        }
+      });
     }
   }]);
 }(_BaseModule__WEBPACK_IMPORTED_MODULE_0__["default"]);
@@ -2274,8 +2299,120 @@ var HomeResearch = /*#__PURE__*/function (_BaseModule) {
           el: ".swiper-pagination",
           type: "bullets",
           clickable: true
+        },
+        navigation: {
+          nextEl: ".swiper-button-custom-next",
+          prevEl: ".swiper-button-custom-prev"
         }
       });
+    }
+  }]);
+}(_BaseModule__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./src/assets/js/modules/PdfViewer.js":
+/*!********************************************!*\
+  !*** ./src/assets/js/modules/PdfViewer.js ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ PdfViewer; }
+/* harmony export */ });
+/* harmony import */ var _BaseModule__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BaseModule */ "./src/assets/js/modules/BaseModule.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _callSuper(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+function _possibleConstructorReturn(t, e) { if (e && ("object" == _typeof(e) || "function" == typeof e)) return e; if (void 0 !== e) throw new TypeError("Derived constructors may only return object or undefined"); return _assertThisInitialized(t); }
+function _assertThisInitialized(e) { if (void 0 === e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); return e; }
+function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
+function _getPrototypeOf(t) { return _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (t) { return t.__proto__ || Object.getPrototypeOf(t); }, _getPrototypeOf(t); }
+function _inherits(t, e) { if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function"); t.prototype = Object.create(e && e.prototype, { constructor: { value: t, writable: !0, configurable: !0 } }), Object.defineProperty(t, "prototype", { writable: !1 }), e && _setPrototypeOf(t, e); }
+function _setPrototypeOf(t, e) { return _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t, e) { return t.__proto__ = e, t; }, _setPrototypeOf(t, e); }
+
+var PdfViewer = /*#__PURE__*/function (_BaseModule) {
+  function PdfViewer() {
+    _classCallCheck(this, PdfViewer);
+    return _callSuper(this, PdfViewer, arguments);
+  }
+  _inherits(PdfViewer, _BaseModule);
+  return _createClass(PdfViewer, [{
+    key: "register",
+    value: function register() {
+      // Elements
+      this.container = this.el;
+      this.iframe = this.container.querySelector('#pdfViewer');
+      this.printBtn = this.container.querySelector('.pdf-print');
+      this.downloadBtn = this.container.querySelector('.pdf-download');
+      this.setupOtherControls();
+    }
+  }, {
+    key: "setupOtherControls",
+    value: function setupOtherControls() {
+      var _this$printBtn,
+        _this = this,
+        _this$downloadBtn;
+      // Print functionality
+      (_this$printBtn = this.printBtn) === null || _this$printBtn === void 0 || _this$printBtn.addEventListener('click', function () {
+        if (_this.iframe.contentWindow) {
+          _this.iframe.contentWindow.print();
+        }
+      });
+
+      // Download functionality
+      (_this$downloadBtn = this.downloadBtn) === null || _this$downloadBtn === void 0 || _this$downloadBtn.addEventListener('click', function () {
+        _this.downloadPDF();
+      });
+    }
+  }, {
+    key: "downloadPDF",
+    value: function downloadPDF() {
+      var _this2 = this;
+      try {
+        var pdfUrl = this.iframe.src.split('#')[0]; // Remove hash parameters
+
+        // Method 1: Using Fetch API
+        fetch(pdfUrl).then(function (response) {
+          return response.blob();
+        }).then(function (blob) {
+          var url = window.URL.createObjectURL(blob);
+          var link = document.createElement('a');
+          link.href = url;
+          link.download = pdfUrl.split('/').pop() || 'document.pdf'; // Get filename from URL or use default
+          document.body.appendChild(link);
+          link.click();
+          window.URL.revokeObjectURL(url);
+          document.body.removeChild(link);
+        })["catch"](function (err) {
+          console.error('Error downloading PDF:', err);
+          // Fallback to Method 2 if fetch fails
+          _this2.downloadPDFFallback();
+        });
+      } catch (error) {
+        console.error('Error initiating download:', error);
+        this.downloadPDFFallback();
+      }
+    }
+  }, {
+    key: "downloadPDFFallback",
+    value: function downloadPDFFallback() {
+      // Method 2: Direct link download
+      var pdfUrl = this.iframe.src.split('#')[0];
+      var link = document.createElement('a');
+      link.href = pdfUrl;
+      link.download = pdfUrl.split('/').pop() || 'document.pdf';
+      link.target = '_blank';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
   }]);
 }(_BaseModule__WEBPACK_IMPORTED_MODULE_0__["default"]);
@@ -2442,6 +2579,8 @@ var map = {
 	"./HomeProgram.js": "./src/assets/js/modules/HomeProgram.js",
 	"./HomeResearch": "./src/assets/js/modules/HomeResearch.js",
 	"./HomeResearch.js": "./src/assets/js/modules/HomeResearch.js",
+	"./PdfViewer": "./src/assets/js/modules/PdfViewer.js",
+	"./PdfViewer.js": "./src/assets/js/modules/PdfViewer.js",
 	"./SwiperFullscreen": "./src/assets/js/modules/SwiperFullscreen.js",
 	"./SwiperFullscreen.js": "./src/assets/js/modules/SwiperFullscreen.js",
 	"./examples/RefState": "./src/assets/js/modules/examples/RefState.js",

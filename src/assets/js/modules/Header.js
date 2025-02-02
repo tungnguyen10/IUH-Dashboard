@@ -12,7 +12,7 @@ export default class Header extends BaseModule {
     this.overlay.className = 'fixed inset-0 bg-black/50 opacity-0 invisible transition-all duration-300 z-40';
     this.header.appendChild(this.overlay);
 
-    this.languageSwitcher();
+    // this.languageSwitcher();
     this.initMobileMenu();
     this.initSubMenus();
     this.handleResize();
@@ -20,14 +20,14 @@ export default class Header extends BaseModule {
     this.initLanguageSwitcher();
   }
 
-  languageSwitcher() {
-    const languageSwitcher = document.querySelector(".language-switcher");
-    languageSwitcher.addEventListener("click", () => {
-      languageSwitcher.classList.toggle("active");
-      languageSwitcher.querySelector(".language-switcher__text").textContent =
-        languageSwitcher.classList.contains("active") ? "ENG" : "VNI";
-    });
-  }
+  // languageSwitcher() {
+  //   const languageSwitcher = document.querySelector(".language-switcher");
+  //   languageSwitcher.addEventListener("click", () => {
+  //     languageSwitcher.classList.toggle("active");
+  //     languageSwitcher.querySelector(".language-switcher__text").textContent =
+  //       languageSwitcher.classList.contains("active") ? "ENG" : "VNI";
+  //   });
+  // }
 
   initMobileMenu() {
     // Open menu
