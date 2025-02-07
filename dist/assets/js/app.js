@@ -983,6 +983,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _BaseModule__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BaseModule */ "./src/assets/js/modules/BaseModule.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _readOnlyError(r) { throw new TypeError('"' + r + '" is read-only'); }
 function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
 function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
 function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
@@ -1014,23 +1015,38 @@ var Header = /*#__PURE__*/function (_BaseModule) {
       // Create overlay
       this.overlay.className = 'fixed inset-0 bg-black/50 opacity-0 invisible transition-all duration-300 z-40';
       this.header.appendChild(this.overlay);
-
-      // this.languageSwitcher();
+      this.languageSwitcher();
       this.initMobileMenu();
       this.initSubMenus();
       this.handleResize();
       this.initMobileSubmenus();
       this.initLanguageSwitcher();
     }
+  }, {
+    key: "languageSwitcher",
+    value: function languageSwitcher() {
+      var languageSwitcher = document.querySelector(".language-switcher");
+      var languageText = languageSwitcher.querySelector(".language-switcher__text");
+      var languageImg = languageSwitcher.querySelector(".language-switcher_img");
+      var isPageLoad = languageSwitcher.dataset.openLink;
+      if (!languageSwitcher || !languageText || !languageImg) return;
+      var updateLanguage = function updateLanguage() {
+        var isEnglish = languageSwitcher.dataset.openLink === "en/";
+        languageText.textContent = isEnglish ? "ENG" : "VNI";
+        languageImg.style.background = isEnglish ? 'url("/assets/images/eng.webp") no-repeat center center/cover' : 'url("/assets/images/vietnam.png") no-repeat center center/cover';
+      };
+      updateLanguage(); // Cập nhật UI ban đầu
 
-    // languageSwitcher() {
-    //   const languageSwitcher = document.querySelector(".language-switcher");
-    //   languageSwitcher.addEventListener("click", () => {
-    //     languageSwitcher.classList.toggle("active");
-    //     languageSwitcher.querySelector(".language-switcher__text").textContent =
-    //       languageSwitcher.classList.contains("active") ? "ENG" : "VNI";
-    //   });
-    // }
+      languageSwitcher.addEventListener("click", function (e) {
+        e.preventDefault();
+        languageSwitcher.dataset.openLink = languageSwitcher.dataset.openLink === "en/" ? "vi/" : "en/";
+        languageSwitcher.classList.toggle("active");
+        updateLanguage();
+        setTimeout(function () {
+          window.location.href = isPageLoad;
+        }, 600);
+      });
+    }
   }, {
     key: "initMobileMenu",
     value: function initMobileMenu() {
@@ -1149,18 +1165,27 @@ var Header = /*#__PURE__*/function (_BaseModule) {
       var subMenuTriggers = this.mainNav.querySelectorAll('.group\\/sub-menu > a, .group\\/sub1-menu > a');
       subMenuTriggers.forEach(function (trigger) {
         trigger.addEventListener('click', function (e) {
-          // Only handle clicks on mobile
+          // Only handle special behavior on mobile
           if (window.innerWidth <= 1100) {
-            e.preventDefault();
             var submenu = trigger.nextElementSibling;
+            var hasSubmenu = (submenu === null || submenu === void 0 ? void 0 : submenu.tagName) === 'UL';
+
+            // If no submenu exists, let the link work normally
+            if (!hasSubmenu) {
+              return true;
+            }
+
+            // Prevent default only if there's a submenu
+            e.preventDefault();
             var arrow = trigger.querySelector('svg');
 
             // Close other submenus at the same level
             var parent = trigger.closest('ul');
             parent.querySelectorAll('ul').forEach(function (menu) {
               if (menu !== submenu) {
+                var _menu$previousElement;
                 menu.classList.remove('submenu-active');
-                var otherArrow = menu.previousElementSibling.querySelector('svg');
+                var otherArrow = (_menu$previousElement = menu.previousElementSibling) === null || _menu$previousElement === void 0 ? void 0 : _menu$previousElement.querySelector('svg');
                 otherArrow === null || otherArrow === void 0 || otherArrow.classList.remove('rotate-active');
               }
             });
@@ -1168,6 +1193,16 @@ var Header = /*#__PURE__*/function (_BaseModule) {
             // Toggle current submenu
             submenu.classList.toggle('submenu-active');
             arrow === null || arrow === void 0 || arrow.classList.toggle('rotate-active');
+
+            // Optional: Close child submenus when closing parent
+            if (!submenu.classList.contains('submenu-active')) {
+              submenu.querySelectorAll('.submenu-active').forEach(function (childMenu) {
+                var _childMenu$previousEl;
+                childMenu.classList.remove('submenu-active');
+                var childArrow = (_childMenu$previousEl = childMenu.previousElementSibling) === null || _childMenu$previousEl === void 0 ? void 0 : _childMenu$previousEl.querySelector('svg');
+                childArrow === null || childArrow === void 0 || childArrow.classList.remove('rotate-active');
+              });
+            }
           }
         });
       });
@@ -1250,6 +1285,13 @@ var HelloModule = /*#__PURE__*/function (_BaseModule) {
         content: ["./src/**/*.{html,js,twig}", "./src/_templates/**/*.twig"],
         theme: {
           extend: {
+            transitionProperty: {
+              'transform': 'transform'
+            },
+            scale: {
+              '110': '1.1',
+              '150': '1.5'
+            },
             screens: {
               menuMb: "1101px"
             },
@@ -1319,6 +1361,19 @@ var HelloModule = /*#__PURE__*/function (_BaseModule) {
               stroke: "#E3E3E3",
               stroke1: "#F9F9F9",
               red: "#d32f2f",
+              persianRed: {
+                '50': '#fdf3f3',
+                '100': '#fde3e3',
+                '200': '#fbcdcd',
+                '300': '#f8a9a9',
+                '400': '#f17878',
+                '500': '#e74c4c',
+                '600': '#d32f2f',
+                '700': '#b12424',
+                '800': '#932121',
+                '900': '#7a2222',
+                '950': '#420d0d'
+              },
               y200: "#fff59d",
               y100: "#fff9c4",
               titleColor: "#032d6c"
@@ -1335,8 +1390,9 @@ var HelloModule = /*#__PURE__*/function (_BaseModule) {
         plugins: []
       };
       this.onModal();
-      this.onPulseIocn();
+      this.onPulseIcon();
       this.initScrollToTop();
+      this.initDepartmentToggle();
       var loadingScreen = document.querySelector("#loading-screen");
       if (loadingScreen) {
         // Prevent scrolling while loading
@@ -1356,8 +1412,8 @@ var HelloModule = /*#__PURE__*/function (_BaseModule) {
       }
     }
   }, {
-    key: "onPulseIocn",
-    value: function onPulseIocn() {
+    key: "onPulseIcon",
+    value: function onPulseIcon() {
       var socialToggle = document.getElementById('socialToggle');
       var socialList = document.getElementById('socialList');
       var socialIcons = document.querySelectorAll('.social-icon');
@@ -1484,6 +1540,102 @@ var HelloModule = /*#__PURE__*/function (_BaseModule) {
 
       // Scroll to top when clicked
       scrollToTopBtn.addEventListener('click', scrollToTop);
+    }
+  }, {
+    key: "initDepartmentToggle",
+    value: function initDepartmentToggle() {
+      var _this = this;
+      var headerCards = document.querySelectorAll('.group\\/department');
+      var activeContent = null;
+      var activeCard = null;
+      headerCards.forEach(function (card) {
+        var contentCard = card.parentElement.querySelector(':scope > div:last-child');
+
+        // Initially hide all content cards
+        if (contentCard) {
+          contentCard.style.display = 'none';
+          contentCard.style.opacity = '0';
+          contentCard.style.transform = 'translateY(-10px)';
+        }
+        card.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          // If there's an active content and it's not the current one, close it
+          if (activeContent && activeContent !== contentCard) {
+            // Close previous content
+            _this.closeContent(activeContent);
+            // Remove active styles from previous card
+            if (activeCard) {
+              _this.removeActiveStyles(activeCard);
+            }
+          }
+
+          // Toggle current content
+          if (contentCard) {
+            if (contentCard === activeContent) {
+              // Close current if it's already open
+              _this.closeContent(contentCard);
+              _this.removeActiveStyles(card);
+              activeContent = null;
+              activeCard = null;
+            } else {
+              // Open new content
+              _this.openContent(contentCard);
+              _this.addActiveStyles(card);
+              activeContent = contentCard;
+              activeCard = card;
+            }
+          }
+        });
+      });
+
+      // Close active content when clicking outside
+      document.addEventListener('click', function (e) {
+        if (activeContent && !e.target.closest('.group\\/department') && !e.target.closest('.w-full.mt-4')) {
+          _this.closeContent(activeContent);
+          if (activeCard) {
+            _this.removeActiveStyles(activeCard);
+          }
+          activeContent = null;
+          activeCard = null;
+        }
+      });
+    }
+  }, {
+    key: "openContent",
+    value: function openContent(element) {
+      element.style.display = 'block';
+      // Trigger reflow
+      element.offsetHeight;
+      element.style.opacity = '1';
+      element.style.transform = 'translateY(0)';
+    }
+  }, {
+    key: "closeContent",
+    value: function closeContent(element) {
+      element.style.opacity = '0';
+      element.style.transform = 'translateY(-10px)';
+      setTimeout(function () {
+        element.style.display = 'none';
+      }, 300); // Match transition duration
+    }
+  }, {
+    key: "addActiveStyles",
+    value: function addActiveStyles(card) {
+      var arrow = card.querySelector('svg.rotate-90');
+      if (arrow) {
+        arrow.style.transform = 'rotate(270deg)';
+      }
+      card.classList.add('border-navyBlue-600');
+    }
+  }, {
+    key: "removeActiveStyles",
+    value: function removeActiveStyles(card) {
+      var arrow = card.querySelector('svg.rotate-90');
+      if (arrow) {
+        arrow.style.transform = 'rotate(90deg)';
+      }
+      card.classList.remove('border-navyBlue-600');
     }
   }]);
 }(_BaseModule__WEBPACK_IMPORTED_MODULE_0__["default"]);

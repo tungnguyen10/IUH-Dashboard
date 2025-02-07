@@ -96,31 +96,102 @@
               stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </div>
-        <div class=" border-[1px] rounded-full cursor-pointer">
-          <a href="#" target="_blank"
-            class=" border-navyBlue-50 px-2 py-1 text-sm flex items-center gap-2 transition-all duration-500">
-            <p class="language-switcher__text">VNI</p>
-            <div class="language-switcher_img size-5 rounded-full border-[1px] border-navyBlue-50 overflow-hidden">
-              <img src="assets/images/vietnam.png" alt="eng" class="size-full object-cover">
-            </div>
-          </a>
-          <!-- <a href="#" target="_blank"
-            class=" border-navyBlue-50 px-2 py-1 text-sm flex items-center gap-2 transition-all duration-500">
-            <div class="size-5 rounded-full border-[1px] border-navyBlue-50 overflow-hidden">
-              <img src="assets/images/eng.webp" alt="eng" class="size-full object-cover"></div>
-            <p class="language-switcher_img language-switcher__text">ENG</p>
-          </a> -->
+        <!-- Language toggle -->
+        <div
+          class="language-switcher border-[1px] rounded-full cursor-pointer border-navyBlue-50 px-2 py-1 text-sm flex items-center gap-2 transition-all duration-500"
+          data-open-link="vi/">
+          <p
+            class="language-switcher__text transform transition-transform duration-500 group-hover/lang:translate-x-0.5">
+            VNI</p>
+          <div
+            class="language-switcher_img size-5 rounded-full border-[1px] border-navyBlue-50 overflow-hidden transform transition-all duration-500 group-hover/lang:rotate-12 ">
+          </div>
         </div>
       </div>
     </div>
-    <div class="bg-white text-navyBlue-900">
+    <div
+      class="text-navyBlue-900 relative menuMb:bg-white">
+      <!-- Mobile-only decorative elements -->
+      <div class="absolute inset-0 menuMb:hidden pointer-events-none overflow-hidden">
+        <!-- Dynamic mesh background -->
+        <div class="absolute inset-0">
+          <div class="absolute w-full h-full opacity-10">
+                        <div
+              class="absolute size-32 rounded-full border border-white/20 animate-[float_3s_ease-in-out_infinite]"
+              style="top: 0%; left: 0%; animation-delay: -0s;">
+            </div>
+                        <div
+              class="absolute size-32 rounded-full border border-white/20 animate-[float_4s_ease-in-out_infinite]"
+              style="top: 0%; left: 0%; animation-delay: -1s;">
+            </div>
+                        <div
+              class="absolute size-32 rounded-full border border-white/20 animate-[float_5s_ease-in-out_infinite]"
+              style="top: 0%; left: 0%; animation-delay: -2s;">
+            </div>
+                        <div
+              class="absolute size-32 rounded-full border border-white/20 animate-[float_6s_ease-in-out_infinite]"
+              style="top: 0%; left: 0%; animation-delay: -3s;">
+            </div>
+                        <div
+              class="absolute size-32 rounded-full border border-white/20 animate-[float_7s_ease-in-out_infinite]"
+              style="top: 0%; left: 0%; animation-delay: -4s;">
+            </div>
+                        <div
+              class="absolute size-32 rounded-full border border-white/20 animate-[float_8s_ease-in-out_infinite]"
+              style="top: 0%; left: 0%; animation-delay: -5s;">
+            </div>
+                      </div>
+        </div>
+
+        <!-- Animated geometric shapes -->
+        <div class="absolute inset-0">
+          <!-- Rotating hexagon -->
+          <div class="absolute -right-16 -top-16 size-48 animate-[spin_20s_linear_infinite]">
+            <svg class="w-full h-full text-white/5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12,1 L22,7 L22,17 L12,23 L2,17 L2,7 Z"></path>
+            </svg>
+          </div>
+
+          <!-- Floating triangles -->
+          <div class="absolute left-1/4 top-1/3">
+            <div class="relative size-6 transform rotate-45 bg-white/10 animate-[float_4s_ease-in-out_infinite]"></div>
+          </div>
+          <div class="absolute right-1/3 bottom-1/4">
+            <div class="relative size-4 transform -rotate-12 bg-white/5 animate-[float_5s_ease-in-out_infinite]"
+              style="animation-delay: -2s;"></div>
+          </div>
+
+          <!-- Glowing orbs with trails -->
+          <div class="absolute inset-0">
+                        <div class="absolute size-3 animate-[moveAround_20s_linear_infinite]"
+              style="animation-delay: -7s;">
+              <div class="absolute size-full rounded-full bg-white/20 blur-sm"></div>
+              <div class="absolute size-full rounded-full bg-white/10 animate-ping"
+                style="animation-duration: 3s; animation-delay: -1s"></div>
+            </div>
+                        <div class="absolute size-3 animate-[moveAround_25s_linear_infinite]"
+              style="animation-delay: -14s;">
+              <div class="absolute size-full rounded-full bg-white/20 blur-sm"></div>
+              <div class="absolute size-full rounded-full bg-white/10 animate-ping"
+                style="animation-duration: 3s; animation-delay: -2s"></div>
+            </div>
+                        <div class="absolute size-3 animate-[moveAround_30s_linear_infinite]"
+              style="animation-delay: -21s;">
+              <div class="absolute size-full rounded-full bg-white/20 blur-sm"></div>
+              <div class="absolute size-full rounded-full bg-white/10 animate-ping"
+                style="animation-duration: 3s; animation-delay: -3s"></div>
+            </div>
+                      </div>
+        </div>
+      </div>
+
       <div class="w-full max-w-[1200px] min-h-[80px] px-4 mx-auto flex items-center justify-between">
         <a href="/">
           <img src="assets/images/icons/logo.svg" alt="Logo" class="w-full max-w-[147px]" />
         </a>
 
         <!-- Hamburger Menu -->
-        <div class="flex flex-row items-center gap-2 menuMb:hidden">
+        <div class="flex flex-row items-center gap-2 menuMb:hidden text-white">
           <div class="pr-2 border-r cursor-pointer" data-open-modal="onSearch">
             <svg class="size-6" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -139,17 +210,67 @@
         <nav
           class="main-nav max-[1100px]:fixed max-[1100px]:top-0 max-[1100px]:right-[-100%] max-[1100px]:w-[300px] max-[1100px]:pb-[64px] max-[1100px]:bg-white max-[1100px]:z-50 max-[1100px]:transition-all max-[1100px]:duration-300 max-[1100px]:ease-in-out max-[1100px]:overflow-y-auto max-[1100px]:shadow-xl">
           <!-- Close button -->
-          <div class="flex flex-row items-center justify-between menuMb:hidden w-full px-4 py-5 bg-navyBlue-100">
-            <a href="/">
-              <img src="assets/images/icons/logo.svg" alt="Logo" class="w-full max-w-[147px]" />
-            </a>
-            <button
-              class="top-5 right-5 close-menu items-center justify-center w-8 h-8 text-gray-500 hover:text-gray-900 transition-colors duration-200"
-              aria-label="Close menu">
-              <svg class="w-6 h-6" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 18L18 6M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-              </svg>
-            </button>
+          <div class="relative overflow-hidden menuMb:hidden w-full">
+            <!-- Multi-layer background -->
+            <div class="absolute inset-0">
+              <!-- Base gradient -->
+              <div class="absolute inset-0 bg-gradient-to-r from-navyBlue-800 via-navyBlue-700 to-navyBlue-600"></div>
+
+              <!-- Decorative shapes -->
+              <div class="absolute inset-0">
+                <!-- Circle blob -->
+                <div class="absolute -right-8 -top-8 w-32 h-32">
+                  <div class="absolute inset-0 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
+                  <svg class="relative w-full h-full text-white/5" viewBox="0 0 200 200" fill="currentColor">
+                    <path
+                      d="M45.4,-66.3C59,-56.7,70.6,-43.5,75.9,-27.9C81.2,-12.3,80.3,5.8,74.7,21.5C69,37.2,58.6,50.5,45.3,60.3C32,70.1,16,76.3,-0.2,76.6C-16.4,76.9,-32.9,71.3,-46.5,61.5C-60.1,51.7,-71,37.8,-76.3,21.5C-81.6,5.3,-81.3,-13.3,-74.1,-28.3C-66.9,-43.3,-52.8,-54.7,-38.4,-64.3C-24,-73.9,-9.6,-81.7,3.9,-87.2C17.4,-92.7,34.8,-95.8,45.4,-66.3Z" />
+                  </svg>
+                </div>
+
+                <!-- Scattered dots -->
+                <div class="absolute inset-0">
+                  <div class="absolute h-1 w-1 bg-white/20 rounded-full top-1/4 left-1/4 animate-ping"></div>
+                  <div class="absolute h-1.5 w-1.5 bg-white/20 rounded-full top-1/3 right-1/3 animate-ping"
+                    style="animation-delay: 0.5s"></div>
+                  <div class="absolute h-1 w-1 bg-white/20 rounded-full bottom-1/4 right-1/4 animate-ping"
+                    style="animation-delay: 1s"></div>
+                </div>
+
+                <!-- Abstract lines -->
+                <div class="absolute inset-0 overflow-hidden">
+                  <div
+                    class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent">
+                  </div>
+                  <div
+                    class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent">
+                  </div>
+                  <div class="absolute -left-10 top-1/2 -rotate-45 w-32 h-px bg-white/10"></div>
+                  <div class="absolute -right-10 top-1/2 rotate-45 w-32 h-px bg-white/10"></div>
+                </div>
+
+                <!-- Glowing orbs -->
+                <div class="absolute left-1/4 top-1/2 w-20 h-20 bg-white/5 rounded-full blur-xl"></div>
+                <div class="absolute right-1/4 bottom-0 w-16 h-16 bg-white/5 rounded-full blur-lg"></div>
+              </div>
+            </div>
+
+            <!-- Content wrapper -->
+            <div class="relative flex flex-row items-center justify-between px-4 py-5 z-10">
+              <a href="/" class="flex items-center gap-3">
+                <img src="assets/images/icons/logo.svg" alt="Logo" class="w-full max-w-[120px]" />
+              </a>
+
+              <button
+                class="group close-menu flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-300"
+                aria-label="Close menu">
+                <svg class="w-5 h-5 text-white transform transition-transform duration-300 group-hover:rotate-90"
+                  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 18L18 6M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    class="transition-all duration-300 group-hover:stroke-[2.5]" />
+                </svg>
+              </button>
+            </div>
+
           </div>
 
           <!-- Menu structure -->
@@ -291,7 +412,7 @@
             </li>
             <li
               class="group/sub-menu text-navyBlue-900 relative h-full flex flex-col menuMb:flex-row items-center border-b menuMb:border-none">
-              <a href="#"
+              <a href="/about.html"
                 class="relative font-semibold uppercase px-4 py-2 flex items-center gap-2 transition-all duration-300 hover:text-navyBlue-50 flex items-center h-full hover:bg-navyBlue-800">
                 Đào tạo
               </a>
@@ -335,54 +456,6 @@
                   <a href="#"
                     class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
                     Giới thiệu chung
-                    <svg class="w-4 h-4 transition-transform duration-300 menuMb:group-hover/sub1-menu:rotate-[-90deg]"
-                      viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M14 9L9 4M9 20L17 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                    </svg>
-                  </a>
-
-                  <!-- Secondary Submenu -->
-                  <ul
-                    class="absolute bg-white min-w-full menuMb:w-60 top-0 left-full transform opacity-0 invisible group-hover/sub1-menu:opacity-100 group-hover/sub1-menu:visible translate-x-2 group-hover/sub1-menu:translate-x-0 transition-all duration-300 ease-in-out shadow-lg rounded-bl-lg rounded-br-lg  border-l-3 border-navyBlue-900 ">
-                    <li class="border-t menuMb:border-b border-gray-100 menuMb:last:border-none">
-                      <a href="#"
-                        class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
-                        Webdesign
-                      </a>
-                    </li>
-                    <li class="border-t menuMb:border-b border-gray-100 menuMb:last:border-none">
-                      <a href="#"
-                        class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
-                        Digital marketing
-                      </a>
-                    </li>
-                    <li class="border-t menuMb:border-b border-gray-100 menuMb:last:border-none">
-                      <a href="#"
-                        class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
-                        Digital marketing
-                      </a>
-                    </li>
-                    <li class="border-t menuMb:border-b border-gray-100 menuMb:last:border-none">
-                      <a href="#"
-                        class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
-                        Digital marketing
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-
-                <li class="border-t menuMb:border-b border-gray-100 last:border-none">
-                  <a href="#"
-                    class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
-                    Đội ngũ
-                  </a>
-                </li>
-
-                <li class="group/sub1-menu relative border-t menuMb:border-b border-gray-100 last:border-none">
-                  <a href="#"
-                    class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
-                    Sơ đồ bộ máy tổ chức
                     <svg class="w-4 h-4 transition-transform duration-300 menuMb:group-hover/sub1-menu:rotate-[-90deg]"
                       viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M14 9L9 4M9 20L17 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
@@ -454,6 +527,54 @@
                       </a>
                     </li>
                                       </ul>
+                </li>
+
+                <li class="border-t menuMb:border-b border-gray-100 last:border-none">
+                  <a href="#"
+                    class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
+                    Đội ngũ
+                  </a>
+                </li>
+
+                <li class="group/sub1-menu relative border-t menuMb:border-b border-gray-100 last:border-none">
+                  <a href="#"
+                    class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
+                    Sơ đồ bộ máy tổ chức
+                    <svg class="w-4 h-4 transition-transform duration-300 menuMb:group-hover/sub1-menu:rotate-[-90deg]"
+                      viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14 9L9 4M9 20L17 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </a>
+
+                  <!-- Secondary Submenu -->
+                  <ul
+                    class="absolute bg-white min-w-full menuMb:w-[350px] grid grid-cols-1 menuMb:grid-cols-2 top-0 left-full transform opacity-0 invisible group-hover/sub1-menu:opacity-100 group-hover/sub1-menu:visible translate-x-2 group-hover/sub1-menu:translate-x-0 transition-all duration-300 ease-in-out shadow-lg rounded-bl-lg rounded-br-lg border-l-3 border-navyBlue-900 ">
+                    <li class="border-t menuMb:border-b border-gray-100 menuMb:last:border-none">
+                      <a href="#"
+                        class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
+                        Webdesign
+                      </a>
+                    </li>
+                    <li class="border-t menuMb:border-b border-gray-100 menuMb:last:border-none">
+                      <a href="#"
+                        class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
+                        Digital marketing
+                      </a>
+                    </li>
+                    <li class="border-t menuMb:border-b border-gray-100 menuMb:last:border-none">
+                      <a href="#"
+                        class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
+                        Digital marketing
+                      </a>
+                    </li>
+                    <li class="border-t menuMb:border-b border-gray-100 menuMb:last:border-none">
+                      <a href="#"
+                        class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal">
+                        Digital marketing
+                      </a>
+                    </li>
+                  </ul>
                 </li>
 
                 <li class="border-b border-gray-100 last:border-none">

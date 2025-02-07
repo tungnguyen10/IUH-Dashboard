@@ -5,6 +5,13 @@ export default class HelloModule extends BaseModule {
       content: ["./src/**/*.{html,js,twig}", "./src/_templates/**/*.twig"],
       theme: {
         extend: {
+          transitionProperty: {
+            'transform': 'transform',
+          },
+          scale: {
+            '110': '1.1',
+            '150': '1.5',
+          },
           screens: {
             menuMb: "1101px",
           },
@@ -68,6 +75,19 @@ export default class HelloModule extends BaseModule {
             stroke: "#E3E3E3",
             stroke1: "#F9F9F9",
             red: "#d32f2f",
+            persianRed: {
+              '50': '#fdf3f3',
+              '100': '#fde3e3',
+              '200': '#fbcdcd',
+              '300': '#f8a9a9',
+              '400': '#f17878',
+              '500': '#e74c4c',
+              '600': '#d32f2f',
+              '700': '#b12424',
+              '800': '#932121',
+              '900': '#7a2222',
+              '950': '#420d0d',
+            },
             y200: "#fff59d",
             y100: "#fff9c4",
             titleColor: "#032d6c",
@@ -84,8 +104,9 @@ export default class HelloModule extends BaseModule {
       plugins: [],
     };
     this.onModal();
-    this.onPulseIocn();
+    this.onPulseIcon();
     this.initScrollToTop();
+    this.initDepartmentToggle();
     const loadingScreen = document.querySelector("#loading-screen");
     if (loadingScreen) {
       // Prevent scrolling while loading
@@ -104,7 +125,7 @@ export default class HelloModule extends BaseModule {
       }, 2000); // 3 seconds delay
     }
   }
-  onPulseIocn() {
+  onPulseIcon() {
     const socialToggle = document.getElementById('socialToggle');
     const socialList = document.getElementById('socialList');
     const socialIcons = document.querySelectorAll('.social-icon');
@@ -235,5 +256,97 @@ export default class HelloModule extends BaseModule {
 
     // Scroll to top when clicked
     scrollToTopBtn.addEventListener('click', scrollToTop);
+  }
+
+  initDepartmentToggle() {
+    const headerCards = document.querySelectorAll('.group\\/department');
+    let activeContent = null;
+    let activeCard = null;
+
+    headerCards.forEach(card => {
+      const contentCard = card.parentElement.querySelector(':scope > div:last-child');
+
+      // Initially hide all content cards
+      if (contentCard) {
+        contentCard.style.display = 'none';
+        contentCard.style.opacity = '0';
+        contentCard.style.transform = 'translateY(-10px)';
+      }
+
+      card.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // If there's an active content and it's not the current one, close it
+        if (activeContent && activeContent !== contentCard) {
+          // Close previous content
+          this.closeContent(activeContent);
+          // Remove active styles from previous card
+          if (activeCard) {
+            this.removeActiveStyles(activeCard);
+          }
+        }
+
+        // Toggle current content
+        if (contentCard) {
+          if (contentCard === activeContent) {
+            // Close current if it's already open
+            this.closeContent(contentCard);
+            this.removeActiveStyles(card);
+            activeContent = null;
+            activeCard = null;
+          } else {
+            // Open new content
+            this.openContent(contentCard);
+            this.addActiveStyles(card);
+            activeContent = contentCard;
+            activeCard = card;
+          }
+        }
+      });
+    });
+
+    // Close active content when clicking outside
+    document.addEventListener('click', (e) => {
+      if (activeContent && !e.target.closest('.group\\/department') && !e.target.closest('.w-full.mt-4')) {
+        this.closeContent(activeContent);
+        if (activeCard) {
+          this.removeActiveStyles(activeCard);
+        }
+        activeContent = null;
+        activeCard = null;
+      }
+    });
+  }
+
+  openContent(element) {
+    element.style.display = 'block';
+    // Trigger reflow
+    element.offsetHeight;
+    element.style.opacity = '1';
+    element.style.transform = 'translateY(0)';
+  }
+
+  closeContent(element) {
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(-10px)';
+    setTimeout(() => {
+      element.style.display = 'none';
+    }, 300); // Match transition duration
+  }
+
+  addActiveStyles(card) {
+    const arrow = card.querySelector('svg.rotate-90');
+    if (arrow) {
+      arrow.style.transform = 'rotate(270deg)';
+    }
+    card.classList.add('border-navyBlue-600');
+  }
+
+  removeActiveStyles(card) {
+    const arrow = card.querySelector('svg.rotate-90');
+    if (arrow) {
+      arrow.style.transform = 'rotate(90deg)';
+    }
+    card.classList.remove('border-navyBlue-600');
   }
 }

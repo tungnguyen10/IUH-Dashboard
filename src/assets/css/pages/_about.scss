@@ -4,9 +4,10 @@
 .iuhContact,
 .iuhTrainingPrograms,
 .iuhResearch,
+.iuhNews,
 .iuhNotifyDetail,
 .iuhEventDetail,
-.iuhNewsDetail, .iuhCommittee, .iuhNotify {
+.iuhNewsDetail, .iuhCommittee, .iuhNotify, .iuhDetail, .iuhChildrenPage {
   position: relative;
   &::before {
     background: linear-gradient(180deg, #edf9ff 0%, #fff 100%);

@@ -1,13 +1,17 @@
 header {
   .language-switcher {
+    transition: all 0.5s ease-in-out;
+
     &.active {
       flex-direction: row-reverse;
-      > div {
+      .language-switcher_img {
         background: url("../images/eng.webp") no-repeat center center/cover;
       }
     }
-    > div {
+
+    .language-switcher_img {
       background: url("../images/vietnam.png") no-repeat center center/cover;
+      transition: background 0.2s ease-in-out;
     }
   }
 }
@@ -36,7 +40,6 @@ header {
         visibility: visible;
         transform: translateY(0);
       }
-
     }
 
     // Mobile styles

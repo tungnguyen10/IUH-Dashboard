@@ -12,7 +12,7 @@ export default class Header extends BaseModule {
     this.overlay.className = 'fixed inset-0 bg-black/50 opacity-0 invisible transition-all duration-300 z-40';
     this.header.appendChild(this.overlay);
 
-    // this.languageSwitcher();
+    this.languageSwitcher();
     this.initMobileMenu();
     this.initSubMenus();
     this.handleResize();
@@ -20,14 +20,35 @@ export default class Header extends BaseModule {
     this.initLanguageSwitcher();
   }
 
-  // languageSwitcher() {
-  //   const languageSwitcher = document.querySelector(".language-switcher");
-  //   languageSwitcher.addEventListener("click", () => {
-  //     languageSwitcher.classList.toggle("active");
-  //     languageSwitcher.querySelector(".language-switcher__text").textContent =
-  //       languageSwitcher.classList.contains("active") ? "ENG" : "VNI";
-  //   });
-  // }
+  languageSwitcher() {
+    const languageSwitcher = document.querySelector(".language-switcher");
+    const languageText = languageSwitcher.querySelector(".language-switcher__text");
+    const languageImg = languageSwitcher.querySelector(".language-switcher_img");
+    const isPageLoad = languageSwitcher.dataset.openLink;
+
+    if (!languageSwitcher || !languageText || !languageImg) return;
+
+    const updateLanguage = () => {
+      const isEnglish = languageSwitcher.dataset.openLink === "en/";
+
+      languageText.textContent = isEnglish ? "ENG" : "VNI";
+      languageImg.style.background = isEnglish
+        ? 'url("/assets/images/eng.webp") no-repeat center center/cover'
+        : 'url("/assets/images/vietnam.png") no-repeat center center/cover';
+    };
+
+    updateLanguage(); // Cập nhật UI ban đầu
+
+    languageSwitcher.addEventListener("click", (e) => {
+      e.preventDefault();
+      languageSwitcher.dataset.openLink = languageSwitcher.dataset.openLink === "en/" ? "vi/" : "en/";
+      languageSwitcher.classList.toggle("active");
+      updateLanguage();
+      setTimeout(() => {
+        window.location.href = isPageLoad
+      }, 600)
+    });
+  }
 
   initMobileMenu() {
     // Open menu
@@ -129,18 +150,24 @@ export default class Header extends BaseModule {
     });
   }
 
-
-
   initMobileSubmenus() {
     const subMenuTriggers = this.mainNav.querySelectorAll('.group\\/sub-menu > a, .group\\/sub1-menu > a');
 
     subMenuTriggers.forEach(trigger => {
       trigger.addEventListener('click', (e) => {
-        // Only handle clicks on mobile
+        // Only handle special behavior on mobile
         if (window.innerWidth <= 1100) {
+          const submenu = trigger.nextElementSibling;
+          const hasSubmenu = submenu?.tagName === 'UL';
+
+          // If no submenu exists, let the link work normally
+          if (!hasSubmenu) {
+            return true;
+          }
+
+          // Prevent default only if there's a submenu
           e.preventDefault();
 
-          const submenu = trigger.nextElementSibling;
           const arrow = trigger.querySelector('svg');
 
           // Close other submenus at the same level
@@ -148,7 +175,7 @@ export default class Header extends BaseModule {
           parent.querySelectorAll('ul').forEach(menu => {
             if (menu !== submenu) {
               menu.classList.remove('submenu-active');
-              const otherArrow = menu.previousElementSibling.querySelector('svg');
+              const otherArrow = menu.previousElementSibling?.querySelector('svg');
               otherArrow?.classList.remove('rotate-active');
             }
           });
@@ -156,6 +183,15 @@ export default class Header extends BaseModule {
           // Toggle current submenu
           submenu.classList.toggle('submenu-active');
           arrow?.classList.toggle('rotate-active');
+
+          // Optional: Close child submenus when closing parent
+          if (!submenu.classList.contains('submenu-active')) {
+            submenu.querySelectorAll('.submenu-active').forEach(childMenu => {
+              childMenu.classList.remove('submenu-active');
+              const childArrow = childMenu.previousElementSibling?.querySelector('svg');
+              childArrow?.classList.remove('rotate-active');
+            });
+          }
         }
       });
     });
