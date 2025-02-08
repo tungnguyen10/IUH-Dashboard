@@ -24,13 +24,11 @@ export default class Header extends BaseModule {
     const languageSwitcher = document.querySelector(".language-switcher");
     const languageText = languageSwitcher.querySelector(".language-switcher__text");
     const languageImg = languageSwitcher.querySelector(".language-switcher_img");
-    const isPageLoad = languageSwitcher.dataset.openLink;
-
+    const isPageLoad = languageSwitcher.href;
     if (!languageSwitcher || !languageText || !languageImg) return;
 
     const updateLanguage = () => {
-      const isEnglish = languageSwitcher.dataset.openLink === "en/";
-
+      const isEnglish = languageSwitcher.getAttribute("href") === "en/";
       languageText.textContent = isEnglish ? "ENG" : "VNI";
       languageImg.style.background = isEnglish
         ? 'url("/assets/images/eng.webp") no-repeat center center/cover'
@@ -41,12 +39,12 @@ export default class Header extends BaseModule {
 
     languageSwitcher.addEventListener("click", (e) => {
       e.preventDefault();
-      languageSwitcher.dataset.openLink = languageSwitcher.dataset.openLink === "en/" ? "vi/" : "en/";
+      languageSwitcher.href = languageSwitcher.href === "en/" ? "vi/" : "en/";
       languageSwitcher.classList.toggle("active");
       updateLanguage();
       setTimeout(() => {
-        window.location.href = isPageLoad
-      }, 600)
+        window.location.assign(isPageLoad);
+      }, 400)
     });
   }
 

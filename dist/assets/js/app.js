@@ -1028,10 +1028,10 @@ var Header = /*#__PURE__*/function (_BaseModule) {
       var languageSwitcher = document.querySelector(".language-switcher");
       var languageText = languageSwitcher.querySelector(".language-switcher__text");
       var languageImg = languageSwitcher.querySelector(".language-switcher_img");
-      var isPageLoad = languageSwitcher.dataset.openLink;
+      var isPageLoad = languageSwitcher.href;
       if (!languageSwitcher || !languageText || !languageImg) return;
       var updateLanguage = function updateLanguage() {
-        var isEnglish = languageSwitcher.dataset.openLink === "en/";
+        var isEnglish = languageSwitcher.getAttribute("href") === "en/";
         languageText.textContent = isEnglish ? "ENG" : "VNI";
         languageImg.style.background = isEnglish ? 'url("/assets/images/eng.webp") no-repeat center center/cover' : 'url("/assets/images/vietnam.png") no-repeat center center/cover';
       };
@@ -1039,12 +1039,12 @@ var Header = /*#__PURE__*/function (_BaseModule) {
 
       languageSwitcher.addEventListener("click", function (e) {
         e.preventDefault();
-        languageSwitcher.dataset.openLink = languageSwitcher.dataset.openLink === "en/" ? "vi/" : "en/";
+        languageSwitcher.href = languageSwitcher.href === "en/" ? "vi/" : "en/";
         languageSwitcher.classList.toggle("active");
         updateLanguage();
         setTimeout(function () {
-          window.location.href = isPageLoad;
-        }, 600);
+          window.location.assign(isPageLoad);
+        }, 400);
       });
     }
   }, {
