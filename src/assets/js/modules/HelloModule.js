@@ -105,10 +105,6 @@ export default class HelloModule extends BaseModule {
       },
       plugins: [],
     };
-    this.onModal();
-    this.onPulseIcon();
-    this.initScrollToTop();
-    this.initDepartmentToggle();
     const loadingScreen = document.querySelector("#loading-screen");
     if (loadingScreen) {
       // Prevent scrolling while loading
@@ -126,6 +122,10 @@ export default class HelloModule extends BaseModule {
         }, 500); // Wait for fade animation to complete
       }, loadingScreen.dataset.time); // 3 seconds delay
     }
+    this.onModal();
+    this.onPulseIcon();
+    this.initScrollToTop();
+    this.initDepartmentToggle();
     this.initTabsGlobal();
     this.initMobileMenu();
   }
