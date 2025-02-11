@@ -974,7 +974,7 @@ a {
 
   // Paragraphs with responsive spacing
   p {
-    margin-bottom: clamp(1em, 3vw, 1.5em);
+    font-size: 16px;
     max-width: 70ch;
 
     &:last-child {
