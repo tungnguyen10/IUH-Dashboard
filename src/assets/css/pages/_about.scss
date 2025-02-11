@@ -1,4 +1,22 @@
-/* IUHABOUT */
+/* Common page styles */
+.page {
+  /* Base page styles that are common to all pages */
+  &-with-gradient {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 400px;
+      background: linear-gradient(180deg, #edf9ff 0%, #fff 100%);
+    }
+  }
+}
+
+/* Page-specific extensions */
 .iuhAbout,
 .iuhDiploma,
 .iuhContact,
@@ -7,15 +25,14 @@
 .iuhNews,
 .iuhNotifyDetail,
 .iuhEventDetail,
-.iuhNewsDetail, .iuhCommittee, .iuhNotify, .iuhDetail, .iuhChildrenPage {
-  position: relative;
-  &::before {
-    background: linear-gradient(180deg, #edf9ff 0%, #fff 100%);
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 400px;
-  }
+.iuhNewsDetail,
+.iuhCommittee,
+.iuhNotify,
+.iuhDetail,
+.iuhChildrenPage {
+  @extend .page-with-gradient;
+}
+
+.iuhAlumni{
+background: #f9fafb;
 }

@@ -15,6 +15,7 @@ export default class HelloModule extends BaseModule {
           screens: {
             menuMb: "1101px",
           },
+
           fontFamily: {
             montserrat: ['"Montserrat"', "serif"],
           },
@@ -52,6 +53,7 @@ export default class HelloModule extends BaseModule {
           fontSize: {
             title: "38px",
             titleMb: "28px",
+            titleDK: "1.8rem",
           },
           colors: {
             lightText: "#9aa5b1",
@@ -122,8 +124,10 @@ export default class HelloModule extends BaseModule {
           loadingScreen.remove();
           document.body.style.overflow = "auto";
         }, 500); // Wait for fade animation to complete
-      }, 2000); // 3 seconds delay
+      }, loadingScreen.dataset.time); // 3 seconds delay
     }
+    this.initTabsGlobal();
+    this.initMobileMenu();
   }
   onPulseIcon() {
     const socialToggle = document.getElementById('socialToggle');
@@ -348,5 +352,58 @@ export default class HelloModule extends BaseModule {
       arrow.style.transform = 'rotate(90deg)';
     }
     card.classList.remove('border-navyBlue-600');
+  }
+  initTabsGlobal() {
+    const quarters = document.querySelectorAll(".iuhBtnTab");
+    const tabPanes = document.querySelectorAll(".iuhContentTab");
+    quarters[0]?.classList.add("active");
+    tabPanes[0]?.classList.add("active");
+
+    quarters.forEach((quarter) => {
+      quarter.addEventListener("click", () => {
+        // Remove active class from all quarters and panes
+        quarters.forEach((q) => q.classList.remove("active"));
+        tabPanes.forEach((pane) => pane.classList.remove("active"));
+
+        // Add active class to clicked quarter
+        quarter.classList.add("active");
+
+        // Show corresponding tab content
+        const tabId = quarter.dataset.tab;
+        const tabPane = document.getElementById(tabId);
+        tabPane?.classList.add("active");
+      });
+    });
+  }
+
+  initMobileMenu() {
+    const menuItems = document.querySelectorAll('.group\\/sub-menu');
+
+    menuItems.forEach(item => {
+      const link = item.querySelector('a');
+      const submenu = item.querySelector('ul');
+      const arrow = item.querySelector('svg');
+
+      // Only apply click handler on mobile
+      const handleClick = (e) => {
+        if (window.innerWidth < 1101) { // menuMb breakpoint
+          e.preventDefault();
+
+          // Close other open menus
+          menuItems.forEach(otherItem => {
+            if (otherItem !== item) {
+              otherItem.querySelector('ul')?.classList.remove('mobile-menu-active');
+              otherItem.querySelector('svg')?.classList.remove('rotate-180');
+            }
+          });
+
+          // Toggle current menu
+          submenu.classList.toggle('mobile-menu-active');
+          arrow.classList.toggle('rotate-180');
+        }
+      };
+
+      link.addEventListener('click', handleClick);
+    });
   }
 }
