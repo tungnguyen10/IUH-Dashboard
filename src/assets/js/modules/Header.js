@@ -24,7 +24,7 @@ export default class Header extends BaseModule {
     const languageSwitcher = document.querySelector(".language-switcher");
     const languageText = languageSwitcher.querySelector(".language-switcher__text");
     const languageImg = languageSwitcher.querySelector(".language-switcher_img");
-    const isPageLoad = languageSwitcher.href;
+    const isPageLoad = languageSwitcher.dataset.openLink;
     if (!languageSwitcher || !languageText || !languageImg) return;
 
     const updateLanguage = () => {

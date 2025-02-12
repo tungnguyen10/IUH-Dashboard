@@ -1,4 +1,5 @@
 import BaseModule from "./BaseModule";
+
 export default class HelloModule extends BaseModule {
   register() {
     window.tailwind.config = {
@@ -121,6 +122,11 @@ export default class HelloModule extends BaseModule {
           document.body.style.overflow = "auto";
         }, 500); // Wait for fade animation to complete
       }, loadingScreen.dataset.time); // 3 seconds delay
+      this.onShowMain();
+    } else {
+      setTimeout(() => {
+        this.onShowMain();
+      }, 1500);
     }
     this.onModal();
     this.onPulseIcon();
@@ -128,6 +134,27 @@ export default class HelloModule extends BaseModule {
     this.initDepartmentToggle();
     this.initTabsGlobal();
     this.initMobileMenu();
+    this.initFadeInOnScroll();
+  }
+
+  initFadeInOnScroll() {
+    const boxes = document.querySelectorAll(".iuhFadeInScroll");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("iuhFadeIned");
+        }
+      });
+    }, { threshold: 0 });
+
+    boxes.forEach(box => observer.observe(box));
+  }
+
+  onShowMain() {
+    const main = document.querySelector("main");
+    if (main) {
+      main.classList.remove("opacity-0");
+    }
   }
   onPulseIcon() {
     const socialToggle = document.getElementById('socialToggle');

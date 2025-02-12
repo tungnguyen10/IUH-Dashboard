@@ -60,8 +60,11 @@
 </head>
 
 <body data-module="HelloModule">
-  <!-- HEADER -->
-  <header class="fixed top-0 left-0 w-full z-50 shadow-lg header-nav" data-module="Header">
+
+  <!-- MAIN CONTENT -->
+  <main class="iuhMainContent mt-[80px] menuMb:mt-[120px] opacity-0 iuhContact">
+    <!-- HEADER -->
+    <header class="fixed top-0 left-0 w-full z-50 shadow-lg header-nav" data-module="Header">
   <div class="w-full relative bg-navyBlue-900 text-navyBlue-50">
     <div class="w-full max-w-[1200px] px-4 mx-auto h-10 flex items-center justify-between hidden lg:flex">
       <h2 class="text-sm">
@@ -631,10 +634,7 @@
     </div>
   </div>
 </header>
-  <!---->
-
-  <!-- MAIN CONTENT -->
-  <div class="mt-[80px] menuMb:mt-[120px] iuhContact">
+    <!---->
         <nav class="w-full relative">
   <div class="w-full max-w-[1200px] px-4 mx-auto">
     <ol class="flex items-center py-4 md:py-5 text-sm">
@@ -920,11 +920,9 @@
     </div>
   </div>
 </div>
-  </div>
-  <!---->
 
-  <!-- FOOTER -->
-  <footer class="flex flex-col-reverse md:flex-col">
+    <!-- FOOTER -->
+    <footer class="flex flex-col-reverse md:flex-col">
 	<div class="w-full max-w-[1200px] px-4 pt-8 pb-5 lg:pt-10 lg:pb-4 mx-auto text-navyBlue-50">
 		<div class="grid grid-cols-1 lg:grid-cols-3 gap-x-0 gap-y-6 lg:gap-6 md:gap-6 mb-6">
 			<div class="flex flex-col gap-4 col-span-1">
@@ -1081,6 +1079,8 @@
 		</div>
 	</div>
 </footer>
+    <!---->
+  </main>
   <!---->
 
   <!-- Loading -->

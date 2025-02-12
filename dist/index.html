@@ -60,8 +60,11 @@
 </head>
 
 <body data-module="HelloModule">
-  <!-- HEADER -->
-  <header class="fixed top-0 left-0 w-full z-50 shadow-lg header-nav" data-module="Header">
+
+  <!-- MAIN CONTENT -->
+  <main class="iuhMainContent mt-[80px] menuMb:mt-[120px] opacity-0 ">
+    <!-- HEADER -->
+    <header class="fixed top-0 left-0 w-full z-50 shadow-lg header-nav" data-module="Header">
   <div class="w-full relative bg-navyBlue-900 text-navyBlue-50">
     <div class="w-full max-w-[1200px] px-4 mx-auto h-10 flex items-center justify-between hidden lg:flex">
       <h2 class="text-sm">
@@ -631,10 +634,7 @@
     </div>
   </div>
 </header>
-  <!---->
-
-  <!-- MAIN CONTENT -->
-  <div class="mt-[80px] menuMb:mt-[120px] ">
+    <!---->
         
 	<div class="relative">
 		<div class="swiper swiper_slidefull" data-module="SwiperFullscreen">
@@ -659,10 +659,10 @@
 		</div>
 	</div>
 	<div class="swiper-pagination"></div>
-	
+
 </div>
 		<div class="w-full overflow-hidden" data-module="HomeAbout">
-	<div class="w-full max-w-[1200px] px-4 mx-auto flex gap-10 lg:gap-[90px] pt-10 lg:pt-16 flex-col lg:flex-row">
+	<div class="iuhFadeInScroll w-full max-w-[1200px] px-4 mx-auto flex gap-10 lg:gap-[90px] pt-10 lg:pt-16 flex-col lg:flex-row">
 		<div class="flex flex-col gap-5 lg:gap-10 w-full lg:max-w-[480px] relative shrink-0 pt-5 lg:pt-[70px]">
 			<h2 class="text-3xl lg:text-titleDK font-bold text-titleColor">Về chúng tôi</h2>
 			<div class="absolute top-[40%] left-[80%] translate-x-[-50%] translate-y-[-50%] size-[200px] lg:size-[290px] z-[-1]">
@@ -1050,7 +1050,7 @@ Thông điệp Hiệu Trưởng
 			</div>
 		</div>
 	</div>
-	<div class="w-full max-w-[1200px] ml-4 lg:mx-auto lg:px-4 mx-auto mt-[50px] overflow-x-scroll lg:overflow-x-auto srollHorizontal pb-5 lg:pb-16">
+	<div class="iuhFadeInScroll w-full max-w-[1200px] ml-4 lg:mx-auto lg:px-4 mx-auto mt-[50px] overflow-x-scroll lg:overflow-x-auto srollHorizontal pb-5 mb-8 md:mb-0 lg:pb-16">
 		<div class="w-[900px] md:w-[1100px] lg:w-full flex gap-5">
 			<div class="group px-5 py-8 bg-stroke1 border border-stroke text-navyBlue-700 rounded-[5px] bg-card
 				transition-all duration-500 ease-in-out cursor-pointer
@@ -1109,10 +1109,10 @@ Thông điệp Hiệu Trưởng
 		</div>
 	</div>
 </div>
-		<div class="w-full iuh-news-notify" data-module="HomeNewsNoti">
+		<div class=" w-full iuh-news-notify" data-module="HomeNewsNoti">
   <div
     class="w-full max-w-[1200px] px-4 mx-auto py-10 lg:py-16 min-h-[500px] flex flex-col md:flex-row lg:flex-row gap-10 md:gap-5">
-    <div class="flex flex-col gap-5 lg:gap-8 w-full md:w-1/2 lg:w-8/12">
+    <div class="iuhFadeInScroll flex flex-col gap-5 lg:gap-8 w-full md:w-1/2 lg:w-8/12">
       <div class="flex flex-row justify-between items-center">
         <h2 class="text-2xl lg:text-titleDK md:leading-[1] font-bold text-titleColor">Tin tức</h2>
         <div class="flex gap-8">
@@ -2410,7 +2410,7 @@ Thông điệp Hiệu Trưởng
         </div>
       </div>
     </div>
-    <div class="flex flex-col gap-5 lg:gap-8 w-full md:w-1/2 lg:w-4/12">
+    <div class="iuhFadeInScroll flex flex-col gap-5 lg:gap-8 w-full md:w-1/2 lg:w-4/12">
       <h2 class="text-2xl lg:text-titleDK md:leading-[1] font-bold text-titleColor h-10 lg:h-[40px] flex items-center">
         Thông báo</h2>
       <div class="flex flex-col gap-5 border border-stroke rounded-md p-2.5 bg-white">
@@ -2666,7 +2666,7 @@ Thông điệp Hiệu Trưởng
     </div>
   </div>
 </div>
-		<div class="w-full relative iuh-event" data-module="HomeEvent">
+		<div class="iuhFadeInScroll w-full relative iuh-event" data-module="HomeEvent">
 	<div class="w-full max-w-[1200px] px-4 mx-auto py-10 lg:py-16">
 		<div class="flex flex-col gap-5 lg:gap-[30px] relative">
 			<h2 class="text-2xl lg:text-titleDK md:leading-[1] font-bold text-white">
@@ -2930,7 +2930,7 @@ Thông điệp Hiệu Trưởng
 		</div>
 	</div>
 </div>
-		<div class="w-full relative iuh-gallery" data-module="HomeGallery">
+		<div class="iuhFadeInScroll w-full relative iuh-gallery" data-module="HomeGallery">
 	<div class="w-full max-w-[1200px] px-4 mx-auto pb-10 lg:pb-[65px] flex flex-col gap-5">
 		<div class="flex flex-row justify-between items-center">
 			<h2 class="text-2xl lg:text-titleDK md:leading-[1] font-bold text-titleColor">
@@ -3026,7 +3026,7 @@ Thông điệp Hiệu Trưởng
 	</div>
 </div>
 		<div
-  class="w-full relative iuh-program py-10 lg:py-16"
+  class="iuhFadeInScroll w-full relative iuh-program py-10 lg:py-16"
   data-module="HomeProgram"
 >
   <div
@@ -3372,7 +3372,7 @@ Thông điệp Hiệu Trưởng
     </div>
   </div>
 </div>
-		<div class="w-full relative iuh-cooperation py-10 lg:py-16" data-module="HomeCooperation">
+		<div class="iuhFadeInScroll w-full relative iuh-cooperation py-10 lg:py-16" data-module="HomeCooperation">
 	<div class="w-full max-w-[1200px] px-4 mx-auto flex flex-col gap-5 lg:gap-10  ">
 		<h2 class="text-2xl lg:text-titleDK md:leading-[1] text-left lg:text-center font-bold text-titleColor">
 			Hợp tác quốc tế
@@ -3611,7 +3611,7 @@ Thông điệp Hiệu Trưởng
 		</div>
 	</div>
 </div>
-		<div class="w-full relative iuh-accredited" data-module="HomeAccredited">
+		<div class="iuhFadeInScroll w-full relative iuh-accredited" data-module="HomeAccredited">
   <div class="w-full max-w-[1200px] px-4 mx-auto py-10 lg:py-16 flex flex-col">
     <h2 class="iuh-accredited-title flex flex-col gap-5 items-center">
       <span class="text-2xl lg:text-titleDK md:leading-[1] text-left lg:text-center font-bold text-titleColor text-center">Các chương trình
@@ -4041,7 +4041,7 @@ Thông điệp Hiệu Trưởng
   </div>
 </div>
 
-		<div class="iuh-research w-full pt-10 lg:pt-16" data-module="HomeResearch">
+		<div class="iuhFadeInScroll iuh-research w-full pt-10 lg:pt-16" data-module="HomeResearch">
   <div class="w-full max-w-[1200px] px-4 mx-auto pb-10 lg:pb-[65px] flex flex-col gap-5">
     <div class="flex flex-col justify-between items-center">
       <h2 class="text-2xl lg:text-titleDK md:leading-[1] font-bold text-left lg:text-center text-titleColor w-full">
@@ -4354,7 +4354,7 @@ Thông điệp Hiệu Trưởng
     </div>
   </div>
 </div>
-		<div class="w-full relative iuh-awards" data-module="HomeAwards">
+		<div class="iuhFadeInScroll w-full relative iuh-awards" data-module="HomeAwards">
   <div
     class="w-full max-w-[1200px] px-4 mx-auto py-10 lg:py-16 flex flex-col"
   >
@@ -4418,7 +4418,7 @@ Thông điệp Hiệu Trưởng
     </div>
   </div>
 </div>
-		<div class="w-full relative" data-module="HomeActives">
+		<div class="iuhFadeInScroll w-full relative" data-module="HomeActives">
   <div class="w-full max-w-[1200px] px-4 mx-auto pt-10 pb-4 lg:pb-0 lg:pt-16 flex flex-col">
     <h2 class="text-2xl lg:text-titleDK md:leading-[1] text-left lg:text-center font-bold text-titleColor h-10 lg:h-[50px]">
       Hoạt động sinh viên
@@ -4879,7 +4879,7 @@ Thông điệp Hiệu Trưởng
       </div>
     </div>
   </div>
-		<div class="w-full relative" data-module="HomePartner">
+		<div class="iuhFadeInScroll w-full relative" data-module="HomePartner">
   <div
     class="w-full max-w-[1200px] px-4 mx-auto pb-6 md:pb-[40px] flex flex-col"
   >
@@ -5040,11 +5040,9 @@ Thông điệp Hiệu Trưởng
 	</div>
 </div>
 
-  </div>
-  <!---->
 
-  <!-- FOOTER -->
-  <footer class="flex flex-col-reverse md:flex-col">
+    <!-- FOOTER -->
+    <footer class="flex flex-col-reverse md:flex-col">
 	<div class="w-full max-w-[1200px] px-4 pt-8 pb-5 lg:pt-10 lg:pb-4 mx-auto text-navyBlue-50">
 		<div class="grid grid-cols-1 lg:grid-cols-3 gap-x-0 gap-y-6 lg:gap-6 md:gap-6 mb-6">
 			<div class="flex flex-col gap-4 col-span-1">
@@ -5201,6 +5199,8 @@ Thông điệp Hiệu Trưởng
 		</div>
 	</div>
 </footer>
+    <!---->
+  </main>
   <!---->
 
   <!-- Loading -->

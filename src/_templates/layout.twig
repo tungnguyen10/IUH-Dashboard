@@ -56,23 +56,23 @@
 </head>
 
 <body data-module="HelloModule">
-  <!-- HEADER -->
-  {% include './header.twig' %}
-  <!---->
 
   <!-- MAIN CONTENT -->
-  <div class="mt-[80px] menuMb:mt-[120px] {{ pageClass ?? '' }}">
+  <main class="iuhMainContent mt-[80px] menuMb:mt-[120px] opacity-0 {{ pageClass ?? '' }}">
+    <!-- HEADER -->
+    {% include './header.twig' %}
+    <!---->
     {% if breadcrumbs is defined %}
     {% include './components/_Breadcrumb.twig' with {
     breadcrumbs: breadcrumbs
     } %}
     {% endif %}
     {% block page %}{% endblock %}
-  </div>
-  <!---->
 
-  <!-- FOOTER -->
-  {% include './footer.twig' %}
+    <!-- FOOTER -->
+    {% include './footer.twig' %}
+    <!---->
+  </main>
   <!---->
 
   <!-- Loading -->

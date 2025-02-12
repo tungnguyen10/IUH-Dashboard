@@ -60,8 +60,11 @@
 </head>
 
 <body data-module="HelloModule">
-  <!-- HEADER -->
-  <header class="fixed top-0 left-0 w-full z-50 shadow-lg header-nav" data-module="Header">
+
+  <!-- MAIN CONTENT -->
+  <main class="iuhMainContent mt-[80px] menuMb:mt-[120px] opacity-0 iuhNotifyDetail">
+    <!-- HEADER -->
+    <header class="fixed top-0 left-0 w-full z-50 shadow-lg header-nav" data-module="Header">
   <div class="w-full relative bg-navyBlue-900 text-navyBlue-50">
     <div class="w-full max-w-[1200px] px-4 mx-auto h-10 flex items-center justify-between hidden lg:flex">
       <h2 class="text-sm">
@@ -631,10 +634,7 @@
     </div>
   </div>
 </header>
-  <!---->
-
-  <!-- MAIN CONTENT -->
-  <div class="mt-[80px] menuMb:mt-[120px] iuhNotifyDetail">
+    <!---->
         <nav class="w-full relative">
   <div class="w-full max-w-[1200px] px-4 mx-auto">
     <ol class="flex items-center py-4 md:py-5 text-sm">
@@ -1221,7 +1221,7 @@
             <!-- Hero Image -->
             <div class="relative aspect-[16/9] sm:aspect-[21/9] overflow-hidden">
               <img src="assets/images/biotech4.jpg" alt="Đại hội Chi bộ 1" class="w-full h-full object-cover">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-navyBlue-900/90 via-navyBlue-900/50 to-transparent opacity-60"></div>
               <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
                 <div class="flex items-center gap-2 mb-3">
                   <span class="flex items-center gap-2 text-sm text-white">
@@ -1481,11 +1481,9 @@
     </div>
   </div>
 </div>
-  </div>
-  <!---->
 
-  <!-- FOOTER -->
-  <footer class="flex flex-col-reverse md:flex-col">
+    <!-- FOOTER -->
+    <footer class="flex flex-col-reverse md:flex-col">
 	<div class="w-full max-w-[1200px] px-4 pt-8 pb-5 lg:pt-10 lg:pb-4 mx-auto text-navyBlue-50">
 		<div class="grid grid-cols-1 lg:grid-cols-3 gap-x-0 gap-y-6 lg:gap-6 md:gap-6 mb-6">
 			<div class="flex flex-col gap-4 col-span-1">
@@ -1642,6 +1640,8 @@
 		</div>
 	</div>
 </footer>
+    <!---->
+  </main>
   <!---->
 
   <!-- Loading -->

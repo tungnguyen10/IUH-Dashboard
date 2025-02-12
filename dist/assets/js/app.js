@@ -1071,7 +1071,7 @@ var Header = /*#__PURE__*/function (_BaseModule) {
       var languageSwitcher = document.querySelector(".language-switcher");
       var languageText = languageSwitcher.querySelector(".language-switcher__text");
       var languageImg = languageSwitcher.querySelector(".language-switcher_img");
-      var isPageLoad = languageSwitcher.href;
+      var isPageLoad = languageSwitcher.dataset.openLink;
       if (!languageSwitcher || !languageText || !languageImg) return;
       var updateLanguage = function updateLanguage() {
         var isEnglish = languageSwitcher.getAttribute("href") === "en/";
@@ -1324,6 +1324,7 @@ var HelloModule = /*#__PURE__*/function (_BaseModule) {
   return _createClass(HelloModule, [{
     key: "register",
     value: function register() {
+      var _this = this;
       window.tailwind.config = {
         content: ["./src/**/*.{html,js,twig}", "./src/_templates/**/*.twig"],
         theme: {
@@ -1449,6 +1450,11 @@ var HelloModule = /*#__PURE__*/function (_BaseModule) {
             document.body.style.overflow = "auto";
           }, 500); // Wait for fade animation to complete
         }, loadingScreen.dataset.time); // 3 seconds delay
+        this.onShowMain();
+      } else {
+        setTimeout(function () {
+          _this.onShowMain();
+        }, 1500);
       }
       this.onModal();
       this.onPulseIcon();
@@ -1456,6 +1462,32 @@ var HelloModule = /*#__PURE__*/function (_BaseModule) {
       this.initDepartmentToggle();
       this.initTabsGlobal();
       this.initMobileMenu();
+      this.initFadeInOnScroll();
+    }
+  }, {
+    key: "initFadeInOnScroll",
+    value: function initFadeInOnScroll() {
+      var boxes = document.querySelectorAll(".iuhFadeInScroll");
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("iuhFadeIned");
+          }
+        });
+      }, {
+        threshold: 0
+      });
+      boxes.forEach(function (box) {
+        return observer.observe(box);
+      });
+    }
+  }, {
+    key: "onShowMain",
+    value: function onShowMain() {
+      var main = document.querySelector("main");
+      if (main) {
+        main.classList.remove("opacity-0");
+      }
     }
   }, {
     key: "onPulseIcon",
@@ -1590,7 +1622,7 @@ var HelloModule = /*#__PURE__*/function (_BaseModule) {
   }, {
     key: "initDepartmentToggle",
     value: function initDepartmentToggle() {
-      var _this = this;
+      var _this2 = this;
       var headerCards = document.querySelectorAll('.group\\/department');
       var activeContent = null;
       var activeCard = null;
@@ -1609,10 +1641,10 @@ var HelloModule = /*#__PURE__*/function (_BaseModule) {
           // If there's an active content and it's not the current one, close it
           if (activeContent && activeContent !== contentCard) {
             // Close previous content
-            _this.closeContent(activeContent);
+            _this2.closeContent(activeContent);
             // Remove active styles from previous card
             if (activeCard) {
-              _this.removeActiveStyles(activeCard);
+              _this2.removeActiveStyles(activeCard);
             }
           }
 
@@ -1620,14 +1652,14 @@ var HelloModule = /*#__PURE__*/function (_BaseModule) {
           if (contentCard) {
             if (contentCard === activeContent) {
               // Close current if it's already open
-              _this.closeContent(contentCard);
-              _this.removeActiveStyles(card);
+              _this2.closeContent(contentCard);
+              _this2.removeActiveStyles(card);
               activeContent = null;
               activeCard = null;
             } else {
               // Open new content
-              _this.openContent(contentCard);
-              _this.addActiveStyles(card);
+              _this2.openContent(contentCard);
+              _this2.addActiveStyles(card);
               activeContent = contentCard;
               activeCard = card;
             }
@@ -1638,9 +1670,9 @@ var HelloModule = /*#__PURE__*/function (_BaseModule) {
       // Close active content when clicking outside
       document.addEventListener('click', function (e) {
         if (activeContent && !e.target.closest('.group\\/department') && !e.target.closest('.w-full.mt-4')) {
-          _this.closeContent(activeContent);
+          _this2.closeContent(activeContent);
           if (activeCard) {
-            _this.removeActiveStyles(activeCard);
+            _this2.removeActiveStyles(activeCard);
           }
           activeContent = null;
           activeCard = null;
