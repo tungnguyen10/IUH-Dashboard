@@ -23,6 +23,7 @@ export default class Header extends BaseModule {
     this.initSubMenus();
     this.handleResize();
     this.initMobileSubmenus();
+    this.languageSwitcher();
     this.initLanguageSwitcher();
   }
 
