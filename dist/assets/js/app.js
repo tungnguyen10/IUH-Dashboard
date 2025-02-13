@@ -1049,16 +1049,22 @@ var Header = /*#__PURE__*/function (_BaseModule) {
   return _createClass(Header, [{
     key: "register",
     value: function register() {
+      // Get main elements with null checks
       this.header = document.querySelector('.header-nav');
+      if (!this.header) return;
       this.hamburger = this.header.querySelector('.hamburger-menu');
       this.closeBtn = this.header.querySelector('.close-menu');
       this.mainNav = this.header.querySelector('.main-nav');
-      this.overlay = document.createElement('div');
+
+      // Only proceed if required elements exist
+      if (!this.mainNav) return;
 
       // Create overlay
+      this.overlay = document.createElement('div');
       this.overlay.className = 'fixed inset-0 bg-black/50 opacity-0 invisible transition-all duration-300 z-40';
       this.header.appendChild(this.overlay);
-      this.languageSwitcher();
+
+      // Initialize features with null checks
       this.initMobileMenu();
       this.initSubMenus();
       this.handleResize();
@@ -1074,15 +1080,15 @@ var Header = /*#__PURE__*/function (_BaseModule) {
       var isPageLoad = languageSwitcher.dataset.openLink;
       if (!languageSwitcher || !languageText || !languageImg) return;
       var updateLanguage = function updateLanguage() {
-        var isEnglish = languageSwitcher.getAttribute("href") === "en/";
-        languageText.textContent = isEnglish ? "ENG" : "VNI";
-        languageImg.style.background = isEnglish ? 'url("/assets/images/eng.webp") no-repeat center center/cover' : 'url("/assets/images/vietnam.png") no-repeat center center/cover';
+        var isEnglish = languageSwitcher.dataset.openLink === "en/";
+        languageText.textContent = !isEnglish ? "ENG" : "VNI";
+        languageImg.style.background = !isEnglish ? 'url("assets/images/eng.webp") no-repeat center center/cover' : 'url("assets/images/vietnam.png") no-repeat center center/cover';
       };
       updateLanguage(); // Cập nhật UI ban đầu
 
       languageSwitcher.addEventListener("click", function (e) {
         e.preventDefault();
-        languageSwitcher.href = languageSwitcher.href === "en/" ? "vi/" : "en/";
+        languageSwitcher.dataset.openLink = languageSwitcher.dataset.openLink === "en/" ? "vi/" : "en/";
         languageSwitcher.classList.toggle("active");
         updateLanguage();
         setTimeout(function () {
@@ -1093,22 +1099,21 @@ var Header = /*#__PURE__*/function (_BaseModule) {
   }, {
     key: "initMobileMenu",
     value: function initMobileMenu() {
-      var _this$hamburger,
-        _this = this,
-        _this$closeBtn,
-        _this$overlay;
+      var _this = this;
+      if (!this.hamburger || !this.closeBtn || !this.overlay) return;
+
       // Open menu
-      (_this$hamburger = this.hamburger) === null || _this$hamburger === void 0 || _this$hamburger.addEventListener('click', function () {
+      this.hamburger.addEventListener('click', function () {
         _this.openMenu();
       });
 
       // Close menu with button
-      (_this$closeBtn = this.closeBtn) === null || _this$closeBtn === void 0 || _this$closeBtn.addEventListener('click', function () {
+      this.closeBtn.addEventListener('click', function () {
         _this.closeMenu();
       });
 
       // Close menu when clicking overlay
-      (_this$overlay = this.overlay) === null || _this$overlay === void 0 || _this$overlay.addEventListener('click', function () {
+      this.overlay.addEventListener('click', function () {
         _this.closeMenu();
       });
 
@@ -1122,6 +1127,7 @@ var Header = /*#__PURE__*/function (_BaseModule) {
   }, {
     key: "openMenu",
     value: function openMenu() {
+      if (!this.header || !this.mainNav) return;
       this.header.classList.add('menu-active');
       this.mainNav.classList.remove('right-[-100%]');
       this.mainNav.classList.add('right-0');
@@ -1132,6 +1138,7 @@ var Header = /*#__PURE__*/function (_BaseModule) {
   }, {
     key: "closeMenu",
     value: function closeMenu() {
+      if (!this.header || !this.mainNav) return;
       this.header.classList.remove('menu-active');
       this.mainNav.classList.remove('right-0');
       this.mainNav.classList.add('right-[-100%]');
@@ -1143,21 +1150,26 @@ var Header = /*#__PURE__*/function (_BaseModule) {
     key: "initSubMenus",
     value: function initSubMenus() {
       var _this2 = this;
+      if (!this.mainNav) return;
+
       // Handle submenu toggles on mobile
       if (window.innerWidth <= 1200) {
-        this.subMenuBtns = this.header.querySelectorAll('.has-submenu > a');
-        this.subMenuBtns.forEach(function (btn) {
+        var _subMenuBtns = this.header.querySelectorAll('.has-submenu > a');
+        _subMenuBtns === null || _subMenuBtns === void 0 || _subMenuBtns.forEach(function (btn) {
           btn.addEventListener('click', function (e) {
             e.preventDefault();
             var submenu = btn.nextElementSibling;
-            submenu.classList.toggle('show');
+            if (submenu) {
+              submenu.classList.toggle('show');
+            }
           });
         });
       }
+
       // Handle submenu hover on desktop
-      this.subMenuBtns = this.header.querySelectorAll('.group\\/sub-menu > a');
-      this.subMenuBtns1 = this.header.querySelectorAll('.group\\/sub1-menu > a');
-      this.subMenuBtns.forEach(function (btn) {
+      var subMenuBtns = this.header.querySelectorAll('.group\\/sub-menu > a');
+      var subMenuBtns1 = this.header.querySelectorAll('.group\\/sub1-menu > a');
+      subMenuBtns === null || subMenuBtns === void 0 || subMenuBtns.forEach(function (btn) {
         btn.addEventListener('mouseenter', function () {
           var submenu = btn.nextElementSibling;
           if (submenu) {
@@ -1165,7 +1177,7 @@ var Header = /*#__PURE__*/function (_BaseModule) {
           }
         });
       });
-      this.subMenuBtns1.forEach(function (btn) {
+      subMenuBtns1 === null || subMenuBtns1 === void 0 || subMenuBtns1.forEach(function (btn) {
         btn.addEventListener('mouseenter', function () {
           var submenu = btn.nextElementSibling;
           if (submenu) {
@@ -1205,47 +1217,37 @@ var Header = /*#__PURE__*/function (_BaseModule) {
     key: "initMobileSubmenus",
     value: function initMobileSubmenus() {
       var _this4 = this;
-      var subMenuTriggers = this.mainNav.querySelectorAll('.group\\/sub-menu > a, .group\\/sub1-menu > a');
+      var subMenuTriggers = this.mainNav.querySelectorAll('.group\\/sub-menu > a');
       subMenuTriggers.forEach(function (trigger) {
         trigger.addEventListener('click', function (e) {
-          // Only handle special behavior on mobile
+          // Only handle clicks on mobile
           if (window.innerWidth <= 1100) {
-            var submenu = trigger.nextElementSibling;
-            var hasSubmenu = (submenu === null || submenu === void 0 ? void 0 : submenu.tagName) === 'UL';
-
-            // If no submenu exists, let the link work normally
+            var _trigger$nextElementS;
+            // Check if this menu item has a submenu
+            var hasSubmenu = (_trigger$nextElementS = trigger.nextElementSibling) === null || _trigger$nextElementS === void 0 ? void 0 : _trigger$nextElementS.classList.contains('menuMb:absolute');
             if (!hasSubmenu) {
-              return true;
+              // If no submenu, allow normal link behavior
+              return;
             }
 
-            // Prevent default only if there's a submenu
+            // Prevent default only if has submenu
             e.preventDefault();
+            var submenu = trigger.nextElementSibling;
             var arrow = trigger.querySelector('svg');
 
-            // Close other submenus at the same level
+            // Close other submenus at same level
             var parent = trigger.closest('ul');
             parent.querySelectorAll('ul').forEach(function (menu) {
               if (menu !== submenu) {
-                var _menu$previousElement;
                 menu.classList.remove('submenu-active');
-                var otherArrow = (_menu$previousElement = menu.previousElementSibling) === null || _menu$previousElement === void 0 ? void 0 : _menu$previousElement.querySelector('svg');
+                var otherArrow = menu.previousElementSibling.querySelector('svg');
                 otherArrow === null || otherArrow === void 0 || otherArrow.classList.remove('rotate-active');
               }
             });
 
             // Toggle current submenu
-            submenu.classList.toggle('submenu-active');
+            submenu === null || submenu === void 0 || submenu.classList.toggle('submenu-active');
             arrow === null || arrow === void 0 || arrow.classList.toggle('rotate-active');
-
-            // Optional: Close child submenus when closing parent
-            if (!submenu.classList.contains('submenu-active')) {
-              submenu.querySelectorAll('.submenu-active').forEach(function (childMenu) {
-                var _childMenu$previousEl;
-                childMenu.classList.remove('submenu-active');
-                var childArrow = (_childMenu$previousEl = childMenu.previousElementSibling) === null || _childMenu$previousEl === void 0 ? void 0 : _childMenu$previousEl.querySelector('svg');
-                childArrow === null || childArrow === void 0 || childArrow.classList.remove('rotate-active');
-              });
-            }
           }
         });
       });
@@ -1265,21 +1267,17 @@ var Header = /*#__PURE__*/function (_BaseModule) {
   }, {
     key: "initLanguageSwitcher",
     value: function initLanguageSwitcher() {
+      if (!this.mainNav) return;
       var langButtons = this.mainNav.querySelectorAll('.lang-btn');
+      if (!langButtons.length) return;
       langButtons.forEach(function (btn) {
         btn.addEventListener('click', function () {
-          // Remove active state from all buttons
           langButtons.forEach(function (button) {
             button.setAttribute('data-active', 'false');
           });
-
-          // Set active state on clicked button
           btn.setAttribute('data-active', 'true');
-
-          // Additional language switch logic here
           var lang = btn.getAttribute('data-lang');
           console.log(lang);
-          // Handle language change...
         });
       });
     }
@@ -1746,7 +1744,7 @@ var HelloModule = /*#__PURE__*/function (_BaseModule) {
   }, {
     key: "initMobileMenu",
     value: function initMobileMenu() {
-      var menuItems = document.querySelectorAll('.group\\/sub-menu');
+      var menuItems = document.querySelectorAll('.group\\/subbar-menu');
       menuItems.forEach(function (item) {
         var link = item.querySelector('a');
         var submenu = item.querySelector('ul');

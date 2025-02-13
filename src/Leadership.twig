@@ -101,7 +101,7 @@
               ] %}
 
               {% for item in mainMenu %}
-              <li class="group/sub-menu relative">
+              <li class="group/subbar-menu relative">
                 <a href="#"
                   class="font-semibold px-4 py-2 flex items-center bg-navyBlue-800 text-white rounded-md justify-between gap-2 transition-all duration-300 hover:text-navyBlue-800 hover:bg-navyBlue-100">
                   {{ item.title }}
@@ -113,7 +113,7 @@
                 </a>
                 <!-- submenu -->
                 <ul
-                  class="submenu-container menuMb:absolute bg-white w-full menuMb:w-[150%] menuMb:top-0 menuMb:left-full max-h-0 menuMb:max-h-none overflow-hidden menuMb:overflow-visible transform opacity-0 invisible menuMb:group-hover/sub-menu:opacity-100 menuMb:group-hover/sub-menu:visible translate-y-2 menuMb:group-hover/sub-menu:translate-y-0 transition-all duration-300 ease-in-out shadow-lg rounded-md border-t-3 border-navyBlue-900 z-50 grid grid-cols-2 mobile-menu-closed">
+                  class="submenu-container menuMb:absolute bg-white w-full menuMb:w-[150%] menuMb:top-0 menuMb:left-full max-h-0 menuMb:max-h-none overflow-hidden menuMb:overflow-visible transform opacity-0 invisible menuMb:group-hover/subbar-menu:opacity-100 menuMb:group-hover/subbar-menu:visible translate-y-2 menuMb:group-hover/subbar-menu:translate-y-0 transition-all duration-300 ease-in-out shadow-lg rounded-md border-t-3 border-navyBlue-900 z-50 grid grid-cols-2 mobile-menu-closed">
                   {% for subItem in item.subitems %}
                   <li class="border-t menuMb:border-b border-gray-100 last:border-none">
                     <a href="#"

@@ -404,7 +404,7 @@ export default class HelloModule extends BaseModule {
   }
 
   initMobileMenu() {
-    const menuItems = document.querySelectorAll('.group\\/sub-menu');
+    const menuItems = document.querySelectorAll('.group\\/subbar-menu');
 
     menuItems.forEach(item => {
       const link = item.querySelector('a');

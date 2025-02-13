@@ -4,14 +4,6 @@ header {
 
     &.active {
       flex-direction: row-reverse;
-      .language-switcher_img {
-        background: url("../images/eng.webp") no-repeat center center/cover;
-      }
-    }
-
-    .language-switcher_img {
-      background: url("../images/vietnam.png") no-repeat center center/cover;
-      transition: background 0.2s ease-in-out;
     }
   }
 }
