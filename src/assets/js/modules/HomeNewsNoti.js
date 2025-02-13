@@ -42,7 +42,7 @@ export default class HomeNewsNoti extends BaseModule {
         firstNewsItem.style.maxHeight = `${height}px`;
       } else {
         const height =
-          heightElement.offsetHeight - heightNotify.offsetHeight - 40;
+          heightElement.offsetHeight - heightNotify.offsetHeight - 42;
         firstNewsItem.style.maxHeight = `${height}px`;
       }
     };

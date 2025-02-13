@@ -166,55 +166,103 @@ export default class Header extends BaseModule {
     });
   }
 
-  initMobileSubmenus() {
-    const subMenuTriggers = this.mainNav.querySelectorAll('.group\\/sub-menu > a');
+  // initMobileSubmenus() {
+  //   const subMenuTriggers = this.mainNav.querySelectorAll('.group\\/sub-menu > a');
 
+  //   subMenuTriggers.forEach(trigger => {
+  //     trigger.addEventListener('click', (e) => {
+  //       // Only handle clicks on mobile
+  //       if (window.innerWidth <= 1100) {
+  //         // Check if this menu item has a submenu
+  //         const hasSubmenu = trigger.nextElementSibling?.classList.contains('menuMb:absolute');
+
+  //         if (!hasSubmenu) {
+  //           // If no submenu, allow normal link behavior
+  //           return;
+  //         }
+
+  //         // Prevent default only if has submenu
+  //         e.preventDefault();
+
+  //         const submenu = trigger.nextElementSibling;
+  //         const arrow = trigger.querySelector('svg');
+
+  //         // Close other submenus at same level
+  //         const parent = trigger.closest('ul');
+  //         parent.querySelectorAll('ul').forEach(menu => {
+  //           if (menu !== submenu) {
+  //             menu.classList.remove('submenu-active');
+  //             const otherArrow = menu.previousElementSibling.querySelector('svg');
+  //             otherArrow?.classList.remove('rotate-active');
+  //           }
+  //         });
+
+  //         // Toggle current submenu
+  //         submenu?.classList.toggle('submenu-active');
+  //         arrow?.classList.toggle('rotate-active');
+  //       }
+  //     });
+  //   });
+
+  //   // Reset submenus on resize
+  //   window.addEventListener('resize', () => {
+  //     if (window.innerWidth > 1100) {
+  //       this.mainNav.querySelectorAll('.submenu-active').forEach(submenu => {
+  //         submenu.classList.remove('submenu-active');
+  //       });
+  //       this.mainNav.querySelectorAll('.rotate-active').forEach(arrow => {
+  //         arrow.classList.remove('rotate-active');
+  //       });
+  //     }
+  //   });
+  // }
+  initMobileSubmenus() {
+    const subMenuTriggers = this.mainNav.querySelectorAll('.group\\/sub-menu > a, .group\\/sub1-menu > a');
     subMenuTriggers.forEach(trigger => {
       trigger.addEventListener('click', (e) => {
-        // Only handle clicks on mobile
+        // Only handle special behavior on mobile
         if (window.innerWidth <= 1100) {
-          // Check if this menu item has a submenu
-          const hasSubmenu = trigger.nextElementSibling?.classList.contains('menuMb:absolute');
+          const submenu = trigger.nextElementSibling;
+          const hasSubmenu = submenu?.tagName === 'UL';
 
+          // If no submenu exists, let the link work normally
           if (!hasSubmenu) {
-            // If no submenu, allow normal link behavior
-            return;
+            return true;
+
           }
 
-          // Prevent default only if has submenu
+          // Prevent default only if there's a submenu
           e.preventDefault();
 
-          const submenu = trigger.nextElementSibling;
+
           const arrow = trigger.querySelector('svg');
 
-          // Close other submenus at same level
+          // Close other submenus at the same level
           const parent = trigger.closest('ul');
           parent.querySelectorAll('ul').forEach(menu => {
             if (menu !== submenu) {
               menu.classList.remove('submenu-active');
-              const otherArrow = menu.previousElementSibling.querySelector('svg');
+              const otherArrow = menu.previousElementSibling?.querySelector('svg');
               otherArrow?.classList.remove('rotate-active');
             }
           });
 
           // Toggle current submenu
-          submenu?.classList.toggle('submenu-active');
+          submenu.classList.toggle('submenu-active');
           arrow?.classList.toggle('rotate-active');
+
+          // Optional: Close child submenus when closing parent
+          if (!submenu.classList.contains('submenu-active')) {
+            submenu.querySelectorAll('.submenu-active').forEach(childMenu => {
+              childMenu.classList.remove('submenu-active');
+              const childArrow = childMenu.previousElementSibling?.querySelector('svg');
+              childArrow?.classList.remove('rotate-active');
+            });
+          }
         }
       });
     });
 
-    // Reset submenus on resize
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 1100) {
-        this.mainNav.querySelectorAll('.submenu-active').forEach(submenu => {
-          submenu.classList.remove('submenu-active');
-        });
-        this.mainNav.querySelectorAll('.rotate-active').forEach(arrow => {
-          arrow.classList.remove('rotate-active');
-        });
-      }
-    });
   }
 
   initLanguageSwitcher() {

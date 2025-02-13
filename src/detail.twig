@@ -659,7 +659,7 @@
           <!-- Main Article Content -->
           <article class="bg-white rounded-xl shadow-lg overflow-hidden">
             <!-- Department Header -->
-            <div class="relative bg-white rounded-xl overflow-hidden shadow-lg">
+            <div class="relative bg-white rounded-tl-xl rounded-tr-xl overflow-hidden shadow-lg">
               <div class="relative aspect-[21/9] overflow-hidden">
                 <img src="assets/images/cooperation.png" alt="Khoa Công nghệ Thông tin"
                   class="w-full h-full object-cover">
@@ -853,6 +853,161 @@
                   <p class="text-black1 m-0">{{ activity.desc }}</p>
                 </div>
                 {% endfor %}
+              </div>
+
+              <!-- Vision & Mission Section -->
+              <h2>Tầm nhìn - Sứ mệnh</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 not-prose my-8">
+                <!-- Vision Card -->
+                <div class="bg-white rounded-xl p-6 shadow-md border border-gray-100">
+                  <div class="flex items-center gap-3 mb-4">
+                    <div class="w-12 h-12 rounded-xl bg-navyBlue-100 flex items-center justify-center">
+                      <svg class="w-6 h-6 text-navyBlue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                      </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-navyBlue-800">Tầm nhìn</h3>
+                  </div>
+                  <p class="text-black1 leading-relaxed">Trở thành top 10 trung tâm đào tạo ngoại ngữ chất lượng tại Việt Nam, cùng nhà trường đóng góp vào sự phát triển chung của đất nước và khu vực.</p>
+                </div>
+
+                <!-- Mission Card -->
+                <div class="bg-white rounded-xl p-6 shadow-md border border-gray-100">
+                  <div class="flex items-center gap-3 mb-4">
+                    <div class="w-12 h-12 rounded-xl bg-navyBlue-100 flex items-center justify-center">
+                      <svg class="w-6 h-6 text-navyBlue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-navyBlue-800">Sứ mệnh</h3>
+                  </div>
+                  <div class="space-y-3">
+                    <p class="text-black1 leading-relaxed">Đào tạo nguồn nhân lực tốt về kiến thức, kỹ năng ngoại ngữ, đầy đủ về phẩm chất, năng lực để phục vụ các yêu cầu công việc trong tương lai.</p>
+                    <p class="text-black1 leading-relaxed">Đóng góp vào sự phát triển chung của IUH và sự phát triển kinh tế, văn hóa xã hội của TP. Hồ Chí Minh và cả nước.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Operational Information Section -->
+              <h2>Thông tin hoạt động</h2>
+              <div class="space-y-6 not-prose my-8">
+                <div class="bg-white rounded-xl p-6 shadow-md border border-gray-100">
+                  <h3 class="text-xl font-bold text-navyBlue-800 mb-4">Thống kê & Con số</h3>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-navyBlue-50 rounded-lg p-4 text-center">
+                      <div class="text-2xl font-bold text-navyBlue-800">20+</div>
+                      <div class="text-sm text-navyBlue-600">Năm phát triển</div>
+                    </div>
+                    <div class="bg-navyBlue-50 rounded-lg p-4 text-center">
+                      <div class="text-2xl font-bold text-navyBlue-800">6,000+</div>
+                      <div class="text-sm text-navyBlue-600">Sinh viên/năm</div>
+                    </div>
+                    <div class="bg-navyBlue-50 rounded-lg p-4 text-center">
+                      <div class="text-2xl font-bold text-navyBlue-800">30,000+</div>
+                      <div class="text-sm text-navyBlue-600">Cựu sinh viên</div>
+                    </div>
+                    <div class="bg-navyBlue-50 rounded-lg p-4 text-center">
+                      <div class="text-2xl font-bold text-navyBlue-800">04</div>
+                      <div class="text-sm text-navyBlue-600">Chuyên ngành</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- International Cooperation Section -->
+                <div class="bg-white rounded-xl p-6 shadow-md border border-gray-100">
+                  <h3 class="text-xl font-bold text-navyBlue-800 mb-4">Hợp tác quốc tế</h3>
+                  <div class="space-y-4">
+                    <p class="text-black1 leading-relaxed">Khoa có chương trình hợp tác đào tạo quốc tế với nhiều quốc gia trong việc đào tạo các khóa du học tại chỗ cấp bằng cử nhân, thạc sĩ.</p>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                      <div class="p-4 text-center bg-navyBlue-50 rounded-lg">
+                        <span class="font-medium text-navyBlue-800">Hoa Kỳ</span>
+                      </div>
+                      <div class="p-4 text-center bg-navyBlue-50 rounded-lg">
+                        <span class="font-medium text-navyBlue-800">Đài Loan</span>
+                      </div>
+                      <div class="p-4 text-center bg-navyBlue-50 rounded-lg">
+                        <span class="font-medium text-navyBlue-800">Hàn Quốc</span>
+                      </div>
+                      <div class="p-4 text-center bg-navyBlue-50 rounded-lg">
+                        <span class="font-medium text-navyBlue-800">Canada</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Accreditation Section -->
+                <div class="bg-gradient-to-r from-navyBlue-50 to-white p-6 rounded-xl">
+                  <h3 class="text-xl font-bold text-navyBlue-800 mb-4">Chứng nhận & Kiểm định</h3>
+                  <div class="flex items-start gap-4">
+                    <div class="shrink-0">
+                      <div class="w-16 h-16 rounded-xl bg-navyBlue-100 flex items-center justify-center">
+                        <span class="text-lg font-bold text-navyBlue-600">2019</span>
+                      </div>
+                    </div>
+                    <div class="flex-1">
+                      <h4 class="font-semibold text-navyBlue-800 mb-2">Kiểm định AUN-QA</h4>
+                      <p class="text-black1">Chương trình đào tạo ngành Quản trị Kinh doanh được kiểm định thành công theo chuẩn AUN-QA.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Development Direction Section -->
+              <h2>Định hướng phát triển</h2>
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 not-prose my-8">
+                <div class="bg-white rounded-xl p-6 shadow-md border border-gray-100">
+                  <h3 class="text-xl font-bold text-navyBlue-800 mb-4">Về đào tạo</h3>
+                  <ul class="space-y-3 text-black1">
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-navyBlue-600 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Đa dạng hoá ngành nghề, nâng cao chất lượng và quy mô đào tạo</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-navyBlue-600 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Cải tiến và cập nhật chương trình đào tạo định kỳ</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-md border border-gray-100">
+                  <h3 class="text-xl font-bold text-navyBlue-800 mb-4">Về phát triển đội ngũ và cơ sở vật chất</h3>
+                  <ul class="space-y-3 text-black1">
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-navyBlue-600 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Phát triển đội ngũ Giảng viên về số lượng và chất lượng</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-navyBlue-600 mt-1 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Nâng cấp cơ sở vật chất đáp ứng nhu cầu đào tạo và nghiên cứu</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Faculty Information Section -->
+              <h2>Đội ngũ giảng viên</h2>
+              <div class="bg-white rounded-xl p-6 shadow-md border border-gray-100 not-prose my-8">
+                <div class="flex items-center gap-4 mb-6">
+                  <div class="w-12 h-12 rounded-xl bg-navyBlue-100 flex items-center justify-center">
+                    <svg class="w-6 h-6 text-navyBlue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-navyBlue-800">Đội ngũ giảng dạy</h3>
+                    <p class="text-navyBlue-600">70% giảng viên có trình độ Tiến sĩ</p>
+                  </div>
+                </div>
+                <p class="text-black1 leading-relaxed">Khoa có đội ngũ Giảng viên trình độ cao, có kinh nghiệm giảng dạy và tâm huyết với nghề. Toàn thể Giảng viên hiện tại có trình độ sau Đại học.</p>
               </div>
 
             </div>
