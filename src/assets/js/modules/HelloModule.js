@@ -406,7 +406,7 @@ export default class HelloModule extends BaseModule {
   initMobileMenu() {
     const menuItems = document.querySelectorAll('.group\\/subbar-menu');
 
-    menuItems.forEach(item => {
+    menuItems?.forEach(item => {
       const link = item.querySelector('a');
       const submenu = item.querySelector('ul');
       const arrow = item.querySelector('svg');
@@ -425,8 +425,8 @@ export default class HelloModule extends BaseModule {
           });
 
           // Toggle current menu
-          submenu.classList.toggle('mobile-menu-active');
-          arrow.classList.toggle('rotate-180');
+          submenu?.classList.toggle('mobile-menu-active');
+          arrow?.classList.toggle('rotate-180');
         }
       };
 
