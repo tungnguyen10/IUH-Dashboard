@@ -58,6 +58,24 @@ export default class HelloModule extends BaseModule {
           },
           colors: {
             lightText: "#9aa5b1",
+            facebook: {
+              blue: "#1877F2",
+              dark: "#2851A3",
+              light: "#8BC6FF"
+            },
+            instagram: {
+              pink: "#E1306C",
+              purple: "#833AB4",
+              red: "#FD1D1D",
+              yellow: "#FCAF45",
+              blue: "#4C68D7"
+            },
+            tiktok: {
+              red: "#FE2C55",
+              cyan: "#25F4EE",
+              black: "#000000",
+              white: "#FFFFFF"
+            },
             navyBlue: {
               50: "#edf9ff",
               100: "#d6f0ff",
