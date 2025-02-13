@@ -126,7 +126,7 @@ export default class HelloModule extends BaseModule {
     } else {
       setTimeout(() => {
         this.onShowMain();
-      }, 1500);
+      }, 800);
     }
     this.onModal();
     this.onPulseIcon();
