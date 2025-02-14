@@ -50,13 +50,9 @@
   <title>Page Title | IUH - Đại học Công nghiệp TP.HCM</title>
 
   <!-- inject:css -->
-
   <link rel="stylesheet" href="assets/css/app.css">
-
   <link rel="stylesheet" href="assets/css/vendor.css">
-
   <!-- endinject -->
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body data-module="HelloModule">
@@ -700,7 +696,7 @@
 			</div>
 		</div>
 		<div class="w-full max-w-[972px] flex-1 bg-about">
-			<div class="swiper swiper_about py-5 lg:py-[85px] -mr-5 lg:mr-0">
+			<div class="swiper swiper_about !py-5 lg:!py-[85px] -!mr-5 lg:!mr-0">
 				<div class="swiper-wrapper">
 											<div class="swiper-slide">
 							<div class="aspect-[280/330] relative group/about cursor-pointer rounded-[10px] overflow-hidden hover:translate-y-[-0.5rem] hover:border hover:border-navyBlue-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
@@ -2660,8 +2656,7 @@ Thông điệp Hiệu Trưởng
               <a href="#">Thông báo tuyển sinh trình độ thạc sĩ đợt 2 năm 2024</a>
             </h3>
           </div>
-          d
-        </div>
+                  </div>
       </div>
     </div>
   </div>
@@ -2694,7 +2689,7 @@ Thông điệp Hiệu Trưởng
 			</div>
 		</div>
 		<div class="w-full">
-			<div class="swiper iuh-event-slide -mx-4 pt-10 py-14 lg:py-16">
+			<div class="swiper iuh-event-slide -mx-4 !pt-10 !py-14 lg:!py-16 ">
 				<div class="swiper-wrapper">
 											<div class="swiper-slide">
 							<div class="aspect-[0.76] w-full top-0 hover:-top-2 hover:shadow-lg relative p-4 flex items-end bg-navyBlue-200 hover:p-0 rounded-xl transition-all duration-700 overflow-hidden before:absolute before:pointer-events-none before:size-full before:inset-0 before:bg-gradient-to-b before:from-[#0070FF]/70 before:to-[#0070FF]/90 before:top-full before:scale-1 before:hover:top-0 before:hover:scale-[1.2] before:transition-all before:duration-700 before:z-[2]">
@@ -4534,7 +4529,7 @@ Thông điệp Hiệu Trưởng
         </div>
       </div>
       <div class="w-full">
-        <div class="swiper swiper_actives pt-6 pb-14 lg:pb-16">
+        <div class="swiper swiper_actives !pt-6 !pb-14 lg:!pb-16">
           <div class="swiper-wrapper">
                         <div class="swiper-slide">
               <div class="flex flex-row gap-2 w-full border border-stroke rounded-md
@@ -4907,7 +4902,7 @@ Thông điệp Hiệu Trưởng
           />
         </svg>
       </div>
-      <div class="swiper swiper_partner py-5">
+      <div class="swiper swiper_partner !py-5">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div
@@ -5045,26 +5040,24 @@ Thông điệp Hiệu Trưởng
     <footer class="flex flex-col-reverse md:flex-col">
 	<div class="w-full max-w-[1200px] px-4 pt-8 pb-5 lg:pt-10 lg:pb-4 mx-auto text-navyBlue-50">
 		<div class="grid grid-cols-1 lg:grid-cols-3 gap-x-0 gap-y-6 lg:gap-6 md:gap-6 mb-6">
-			<div class="flex flex-col gap-4 col-span-1">
-				<a href="/" class="w-full max-w-[200px]">
+			<div class="flex flex-col gap-5 md:gap-6 col-span-1">
+				<a href="/" class="w-full max-w-[200px] mx-auto">
 					<img src="assets/images/icons/logo-white.svg" alt="Logo" class="w-full"/>
 				</a>
-				<div class="flex flex-col gap-5">
+				<div class="flex flex-col gap-4">
 					<h3 class="text-base font-semibold italic uppercase">
 						TRƯỜNG ĐẠI HỌC CÔNG NGHIỆP TP. HCM
 					</h3>
 
 					<div class="flex flex-row items-center gap-1">
 						<div class="size-5 shrink-0">
-							<svg xmlns="http://www.w3.org/2000/svg" class="size-full" viewbox="0 0 24 24" fill="none">
-								<g>
-									<path d="M4.01904 21.1102V7.6102H9.24979V4.97545L11.9998 2.2832L14.7498 4.97545V11.6102H19.9805V21.1102H4.01904ZM5.51904 19.6102H8.01904V17.1102H5.51904V19.6102ZM5.51904 15.6102H8.01904V13.1102H5.51904V15.6102ZM5.51904 11.6102H8.01904V9.1102H5.51904V11.6102ZM10.7498 19.6102H13.2498V17.1102H10.7498V19.6102ZM10.7498 15.6102H13.2498V13.1102H10.7498V15.6102ZM10.7498 11.6102H13.2498V9.1102H10.7498V11.6102ZM10.7498 7.6102H13.2498V5.1102H10.7498V7.6102ZM15.9805 19.6102H18.4805V17.1102H15.9805V19.6102ZM15.9805 15.6102H18.4805V13.1102H15.9805V15.6102Z" fill="white"/>
-								</g>
+							<svg class="size-full shrink-0 mt-1" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
 							</svg>
 						</div>
 						<div class="border-l border-stroke pl-1 text-sm font-light leading-6 flex-1">
 							Địa chỉ : Số 12 Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, Thành phố
-																																																																						              Hồ Chí Minh
+																																																																																				              Hồ Chí Minh
 						</div>
 					</div>
 					<div class="flex flex-row items-center gap-1">
@@ -5091,7 +5084,7 @@ Thông điệp Hiệu Trưởng
 					</div>
 				</div>
 				<!-- social icon -->
-				<div class="w-full flex flex-col gap-4">
+				<div class="w-full flex flex-col gap-3">
 					<h3 class="text-base font-semibold italic uppercase text-y200">Kết nối với chúng tôi</h3>
 
 					<!-- Social Icons Grid -->
@@ -5140,7 +5133,7 @@ Thông điệp Hiệu Trưởng
 					</div>
 				</div>
 			</div>
-			<div class="flex flex-col gap-6 col-span-2">
+			<div class="flex flex-col gap-5 col-span-2">
 				<h2 class="text-lg font-semibold italic text-y200">Các Cơ sở</h2>
 				<div
 					class="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -5327,10 +5320,10 @@ Thông điệp Hiệu Trưởng
       <div class="relative">
         <div class="relative group">
           <div class="absolute inset-y-0 left-3 md:left-4 flex items-center pointer-events-none text-gray-400">
-            <svg class="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none">
+            <svg class="w-5 h-5 shrink-0">
               <path
                 d="M21 21L16.65 16.65M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </div>
           <input type="text"

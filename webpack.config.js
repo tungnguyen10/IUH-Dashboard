@@ -31,6 +31,10 @@ module.exports = (isDev = true, config = {}) => {
               }
             }
           ]
+        },
+        {
+          test: /swiper\.esm\.js/,
+          sideEffects: false
         }
       ]
     },

@@ -1,8 +1,11 @@
 const gulp = require('gulp')
 const twig = require('gulp-twig')
+const tailwindcss = require('tailwindcss')
 const sass = require('gulp-sass')(require('sass'))
 const sassGlob = require('gulp-sass-glob')
 const plumber = require('gulp-plumber')
+const postcss = require('gulp-postcss')
+const autoprefixer = require('autoprefixer')
 const imagemin = require('gulp-imagemin')
 const newer = require('gulp-newer')
 const browserSync = require('browser-sync')
@@ -52,13 +55,21 @@ gulp.task('twig', () => {
     .pipe(browserSync.stream())
 })
 
-gulp.task('css', () => gulp.src([`${config.src.assets}/css/*.scss`])
-  .pipe(sassGlob())
-  // .pipe(sass({ outputStyle: isDev ? 'nested' : 'compressed' }).on('error', sass.logError))
-  .pipe(sass.sync({outputStyle: 'compressed'}).on('error', sass.logError))
-  .pipe(gulpif(!isDev, footer(`\n/* ${now} */\n/* v${require('./package.json').version} */`)))
-  .pipe(gulp.dest(`${config.dist.assets}/css`))
-  .pipe(browserSync.stream()))
+gulp.task('css', () => 
+  gulp.src([`${config.src.assets}/css/*.scss`])
+    .pipe(sassGlob())
+    .pipe(postcss([
+      tailwindcss('./tailwind.config.js'),
+      autoprefixer
+    ]))
+    .pipe(sass.sync({
+      outputStyle: 'compressed',
+      includePaths: ['node_modules']
+    }).on('error', sass.logError))
+    .pipe(gulpif(!isDev, footer(`\n/* ${now} */\n/* v${require('./package.json').version} */`)))
+    .pipe(gulp.dest(`${config.dist.assets}/css`))
+    .pipe(browserSync.stream())
+)
 
 gulp.task('js:lint', () => {
   return gulp.src([`${config.src.assets}/js/**/*.js`])

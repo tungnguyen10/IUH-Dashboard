@@ -19,7 +19,6 @@ a {
   text-decoration: none;
 }
 
-
 .bg-card {
   &:hover {
     background: linear-gradient(
@@ -274,7 +273,7 @@ a {
   }
 }
 .pulse-animation {
-  position: relative;
+  // position: relative;
 
   // First pulse ring
   &::before,
@@ -671,10 +670,10 @@ a {
 
     @keyframes spin {
       from {
-        transform: rotate(0deg) translate(-50%, -50%);
+        transform: rotate(0deg);
       }
       to {
-        transform: rotate(360deg) translate(-50%, -50%);
+        transform: rotate(360deg);
       }
     }
 
@@ -1293,3 +1292,8 @@ a {
   opacity: 1;
   transform: translateY(0);
 }
+.child-related-news {
+  padding-top: 1.25rem !important;
+  padding-bottom: 3.5rem !important;
+}
+

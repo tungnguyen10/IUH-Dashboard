@@ -1,10 +1,13 @@
 
+
+/* Các import khác của bạn  */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SCSS imports */
 @import "./base/**/*";
-
 @import "./elements/**/*";
-
 @import "./blocks/**/*";
-
 @import "./global/**/*";
-
 @import "./pages/*";
