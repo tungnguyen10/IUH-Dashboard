@@ -7,7 +7,6 @@ header {
     }
   }
 }
-
 .header-nav {
   // Mobile menu overlay
   &::before {
@@ -23,20 +22,29 @@ header {
 
   // Main navigation
   .main-nav {
+
     // Desktop submenu behavior (hover)
     @media (min-width: 1101px) {
       height: 80px;
+      .group\/sub-menu > ul,
+      .group\/sub1-menu > ul {
+        display: none;
+      }
       .group\/sub-menu:hover > ul,
       .group\/sub1-menu:hover > ul {
         opacity: 1;
         visibility: visible;
+        display: grid;
+        opacity: 1;
         transform: translateY(0);
+        animation: fadeInUp 0.5s ease-out forwards;
       }
+
     }
 
     // Mobile styles
     @media (max-width: 1100px) {
-      display: flex;
+      display: none;
       flex-direction: column;
       position: fixed;
       top: 0;
@@ -111,6 +119,7 @@ header {
 
     .main-nav {
       right: 0;
+      display: flex;
     }
   }
 }

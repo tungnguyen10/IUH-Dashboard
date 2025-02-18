@@ -55,21 +55,19 @@
 
 <body data-module="HelloModule">
 
+  <!-- HEADER -->
+  {% include './header.twig' %}
   <!-- MAIN CONTENT -->
   <main class="iuhMainContent opacity-0 {{ pageClass ?? '' }}">
-    <!-- HEADER -->
-    {% include './header.twig' %}
-    <!---->
+
     {% if breadcrumbs is defined %}
-    {% include './components/_Breadcrumb.twig' with {
-    breadcrumbs: breadcrumbs
-    } %}
+      {% include './components/_Breadcrumb.twig' with {
+        breadcrumbs: breadcrumbs
+      } %}
     {% endif %}
     {% block page %}{% endblock %}
-
     <!-- FOOTER -->
     {% include './footer.twig' %}
-    <!---->
   </main>
   <!---->
 

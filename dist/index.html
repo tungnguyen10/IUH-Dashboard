@@ -57,10 +57,8 @@
 
 <body data-module="HelloModule">
 
-  <!-- MAIN CONTENT -->
-  <main class="iuhMainContent opacity-0 ">
-    <!-- HEADER -->
-    <header class="fixed top-0 left-0 w-full z-50 shadow-lg header-nav" data-module="Header">
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 w-full z-50 shadow-lg header-nav" data-module="Header">
   <div class="w-full relative bg-navyBlue-900 text-navyBlue-50">
     <div class="w-full max-w-[1200px] px-4 mx-auto h-10 flex items-center justify-between hidden menuMb:flex">
       <h2 class="text-sm">
@@ -630,7 +628,9 @@
     </div>
   </div>
 </header>
-    <!---->
+  <!-- MAIN CONTENT -->
+  <main class="iuhMainContent opacity-0 ">
+
         
 	<div class="relative">
 		<div class="swiper swiper_slidefull" data-module="SwiperFullscreen">
@@ -658,452 +658,499 @@
 
 </div>
 		<div class="w-full overflow-hidden" data-module="HomeAbout">
-	<div class="iuhFadeInScroll w-full max-w-[1200px] px-4 mx-auto flex gap-10 lg:gap-[90px] pt-10 lg:pt-16 flex-col lg:flex-row">
-		<div class="flex flex-col gap-5 lg:gap-10 w-full lg:max-w-[480px] relative shrink-0 pt-5 lg:pt-[70px]">
-			<h2 class="text-3xl lg:text-titleDK font-bold text-titleColor">Về chúng tôi</h2>
-			<div class="absolute top-[40%] left-[80%] translate-x-[-50%] translate-y-[-50%] size-[200px] lg:size-[290px] z-[-1]">
-				<img src="assets/images/text-around.png" alt="iuh" class="w-full absolute top-0 left-0 animate-rotation360"/>
-				<img src="assets/images/iuh.png" alt="iuh" class="w-full"/>
-			</div>
-			<div class="text-lg leading-[166.667%] font-normal text-black2 text-justify">
-				Với mục tiêu và tầm nhìn trở thành Trường đại học hàng đầu của Việt Nam,
-																 tiên phong trong lĩnh vực giáo dục và nghiên cứu ứng dụng, chuyển giao
-																 công nghệ và đổi mới sáng tạo                                                                                                                                                                                ; giá trị cốt lõi Trường Đại học Công
-																 nghiệp Thành phố Hồ Chí Minh được đúc kết: "Đổi mới - Đoàn kết - Nhân
-																 văn".
-			</div>
-			<div class="flex items-center justify-between">
-				<div class="iuh-btn w-full max-w-[200px]">
-					<a href="#">
-						Xem tất cả
-						<svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewbox="0 0 24 24" fill="none">
-							<path d="M10.075 12L5.5 7.4L6.9 6L12.9 12L6.9 18L5.5 16.6L10.075 12ZM16.675 12L12.1 7.4L13.5 6L19.5 12L13.5 18L12.1 16.6L16.675 12Z" fill="currentColor"/>
-						</svg>
-					</a>
-				</div>
-				<div class="flex gap-8">
-					<div class="swiper-button-custom-prev cursor-pointer size-[50px] p-[5px] rounded-full bg-white drop-shadow-btn-slide transition-all duration-500 ease-in hover:bg-gradient-to-r from-navyBlue-800 to-navyBlue-700 hover:text-white">
-						<svg class="size-full" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M11.6665 19.9997L28.3332 19.9997M11.6665 19.9997L18.3332 13.333M11.6665 19.9997L18.3332 26.6663" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-						</svg>
-					</div>
-					<div class="swiper-button-custom-next cursor-pointer size-[50px] p-[5px] rounded-full bg-white drop-shadow-btn-slide transition-all duration-500 ease-in hover:bg-gradient-to-r from-navyBlue-800 to-navyBlue-700 hover:text-white">
-						<svg class="size-full" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M28.3333 20L11.6666 20M28.3333 20L21.6666 26.6667M28.3333 20L21.6666 13.3334" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-						</svg>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="w-full max-w-[972px] flex-1 bg-about">
-			<div class="swiper swiper_about !py-5 lg:!py-[85px] -!mr-5 lg:!mr-0">
-				<div class="swiper-wrapper">
-											<div class="swiper-slide">
-							<div class="aspect-[280/330] relative group/about cursor-pointer rounded-[10px] overflow-hidden hover:translate-y-[-0.5rem] hover:border hover:border-navyBlue-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-								<a href="#" class="block size-full">
-									<img
-										src="assets/images/about-img.png"
-										alt="about"
-										class="size-full rounded-md object-cover
-											transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]
-											group-hover/about:scale-110 group-hover/about:brightness-[0.85]"
-									/>
-								</a>
-<h3 class="text-base lg:text-lg tracking-tight uppercase font-medium
-p-4 transition-all duration-500 absolute bottom-0 w-full left-0
-text-black1 bg-white group-hover/about:opacity-0 group-hover/about:translate-y-full">
-Thông điệp Hiệu Trưởng
-</h3>
-								<div class="absolute inset-0 flex flex-col justify-end overflow-hidden">
-									<div class="absolute inset-0 bg-gradient-to-t
-										from-navyBlue-900/90 via-navyBlue-800/50 to-transparent
-										translate-y-full group-hover/about:translate-y-0
-										transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-									</div>
-									<div class="relative z-10 translate-y-[100%] group-hover/about:translate-y-0
-										transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-										<h3 class="text-base lg:text-lg tracking-tight uppercase font-medium
-											px-4 py-3 transition-all duration-500 delay-200
-											text-yellow">
-											Thông điệp Hiệu Trưởng
-										</h3>
-										<div class="overflow-hidden">
-											<div class="text-sm lg:text-base px-4 pb-4 lg:pb-6
-												 leading-[150%] font-normal text-white/90
-												opacity-0 -translate-y-4
-												transition-all duration-500 delay-250
-												group-hover/about:opacity-100 group-hover/about:translate-y-0">
-												Tiến sĩ Phan Hồng Hải hiện là Hiệu trưởng Trường Đại học Công nghiệp
-												Thành phố Hồ Chí Minh (IUH).
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-											<div class="swiper-slide">
-							<div class="aspect-[280/330] relative group/about cursor-pointer rounded-[10px] overflow-hidden hover:translate-y-[-0.5rem] hover:border hover:border-navyBlue-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-								<a href="#" class="block size-full">
-									<img
-										src="assets/images/about-img.png"
-										alt="about"
-										class="size-full rounded-md object-cover
-											transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]
-											group-hover/about:scale-110 group-hover/about:brightness-[0.85]"
-									/>
-								</a>
-<h3 class="text-base lg:text-lg tracking-tight uppercase font-medium
-p-4 transition-all duration-500 absolute bottom-0 w-full left-0
-text-black1 bg-white group-hover/about:opacity-0 group-hover/about:translate-y-full">
-Thông điệp Hiệu Trưởng
-</h3>
-								<div class="absolute inset-0 flex flex-col justify-end overflow-hidden">
-									<div class="absolute inset-0 bg-gradient-to-t
-										from-navyBlue-900/90 via-navyBlue-800/50 to-transparent
-										translate-y-full group-hover/about:translate-y-0
-										transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-									</div>
-									<div class="relative z-10 translate-y-[100%] group-hover/about:translate-y-0
-										transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-										<h3 class="text-base lg:text-lg tracking-tight uppercase font-medium
-											px-4 py-3 transition-all duration-500 delay-200
-											text-yellow">
-											Thông điệp Hiệu Trưởng
-										</h3>
-										<div class="overflow-hidden">
-											<div class="text-sm lg:text-base px-4 pb-4 lg:pb-6
-												 leading-[150%] font-normal text-white/90
-												opacity-0 -translate-y-4
-												transition-all duration-500 delay-250
-												group-hover/about:opacity-100 group-hover/about:translate-y-0">
-												Tiến sĩ Phan Hồng Hải hiện là Hiệu trưởng Trường Đại học Công nghiệp
-												Thành phố Hồ Chí Minh (IUH).
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-											<div class="swiper-slide">
-							<div class="aspect-[280/330] relative group/about cursor-pointer rounded-[10px] overflow-hidden hover:translate-y-[-0.5rem] hover:border hover:border-navyBlue-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-								<a href="#" class="block size-full">
-									<img
-										src="assets/images/about-img.png"
-										alt="about"
-										class="size-full rounded-md object-cover
-											transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]
-											group-hover/about:scale-110 group-hover/about:brightness-[0.85]"
-									/>
-								</a>
-<h3 class="text-base lg:text-lg tracking-tight uppercase font-medium
-p-4 transition-all duration-500 absolute bottom-0 w-full left-0
-text-black1 bg-white group-hover/about:opacity-0 group-hover/about:translate-y-full">
-Thông điệp Hiệu Trưởng
-</h3>
-								<div class="absolute inset-0 flex flex-col justify-end overflow-hidden">
-									<div class="absolute inset-0 bg-gradient-to-t
-										from-navyBlue-900/90 via-navyBlue-800/50 to-transparent
-										translate-y-full group-hover/about:translate-y-0
-										transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-									</div>
-									<div class="relative z-10 translate-y-[100%] group-hover/about:translate-y-0
-										transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-										<h3 class="text-base lg:text-lg tracking-tight uppercase font-medium
-											px-4 py-3 transition-all duration-500 delay-200
-											text-yellow">
-											Thông điệp Hiệu Trưởng
-										</h3>
-										<div class="overflow-hidden">
-											<div class="text-sm lg:text-base px-4 pb-4 lg:pb-6
-												 leading-[150%] font-normal text-white/90
-												opacity-0 -translate-y-4
-												transition-all duration-500 delay-250
-												group-hover/about:opacity-100 group-hover/about:translate-y-0">
-												Tiến sĩ Phan Hồng Hải hiện là Hiệu trưởng Trường Đại học Công nghiệp
-												Thành phố Hồ Chí Minh (IUH).
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-											<div class="swiper-slide">
-							<div class="aspect-[280/330] relative group/about cursor-pointer rounded-[10px] overflow-hidden hover:translate-y-[-0.5rem] hover:border hover:border-navyBlue-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-								<a href="#" class="block size-full">
-									<img
-										src="assets/images/about-img.png"
-										alt="about"
-										class="size-full rounded-md object-cover
-											transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]
-											group-hover/about:scale-110 group-hover/about:brightness-[0.85]"
-									/>
-								</a>
-<h3 class="text-base lg:text-lg tracking-tight uppercase font-medium
-p-4 transition-all duration-500 absolute bottom-0 w-full left-0
-text-black1 bg-white group-hover/about:opacity-0 group-hover/about:translate-y-full">
-Thông điệp Hiệu Trưởng
-</h3>
-								<div class="absolute inset-0 flex flex-col justify-end overflow-hidden">
-									<div class="absolute inset-0 bg-gradient-to-t
-										from-navyBlue-900/90 via-navyBlue-800/50 to-transparent
-										translate-y-full group-hover/about:translate-y-0
-										transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-									</div>
-									<div class="relative z-10 translate-y-[100%] group-hover/about:translate-y-0
-										transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-										<h3 class="text-base lg:text-lg tracking-tight uppercase font-medium
-											px-4 py-3 transition-all duration-500 delay-200
-											text-yellow">
-											Thông điệp Hiệu Trưởng
-										</h3>
-										<div class="overflow-hidden">
-											<div class="text-sm lg:text-base px-4 pb-4 lg:pb-6
-												 leading-[150%] font-normal text-white/90
-												opacity-0 -translate-y-4
-												transition-all duration-500 delay-250
-												group-hover/about:opacity-100 group-hover/about:translate-y-0">
-												Tiến sĩ Phan Hồng Hải hiện là Hiệu trưởng Trường Đại học Công nghiệp
-												Thành phố Hồ Chí Minh (IUH).
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-											<div class="swiper-slide">
-							<div class="aspect-[280/330] relative group/about cursor-pointer rounded-[10px] overflow-hidden hover:translate-y-[-0.5rem] hover:border hover:border-navyBlue-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-								<a href="#" class="block size-full">
-									<img
-										src="assets/images/about-img.png"
-										alt="about"
-										class="size-full rounded-md object-cover
-											transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]
-											group-hover/about:scale-110 group-hover/about:brightness-[0.85]"
-									/>
-								</a>
-<h3 class="text-base lg:text-lg tracking-tight uppercase font-medium
-p-4 transition-all duration-500 absolute bottom-0 w-full left-0
-text-black1 bg-white group-hover/about:opacity-0 group-hover/about:translate-y-full">
-Thông điệp Hiệu Trưởng
-</h3>
-								<div class="absolute inset-0 flex flex-col justify-end overflow-hidden">
-									<div class="absolute inset-0 bg-gradient-to-t
-										from-navyBlue-900/90 via-navyBlue-800/50 to-transparent
-										translate-y-full group-hover/about:translate-y-0
-										transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-									</div>
-									<div class="relative z-10 translate-y-[100%] group-hover/about:translate-y-0
-										transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-										<h3 class="text-base lg:text-lg tracking-tight uppercase font-medium
-											px-4 py-3 transition-all duration-500 delay-200
-											text-yellow">
-											Thông điệp Hiệu Trưởng
-										</h3>
-										<div class="overflow-hidden">
-											<div class="text-sm lg:text-base px-4 pb-4 lg:pb-6
-												 leading-[150%] font-normal text-white/90
-												opacity-0 -translate-y-4
-												transition-all duration-500 delay-250
-												group-hover/about:opacity-100 group-hover/about:translate-y-0">
-												Tiến sĩ Phan Hồng Hải hiện là Hiệu trưởng Trường Đại học Công nghiệp
-												Thành phố Hồ Chí Minh (IUH).
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-											<div class="swiper-slide">
-							<div class="aspect-[280/330] relative group/about cursor-pointer rounded-[10px] overflow-hidden hover:translate-y-[-0.5rem] hover:border hover:border-navyBlue-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-								<a href="#" class="block size-full">
-									<img
-										src="assets/images/about-img.png"
-										alt="about"
-										class="size-full rounded-md object-cover
-											transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]
-											group-hover/about:scale-110 group-hover/about:brightness-[0.85]"
-									/>
-								</a>
-<h3 class="text-base lg:text-lg tracking-tight uppercase font-medium
-p-4 transition-all duration-500 absolute bottom-0 w-full left-0
-text-black1 bg-white group-hover/about:opacity-0 group-hover/about:translate-y-full">
-Thông điệp Hiệu Trưởng
-</h3>
-								<div class="absolute inset-0 flex flex-col justify-end overflow-hidden">
-									<div class="absolute inset-0 bg-gradient-to-t
-										from-navyBlue-900/90 via-navyBlue-800/50 to-transparent
-										translate-y-full group-hover/about:translate-y-0
-										transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-									</div>
-									<div class="relative z-10 translate-y-[100%] group-hover/about:translate-y-0
-										transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-										<h3 class="text-base lg:text-lg tracking-tight uppercase font-medium
-											px-4 py-3 transition-all duration-500 delay-200
-											text-yellow">
-											Thông điệp Hiệu Trưởng
-										</h3>
-										<div class="overflow-hidden">
-											<div class="text-sm lg:text-base px-4 pb-4 lg:pb-6
-												 leading-[150%] font-normal text-white/90
-												opacity-0 -translate-y-4
-												transition-all duration-500 delay-250
-												group-hover/about:opacity-100 group-hover/about:translate-y-0">
-												Tiến sĩ Phan Hồng Hải hiện là Hiệu trưởng Trường Đại học Công nghiệp
-												Thành phố Hồ Chí Minh (IUH).
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-											<div class="swiper-slide">
-							<div class="aspect-[280/330] relative group/about cursor-pointer rounded-[10px] overflow-hidden hover:translate-y-[-0.5rem] hover:border hover:border-navyBlue-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-								<a href="#" class="block size-full">
-									<img
-										src="assets/images/about-img.png"
-										alt="about"
-										class="size-full rounded-md object-cover
-											transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]
-											group-hover/about:scale-110 group-hover/about:brightness-[0.85]"
-									/>
-								</a>
-<h3 class="text-base lg:text-lg tracking-tight uppercase font-medium
-p-4 transition-all duration-500 absolute bottom-0 w-full left-0
-text-black1 bg-white group-hover/about:opacity-0 group-hover/about:translate-y-full">
-Thông điệp Hiệu Trưởng
-</h3>
-								<div class="absolute inset-0 flex flex-col justify-end overflow-hidden">
-									<div class="absolute inset-0 bg-gradient-to-t
-										from-navyBlue-900/90 via-navyBlue-800/50 to-transparent
-										translate-y-full group-hover/about:translate-y-0
-										transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-									</div>
-									<div class="relative z-10 translate-y-[100%] group-hover/about:translate-y-0
-										transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-										<h3 class="text-base lg:text-lg tracking-tight uppercase font-medium
-											px-4 py-3 transition-all duration-500 delay-200
-											text-yellow">
-											Thông điệp Hiệu Trưởng
-										</h3>
-										<div class="overflow-hidden">
-											<div class="text-sm lg:text-base px-4 pb-4 lg:pb-6
-												 leading-[150%] font-normal text-white/90
-												opacity-0 -translate-y-4
-												transition-all duration-500 delay-250
-												group-hover/about:opacity-100 group-hover/about:translate-y-0">
-												Tiến sĩ Phan Hồng Hải hiện là Hiệu trưởng Trường Đại học Công nghiệp
-												Thành phố Hồ Chí Minh (IUH).
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-											<div class="swiper-slide">
-							<div class="aspect-[280/330] relative group/about cursor-pointer rounded-[10px] overflow-hidden hover:translate-y-[-0.5rem] hover:border hover:border-navyBlue-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-								<a href="#" class="block size-full">
-									<img
-										src="assets/images/about-img.png"
-										alt="about"
-										class="size-full rounded-md object-cover
-											transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]
-											group-hover/about:scale-110 group-hover/about:brightness-[0.85]"
-									/>
-								</a>
-<h3 class="text-base lg:text-lg tracking-tight uppercase font-medium
-p-4 transition-all duration-500 absolute bottom-0 w-full left-0
-text-black1 bg-white group-hover/about:opacity-0 group-hover/about:translate-y-full">
-Thông điệp Hiệu Trưởng
-</h3>
-								<div class="absolute inset-0 flex flex-col justify-end overflow-hidden">
-									<div class="absolute inset-0 bg-gradient-to-t
-										from-navyBlue-900/90 via-navyBlue-800/50 to-transparent
-										translate-y-full group-hover/about:translate-y-0
-										transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-									</div>
-									<div class="relative z-10 translate-y-[100%] group-hover/about:translate-y-0
-										transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
-										<h3 class="text-base lg:text-lg tracking-tight uppercase font-medium
-											px-4 py-3 transition-all duration-500 delay-200
-											text-yellow">
-											Thông điệp Hiệu Trưởng
-										</h3>
-										<div class="overflow-hidden">
-											<div class="text-sm lg:text-base px-4 pb-4 lg:pb-6
-												 leading-[150%] font-normal text-white/90
-												opacity-0 -translate-y-4
-												transition-all duration-500 delay-250
-												group-hover/about:opacity-100 group-hover/about:translate-y-0">
-												Tiến sĩ Phan Hồng Hải hiện là Hiệu trưởng Trường Đại học Công nghiệp
-												Thành phố Hồ Chí Minh (IUH).
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-									</div>
-			</div>
-		</div>
-	</div>
-	<div class="iuhFadeInScroll w-full max-w-[1200px] ml-4 lg:mx-auto lg:px-4 mx-auto mt-[64px] overflow-x-scroll lg:overflow-x-auto srollHorizontal pb-5 mb-8 md:mb-0 lg:pb-16">
-		<div class="w-[900px] md:w-[1100px] lg:w-full flex gap-5">
-			<div class="group px-5 py-8 bg-stroke1 border border-stroke text-navyBlue-700 rounded-[5px] bg-card
-				transition-all duration-500 ease-in-out cursor-pointer
-				hover:shadow-[0_0_25px_rgba(0,70,186,0.1)] hover:border-navyBlue-200">
-				<div class="size-[75px] lg:size-[100px] transition-transform duration-500 group-hover:scale-110
-					group-hover:rotate-[8deg]">
-					<img src="assets/images/inovation.png" alt="innovation" class="size-full"/>
-				</div>
-				<div class="flex flex-col gap-3 lg:gap-5 mt-5 lg:mt-8">
-					<h3 class="uppercase text-xl font-bold font-montserrat
-						">Đổi mới</h3>
-					<div class="text-base font-normal leading-[166.667%] text-black1
-						transition-colors duration-500 group-hover:text-black">
-						Liên tục tìm kiếm những cách làm mới và tốt hơn, sáng tạo, đổi mới
-																								 và dám nghĩ, dám làm để thử những điều mới và tạo cơ hội để cải tiến
-																								 và đạt đến tầm cao mới.
-					</div>
-				</div>
-			</div>
-			<div class="group px-5 py-8 bg-stroke1 border border-stroke text-navyBlue-700 rounded-[5px] bg-card
-				transition-all duration-500 ease-in-out cursor-pointer
-				hover:shadow-[0_0_25px_rgba(0,70,186,0.1)] hover:border-navyBlue-200">
-				<div class="size-[75px] lg:size-[100px] transition-transform duration-500 group-hover:scale-110
-					group-hover:rotate-[8deg]">
-					<img src="assets/images/unity.png" alt="unity" class="size-full"/>
-				</div>
-				<div class="flex flex-col gap-3 lg:gap-5 mt-5 lg:mt-8">
-					<h3 class="uppercase text-xl font-bold font-montserrat
-						">Đoàn kết</h3>
-					<div class="text-base font-normal leading-[166.667%] text-black1
-						transition-colors duration-500 group-hover:text-black">
-						Liên tục tìm kiếm những cách làm mới và tốt hơn, sáng tạo, đổi mới
-																								 và dám nghĩ, dám làm để thử những điều mới và tạo cơ hội để cải tiến
-																								 và đạt đến tầm cao mới.
-					</div>
-				</div>
-			</div>
-			<div class="group px-5 py-8 bg-stroke1 border border-stroke text-navyBlue-700 rounded-[5px] bg-card
-				transition-all duration-500 ease-in-out cursor-pointer
-				hover:shadow-[0_0_25px_rgba(0,70,186,0.1)] hover:border-navyBlue-200">
-				<div class="size-[75px] lg:size-[100px] transition-transform duration-500 group-hover:scale-110
-					group-hover:rotate-[8deg]">
-					<img src="assets/images/humanity.png" alt="humanity" class="size-full"/>
-				</div>
-				<div class="flex flex-col gap-3 lg:gap-5 mt-5 lg:mt-8">
-					<h3 class="uppercase text-xl font-bold font-montserrat
-						">Nhân văn</h3>
-					<div class="text-base font-normal leading-[166.667%] text-black1
-						transition-colors duration-500 group-hover:text-black">
-						Liên tục tìm kiếm những cách làm mới và tốt hơn, sáng tạo, đổi mới
-																								 và dám nghĩ, dám làm để thử những điều mới và tạo cơ hội để cải tiến
-																								 và đạt đến tầm cao mới.
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+  <div
+    class="iuhFadeInScroll w-full max-w-[1200px] px-4 mx-auto flex gap-10 lg:gap-[90px] pt-10 lg:pt-16 flex-col lg:flex-row"
+  >
+    <div
+      class="flex flex-col gap-5 lg:gap-10 w-full lg:max-w-[480px] relative shrink-0 pt-5 lg:pt-[70px]"
+    >
+      <h2 class="text-3xl lg:text-titleDK font-bold text-titleColor">
+        Về chúng tôi
+      </h2>
+      <div
+        class="absolute top-[40%] left-[80%] translate-x-[-50%] translate-y-[-50%] size-[200px] lg:size-[290px] z-[-1]"
+      >
+        <img
+          src="assets/images/text-around.png"
+          alt="iuh"
+          class="w-full absolute top-0 left-0 animate-rotation360"
+        />
+        <img src="assets/images/iuh.png" alt="iuh" class="w-full" />
+      </div>
+      <div
+        class="text-lg leading-[166.667%] font-normal text-black2 text-justify"
+      >
+        Với mục tiêu và tầm nhìn trở thành Trường đại học hàng đầu của Việt Nam,
+        tiên phong trong lĩnh vực giáo dục và nghiên cứu ứng dụng, chuyển giao
+        công nghệ và đổi mới sáng tạo ; giá trị cốt lõi Trường Đại học Công
+        nghiệp Thành phố Hồ Chí Minh được đúc kết: "Đổi mới - Đoàn kết - Nhân
+        văn".
+      </div>
+      <div class="flex items-center justify-between">
+        <div class="iuh-btn w-full max-w-[200px]">
+          <a href="#">
+            Xem tất cả
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="size-5"
+              viewbox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M10.075 12L5.5 7.4L6.9 6L12.9 12L6.9 18L5.5 16.6L10.075 12ZM16.675 12L12.1 7.4L13.5 6L19.5 12L13.5 18L12.1 16.6L16.675 12Z"
+                fill="currentColor"
+              />
+            </svg>
+          </a>
+        </div>
+        <div class="flex gap-8">
+          <div
+            class="swiper-button-custom-prev cursor-pointer size-[50px] p-[5px] rounded-full bg-white drop-shadow-btn-slide transition-all duration-500 ease-in hover:bg-gradient-to-r from-navyBlue-800 to-navyBlue-700 hover:text-white"
+          >
+            <svg
+              class="size-full"
+              viewbox="0 0 40 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11.6665 19.9997L28.3332 19.9997M11.6665 19.9997L18.3332 13.333M11.6665 19.9997L18.3332 26.6663"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div
+            class="swiper-button-custom-next cursor-pointer size-[50px] p-[5px] rounded-full bg-white drop-shadow-btn-slide transition-all duration-500 ease-in hover:bg-gradient-to-r from-navyBlue-800 to-navyBlue-700 hover:text-white"
+          >
+            <svg
+              class="size-full"
+              viewbox="0 0 40 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M28.3333 20L11.6666 20M28.3333 20L21.6666 26.6667M28.3333 20L21.6666 13.3334"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-full max-w-[972px] flex-1 bg-about">
+      <div class="swiper swiper_about !py-5 lg:!py-[85px] -!mr-5 lg:!mr-0">
+        <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+            <div
+              class="aspect-[280/330] relative group/about cursor-pointer rounded-[10px] overflow-hidden hover:translate-y-[-0.5rem] hover:border hover:border-navyBlue-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+            >
+              <a href="#" class="block size-full">
+                <img
+                  src="assets/images/about-img.png"
+                  alt="about"
+                  class="size-full rounded-md object-cover transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/about:scale-110 group-hover/about:brightness-[0.85]"
+                />
+              </a>
+              <h3
+                class="text-base lg:text-lg tracking-tight uppercase font-medium p-4 transition-all duration-500 absolute bottom-0 w-full left-0 text-black1 bg-white group-hover/about:opacity-0 group-hover/about:translate-y-full"
+              >
+                Thông điệp Hiệu Trưởng
+              </h3>
+              <div
+                class="absolute inset-0 flex flex-col justify-end overflow-hidden"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-navyBlue-900/90 via-navyBlue-800/50 to-transparent translate-y-full group-hover/about:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                ></div>
+                <div
+                  class="relative z-10 translate-y-[100%] group-hover/about:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                >
+                  <h3
+                    class="text-base lg:text-lg tracking-tight uppercase font-medium px-4 py-3 transition-all duration-500 delay-200 text-yellow"
+                  >
+                    Thông điệp Hiệu Trưởng
+                  </h3>
+                  <div class="overflow-hidden">
+                    <div
+                      class="text-sm lg:text-base px-4 pb-4 lg:pb-6 leading-[150%] font-normal text-white/90 opacity-0 -translate-y-4 transition-all duration-500 delay-250 group-hover/about:opacity-100 group-hover/about:translate-y-0"
+                    >
+                      Tiến sĩ Phan Hồng Hải hiện là Hiệu trưởng Trường Đại học
+                      Công nghiệp Thành phố Hồ Chí Minh (IUH).
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                    <div class="swiper-slide">
+            <div
+              class="aspect-[280/330] relative group/about cursor-pointer rounded-[10px] overflow-hidden hover:translate-y-[-0.5rem] hover:border hover:border-navyBlue-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+            >
+              <a href="#" class="block size-full">
+                <img
+                  src="assets/images/about-img.png"
+                  alt="about"
+                  class="size-full rounded-md object-cover transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/about:scale-110 group-hover/about:brightness-[0.85]"
+                />
+              </a>
+              <h3
+                class="text-base lg:text-lg tracking-tight uppercase font-medium p-4 transition-all duration-500 absolute bottom-0 w-full left-0 text-black1 bg-white group-hover/about:opacity-0 group-hover/about:translate-y-full"
+              >
+                Thông điệp Hiệu Trưởng
+              </h3>
+              <div
+                class="absolute inset-0 flex flex-col justify-end overflow-hidden"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-navyBlue-900/90 via-navyBlue-800/50 to-transparent translate-y-full group-hover/about:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                ></div>
+                <div
+                  class="relative z-10 translate-y-[100%] group-hover/about:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                >
+                  <h3
+                    class="text-base lg:text-lg tracking-tight uppercase font-medium px-4 py-3 transition-all duration-500 delay-200 text-yellow"
+                  >
+                    Thông điệp Hiệu Trưởng
+                  </h3>
+                  <div class="overflow-hidden">
+                    <div
+                      class="text-sm lg:text-base px-4 pb-4 lg:pb-6 leading-[150%] font-normal text-white/90 opacity-0 -translate-y-4 transition-all duration-500 delay-250 group-hover/about:opacity-100 group-hover/about:translate-y-0"
+                    >
+                      Tiến sĩ Phan Hồng Hải hiện là Hiệu trưởng Trường Đại học
+                      Công nghiệp Thành phố Hồ Chí Minh (IUH).
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                    <div class="swiper-slide">
+            <div
+              class="aspect-[280/330] relative group/about cursor-pointer rounded-[10px] overflow-hidden hover:translate-y-[-0.5rem] hover:border hover:border-navyBlue-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+            >
+              <a href="#" class="block size-full">
+                <img
+                  src="assets/images/about-img.png"
+                  alt="about"
+                  class="size-full rounded-md object-cover transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/about:scale-110 group-hover/about:brightness-[0.85]"
+                />
+              </a>
+              <h3
+                class="text-base lg:text-lg tracking-tight uppercase font-medium p-4 transition-all duration-500 absolute bottom-0 w-full left-0 text-black1 bg-white group-hover/about:opacity-0 group-hover/about:translate-y-full"
+              >
+                Thông điệp Hiệu Trưởng
+              </h3>
+              <div
+                class="absolute inset-0 flex flex-col justify-end overflow-hidden"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-navyBlue-900/90 via-navyBlue-800/50 to-transparent translate-y-full group-hover/about:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                ></div>
+                <div
+                  class="relative z-10 translate-y-[100%] group-hover/about:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                >
+                  <h3
+                    class="text-base lg:text-lg tracking-tight uppercase font-medium px-4 py-3 transition-all duration-500 delay-200 text-yellow"
+                  >
+                    Thông điệp Hiệu Trưởng
+                  </h3>
+                  <div class="overflow-hidden">
+                    <div
+                      class="text-sm lg:text-base px-4 pb-4 lg:pb-6 leading-[150%] font-normal text-white/90 opacity-0 -translate-y-4 transition-all duration-500 delay-250 group-hover/about:opacity-100 group-hover/about:translate-y-0"
+                    >
+                      Tiến sĩ Phan Hồng Hải hiện là Hiệu trưởng Trường Đại học
+                      Công nghiệp Thành phố Hồ Chí Minh (IUH).
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                    <div class="swiper-slide">
+            <div
+              class="aspect-[280/330] relative group/about cursor-pointer rounded-[10px] overflow-hidden hover:translate-y-[-0.5rem] hover:border hover:border-navyBlue-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+            >
+              <a href="#" class="block size-full">
+                <img
+                  src="assets/images/about-img.png"
+                  alt="about"
+                  class="size-full rounded-md object-cover transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/about:scale-110 group-hover/about:brightness-[0.85]"
+                />
+              </a>
+              <h3
+                class="text-base lg:text-lg tracking-tight uppercase font-medium p-4 transition-all duration-500 absolute bottom-0 w-full left-0 text-black1 bg-white group-hover/about:opacity-0 group-hover/about:translate-y-full"
+              >
+                Thông điệp Hiệu Trưởng
+              </h3>
+              <div
+                class="absolute inset-0 flex flex-col justify-end overflow-hidden"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-navyBlue-900/90 via-navyBlue-800/50 to-transparent translate-y-full group-hover/about:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                ></div>
+                <div
+                  class="relative z-10 translate-y-[100%] group-hover/about:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                >
+                  <h3
+                    class="text-base lg:text-lg tracking-tight uppercase font-medium px-4 py-3 transition-all duration-500 delay-200 text-yellow"
+                  >
+                    Thông điệp Hiệu Trưởng
+                  </h3>
+                  <div class="overflow-hidden">
+                    <div
+                      class="text-sm lg:text-base px-4 pb-4 lg:pb-6 leading-[150%] font-normal text-white/90 opacity-0 -translate-y-4 transition-all duration-500 delay-250 group-hover/about:opacity-100 group-hover/about:translate-y-0"
+                    >
+                      Tiến sĩ Phan Hồng Hải hiện là Hiệu trưởng Trường Đại học
+                      Công nghiệp Thành phố Hồ Chí Minh (IUH).
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                    <div class="swiper-slide">
+            <div
+              class="aspect-[280/330] relative group/about cursor-pointer rounded-[10px] overflow-hidden hover:translate-y-[-0.5rem] hover:border hover:border-navyBlue-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+            >
+              <a href="#" class="block size-full">
+                <img
+                  src="assets/images/about-img.png"
+                  alt="about"
+                  class="size-full rounded-md object-cover transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/about:scale-110 group-hover/about:brightness-[0.85]"
+                />
+              </a>
+              <h3
+                class="text-base lg:text-lg tracking-tight uppercase font-medium p-4 transition-all duration-500 absolute bottom-0 w-full left-0 text-black1 bg-white group-hover/about:opacity-0 group-hover/about:translate-y-full"
+              >
+                Thông điệp Hiệu Trưởng
+              </h3>
+              <div
+                class="absolute inset-0 flex flex-col justify-end overflow-hidden"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-navyBlue-900/90 via-navyBlue-800/50 to-transparent translate-y-full group-hover/about:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                ></div>
+                <div
+                  class="relative z-10 translate-y-[100%] group-hover/about:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                >
+                  <h3
+                    class="text-base lg:text-lg tracking-tight uppercase font-medium px-4 py-3 transition-all duration-500 delay-200 text-yellow"
+                  >
+                    Thông điệp Hiệu Trưởng
+                  </h3>
+                  <div class="overflow-hidden">
+                    <div
+                      class="text-sm lg:text-base px-4 pb-4 lg:pb-6 leading-[150%] font-normal text-white/90 opacity-0 -translate-y-4 transition-all duration-500 delay-250 group-hover/about:opacity-100 group-hover/about:translate-y-0"
+                    >
+                      Tiến sĩ Phan Hồng Hải hiện là Hiệu trưởng Trường Đại học
+                      Công nghiệp Thành phố Hồ Chí Minh (IUH).
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                    <div class="swiper-slide">
+            <div
+              class="aspect-[280/330] relative group/about cursor-pointer rounded-[10px] overflow-hidden hover:translate-y-[-0.5rem] hover:border hover:border-navyBlue-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+            >
+              <a href="#" class="block size-full">
+                <img
+                  src="assets/images/about-img.png"
+                  alt="about"
+                  class="size-full rounded-md object-cover transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/about:scale-110 group-hover/about:brightness-[0.85]"
+                />
+              </a>
+              <h3
+                class="text-base lg:text-lg tracking-tight uppercase font-medium p-4 transition-all duration-500 absolute bottom-0 w-full left-0 text-black1 bg-white group-hover/about:opacity-0 group-hover/about:translate-y-full"
+              >
+                Thông điệp Hiệu Trưởng
+              </h3>
+              <div
+                class="absolute inset-0 flex flex-col justify-end overflow-hidden"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-navyBlue-900/90 via-navyBlue-800/50 to-transparent translate-y-full group-hover/about:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                ></div>
+                <div
+                  class="relative z-10 translate-y-[100%] group-hover/about:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                >
+                  <h3
+                    class="text-base lg:text-lg tracking-tight uppercase font-medium px-4 py-3 transition-all duration-500 delay-200 text-yellow"
+                  >
+                    Thông điệp Hiệu Trưởng
+                  </h3>
+                  <div class="overflow-hidden">
+                    <div
+                      class="text-sm lg:text-base px-4 pb-4 lg:pb-6 leading-[150%] font-normal text-white/90 opacity-0 -translate-y-4 transition-all duration-500 delay-250 group-hover/about:opacity-100 group-hover/about:translate-y-0"
+                    >
+                      Tiến sĩ Phan Hồng Hải hiện là Hiệu trưởng Trường Đại học
+                      Công nghiệp Thành phố Hồ Chí Minh (IUH).
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                    <div class="swiper-slide">
+            <div
+              class="aspect-[280/330] relative group/about cursor-pointer rounded-[10px] overflow-hidden hover:translate-y-[-0.5rem] hover:border hover:border-navyBlue-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+            >
+              <a href="#" class="block size-full">
+                <img
+                  src="assets/images/about-img.png"
+                  alt="about"
+                  class="size-full rounded-md object-cover transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/about:scale-110 group-hover/about:brightness-[0.85]"
+                />
+              </a>
+              <h3
+                class="text-base lg:text-lg tracking-tight uppercase font-medium p-4 transition-all duration-500 absolute bottom-0 w-full left-0 text-black1 bg-white group-hover/about:opacity-0 group-hover/about:translate-y-full"
+              >
+                Thông điệp Hiệu Trưởng
+              </h3>
+              <div
+                class="absolute inset-0 flex flex-col justify-end overflow-hidden"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-navyBlue-900/90 via-navyBlue-800/50 to-transparent translate-y-full group-hover/about:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                ></div>
+                <div
+                  class="relative z-10 translate-y-[100%] group-hover/about:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                >
+                  <h3
+                    class="text-base lg:text-lg tracking-tight uppercase font-medium px-4 py-3 transition-all duration-500 delay-200 text-yellow"
+                  >
+                    Thông điệp Hiệu Trưởng
+                  </h3>
+                  <div class="overflow-hidden">
+                    <div
+                      class="text-sm lg:text-base px-4 pb-4 lg:pb-6 leading-[150%] font-normal text-white/90 opacity-0 -translate-y-4 transition-all duration-500 delay-250 group-hover/about:opacity-100 group-hover/about:translate-y-0"
+                    >
+                      Tiến sĩ Phan Hồng Hải hiện là Hiệu trưởng Trường Đại học
+                      Công nghiệp Thành phố Hồ Chí Minh (IUH).
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                    <div class="swiper-slide">
+            <div
+              class="aspect-[280/330] relative group/about cursor-pointer rounded-[10px] overflow-hidden hover:translate-y-[-0.5rem] hover:border hover:border-navyBlue-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+            >
+              <a href="#" class="block size-full">
+                <img
+                  src="assets/images/about-img.png"
+                  alt="about"
+                  class="size-full rounded-md object-cover transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/about:scale-110 group-hover/about:brightness-[0.85]"
+                />
+              </a>
+              <h3
+                class="text-base lg:text-lg tracking-tight uppercase font-medium p-4 transition-all duration-500 absolute bottom-0 w-full left-0 text-black1 bg-white group-hover/about:opacity-0 group-hover/about:translate-y-full"
+              >
+                Thông điệp Hiệu Trưởng
+              </h3>
+              <div
+                class="absolute inset-0 flex flex-col justify-end overflow-hidden"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-navyBlue-900/90 via-navyBlue-800/50 to-transparent translate-y-full group-hover/about:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                ></div>
+                <div
+                  class="relative z-10 translate-y-[100%] group-hover/about:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
+                >
+                  <h3
+                    class="text-base lg:text-lg tracking-tight uppercase font-medium px-4 py-3 transition-all duration-500 delay-200 text-yellow"
+                  >
+                    Thông điệp Hiệu Trưởng
+                  </h3>
+                  <div class="overflow-hidden">
+                    <div
+                      class="text-sm lg:text-base px-4 pb-4 lg:pb-6 leading-[150%] font-normal text-white/90 opacity-0 -translate-y-4 transition-all duration-500 delay-250 group-hover/about:opacity-100 group-hover/about:translate-y-0"
+                    >
+                      Tiến sĩ Phan Hồng Hải hiện là Hiệu trưởng Trường Đại học
+                      Công nghiệp Thành phố Hồ Chí Minh (IUH).
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                  </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="iuhFadeInScroll w-full max-w-[1200px] ml-4 lg:mx-auto lg:px-4 mx-auto mt-[64px] overflow-x-scroll lg:overflow-x-auto srollHorizontal pb-5 mb-8 md:mb-0 lg:pb-16"
+  >
+    <div class="w-[900px] md:w-[1100px] lg:w-full grid grid-cols-3 gap-5">
+      <div
+        class="group px-5 py-8 bg-stroke1 border border-stroke text-navyBlue-700 rounded-[5px] bg-card transition-all duration-500 ease-in-out cursor-pointer hover:shadow-[0_0_25px_rgba(0,70,186,0.1)] hover:border-navyBlue-200"
+      >
+        <div
+          class="size-[75px] lg:size-[100px] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[8deg]"
+        >
+          <img
+            src="assets/images/inovation.png"
+            alt="innovation"
+            class="size-full"
+          />
+        </div>
+        <div class="flex flex-col gap-3 lg:gap-5 mt-5 lg:mt-8">
+          <h3 class="uppercase text-xl font-bold font-montserrat">Đổi mới</h3>
+          <div
+            class="text-base font-normal leading-[166.667%] text-black1 transition-colors duration-500 group-hover:text-black"
+          >
+					Luôn tìm kiếm phương pháp mới và hiệu quả hơn, không ngừng sáng tạo, đổi mới và dám nghĩ dám làm. Sẵn sàng thử thách giới hạn, tạo cơ hội cải tiến để vươn tới những tầm cao mới và thành công đột phá.
+          </div>
+        </div>
+      </div>
+      <div
+        class="group px-5 py-8 bg-stroke1 border border-stroke text-navyBlue-700 rounded-[5px] bg-card transition-all duration-500 ease-in-out cursor-pointer hover:shadow-[0_0_25px_rgba(0,70,186,0.1)] hover:border-navyBlue-200"
+      >
+        <div
+          class="size-[75px] lg:size-[100px] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[8deg]"
+        >
+          <img src="assets/images/unity.png" alt="unity" class="size-full" />
+        </div>
+        <div class="flex flex-col gap-3 lg:gap-5 mt-5 lg:mt-8">
+          <h3 class="uppercase text-xl font-bold font-montserrat">Đoàn kết</h3>
+          <div
+            class="text-base font-normal leading-[166.667%] text-black1 transition-colors duration-500 group-hover:text-black"
+          >
+					Chủ động chịu trách nhiệm, làm chủ công việc, phối hợp với các đơn vị, đối tác để tối ưu nguồn lực, khai thác năng lực sẵn có và triển khai chúng hiệu quả nhằm đạt kết quả tốt nhất.
+          </div>
+        </div>
+      </div>
+      <div
+        class="group px-5 py-8 bg-stroke1 border border-stroke text-navyBlue-700 rounded-[5px] bg-card transition-all duration-500 ease-in-out cursor-pointer hover:shadow-[0_0_25px_rgba(0,70,186,0.1)] hover:border-navyBlue-200"
+      >
+        <div
+          class="size-[75px] lg:size-[100px] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[8deg]"
+        >
+          <img
+            src="assets/images/humanity.png"
+            alt="humanity"
+            class="size-full"
+          />
+        </div>
+        <div class="flex flex-col gap-3 lg:gap-5 mt-5 lg:mt-8">
+          <h3 class="uppercase text-xl font-bold font-montserrat">Nhân văn</h3>
+          <div
+            class="text-base font-normal leading-[166.667%] text-black1 transition-colors duration-500 group-hover:text-black"
+          >
+					Đối xử với mọi người bằng nhân ái, công bằng, chính trực, hướng đến phát triển tiềm năng. Làm việc chuyên nghiệp, đạo đức, cống hiến cho cộng đồng và hành động như một công dân trách nhiệm.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 		<div class=" w-full iuh-news-notify" data-module="HomeNewsNoti">
   <div
@@ -1155,7 +1202,7 @@ Thông điệp Hiệu Trưởng
                 </span>
                 <span>29/10/2024</span>
               </div>
-              <div class="px-3 py-1 rounded-full text-xs text-white bg-red capitalize">new</div>
+              <div class="px-3 py-1 rounded-full text-xs text-white bg-red capitalize animate-flash-badge">new</div>
             </div>
             <h3
               class="text-base lg:text-xl font-bold text-black1 line-clamp-2 group-hover/news:text-navyBlue-800 transition-all duration-300 ease-in-out">
@@ -1174,7 +1221,7 @@ Thông điệp Hiệu Trưởng
             </div>
           </div>
         </div>
-        <div class="w-full pr-2">
+        <div class="w-full">
           <div class="swiper box-news-noti">
             <div class="swiper-wrapper">
                             <div class="swiper-slide pr-0.5">
@@ -2662,268 +2709,547 @@ Thông điệp Hiệu Trưởng
   </div>
 </div>
 		<div class="iuhFadeInScroll w-full relative iuh-event" data-module="HomeEvent">
-	<div class="w-full max-w-[1200px] px-4 mx-auto py-10 lg:py-16">
-		<div class="flex flex-col gap-5 lg:gap-[30px] relative">
-			<h2 class="text-2xl lg:text-titleDK md:leading-[1] font-bold text-white">
-				Sự kiện
-			</h2>
-			<div class="size-9 lg:size-[48px] absolute top-0 lg:top-5 right-5 pulse-animation" data-open-modal="openVideoEvent">
-				<div class="size-full bg-navyBlue-50/50 rounded-full">
-					<svg xmlns="http://www.w3.org/2000/svg" class="size-full relative z-[3]" viewbox="0 0 48 48" fill="none">
-						<path d="M24 4C12.96 4 4 12.96 4 24C4 35.04 12.96 44 24 44C35.04 44 44 35.04 44 24C44 12.96 35.04 4 24 4ZM24 40C15.18 40 8 32.82 8 24C8 15.18 15.18 8 24 8C32.82 8 40 15.18 40 24C40 32.82 32.82 40 24 40ZM19 33L33 24L19 15V33Z" fill="#0000CF"/>
-					</svg>
-				</div>
-			</div>
-			<div class="text-white text-base lg:text-lg max-w-[580px] font-normal leading-[166%]">
-				Lorem Ipsum is simply dummy text of the printing and typesetting
-				        industry. Lorem Ipsum has been the industry's standard dummy text ever
-				        since
-			</div>
-			<div class="iuh-btn w-full max-w-[200px]">
-				<a href="#">
-					Xem tất cả
-					<svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewbox="0 0 24 24" fill="none">
-						<path d="M10.075 12L5.5 7.4L6.9 6L12.9 12L6.9 18L5.5 16.6L10.075 12ZM16.675 12L12.1 7.4L13.5 6L19.5 12L13.5 18L12.1 16.6L16.675 12Z" fill="currentColor"/>
-					</svg>
-				</a>
-			</div>
-		</div>
-		<div class="w-full">
-			<div class="swiper iuh-event-slide -mx-4 !pt-10 !py-14 lg:!py-16 ">
-				<div class="swiper-wrapper">
-											<div class="swiper-slide">
-							<div class="aspect-[0.76] w-full top-0 hover:-top-2 hover:shadow-lg relative p-4 flex items-end bg-navyBlue-200 hover:p-0 rounded-xl transition-all duration-700 overflow-hidden before:absolute before:pointer-events-none before:size-full before:inset-0 before:bg-gradient-to-b before:from-[#0070FF]/70 before:to-[#0070FF]/90 before:top-full before:scale-1 before:hover:top-0 before:hover:scale-[1.2] before:transition-all before:duration-700 before:z-[2]">
-								<div class="absolute size-full z-[1] top-0 left-0">
-									<a href="#" class="size-full block"><img src="assets/images/event.png" alt="" class="size-full object-cover"/></a>
-								</div>
-								<div class="flex flex-col items-start gap-2 lg:gap-4 p-5 bg-white rounded-lg w-full relative z-[3]">
-									<div class="p-2 lg:p-2.5 text-white text-sm lg:text-base font-normal bg-red rounded-lg">
-										10/09/2024
-									</div>
-									<div class="w-full text-black1 text-base lg:text-lg font-semibold line-clamp-2 leading-[120%]">
-										IUH ký kết hợp tác với Trung tâm Giáo dục nghề nghiệp Lái xe
-										                  Trường Vinh
-									</div>
-									<div class="flex flex-row items-center justify-between w-full">
-										<dl class="flex items-center gap-0.5">
-											<dt class="text-navyBlue-700">
-												<svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewbox="0 0 24 24" fill="none">
-													<path d="M12 9V13L14 15M18 3L21 6M3 6L6 3M20 13C20 17.4183 16.4183 21 12 21C7.58172 21 4 17.4183 4 13C4 8.58172 7.58172 5 12 5C16.4183 5 20 8.58172 20 13Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-												</svg>
-											</dt>
-											<dd class="text-black2 text-sm lg:text-base font-normal">
-												02:30 - 04:25
-											</dd>
-										</dl>
-										<dl class="flex items-center gap-0.5">
-											<dt class="text-navyBlue-700">
-												<svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewbox="0 0 24 24" fill="none">
-													<path d="M12 13V21M12 13C14.7614 13 17 10.7614 17 8C17 5.23858 14.7614 3 12 3C9.23858 3 7 5.23858 7 8C7 10.7614 9.23858 13 12 13Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-												</svg>
-											</dt>
-											<dd class="text-black2 text-sm lg:text-base font-normal">
-												Hội Trường A7
-											</dd>
-										</dl>
-									</div>
-								</div>
-							</div>
-						</div>
-											<div class="swiper-slide">
-							<div class="aspect-[0.76] w-full top-0 hover:-top-2 hover:shadow-lg relative p-4 flex items-end bg-navyBlue-200 hover:p-0 rounded-xl transition-all duration-700 overflow-hidden before:absolute before:pointer-events-none before:size-full before:inset-0 before:bg-gradient-to-b before:from-[#0070FF]/70 before:to-[#0070FF]/90 before:top-full before:scale-1 before:hover:top-0 before:hover:scale-[1.2] before:transition-all before:duration-700 before:z-[2]">
-								<div class="absolute size-full z-[1] top-0 left-0">
-									<a href="#" class="size-full block"><img src="assets/images/event.png" alt="" class="size-full object-cover"/></a>
-								</div>
-								<div class="flex flex-col items-start gap-2 lg:gap-4 p-5 bg-white rounded-lg w-full relative z-[3]">
-									<div class="p-2 lg:p-2.5 text-white text-sm lg:text-base font-normal bg-red rounded-lg">
-										10/09/2024
-									</div>
-									<div class="w-full text-black1 text-base lg:text-lg font-semibold line-clamp-2 leading-[120%]">
-										IUH ký kết hợp tác với Trung tâm Giáo dục nghề nghiệp Lái xe
-										                  Trường Vinh
-									</div>
-									<div class="flex flex-row items-center justify-between w-full">
-										<dl class="flex items-center gap-0.5">
-											<dt class="text-navyBlue-700">
-												<svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewbox="0 0 24 24" fill="none">
-													<path d="M12 9V13L14 15M18 3L21 6M3 6L6 3M20 13C20 17.4183 16.4183 21 12 21C7.58172 21 4 17.4183 4 13C4 8.58172 7.58172 5 12 5C16.4183 5 20 8.58172 20 13Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-												</svg>
-											</dt>
-											<dd class="text-black2 text-sm lg:text-base font-normal">
-												02:30 - 04:25
-											</dd>
-										</dl>
-										<dl class="flex items-center gap-0.5">
-											<dt class="text-navyBlue-700">
-												<svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewbox="0 0 24 24" fill="none">
-													<path d="M12 13V21M12 13C14.7614 13 17 10.7614 17 8C17 5.23858 14.7614 3 12 3C9.23858 3 7 5.23858 7 8C7 10.7614 9.23858 13 12 13Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-												</svg>
-											</dt>
-											<dd class="text-black2 text-sm lg:text-base font-normal">
-												Hội Trường A7
-											</dd>
-										</dl>
-									</div>
-								</div>
-							</div>
-						</div>
-											<div class="swiper-slide">
-							<div class="aspect-[0.76] w-full top-0 hover:-top-2 hover:shadow-lg relative p-4 flex items-end bg-navyBlue-200 hover:p-0 rounded-xl transition-all duration-700 overflow-hidden before:absolute before:pointer-events-none before:size-full before:inset-0 before:bg-gradient-to-b before:from-[#0070FF]/70 before:to-[#0070FF]/90 before:top-full before:scale-1 before:hover:top-0 before:hover:scale-[1.2] before:transition-all before:duration-700 before:z-[2]">
-								<div class="absolute size-full z-[1] top-0 left-0">
-									<a href="#" class="size-full block"><img src="assets/images/event.png" alt="" class="size-full object-cover"/></a>
-								</div>
-								<div class="flex flex-col items-start gap-2 lg:gap-4 p-5 bg-white rounded-lg w-full relative z-[3]">
-									<div class="p-2 lg:p-2.5 text-white text-sm lg:text-base font-normal bg-red rounded-lg">
-										10/09/2024
-									</div>
-									<div class="w-full text-black1 text-base lg:text-lg font-semibold line-clamp-2 leading-[120%]">
-										IUH ký kết hợp tác với Trung tâm Giáo dục nghề nghiệp Lái xe
-										                  Trường Vinh
-									</div>
-									<div class="flex flex-row items-center justify-between w-full">
-										<dl class="flex items-center gap-0.5">
-											<dt class="text-navyBlue-700">
-												<svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewbox="0 0 24 24" fill="none">
-													<path d="M12 9V13L14 15M18 3L21 6M3 6L6 3M20 13C20 17.4183 16.4183 21 12 21C7.58172 21 4 17.4183 4 13C4 8.58172 7.58172 5 12 5C16.4183 5 20 8.58172 20 13Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-												</svg>
-											</dt>
-											<dd class="text-black2 text-sm lg:text-base font-normal">
-												02:30 - 04:25
-											</dd>
-										</dl>
-										<dl class="flex items-center gap-0.5">
-											<dt class="text-navyBlue-700">
-												<svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewbox="0 0 24 24" fill="none">
-													<path d="M12 13V21M12 13C14.7614 13 17 10.7614 17 8C17 5.23858 14.7614 3 12 3C9.23858 3 7 5.23858 7 8C7 10.7614 9.23858 13 12 13Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-												</svg>
-											</dt>
-											<dd class="text-black2 text-sm lg:text-base font-normal">
-												Hội Trường A7
-											</dd>
-										</dl>
-									</div>
-								</div>
-							</div>
-						</div>
-											<div class="swiper-slide">
-							<div class="aspect-[0.76] w-full top-0 hover:-top-2 hover:shadow-lg relative p-4 flex items-end bg-navyBlue-200 hover:p-0 rounded-xl transition-all duration-700 overflow-hidden before:absolute before:pointer-events-none before:size-full before:inset-0 before:bg-gradient-to-b before:from-[#0070FF]/70 before:to-[#0070FF]/90 before:top-full before:scale-1 before:hover:top-0 before:hover:scale-[1.2] before:transition-all before:duration-700 before:z-[2]">
-								<div class="absolute size-full z-[1] top-0 left-0">
-									<a href="#" class="size-full block"><img src="assets/images/event.png" alt="" class="size-full object-cover"/></a>
-								</div>
-								<div class="flex flex-col items-start gap-2 lg:gap-4 p-5 bg-white rounded-lg w-full relative z-[3]">
-									<div class="p-2 lg:p-2.5 text-white text-sm lg:text-base font-normal bg-red rounded-lg">
-										10/09/2024
-									</div>
-									<div class="w-full text-black1 text-base lg:text-lg font-semibold line-clamp-2 leading-[120%]">
-										IUH ký kết hợp tác với Trung tâm Giáo dục nghề nghiệp Lái xe
-										                  Trường Vinh
-									</div>
-									<div class="flex flex-row items-center justify-between w-full">
-										<dl class="flex items-center gap-0.5">
-											<dt class="text-navyBlue-700">
-												<svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewbox="0 0 24 24" fill="none">
-													<path d="M12 9V13L14 15M18 3L21 6M3 6L6 3M20 13C20 17.4183 16.4183 21 12 21C7.58172 21 4 17.4183 4 13C4 8.58172 7.58172 5 12 5C16.4183 5 20 8.58172 20 13Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-												</svg>
-											</dt>
-											<dd class="text-black2 text-sm lg:text-base font-normal">
-												02:30 - 04:25
-											</dd>
-										</dl>
-										<dl class="flex items-center gap-0.5">
-											<dt class="text-navyBlue-700">
-												<svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewbox="0 0 24 24" fill="none">
-													<path d="M12 13V21M12 13C14.7614 13 17 10.7614 17 8C17 5.23858 14.7614 3 12 3C9.23858 3 7 5.23858 7 8C7 10.7614 9.23858 13 12 13Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-												</svg>
-											</dt>
-											<dd class="text-black2 text-sm lg:text-base font-normal">
-												Hội Trường A7
-											</dd>
-										</dl>
-									</div>
-								</div>
-							</div>
-						</div>
-											<div class="swiper-slide">
-							<div class="aspect-[0.76] w-full top-0 hover:-top-2 hover:shadow-lg relative p-4 flex items-end bg-navyBlue-200 hover:p-0 rounded-xl transition-all duration-700 overflow-hidden before:absolute before:pointer-events-none before:size-full before:inset-0 before:bg-gradient-to-b before:from-[#0070FF]/70 before:to-[#0070FF]/90 before:top-full before:scale-1 before:hover:top-0 before:hover:scale-[1.2] before:transition-all before:duration-700 before:z-[2]">
-								<div class="absolute size-full z-[1] top-0 left-0">
-									<a href="#" class="size-full block"><img src="assets/images/event.png" alt="" class="size-full object-cover"/></a>
-								</div>
-								<div class="flex flex-col items-start gap-2 lg:gap-4 p-5 bg-white rounded-lg w-full relative z-[3]">
-									<div class="p-2 lg:p-2.5 text-white text-sm lg:text-base font-normal bg-red rounded-lg">
-										10/09/2024
-									</div>
-									<div class="w-full text-black1 text-base lg:text-lg font-semibold line-clamp-2 leading-[120%]">
-										IUH ký kết hợp tác với Trung tâm Giáo dục nghề nghiệp Lái xe
-										                  Trường Vinh
-									</div>
-									<div class="flex flex-row items-center justify-between w-full">
-										<dl class="flex items-center gap-0.5">
-											<dt class="text-navyBlue-700">
-												<svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewbox="0 0 24 24" fill="none">
-													<path d="M12 9V13L14 15M18 3L21 6M3 6L6 3M20 13C20 17.4183 16.4183 21 12 21C7.58172 21 4 17.4183 4 13C4 8.58172 7.58172 5 12 5C16.4183 5 20 8.58172 20 13Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-												</svg>
-											</dt>
-											<dd class="text-black2 text-sm lg:text-base font-normal">
-												02:30 - 04:25
-											</dd>
-										</dl>
-										<dl class="flex items-center gap-0.5">
-											<dt class="text-navyBlue-700">
-												<svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewbox="0 0 24 24" fill="none">
-													<path d="M12 13V21M12 13C14.7614 13 17 10.7614 17 8C17 5.23858 14.7614 3 12 3C9.23858 3 7 5.23858 7 8C7 10.7614 9.23858 13 12 13Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-												</svg>
-											</dt>
-											<dd class="text-black2 text-sm lg:text-base font-normal">
-												Hội Trường A7
-											</dd>
-										</dl>
-									</div>
-								</div>
-							</div>
-						</div>
-											<div class="swiper-slide">
-							<div class="aspect-[0.76] w-full top-0 hover:-top-2 hover:shadow-lg relative p-4 flex items-end bg-navyBlue-200 hover:p-0 rounded-xl transition-all duration-700 overflow-hidden before:absolute before:pointer-events-none before:size-full before:inset-0 before:bg-gradient-to-b before:from-[#0070FF]/70 before:to-[#0070FF]/90 before:top-full before:scale-1 before:hover:top-0 before:hover:scale-[1.2] before:transition-all before:duration-700 before:z-[2]">
-								<div class="absolute size-full z-[1] top-0 left-0">
-									<a href="#" class="size-full block"><img src="assets/images/event.png" alt="" class="size-full object-cover"/></a>
-								</div>
-								<div class="flex flex-col items-start gap-2 lg:gap-4 p-5 bg-white rounded-lg w-full relative z-[3]">
-									<div class="p-2 lg:p-2.5 text-white text-sm lg:text-base font-normal bg-red rounded-lg">
-										10/09/2024
-									</div>
-									<div class="w-full text-black1 text-base lg:text-lg font-semibold line-clamp-2 leading-[120%]">
-										IUH ký kết hợp tác với Trung tâm Giáo dục nghề nghiệp Lái xe
-										                  Trường Vinh
-									</div>
-									<div class="flex flex-row items-center justify-between w-full">
-										<dl class="flex items-center gap-0.5">
-											<dt class="text-navyBlue-700">
-												<svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewbox="0 0 24 24" fill="none">
-													<path d="M12 9V13L14 15M18 3L21 6M3 6L6 3M20 13C20 17.4183 16.4183 21 12 21C7.58172 21 4 17.4183 4 13C4 8.58172 7.58172 5 12 5C16.4183 5 20 8.58172 20 13Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-												</svg>
-											</dt>
-											<dd class="text-black2 text-sm lg:text-base font-normal">
-												02:30 - 04:25
-											</dd>
-										</dl>
-										<dl class="flex items-center gap-0.5">
-											<dt class="text-navyBlue-700">
-												<svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewbox="0 0 24 24" fill="none">
-													<path d="M12 13V21M12 13C14.7614 13 17 10.7614 17 8C17 5.23858 14.7614 3 12 3C9.23858 3 7 5.23858 7 8C7 10.7614 9.23858 13 12 13Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-												</svg>
-											</dt>
-											<dd class="text-black2 text-sm lg:text-base font-normal">
-												Hội Trường A7
-											</dd>
-										</dl>
-									</div>
-								</div>
-							</div>
-						</div>
-									</div>
-				<div class="swiper-pagination"></div>
-			</div>
-		</div>
-	</div>
+  <div class="w-full max-w-[1200px] px-4 mx-auto py-10 lg:py-16">
+    <div class="flex flex-col gap-5 lg:gap-[30px] relative">
+      <h2 class="text-2xl lg:text-titleDK md:leading-[1] font-bold text-white">
+        Sự kiện
+      </h2>
+      <div
+        class="size-9 lg:size-[48px] absolute top-0 lg:top-5 right-5 pulse-animation"
+        data-open-modal="openVideoEvent"
+      >
+        <div class="size-full bg-navyBlue-50/50 rounded-full">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="size-full relative z-[3]"
+            viewbox="0 0 48 48"
+            fill="none"
+          >
+            <path
+              d="M24 4C12.96 4 4 12.96 4 24C4 35.04 12.96 44 24 44C35.04 44 44 35.04 44 24C44 12.96 35.04 4 24 4ZM24 40C15.18 40 8 32.82 8 24C8 15.18 15.18 8 24 8C32.82 8 40 15.18 40 24C40 32.82 32.82 40 24 40ZM19 33L33 24L19 15V33Z"
+              fill="#0000CF"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="text-white text-base lg:text-lg max-w-[580px] font-normal leading-[166%]"
+      >
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since
+      </div>
+      <div class="iuh-btn w-full max-w-[200px]">
+        <a href="#">
+          Xem tất cả
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="size-5"
+            viewbox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M10.075 12L5.5 7.4L6.9 6L12.9 12L6.9 18L5.5 16.6L10.075 12ZM16.675 12L12.1 7.4L13.5 6L19.5 12L13.5 18L12.1 16.6L16.675 12Z"
+              fill="currentColor"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="w-full">
+      <div class="swiper iuh-event-slide -mx-4 !pt-10 !py-14 lg:!py-16">
+        <div class="swiper-wrapper">
+                    <!-- silde of event -->
+          <div class="swiper-slide">
+            <div
+              class="aspect-[0.76] w-full top-0 hover:-top-2 hover:shadow-lg relative p-3 flex items-end bg-navyBlue-200 hover:p-0 rounded-xl transition-all duration-700 overflow-hidden before:absolute before:pointer-events-none before:size-full before:inset-0 before:bg-gradient-to-b before:from-[#0070FF]/70 before:to-[#0070FF]/90 before:top-full before:scale-1 before:hover:top-0 before:hover:scale-[1.2] before:transition-all before:duration-700 before:z-[2]"
+            >
+              <div class="absolute size-full z-[1] top-0 left-0">
+                <div
+                  class="px-3 py-1 rounded-full text-sm text-white bg-red capitalize animate-flash-badge absolute top-2 left-2"
+                >
+                  new
+                </div>
+                <a href="#" class="size-full block"
+                  ><img
+                    src="assets/images/event.png"
+                    alt=""
+                    class="size-full object-cover"
+                /></a>
+              </div>
+              <div
+                class="flex flex-col items-start gap-1 lg:gap-2 p-2.5 bg-white rounded-lg w-full relative z-[3]"
+              >
+                <div
+                  class="p-1 lg:p-1.5 text-white text-sm lg:text-base font-normal bg-red rounded-lg"
+                >
+                  10/09/2024
+                </div>
+
+                <div
+                  class="w-full text-black1 text-base lg:text-lg font-semibold line-clamp-2 leading-[120%]"
+                >
+                  IUH ký kết hợp tác với Trung tâm Giáo dục nghề nghiệp Lái xe
+                  Trường Vinh, IUH ký kết hợp tác với Trung tâm Giáo dục nghề
+                  nghiệp Lái xe Trường Vinh
+                </div>
+                <div class="flex flex-row items-center justify-between w-full">
+                  <dl class="flex items-center gap-0.5">
+                    <dt class="text-navyBlue-700">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewbox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M12 9V13L14 15M18 3L21 6M3 6L6 3M20 13C20 17.4183 16.4183 21 12 21C7.58172 21 4 17.4183 4 13C4 8.58172 7.58172 5 12 5C16.4183 5 20 8.58172 20 13Z"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </dt>
+                    <dd class="text-black2 text-sm lg:text-base font-normal">
+                      02:30 - 04:25
+                    </dd>
+                  </dl>
+                  <dl class="flex items-center gap-0.5">
+                    <dt class="text-navyBlue-700">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewbox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M12 13V21M12 13C14.7614 13 17 10.7614 17 8C17 5.23858 14.7614 3 12 3C9.23858 3 7 5.23858 7 8C7 10.7614 9.23858 13 12 13Z"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </dt>
+                    <dd class="text-black2 text-sm lg:text-base font-normal">
+                      Hội Trường A7
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+                    <!-- silde of event -->
+          <div class="swiper-slide">
+            <div
+              class="aspect-[0.76] w-full top-0 hover:-top-2 hover:shadow-lg relative p-3 flex items-end bg-navyBlue-200 hover:p-0 rounded-xl transition-all duration-700 overflow-hidden before:absolute before:pointer-events-none before:size-full before:inset-0 before:bg-gradient-to-b before:from-[#0070FF]/70 before:to-[#0070FF]/90 before:top-full before:scale-1 before:hover:top-0 before:hover:scale-[1.2] before:transition-all before:duration-700 before:z-[2]"
+            >
+              <div class="absolute size-full z-[1] top-0 left-0">
+                <div
+                  class="px-3 py-1 rounded-full text-sm text-white bg-red capitalize animate-flash-badge absolute top-2 left-2"
+                >
+                  new
+                </div>
+                <a href="#" class="size-full block"
+                  ><img
+                    src="assets/images/event.png"
+                    alt=""
+                    class="size-full object-cover"
+                /></a>
+              </div>
+              <div
+                class="flex flex-col items-start gap-1 lg:gap-2 p-2.5 bg-white rounded-lg w-full relative z-[3]"
+              >
+                <div
+                  class="p-1 lg:p-1.5 text-white text-sm lg:text-base font-normal bg-red rounded-lg"
+                >
+                  10/09/2024
+                </div>
+
+                <div
+                  class="w-full text-black1 text-base lg:text-lg font-semibold line-clamp-2 leading-[120%]"
+                >
+                  IUH ký kết hợp tác với Trung tâm Giáo dục nghề nghiệp Lái xe
+                  Trường Vinh, IUH ký kết hợp tác với Trung tâm Giáo dục nghề
+                  nghiệp Lái xe Trường Vinh
+                </div>
+                <div class="flex flex-row items-center justify-between w-full">
+                  <dl class="flex items-center gap-0.5">
+                    <dt class="text-navyBlue-700">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewbox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M12 9V13L14 15M18 3L21 6M3 6L6 3M20 13C20 17.4183 16.4183 21 12 21C7.58172 21 4 17.4183 4 13C4 8.58172 7.58172 5 12 5C16.4183 5 20 8.58172 20 13Z"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </dt>
+                    <dd class="text-black2 text-sm lg:text-base font-normal">
+                      02:30 - 04:25
+                    </dd>
+                  </dl>
+                  <dl class="flex items-center gap-0.5">
+                    <dt class="text-navyBlue-700">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewbox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M12 13V21M12 13C14.7614 13 17 10.7614 17 8C17 5.23858 14.7614 3 12 3C9.23858 3 7 5.23858 7 8C7 10.7614 9.23858 13 12 13Z"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </dt>
+                    <dd class="text-black2 text-sm lg:text-base font-normal">
+                      Hội Trường A7
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+                    <!-- silde of event -->
+          <div class="swiper-slide">
+            <div
+              class="aspect-[0.76] w-full top-0 hover:-top-2 hover:shadow-lg relative p-3 flex items-end bg-navyBlue-200 hover:p-0 rounded-xl transition-all duration-700 overflow-hidden before:absolute before:pointer-events-none before:size-full before:inset-0 before:bg-gradient-to-b before:from-[#0070FF]/70 before:to-[#0070FF]/90 before:top-full before:scale-1 before:hover:top-0 before:hover:scale-[1.2] before:transition-all before:duration-700 before:z-[2]"
+            >
+              <div class="absolute size-full z-[1] top-0 left-0">
+                <div
+                  class="px-3 py-1 rounded-full text-sm text-white bg-red capitalize animate-flash-badge absolute top-2 left-2"
+                >
+                  new
+                </div>
+                <a href="#" class="size-full block"
+                  ><img
+                    src="assets/images/event.png"
+                    alt=""
+                    class="size-full object-cover"
+                /></a>
+              </div>
+              <div
+                class="flex flex-col items-start gap-1 lg:gap-2 p-2.5 bg-white rounded-lg w-full relative z-[3]"
+              >
+                <div
+                  class="p-1 lg:p-1.5 text-white text-sm lg:text-base font-normal bg-red rounded-lg"
+                >
+                  10/09/2024
+                </div>
+
+                <div
+                  class="w-full text-black1 text-base lg:text-lg font-semibold line-clamp-2 leading-[120%]"
+                >
+                  IUH ký kết hợp tác với Trung tâm Giáo dục nghề nghiệp Lái xe
+                  Trường Vinh, IUH ký kết hợp tác với Trung tâm Giáo dục nghề
+                  nghiệp Lái xe Trường Vinh
+                </div>
+                <div class="flex flex-row items-center justify-between w-full">
+                  <dl class="flex items-center gap-0.5">
+                    <dt class="text-navyBlue-700">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewbox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M12 9V13L14 15M18 3L21 6M3 6L6 3M20 13C20 17.4183 16.4183 21 12 21C7.58172 21 4 17.4183 4 13C4 8.58172 7.58172 5 12 5C16.4183 5 20 8.58172 20 13Z"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </dt>
+                    <dd class="text-black2 text-sm lg:text-base font-normal">
+                      02:30 - 04:25
+                    </dd>
+                  </dl>
+                  <dl class="flex items-center gap-0.5">
+                    <dt class="text-navyBlue-700">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewbox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M12 13V21M12 13C14.7614 13 17 10.7614 17 8C17 5.23858 14.7614 3 12 3C9.23858 3 7 5.23858 7 8C7 10.7614 9.23858 13 12 13Z"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </dt>
+                    <dd class="text-black2 text-sm lg:text-base font-normal">
+                      Hội Trường A7
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+                    <!-- silde of event -->
+          <div class="swiper-slide">
+            <div
+              class="aspect-[0.76] w-full top-0 hover:-top-2 hover:shadow-lg relative p-3 flex items-end bg-navyBlue-200 hover:p-0 rounded-xl transition-all duration-700 overflow-hidden before:absolute before:pointer-events-none before:size-full before:inset-0 before:bg-gradient-to-b before:from-[#0070FF]/70 before:to-[#0070FF]/90 before:top-full before:scale-1 before:hover:top-0 before:hover:scale-[1.2] before:transition-all before:duration-700 before:z-[2]"
+            >
+              <div class="absolute size-full z-[1] top-0 left-0">
+                <div
+                  class="px-3 py-1 rounded-full text-sm text-white bg-red capitalize animate-flash-badge absolute top-2 left-2"
+                >
+                  new
+                </div>
+                <a href="#" class="size-full block"
+                  ><img
+                    src="assets/images/event.png"
+                    alt=""
+                    class="size-full object-cover"
+                /></a>
+              </div>
+              <div
+                class="flex flex-col items-start gap-1 lg:gap-2 p-2.5 bg-white rounded-lg w-full relative z-[3]"
+              >
+                <div
+                  class="p-1 lg:p-1.5 text-white text-sm lg:text-base font-normal bg-red rounded-lg"
+                >
+                  10/09/2024
+                </div>
+
+                <div
+                  class="w-full text-black1 text-base lg:text-lg font-semibold line-clamp-2 leading-[120%]"
+                >
+                  IUH ký kết hợp tác với Trung tâm Giáo dục nghề nghiệp Lái xe
+                  Trường Vinh, IUH ký kết hợp tác với Trung tâm Giáo dục nghề
+                  nghiệp Lái xe Trường Vinh
+                </div>
+                <div class="flex flex-row items-center justify-between w-full">
+                  <dl class="flex items-center gap-0.5">
+                    <dt class="text-navyBlue-700">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewbox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M12 9V13L14 15M18 3L21 6M3 6L6 3M20 13C20 17.4183 16.4183 21 12 21C7.58172 21 4 17.4183 4 13C4 8.58172 7.58172 5 12 5C16.4183 5 20 8.58172 20 13Z"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </dt>
+                    <dd class="text-black2 text-sm lg:text-base font-normal">
+                      02:30 - 04:25
+                    </dd>
+                  </dl>
+                  <dl class="flex items-center gap-0.5">
+                    <dt class="text-navyBlue-700">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewbox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M12 13V21M12 13C14.7614 13 17 10.7614 17 8C17 5.23858 14.7614 3 12 3C9.23858 3 7 5.23858 7 8C7 10.7614 9.23858 13 12 13Z"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </dt>
+                    <dd class="text-black2 text-sm lg:text-base font-normal">
+                      Hội Trường A7
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+                    <!-- silde of event -->
+          <div class="swiper-slide">
+            <div
+              class="aspect-[0.76] w-full top-0 hover:-top-2 hover:shadow-lg relative p-3 flex items-end bg-navyBlue-200 hover:p-0 rounded-xl transition-all duration-700 overflow-hidden before:absolute before:pointer-events-none before:size-full before:inset-0 before:bg-gradient-to-b before:from-[#0070FF]/70 before:to-[#0070FF]/90 before:top-full before:scale-1 before:hover:top-0 before:hover:scale-[1.2] before:transition-all before:duration-700 before:z-[2]"
+            >
+              <div class="absolute size-full z-[1] top-0 left-0">
+                <div
+                  class="px-3 py-1 rounded-full text-sm text-white bg-red capitalize animate-flash-badge absolute top-2 left-2"
+                >
+                  new
+                </div>
+                <a href="#" class="size-full block"
+                  ><img
+                    src="assets/images/event.png"
+                    alt=""
+                    class="size-full object-cover"
+                /></a>
+              </div>
+              <div
+                class="flex flex-col items-start gap-1 lg:gap-2 p-2.5 bg-white rounded-lg w-full relative z-[3]"
+              >
+                <div
+                  class="p-1 lg:p-1.5 text-white text-sm lg:text-base font-normal bg-red rounded-lg"
+                >
+                  10/09/2024
+                </div>
+
+                <div
+                  class="w-full text-black1 text-base lg:text-lg font-semibold line-clamp-2 leading-[120%]"
+                >
+                  IUH ký kết hợp tác với Trung tâm Giáo dục nghề nghiệp Lái xe
+                  Trường Vinh, IUH ký kết hợp tác với Trung tâm Giáo dục nghề
+                  nghiệp Lái xe Trường Vinh
+                </div>
+                <div class="flex flex-row items-center justify-between w-full">
+                  <dl class="flex items-center gap-0.5">
+                    <dt class="text-navyBlue-700">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewbox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M12 9V13L14 15M18 3L21 6M3 6L6 3M20 13C20 17.4183 16.4183 21 12 21C7.58172 21 4 17.4183 4 13C4 8.58172 7.58172 5 12 5C16.4183 5 20 8.58172 20 13Z"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </dt>
+                    <dd class="text-black2 text-sm lg:text-base font-normal">
+                      02:30 - 04:25
+                    </dd>
+                  </dl>
+                  <dl class="flex items-center gap-0.5">
+                    <dt class="text-navyBlue-700">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewbox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M12 13V21M12 13C14.7614 13 17 10.7614 17 8C17 5.23858 14.7614 3 12 3C9.23858 3 7 5.23858 7 8C7 10.7614 9.23858 13 12 13Z"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </dt>
+                    <dd class="text-black2 text-sm lg:text-base font-normal">
+                      Hội Trường A7
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+                    <!-- silde of event -->
+          <div class="swiper-slide">
+            <div
+              class="aspect-[0.76] w-full top-0 hover:-top-2 hover:shadow-lg relative p-3 flex items-end bg-navyBlue-200 hover:p-0 rounded-xl transition-all duration-700 overflow-hidden before:absolute before:pointer-events-none before:size-full before:inset-0 before:bg-gradient-to-b before:from-[#0070FF]/70 before:to-[#0070FF]/90 before:top-full before:scale-1 before:hover:top-0 before:hover:scale-[1.2] before:transition-all before:duration-700 before:z-[2]"
+            >
+              <div class="absolute size-full z-[1] top-0 left-0">
+                <div
+                  class="px-3 py-1 rounded-full text-sm text-white bg-red capitalize animate-flash-badge absolute top-2 left-2"
+                >
+                  new
+                </div>
+                <a href="#" class="size-full block"
+                  ><img
+                    src="assets/images/event.png"
+                    alt=""
+                    class="size-full object-cover"
+                /></a>
+              </div>
+              <div
+                class="flex flex-col items-start gap-1 lg:gap-2 p-2.5 bg-white rounded-lg w-full relative z-[3]"
+              >
+                <div
+                  class="p-1 lg:p-1.5 text-white text-sm lg:text-base font-normal bg-red rounded-lg"
+                >
+                  10/09/2024
+                </div>
+
+                <div
+                  class="w-full text-black1 text-base lg:text-lg font-semibold line-clamp-2 leading-[120%]"
+                >
+                  IUH ký kết hợp tác với Trung tâm Giáo dục nghề nghiệp Lái xe
+                  Trường Vinh, IUH ký kết hợp tác với Trung tâm Giáo dục nghề
+                  nghiệp Lái xe Trường Vinh
+                </div>
+                <div class="flex flex-row items-center justify-between w-full">
+                  <dl class="flex items-center gap-0.5">
+                    <dt class="text-navyBlue-700">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewbox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M12 9V13L14 15M18 3L21 6M3 6L6 3M20 13C20 17.4183 16.4183 21 12 21C7.58172 21 4 17.4183 4 13C4 8.58172 7.58172 5 12 5C16.4183 5 20 8.58172 20 13Z"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </dt>
+                    <dd class="text-black2 text-sm lg:text-base font-normal">
+                      02:30 - 04:25
+                    </dd>
+                  </dl>
+                  <dl class="flex items-center gap-0.5">
+                    <dt class="text-navyBlue-700">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewbox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M12 13V21M12 13C14.7614 13 17 10.7614 17 8C17 5.23858 14.7614 3 12 3C9.23858 3 7 5.23858 7 8C7 10.7614 9.23858 13 12 13Z"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </dt>
+                    <dd class="text-black2 text-sm lg:text-base font-normal">
+                      Hội Trường A7
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+                  </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </div>
 </div>
 		<div class="iuhFadeInScroll w-full relative iuh-gallery" data-module="HomeGallery">
 	<div class="w-full max-w-[1200px] px-4 mx-auto pb-10 lg:pb-[65px] flex flex-col gap-5">
@@ -3367,244 +3693,377 @@ Thông điệp Hiệu Trưởng
     </div>
   </div>
 </div>
-		<div class="iuhFadeInScroll w-full relative iuh-cooperation py-10 lg:pt-16 lg:pb-0" data-module="HomeCooperation">
-	<div class="w-full max-w-[1200px] px-4 mx-auto flex flex-col gap-5 lg:gap-10  ">
-		<h2 class="text-2xl lg:text-titleDK md:leading-[1] text-left lg:text-center font-bold text-titleColor">
-			Hợp tác quốc tế
-		</h2>
-		<div class="w-full ">
-			<div class="cooperation-grid">
-									<div class='col-span-1 lg:col-span-1 group relative aspect-video md:aspect-auto w-full cursor-pointer overflow-hidden rounded-xl shadow-md hover:shadow-2xl'>
-						<div class="absolute inset-0 h-full w-full object-cover opacity-90 transition-opacity duration-300 ease-out group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-300">
-							<a href="#" class="absolute inset-0 size-full image-hover">
-								<img src="assets/images/cooperation.png" alt="cooperation-noti" class="size-full object-cover">
-							</a>
-						</div>
-						<div class='flex flex-col justify-end absolute pointer-events-none inset-0 bg-gradient-to-b from-black/0 to-black/60 p-2 md:p-4 to-90% text-white transition-all duration-300 group-hover:bg-gradient-to-t group-hover:to-black/30 group-hover:from-black group-hover:transition-all group-hover:duration-500'>
-							<div class="m-0 transition-all delay-300 duration-200 ease-out group-hover:bottom-1/2 group-hover:delay-0 group-hover:duration-300">
-								<div class="flex max-w-[130px] items-center gap-1 border border-stroke italic text-sm font-normal rounded-1.25 pl-1.25 pr-2.5 py-1">
-									<span class="size-5">
-										<svg xmlns="http://www.w3.org/2000/svg" class="size-full" viewbox="0 0 24 24" fill="none">
-											<path d="M16 15.3018V16.9893L16.9 18.0018M9 11.1018H4M20 9.10181V7.10181C20 5.99724 19.1046 5.10181 18 5.10181H6C4.89543 5.10181 4 5.99724 4 7.10181V19.1018C4 20.2064 4.89543 21.1018 6 21.1018H9M15 3.10181V7.10181M9 3.10181V7.10181M20.5 17.1018C20.5 19.5871 18.4853 21.6018 16 21.6018C13.5147 21.6018 11.5 19.5871 11.5 17.1018C11.5 14.6165 13.5147 12.6018 16 12.6018C18.4853 12.6018 20.5 14.6165 20.5 17.1018Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-										</svg>
-									</span>
-									29/10/2024
-								</div>
-								<h2 class='mt-2 font-semibold line-clamp-2 text-base lg:text-lg'>
-									Kế hoạch về việc tổ chức cuộc thi viết "Ký ức thầy cô IUH" lần thứ 3 năm 2024
-								</h2>
-							</div>
-							<p class='line-clamp-3 relative h-0 p-0 group-hover:h-auto opacity-0
-               transition-opacity duration-500 ease-out group-hover:opacity-100
-               group-hover:delay-100 group-hover:duration-300 '>
-								Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor nostrum nesciunt reiciendis labore vel velit blanditiis vero, amet corporis porro saepe officiis officia sit sequi molestiae ab libero, quo tempora repellat? Facilis doloremque, eligendi neque sed fuga tempore hic magnam qui in sint maiores id, itaque totam, quis quasi! Minima amet excepturi sit aliquid dolores eos quam asperiores eius consectetur repudiandae pariatur nostrum laboriosam, non ullam? Exercitationem ipsam illum eos architecto veniam magnam, officia pariatur sit odit inventore ab natus culpa cum placeat illo voluptas eum reprehenderit adipisci. Nostrum vel aperiam dolorem quo exercitationem dicta aut doloremque itaque tempore similique at accusantium veniam voluptate, commodi quis debitis accusamus, esse qui saepe adipisci odit corporis? Ad ipsam dolores aspernatur animi unde voluptas vero recusandae totam alias. Placeat quasi, perferendis ad cum illo quaerat est cumque maxime incidunt natus corporis debitis et nesciunt, excepturi ipsam officiis laborum voluptate perspiciatis blanditiis provident ut aliquid fugit nemo illum. Similique, sequi doloribus soluta suscipit eligendi quidem laudantium modi incidunt dolore officia nam blanditiis numquam iusto temporibus odit unde consectetur voluptatem enim asperiores rerum quam, repellat commodi aliquid impedit! Voluptatibus, ex asperiores sed, laborum quibusdam quae assumenda vero in minima qui est numquam modi placeat cum!
-							</p>
-						</div>
-					</div>
-									<div class='col-span-1 lg:col-span-1 group relative aspect-video md:aspect-auto w-full cursor-pointer overflow-hidden rounded-xl shadow-md hover:shadow-2xl'>
-						<div class="absolute inset-0 h-full w-full object-cover opacity-90 transition-opacity duration-300 ease-out group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-300">
-							<a href="#" class="absolute inset-0 size-full image-hover">
-								<img src="assets/images/cooperation.png" alt="cooperation-noti" class="size-full object-cover">
-							</a>
-						</div>
-						<div class='flex flex-col justify-end absolute pointer-events-none inset-0 bg-gradient-to-b from-black/0 to-black/60 p-2 md:p-4 to-90% text-white transition-all duration-300 group-hover:bg-gradient-to-t group-hover:to-black/30 group-hover:from-black group-hover:transition-all group-hover:duration-500'>
-							<div class="m-0 transition-all delay-300 duration-200 ease-out group-hover:bottom-1/2 group-hover:delay-0 group-hover:duration-300">
-								<div class="flex max-w-[130px] items-center gap-1 border border-stroke italic text-sm font-normal rounded-1.25 pl-1.25 pr-2.5 py-1">
-									<span class="size-5">
-										<svg xmlns="http://www.w3.org/2000/svg" class="size-full" viewbox="0 0 24 24" fill="none">
-											<path d="M16 15.3018V16.9893L16.9 18.0018M9 11.1018H4M20 9.10181V7.10181C20 5.99724 19.1046 5.10181 18 5.10181H6C4.89543 5.10181 4 5.99724 4 7.10181V19.1018C4 20.2064 4.89543 21.1018 6 21.1018H9M15 3.10181V7.10181M9 3.10181V7.10181M20.5 17.1018C20.5 19.5871 18.4853 21.6018 16 21.6018C13.5147 21.6018 11.5 19.5871 11.5 17.1018C11.5 14.6165 13.5147 12.6018 16 12.6018C18.4853 12.6018 20.5 14.6165 20.5 17.1018Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-										</svg>
-									</span>
-									29/10/2024
-								</div>
-								<h2 class='mt-2 font-semibold line-clamp-2 text-base lg:text-lg'>
-									Kế hoạch về việc tổ chức cuộc thi viết "Ký ức thầy cô IUH" lần thứ 3 năm 2024
-								</h2>
-							</div>
-							<p class='line-clamp-3 relative h-0 p-0 group-hover:h-auto opacity-0
-               transition-opacity duration-500 ease-out group-hover:opacity-100
-               group-hover:delay-100 group-hover:duration-300 '>
-								Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor nostrum nesciunt reiciendis labore vel velit blanditiis vero, amet corporis porro saepe officiis officia sit sequi molestiae ab libero, quo tempora repellat? Facilis doloremque, eligendi neque sed fuga tempore hic magnam qui in sint maiores id, itaque totam, quis quasi! Minima amet excepturi sit aliquid dolores eos quam asperiores eius consectetur repudiandae pariatur nostrum laboriosam, non ullam? Exercitationem ipsam illum eos architecto veniam magnam, officia pariatur sit odit inventore ab natus culpa cum placeat illo voluptas eum reprehenderit adipisci. Nostrum vel aperiam dolorem quo exercitationem dicta aut doloremque itaque tempore similique at accusantium veniam voluptate, commodi quis debitis accusamus, esse qui saepe adipisci odit corporis? Ad ipsam dolores aspernatur animi unde voluptas vero recusandae totam alias. Placeat quasi, perferendis ad cum illo quaerat est cumque maxime incidunt natus corporis debitis et nesciunt, excepturi ipsam officiis laborum voluptate perspiciatis blanditiis provident ut aliquid fugit nemo illum. Similique, sequi doloribus soluta suscipit eligendi quidem laudantium modi incidunt dolore officia nam blanditiis numquam iusto temporibus odit unde consectetur voluptatem enim asperiores rerum quam, repellat commodi aliquid impedit! Voluptatibus, ex asperiores sed, laborum quibusdam quae assumenda vero in minima qui est numquam modi placeat cum!
-							</p>
-						</div>
-					</div>
-							</div>
-			<div class="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4 mt-4 lg:mt-5">
-									<div class="flex flex-col gap-1 flex-1 group/news p-2 lg:p-4
-						rounded-xl border-b md:border-b-0 md:border-l md:border-r border-stroke
-						transition-all duration-300 ease-out
-						hover:bg-slate-50 hover:shadow-sm hover:-translate-y-0.5">
+		<div
+  class="iuhFadeInScroll w-full relative iuh-cooperation py-10 lg:pt-16 lg:pb-0"
+  data-module="HomeCooperation"
+>
+  <div class="w-full max-w-[1200px] px-4 mx-auto flex flex-col gap-5 lg:gap-10">
+    <h2
+      class="text-2xl lg:text-titleDK md:leading-[1] text-left lg:text-center font-bold text-titleColor"
+    >
+      Hợp tác quốc tế
+    </h2>
+    <div class="w-full">
+      <div class="cooperation-grid">
+                <div
+          class="col-span-1 lg:col-span-1 group relative aspect-video md:aspect-auto w-full cursor-pointer overflow-hidden rounded-xl shadow-md hover:shadow-2xl"
+        >
+          <div
+            class="absolute inset-0 h-full w-full object-cover opacity-90 transition-opacity duration-300 ease-out group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-300"
+          >
+            <a href="#" class="absolute inset-0 size-full image-hover">
+              <img
+                src="assets/images/cooperation.png"
+                alt="cooperation-noti"
+                class="size-full object-cover"
+              />
+            </a>
+          </div>
+          <div
+            class="flex flex-col justify-end absolute pointer-events-none inset-0 bg-gradient-to-b from-black/0 to-black/60 p-2 md:p-4 to-90% text-white transition-all duration-300 group-hover:bg-gradient-to-t group-hover:to-black/30 group-hover:from-black group-hover:transition-all group-hover:duration-500"
+          >
+            <div
+              class="m-0 transition-all delay-300 duration-200 ease-out group-hover:bottom-1/2 group-hover:delay-0 group-hover:duration-300"
+            >
+              <div
+                class="flex max-w-[130px] items-center gap-1 border border-stroke italic text-sm font-normal rounded-1.25 pl-1.25 pr-2.5 py-1"
+              >
+                <span class="size-5">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="size-full"
+                    viewbox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M16 15.3018V16.9893L16.9 18.0018M9 11.1018H4M20 9.10181V7.10181C20 5.99724 19.1046 5.10181 18 5.10181H6C4.89543 5.10181 4 5.99724 4 7.10181V19.1018C4 20.2064 4.89543 21.1018 6 21.1018H9M15 3.10181V7.10181M9 3.10181V7.10181M20.5 17.1018C20.5 19.5871 18.4853 21.6018 16 21.6018C13.5147 21.6018 11.5 19.5871 11.5 17.1018C11.5 14.6165 13.5147 12.6018 16 12.6018C18.4853 12.6018 20.5 14.6165 20.5 17.1018Z"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </span>
+                29/10/2024
+              </div>
+              <h2 class="mt-2 font-semibold line-clamp-2 text-base lg:text-lg">
+                Kế hoạch về việc tổ chức cuộc thi viết "Ký ức thầy cô IUH" lần
+                thứ 3 năm 2024
+              </h2>
+            </div>
+            <p
+              class="line-clamp-3 relative h-0 p-0 group-hover:h-auto opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 group-hover:delay-100 group-hover:duration-300"
+            >
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor
+              nostrum nesciunt reiciendis labore vel velit blanditiis vero, amet
+              corporis porro saepe officiis officia sit sequi molestiae ab
+              libero, quo tempora repellat? Facilis doloremque, eligendi neque
+              sed fuga tempore hic magnam qui in sint maiores id, itaque totam,
+              quis quasi! Minima amet excepturi sit aliquid dolores eos quam
+              asperiores eius consectetur repudiandae pariatur nostrum
+              laboriosam, non ullam? Exercitationem ipsam illum eos architecto
+              veniam magnam, officia pariatur sit odit inventore ab natus culpa
+              cum placeat illo voluptas eum reprehenderit adipisci. Nostrum vel
+              aperiam dolorem quo exercitationem dicta aut doloremque itaque
+              tempore similique at accusantium veniam voluptate, commodi quis
+              debitis accusamus, esse qui saepe adipisci odit corporis? Ad ipsam
+              dolores aspernatur animi unde voluptas vero recusandae totam
+              alias. Placeat quasi, perferendis ad cum illo quaerat est cumque
+              maxime incidunt natus corporis debitis et nesciunt, excepturi
+              ipsam officiis laborum voluptate perspiciatis blanditiis provident
+              ut aliquid fugit nemo illum. Similique, sequi doloribus soluta
+              suscipit eligendi quidem laudantium modi incidunt dolore officia
+              nam blanditiis numquam iusto temporibus odit unde consectetur
+              voluptatem enim asperiores rerum quam, repellat commodi aliquid
+              impedit! Voluptatibus, ex asperiores sed, laborum quibusdam quae
+              assumenda vero in minima qui est numquam modi placeat cum!
+            </p>
+          </div>
+        </div>
+                <div
+          class="col-span-1 lg:col-span-1 group relative aspect-video md:aspect-auto w-full cursor-pointer overflow-hidden rounded-xl shadow-md hover:shadow-2xl"
+        >
+          <div
+            class="absolute inset-0 h-full w-full object-cover opacity-90 transition-opacity duration-300 ease-out group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-300"
+          >
+            <a href="#" class="absolute inset-0 size-full image-hover">
+              <img
+                src="assets/images/cooperation.png"
+                alt="cooperation-noti"
+                class="size-full object-cover"
+              />
+            </a>
+          </div>
+          <div
+            class="flex flex-col justify-end absolute pointer-events-none inset-0 bg-gradient-to-b from-black/0 to-black/60 p-2 md:p-4 to-90% text-white transition-all duration-300 group-hover:bg-gradient-to-t group-hover:to-black/30 group-hover:from-black group-hover:transition-all group-hover:duration-500"
+          >
+            <div
+              class="m-0 transition-all delay-300 duration-200 ease-out group-hover:bottom-1/2 group-hover:delay-0 group-hover:duration-300"
+            >
+              <div
+                class="flex max-w-[130px] items-center gap-1 border border-stroke italic text-sm font-normal rounded-1.25 pl-1.25 pr-2.5 py-1"
+              >
+                <span class="size-5">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="size-full"
+                    viewbox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M16 15.3018V16.9893L16.9 18.0018M9 11.1018H4M20 9.10181V7.10181C20 5.99724 19.1046 5.10181 18 5.10181H6C4.89543 5.10181 4 5.99724 4 7.10181V19.1018C4 20.2064 4.89543 21.1018 6 21.1018H9M15 3.10181V7.10181M9 3.10181V7.10181M20.5 17.1018C20.5 19.5871 18.4853 21.6018 16 21.6018C13.5147 21.6018 11.5 19.5871 11.5 17.1018C11.5 14.6165 13.5147 12.6018 16 12.6018C18.4853 12.6018 20.5 14.6165 20.5 17.1018Z"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </span>
+                29/10/2024
+              </div>
+              <h2 class="mt-2 font-semibold line-clamp-2 text-base lg:text-lg">
+                Kế hoạch về việc tổ chức cuộc thi viết "Ký ức thầy cô IUH" lần
+                thứ 3 năm 2024
+              </h2>
+            </div>
+            <p
+              class="line-clamp-3 relative h-0 p-0 group-hover:h-auto opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 group-hover:delay-100 group-hover:duration-300"
+            >
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor
+              nostrum nesciunt reiciendis labore vel velit blanditiis vero, amet
+              corporis porro saepe officiis officia sit sequi molestiae ab
+              libero, quo tempora repellat? Facilis doloremque, eligendi neque
+              sed fuga tempore hic magnam qui in sint maiores id, itaque totam,
+              quis quasi! Minima amet excepturi sit aliquid dolores eos quam
+              asperiores eius consectetur repudiandae pariatur nostrum
+              laboriosam, non ullam? Exercitationem ipsam illum eos architecto
+              veniam magnam, officia pariatur sit odit inventore ab natus culpa
+              cum placeat illo voluptas eum reprehenderit adipisci. Nostrum vel
+              aperiam dolorem quo exercitationem dicta aut doloremque itaque
+              tempore similique at accusantium veniam voluptate, commodi quis
+              debitis accusamus, esse qui saepe adipisci odit corporis? Ad ipsam
+              dolores aspernatur animi unde voluptas vero recusandae totam
+              alias. Placeat quasi, perferendis ad cum illo quaerat est cumque
+              maxime incidunt natus corporis debitis et nesciunt, excepturi
+              ipsam officiis laborum voluptate perspiciatis blanditiis provident
+              ut aliquid fugit nemo illum. Similique, sequi doloribus soluta
+              suscipit eligendi quidem laudantium modi incidunt dolore officia
+              nam blanditiis numquam iusto temporibus odit unde consectetur
+              voluptatem enim asperiores rerum quam, repellat commodi aliquid
+              impedit! Voluptatibus, ex asperiores sed, laborum quibusdam quae
+              assumenda vero in minima qui est numquam modi placeat cum!
+            </p>
+          </div>
+        </div>
+              </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4 mt-4 lg:mt-5">
+                <div
+          class="flex flex-col gap-1 flex-1 group/news p-2 lg:p-4 rounded-xl border-b md:border-b-0 md:border-l md:border-r border-stroke transition-all duration-300 ease-out hover:bg-slate-50 hover:shadow-sm hover:-translate-y-0.5"
+        >
+          <!-- Date badge with hover effect -->
+          <div class="flex flex-row items-center gap-2">
+            <div
+              class="flex items-center gap-1 border border-stroke italic text-sm font-normal rounded-1.25 bg-stroke1 pl-1.25 pr-2.5 py-1 transition-all duration-300 ease-out group-hover/news:border-navyBlue-200 group-hover/news:bg-navyBlue-50"
+            >
+              <!-- Icon with animation -->
+              <span
+                class="text-red transition-all duration-300 ease-out group-hover/news:text-navyBlue-600 group-hover/news:scale-110"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="size-5 transition-transform duration-300"
+                  viewbox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M16 15.3018V16.9893L16.9 18.0018M9 11.1018H4M20 9.10181V7.10181C20 5.99724 19.1046 5.10181 18 5.10181H6C4.89543 5.10181 4 5.99724 4 7.10181V19.1018C4 20.2064 4.89543 21.1018 6 21.1018H9M15 3.10181V7.10181M9 3.10181V7.10181M20.5 17.1018C20.5 19.5871 18.4853 21.6018 16 21.6018C13.5147 21.6018 11.5 19.5871 11.5 17.1018C11.5 14.6165 13.5147 12.6018 16 12.6018C18.4853 12.6018 20.5 14.6165 20.5 17.1018Z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+              </span>
+              <span
+                class="transition-colors duration-300 ease-out group-hover/news:text-navyBlue-800"
+              >
+                29/10/2024
+              </span>
+            </div>
+						<!-- tag new -->
+            <div class="px-3 py-1 rounded-full text-xs text-white bg-red capitalize animate-flash-badge" >
+              new
+            </div>
+          </div>
 
-						<!-- Date badge with hover effect -->
-						<div class="flex max-w-[130px] items-center gap-1
-							border border-stroke italic text-sm font-normal rounded-1.25 bg-stroke1
-							pl-1.25 pr-2.5 py-1
-							transition-all duration-300 ease-out
-							group-hover/news:border-navyBlue-200 group-hover/news:bg-navyBlue-50">
+          <!-- Title with enhanced hover effect -->
+          <h3
+            class="text-base font-bold text-black1 line-clamp-2 transition-all duration-300 ease-out group-hover/news:text-navyBlue-800"
+          >
+            <a
+              href="#"
+              class="inline-block transition-all duration-300 ease-out group-hover/news:translate-x-0.5"
+            >
+              Thông báo tuyển sinh trình độ thạc sĩ đợt 2 năm 2024
+            </a>
+          </h3>
+        </div>
+                <div
+          class="flex flex-col gap-1 flex-1 group/news p-2 lg:p-4 rounded-xl border-b md:border-b-0 md:border-l md:border-r border-stroke transition-all duration-300 ease-out hover:bg-slate-50 hover:shadow-sm hover:-translate-y-0.5"
+        >
+          <!-- Date badge with hover effect -->
+          <div class="flex flex-row items-center gap-2">
+            <div
+              class="flex items-center gap-1 border border-stroke italic text-sm font-normal rounded-1.25 bg-stroke1 pl-1.25 pr-2.5 py-1 transition-all duration-300 ease-out group-hover/news:border-navyBlue-200 group-hover/news:bg-navyBlue-50"
+            >
+              <!-- Icon with animation -->
+              <span
+                class="text-red transition-all duration-300 ease-out group-hover/news:text-navyBlue-600 group-hover/news:scale-110"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="size-5 transition-transform duration-300"
+                  viewbox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M16 15.3018V16.9893L16.9 18.0018M9 11.1018H4M20 9.10181V7.10181C20 5.99724 19.1046 5.10181 18 5.10181H6C4.89543 5.10181 4 5.99724 4 7.10181V19.1018C4 20.2064 4.89543 21.1018 6 21.1018H9M15 3.10181V7.10181M9 3.10181V7.10181M20.5 17.1018C20.5 19.5871 18.4853 21.6018 16 21.6018C13.5147 21.6018 11.5 19.5871 11.5 17.1018C11.5 14.6165 13.5147 12.6018 16 12.6018C18.4853 12.6018 20.5 14.6165 20.5 17.1018Z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+              </span>
+              <span
+                class="transition-colors duration-300 ease-out group-hover/news:text-navyBlue-800"
+              >
+                29/10/2024
+              </span>
+            </div>
+						<!-- tag new -->
+            <div class="px-3 py-1 rounded-full text-xs text-white bg-red capitalize animate-flash-badge" >
+              new
+            </div>
+          </div>
 
-							<!-- Icon with animation -->
-							<span class="text-red transition-all duration-300 ease-out
-								group-hover/news:text-navyBlue-600 group-hover/news:scale-110">
-								<svg xmlns="http://www.w3.org/2000/svg"
-									class="size-5 transition-transform duration-300"
-									viewbox="0 0 24 24"
-									fill="none">
-									<path d="M16 15.3018V16.9893L16.9 18.0018M9 11.1018H4M20 9.10181V7.10181C20 5.99724 19.1046 5.10181 18 5.10181H6C4.89543 5.10181 4 5.99724 4 7.10181V19.1018C4 20.2064 4.89543 21.1018 6 21.1018H9M15 3.10181V7.10181M9 3.10181V7.10181M20.5 17.1018C20.5 19.5871 18.4853 21.6018 16 21.6018C13.5147 21.6018 11.5 19.5871 11.5 17.1018C11.5 14.6165 13.5147 12.6018 16 12.6018C18.4853 12.6018 20.5 14.6165 20.5 17.1018Z"
-										stroke="currentColor"
-										stroke-width="1.5"
-										stroke-linecap="round"
-										stroke-linejoin="round">
-									</path>
-								</svg>
-							</span>
-							<span class="transition-colors duration-300 ease-out
-								group-hover/news:text-navyBlue-800">
-								29/10/2024
-							</span>
-						</div>
+          <!-- Title with enhanced hover effect -->
+          <h3
+            class="text-base font-bold text-black1 line-clamp-2 transition-all duration-300 ease-out group-hover/news:text-navyBlue-800"
+          >
+            <a
+              href="#"
+              class="inline-block transition-all duration-300 ease-out group-hover/news:translate-x-0.5"
+            >
+              Thông báo tuyển sinh trình độ thạc sĩ đợt 2 năm 2024
+            </a>
+          </h3>
+        </div>
+                <div
+          class="flex flex-col gap-1 flex-1 group/news p-2 lg:p-4 rounded-xl border-b md:border-b-0 md:border-l md:border-r border-stroke transition-all duration-300 ease-out hover:bg-slate-50 hover:shadow-sm hover:-translate-y-0.5"
+        >
+          <!-- Date badge with hover effect -->
+          <div class="flex flex-row items-center gap-2">
+            <div
+              class="flex items-center gap-1 border border-stroke italic text-sm font-normal rounded-1.25 bg-stroke1 pl-1.25 pr-2.5 py-1 transition-all duration-300 ease-out group-hover/news:border-navyBlue-200 group-hover/news:bg-navyBlue-50"
+            >
+              <!-- Icon with animation -->
+              <span
+                class="text-red transition-all duration-300 ease-out group-hover/news:text-navyBlue-600 group-hover/news:scale-110"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="size-5 transition-transform duration-300"
+                  viewbox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M16 15.3018V16.9893L16.9 18.0018M9 11.1018H4M20 9.10181V7.10181C20 5.99724 19.1046 5.10181 18 5.10181H6C4.89543 5.10181 4 5.99724 4 7.10181V19.1018C4 20.2064 4.89543 21.1018 6 21.1018H9M15 3.10181V7.10181M9 3.10181V7.10181M20.5 17.1018C20.5 19.5871 18.4853 21.6018 16 21.6018C13.5147 21.6018 11.5 19.5871 11.5 17.1018C11.5 14.6165 13.5147 12.6018 16 12.6018C18.4853 12.6018 20.5 14.6165 20.5 17.1018Z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+              </span>
+              <span
+                class="transition-colors duration-300 ease-out group-hover/news:text-navyBlue-800"
+              >
+                29/10/2024
+              </span>
+            </div>
+						<!-- tag new -->
+            <div class="px-3 py-1 rounded-full text-xs text-white bg-red capitalize animate-flash-badge" >
+              new
+            </div>
+          </div>
 
-						<!-- Title with enhanced hover effect -->
-						<h3 class="text-base font-bold text-black1 line-clamp-2
-							transition-all duration-300 ease-out
-							group-hover/news:text-navyBlue-800">
-							<a href="#" class="inline-block transition-all duration-300 ease-out
-								group-hover/news:translate-x-0.5">
-								Thông báo tuyển sinh trình độ thạc sĩ đợt 2 năm 2024
-							</a>
-						</h3>
-					</div>
-									<div class="flex flex-col gap-1 flex-1 group/news p-2 lg:p-4
-						rounded-xl border-b md:border-b-0 md:border-l md:border-r border-stroke
-						transition-all duration-300 ease-out
-						hover:bg-slate-50 hover:shadow-sm hover:-translate-y-0.5">
+          <!-- Title with enhanced hover effect -->
+          <h3
+            class="text-base font-bold text-black1 line-clamp-2 transition-all duration-300 ease-out group-hover/news:text-navyBlue-800"
+          >
+            <a
+              href="#"
+              class="inline-block transition-all duration-300 ease-out group-hover/news:translate-x-0.5"
+            >
+              Thông báo tuyển sinh trình độ thạc sĩ đợt 2 năm 2024
+            </a>
+          </h3>
+        </div>
+                <div
+          class="flex flex-col gap-1 flex-1 group/news p-2 lg:p-4 rounded-xl border-b md:border-b-0 md:border-l md:border-r border-stroke transition-all duration-300 ease-out hover:bg-slate-50 hover:shadow-sm hover:-translate-y-0.5"
+        >
+          <!-- Date badge with hover effect -->
+          <div class="flex flex-row items-center gap-2">
+            <div
+              class="flex items-center gap-1 border border-stroke italic text-sm font-normal rounded-1.25 bg-stroke1 pl-1.25 pr-2.5 py-1 transition-all duration-300 ease-out group-hover/news:border-navyBlue-200 group-hover/news:bg-navyBlue-50"
+            >
+              <!-- Icon with animation -->
+              <span
+                class="text-red transition-all duration-300 ease-out group-hover/news:text-navyBlue-600 group-hover/news:scale-110"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="size-5 transition-transform duration-300"
+                  viewbox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M16 15.3018V16.9893L16.9 18.0018M9 11.1018H4M20 9.10181V7.10181C20 5.99724 19.1046 5.10181 18 5.10181H6C4.89543 5.10181 4 5.99724 4 7.10181V19.1018C4 20.2064 4.89543 21.1018 6 21.1018H9M15 3.10181V7.10181M9 3.10181V7.10181M20.5 17.1018C20.5 19.5871 18.4853 21.6018 16 21.6018C13.5147 21.6018 11.5 19.5871 11.5 17.1018C11.5 14.6165 13.5147 12.6018 16 12.6018C18.4853 12.6018 20.5 14.6165 20.5 17.1018Z"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+              </span>
+              <span
+                class="transition-colors duration-300 ease-out group-hover/news:text-navyBlue-800"
+              >
+                29/10/2024
+              </span>
+            </div>
+						<!-- tag new -->
+            <div class="px-3 py-1 rounded-full text-xs text-white bg-red capitalize animate-flash-badge" >
+              new
+            </div>
+          </div>
 
-						<!-- Date badge with hover effect -->
-						<div class="flex max-w-[130px] items-center gap-1
-							border border-stroke italic text-sm font-normal rounded-1.25 bg-stroke1
-							pl-1.25 pr-2.5 py-1
-							transition-all duration-300 ease-out
-							group-hover/news:border-navyBlue-200 group-hover/news:bg-navyBlue-50">
-
-							<!-- Icon with animation -->
-							<span class="text-red transition-all duration-300 ease-out
-								group-hover/news:text-navyBlue-600 group-hover/news:scale-110">
-								<svg xmlns="http://www.w3.org/2000/svg"
-									class="size-5 transition-transform duration-300"
-									viewbox="0 0 24 24"
-									fill="none">
-									<path d="M16 15.3018V16.9893L16.9 18.0018M9 11.1018H4M20 9.10181V7.10181C20 5.99724 19.1046 5.10181 18 5.10181H6C4.89543 5.10181 4 5.99724 4 7.10181V19.1018C4 20.2064 4.89543 21.1018 6 21.1018H9M15 3.10181V7.10181M9 3.10181V7.10181M20.5 17.1018C20.5 19.5871 18.4853 21.6018 16 21.6018C13.5147 21.6018 11.5 19.5871 11.5 17.1018C11.5 14.6165 13.5147 12.6018 16 12.6018C18.4853 12.6018 20.5 14.6165 20.5 17.1018Z"
-										stroke="currentColor"
-										stroke-width="1.5"
-										stroke-linecap="round"
-										stroke-linejoin="round">
-									</path>
-								</svg>
-							</span>
-							<span class="transition-colors duration-300 ease-out
-								group-hover/news:text-navyBlue-800">
-								29/10/2024
-							</span>
-						</div>
-
-						<!-- Title with enhanced hover effect -->
-						<h3 class="text-base font-bold text-black1 line-clamp-2
-							transition-all duration-300 ease-out
-							group-hover/news:text-navyBlue-800">
-							<a href="#" class="inline-block transition-all duration-300 ease-out
-								group-hover/news:translate-x-0.5">
-								Thông báo tuyển sinh trình độ thạc sĩ đợt 2 năm 2024
-							</a>
-						</h3>
-					</div>
-									<div class="flex flex-col gap-1 flex-1 group/news p-2 lg:p-4
-						rounded-xl border-b md:border-b-0 md:border-l md:border-r border-stroke
-						transition-all duration-300 ease-out
-						hover:bg-slate-50 hover:shadow-sm hover:-translate-y-0.5">
-
-						<!-- Date badge with hover effect -->
-						<div class="flex max-w-[130px] items-center gap-1
-							border border-stroke italic text-sm font-normal rounded-1.25 bg-stroke1
-							pl-1.25 pr-2.5 py-1
-							transition-all duration-300 ease-out
-							group-hover/news:border-navyBlue-200 group-hover/news:bg-navyBlue-50">
-
-							<!-- Icon with animation -->
-							<span class="text-red transition-all duration-300 ease-out
-								group-hover/news:text-navyBlue-600 group-hover/news:scale-110">
-								<svg xmlns="http://www.w3.org/2000/svg"
-									class="size-5 transition-transform duration-300"
-									viewbox="0 0 24 24"
-									fill="none">
-									<path d="M16 15.3018V16.9893L16.9 18.0018M9 11.1018H4M20 9.10181V7.10181C20 5.99724 19.1046 5.10181 18 5.10181H6C4.89543 5.10181 4 5.99724 4 7.10181V19.1018C4 20.2064 4.89543 21.1018 6 21.1018H9M15 3.10181V7.10181M9 3.10181V7.10181M20.5 17.1018C20.5 19.5871 18.4853 21.6018 16 21.6018C13.5147 21.6018 11.5 19.5871 11.5 17.1018C11.5 14.6165 13.5147 12.6018 16 12.6018C18.4853 12.6018 20.5 14.6165 20.5 17.1018Z"
-										stroke="currentColor"
-										stroke-width="1.5"
-										stroke-linecap="round"
-										stroke-linejoin="round">
-									</path>
-								</svg>
-							</span>
-							<span class="transition-colors duration-300 ease-out
-								group-hover/news:text-navyBlue-800">
-								29/10/2024
-							</span>
-						</div>
-
-						<!-- Title with enhanced hover effect -->
-						<h3 class="text-base font-bold text-black1 line-clamp-2
-							transition-all duration-300 ease-out
-							group-hover/news:text-navyBlue-800">
-							<a href="#" class="inline-block transition-all duration-300 ease-out
-								group-hover/news:translate-x-0.5">
-								Thông báo tuyển sinh trình độ thạc sĩ đợt 2 năm 2024
-							</a>
-						</h3>
-					</div>
-									<div class="flex flex-col gap-1 flex-1 group/news p-2 lg:p-4
-						rounded-xl border-b md:border-b-0 md:border-l md:border-r border-stroke
-						transition-all duration-300 ease-out
-						hover:bg-slate-50 hover:shadow-sm hover:-translate-y-0.5">
-
-						<!-- Date badge with hover effect -->
-						<div class="flex max-w-[130px] items-center gap-1
-							border border-stroke italic text-sm font-normal rounded-1.25 bg-stroke1
-							pl-1.25 pr-2.5 py-1
-							transition-all duration-300 ease-out
-							group-hover/news:border-navyBlue-200 group-hover/news:bg-navyBlue-50">
-
-							<!-- Icon with animation -->
-							<span class="text-red transition-all duration-300 ease-out
-								group-hover/news:text-navyBlue-600 group-hover/news:scale-110">
-								<svg xmlns="http://www.w3.org/2000/svg"
-									class="size-5 transition-transform duration-300"
-									viewbox="0 0 24 24"
-									fill="none">
-									<path d="M16 15.3018V16.9893L16.9 18.0018M9 11.1018H4M20 9.10181V7.10181C20 5.99724 19.1046 5.10181 18 5.10181H6C4.89543 5.10181 4 5.99724 4 7.10181V19.1018C4 20.2064 4.89543 21.1018 6 21.1018H9M15 3.10181V7.10181M9 3.10181V7.10181M20.5 17.1018C20.5 19.5871 18.4853 21.6018 16 21.6018C13.5147 21.6018 11.5 19.5871 11.5 17.1018C11.5 14.6165 13.5147 12.6018 16 12.6018C18.4853 12.6018 20.5 14.6165 20.5 17.1018Z"
-										stroke="currentColor"
-										stroke-width="1.5"
-										stroke-linecap="round"
-										stroke-linejoin="round">
-									</path>
-								</svg>
-							</span>
-							<span class="transition-colors duration-300 ease-out
-								group-hover/news:text-navyBlue-800">
-								29/10/2024
-							</span>
-						</div>
-
-						<!-- Title with enhanced hover effect -->
-						<h3 class="text-base font-bold text-black1 line-clamp-2
-							transition-all duration-300 ease-out
-							group-hover/news:text-navyBlue-800">
-							<a href="#" class="inline-block transition-all duration-300 ease-out
-								group-hover/news:translate-x-0.5">
-								Thông báo tuyển sinh trình độ thạc sĩ đợt 2 năm 2024
-							</a>
-						</h3>
-					</div>
-							</div>
-		</div>
-	</div>
+          <!-- Title with enhanced hover effect -->
+          <h3
+            class="text-base font-bold text-black1 line-clamp-2 transition-all duration-300 ease-out group-hover/news:text-navyBlue-800"
+          >
+            <a
+              href="#"
+              class="inline-block transition-all duration-300 ease-out group-hover/news:translate-x-0.5"
+            >
+              Thông báo tuyển sinh trình độ thạc sĩ đợt 2 năm 2024
+            </a>
+          </h3>
+        </div>
+              </div>
+    </div>
+  </div>
 </div>
 		<div class="iuhFadeInScroll w-full relative iuh-accredited" data-module="HomeAccredited">
   <div class="w-full max-w-[1200px] px-4 mx-auto py-10 lg:py-16 flex flex-col">
@@ -4996,9 +5455,9 @@ Thông điệp Hiệu Trưởng
 	</div>
 				<div id="openVideoEvent" class="modal fixed inset-0 z-[-1] px-3 md:px-4 overflow-y-auto bg-[#000]/80 origin-center opacity-0  transition-all duration-700 flex items-center justify-center">
 	<div
-		class="modal-content bg-white rounded-lg shadow-lg w-full max-w-[1200px] p-4 md:p-6 relative">
+		class="modal-content bg-white rounded-lg shadow-lg w-full max-w-4xl p-4 md:p-6 relative">
 		<!-- Modal Header -->
-		<div class="modal-close absolute top-2 right-2 md:top-4 md:right-4 p-1.5 cursor-pointer size-8 md:size-10 text-navyBlue-900  rounded-full flex items-center justify-center" aria-label="Close">
+		<div class="modal-close absolute top-2 right-2 md:top-4 md:right-4 p-1.5 cursor-pointer size-8 md:size-10 text-navyBlue-900 rounded-full flex items-center justify-center" aria-label="Close">
 			<svg class="size-full" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 				<path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -5016,9 +5475,9 @@ Thông điệp Hiệu Trưởng
 </div>
 				<div id="openVideoGallery" class="modal fixed inset-0 z-[-1] px-3 md:px-4 overflow-y-auto bg-[#000]/80 origin-center opacity-0  transition-all duration-700 flex items-center justify-center">
 	<div
-		class="modal-content bg-white rounded-lg shadow-lg w-full max-w-[1200px] p-4 md:p-6 relative">
+		class="modal-content bg-white rounded-lg shadow-lg w-full max-w-4xl p-4 md:p-6 relative">
 		<!-- Modal Header -->
-		<div class="modal-close absolute top-2 right-2 md:top-4 md:right-4 p-1.5 cursor-pointer size-8 md:size-10 text-navyBlue-900  rounded-full flex items-center justify-center" aria-label="Close">
+		<div class="modal-close absolute top-2 right-2 md:top-4 md:right-4 p-1.5 cursor-pointer size-8 md:size-10 text-navyBlue-900 rounded-full flex items-center justify-center" aria-label="Close">
 			<svg class="size-full" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 				<path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -5034,7 +5493,6 @@ Thông điệp Hiệu Trưởng
 
 	</div>
 </div>
-
 
     <!-- FOOTER -->
     <footer class="flex flex-col-reverse md:flex-col">
@@ -5280,7 +5738,6 @@ Thông điệp Hiệu Trưởng
 		</div>
 	</div>
 </footer>
-    <!---->
   </main>
   <!---->
 
@@ -5290,7 +5747,7 @@ Thông điệp Hiệu Trưởng
   data-time="1500">
   <div class="flex flex-col items-center">
     <!-- Logo with pulse animation -->
-    <img src="assets/images/icons/logo.svg" alt="Logo" class="w-32 md:w-40 mb-8 animate-pulse" />
+    <img src="assets/images/icons/logo.svg" alt="Logo" class="w-32 md:w-40 mb-8 " />
 
     <!-- Loading dots animation -->
     <div class="flex gap-1">
@@ -5303,9 +5760,9 @@ Thông điệp Hiệu Trưởng
   <!-- Modal -->
   <div id="onSearch" class="modal fixed inset-0 z-[-1] px-3 md:px-4 overflow-y-auto bg-[#000]/80 origin-center opacity-0  transition-all duration-700 flex items-center justify-center">
 	<div
-		class="modal-content bg-white rounded-lg shadow-lg w-full max-w-[1200px] p-4 md:p-6 relative">
+		class="modal-content bg-white rounded-lg shadow-lg w-full max-w-4xl p-4 md:p-6 relative">
 		<!-- Modal Header -->
-		<div class="modal-close absolute top-2 right-2 md:top-4 md:right-4 p-1.5 cursor-pointer size-8 md:size-10 text-navyBlue-900  rounded-full flex items-center justify-center" aria-label="Close">
+		<div class="modal-close absolute top-2 right-2 md:top-4 md:right-4 p-1.5 cursor-pointer size-8 md:size-10 text-navyBlue-900 rounded-full flex items-center justify-center" aria-label="Close">
 			<svg class="size-full" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 				<path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

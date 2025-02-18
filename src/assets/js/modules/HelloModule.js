@@ -2,17 +2,12 @@ import BaseModule from "./BaseModule";
 
 export default class HelloModule extends BaseModule {
   register() {
-  
     const loadingScreen = document.querySelector("#loading-screen");
     if (loadingScreen) {
       // Prevent scrolling while loading
       document.body.style.overflow = "hidden";
-
       // Hide loading screen after 3 seconds
       setTimeout(() => {
-        // Add fadeout animation to loading
-        loadingScreen.classList.add("loading-fadeout");
-
         // Start main content animation slightly before loading finishes
         setTimeout(() => {
           this.onShowMain();
@@ -30,6 +25,7 @@ export default class HelloModule extends BaseModule {
         this.onShowMain();
       }, 800);
     }
+    this.moveElementsToBody();
     this.onModal();
     this.onPulseIcon();
     this.initScrollToTop();
@@ -37,6 +33,23 @@ export default class HelloModule extends BaseModule {
     this.initTabsGlobal();
     this.initMobileMenu();
     this.initFadeInOnScroll();
+  }
+
+  moveElementsToBody() {
+    const main = document.querySelector('main');
+    if (!main) return;
+    
+    // Move modals to body
+    const modals = main.querySelectorAll('.modal');
+    modals.forEach(modal => {
+      document.body.appendChild(modal);
+    });
+
+    // Ensure header is directly under body
+    // const header = main.querySelector('header');
+    // if (header) {
+    //   document.body.insertBefore(header, main);
+    // }
   }
 
   initFadeInOnScroll() {

@@ -29,12 +29,23 @@ module.exports = {
       },
       animation: {
         rotation360: "rotation360 10s linear infinite",
+        "flash-badge": "flash 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
       keyframes: {
         rotation360: {
           "0%": { transform: "rotate(0deg)" },
           "50%": { transform: "rotate(180deg)" },
           "100%": { transform: "rotate(360deg)" },
+        },
+        flash: {
+          "0%, 100%": {
+            opacity: "1",
+            transform: "scale(1)",
+          },
+          "50%": {
+            opacity: "1",
+            transform: "scale(0.85)",
+          },
         },
       },
       backgroundImage: {

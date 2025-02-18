@@ -57,10 +57,8 @@
 
 <body data-module="HelloModule">
 
-  <!-- MAIN CONTENT -->
-  <main class="iuhMainContent opacity-0 iuhContact">
-    <!-- HEADER -->
-    <header class="fixed top-0 left-0 w-full z-50 shadow-lg header-nav" data-module="Header">
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 w-full z-50 shadow-lg header-nav" data-module="Header">
   <div class="w-full relative bg-navyBlue-900 text-navyBlue-50">
     <div class="w-full max-w-[1200px] px-4 mx-auto h-10 flex items-center justify-between hidden menuMb:flex">
       <h2 class="text-sm">
@@ -630,8 +628,10 @@
     </div>
   </div>
 </header>
-    <!---->
-        <nav class="w-full relative">
+  <!-- MAIN CONTENT -->
+  <main class="iuhMainContent opacity-0 iuhContact">
+
+          <nav class="w-full relative">
   <div class="w-full max-w-[1200px] px-4 mx-auto">
     <ol class="flex items-center py-4 md:py-5 text-sm">
       <li class="flex items-center">
@@ -916,7 +916,6 @@
     </div>
   </div>
 </div>
-
     <!-- FOOTER -->
     <footer class="flex flex-col-reverse md:flex-col">
 	<div class="w-full max-w-[1200px] px-4 pt-8 pb-5 lg:pt-10 lg:pb-4 mx-auto text-navyBlue-50">
@@ -1161,7 +1160,6 @@
 		</div>
 	</div>
 </footer>
-    <!---->
   </main>
   <!---->
 
@@ -1171,7 +1169,7 @@
   data-time="1500">
   <div class="flex flex-col items-center">
     <!-- Logo with pulse animation -->
-    <img src="assets/images/icons/logo.svg" alt="Logo" class="w-32 md:w-40 mb-8 animate-pulse" />
+    <img src="assets/images/icons/logo.svg" alt="Logo" class="w-32 md:w-40 mb-8 " />
 
     <!-- Loading dots animation -->
     <div class="flex gap-1">
@@ -1184,9 +1182,9 @@
   <!-- Modal -->
   <div id="onSearch" class="modal fixed inset-0 z-[-1] px-3 md:px-4 overflow-y-auto bg-[#000]/80 origin-center opacity-0  transition-all duration-700 flex items-center justify-center">
 	<div
-		class="modal-content bg-white rounded-lg shadow-lg w-full max-w-[1200px] p-4 md:p-6 relative">
+		class="modal-content bg-white rounded-lg shadow-lg w-full max-w-4xl p-4 md:p-6 relative">
 		<!-- Modal Header -->
-		<div class="modal-close absolute top-2 right-2 md:top-4 md:right-4 p-1.5 cursor-pointer size-8 md:size-10 text-navyBlue-900  rounded-full flex items-center justify-center" aria-label="Close">
+		<div class="modal-close absolute top-2 right-2 md:top-4 md:right-4 p-1.5 cursor-pointer size-8 md:size-10 text-navyBlue-900 rounded-full flex items-center justify-center" aria-label="Close">
 			<svg class="size-full" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 				<path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

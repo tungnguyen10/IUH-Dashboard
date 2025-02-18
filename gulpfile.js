@@ -57,6 +57,12 @@ gulp.task('twig', () => {
 
 gulp.task('css', () => 
   gulp.src([`${config.src.assets}/css/*.scss`])
+    .pipe(plumber({
+      errorHandler: function(err) {
+        console.log(err);
+        this.emit('end');
+      }
+    }))
     .pipe(sassGlob())
     .pipe(postcss([
       tailwindcss('./tailwind.config.js'),
@@ -201,13 +207,24 @@ gulp.task('browser-sync', () => {
 })
 
 gulp.task('watch', () => {
-  gulp.watch([`${config.src.root}/**/*.twig`], gulp.series('twig', 'inject'))
-  gulp.watch([`${config.data}`], gulp.series('twig', 'inject'))
-  gulp.watch([`${config.src.assets}/css/**/*.scss`], gulp.series('css'))
+  // Watch Twig files
+  gulp.watch([`${config.src.root}/**/*.twig`], gulp.series('twig', 'inject', 'css'))
+  
+  // Watch data changes
+  gulp.watch([`${config.data}`], gulp.series('twig', 'inject', 'css'))
+  
+  // Watch SCSS and Tailwind config
+  gulp.watch([
+    `${config.src.assets}/css/**/*.scss`,
+    `${config.src.root}/**/*.twig`,
+    `${config.src.assets}/**/*.js`,
+    './tailwind.config.js'  // Add this line to watch Tailwind config
+  ], gulp.series('css'))
+  
+  // Other watches...
   gulp.watch([`${config.src.assets}/**/*.js`], gulp.series('js'))
   gulp.watch([`${config.src.images}/**/*`], gulp.series('images'))
   gulp.watch([`${config.src.images}/sprite/**/*`], gulp.series('sprite'))
-  gulp.watch([`${config.src.images}/sprite-retina/**/*`], gulp.series('sprite'))
 })
 
 // Clean assets

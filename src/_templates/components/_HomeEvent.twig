@@ -1,76 +1,140 @@
 <div class="iuhFadeInScroll w-full relative iuh-event" data-module="HomeEvent">
-	<div class="w-full max-w-[1200px] px-4 mx-auto py-10 lg:py-16">
-		<div class="flex flex-col gap-5 lg:gap-[30px] relative">
-			<h2 class="text-2xl lg:text-titleDK md:leading-[1] font-bold text-white">
-				Sự kiện
-			</h2>
-			<div class="size-9 lg:size-[48px] absolute top-0 lg:top-5 right-5 pulse-animation" data-open-modal="openVideoEvent">
-				<div class="size-full bg-navyBlue-50/50 rounded-full">
-					<svg xmlns="http://www.w3.org/2000/svg" class="size-full relative z-[3]" viewbox="0 0 48 48" fill="none">
-						<path d="M24 4C12.96 4 4 12.96 4 24C4 35.04 12.96 44 24 44C35.04 44 44 35.04 44 24C44 12.96 35.04 4 24 4ZM24 40C15.18 40 8 32.82 8 24C8 15.18 15.18 8 24 8C32.82 8 40 15.18 40 24C40 32.82 32.82 40 24 40ZM19 33L33 24L19 15V33Z" fill="#0000CF"/>
-					</svg>
-				</div>
-			</div>
-			<div class="text-white text-base lg:text-lg max-w-[580px] font-normal leading-[166%]">
-				Lorem Ipsum is simply dummy text of the printing and typesetting
-				        industry. Lorem Ipsum has been the industry's standard dummy text ever
-				        since
-			</div>
-			<div class="iuh-btn w-full max-w-[200px]">
-				<a href="#">
-					Xem tất cả
-					<svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewbox="0 0 24 24" fill="none">
-						<path d="M10.075 12L5.5 7.4L6.9 6L12.9 12L6.9 18L5.5 16.6L10.075 12ZM16.675 12L12.1 7.4L13.5 6L19.5 12L13.5 18L12.1 16.6L16.675 12Z" fill="currentColor"/>
-					</svg>
-				</a>
-			</div>
-		</div>
-		<div class="w-full">
-			<div class="swiper iuh-event-slide -mx-4 !pt-10 !py-14 lg:!py-16 ">
-				<div class="swiper-wrapper">
-					{% for i in 1..6 %}
-						<div class="swiper-slide">
-							<div class="aspect-[0.76] w-full top-0 hover:-top-2 hover:shadow-lg relative p-4 flex items-end bg-navyBlue-200 hover:p-0 rounded-xl transition-all duration-700 overflow-hidden before:absolute before:pointer-events-none before:size-full before:inset-0 before:bg-gradient-to-b before:from-[#0070FF]/70 before:to-[#0070FF]/90 before:top-full before:scale-1 before:hover:top-0 before:hover:scale-[1.2] before:transition-all before:duration-700 before:z-[2]">
-								<div class="absolute size-full z-[1] top-0 left-0">
-									<a href="#" class="size-full block"><img src="assets/images/event.png" alt="" class="size-full object-cover"/></a>
-								</div>
-								<div class="flex flex-col items-start gap-2 lg:gap-4 p-5 bg-white rounded-lg w-full relative z-[3]">
-									<div class="p-2 lg:p-2.5 text-white text-sm lg:text-base font-normal bg-red rounded-lg">
-										10/09/2024
-									</div>
-									<div class="w-full text-black1 text-base lg:text-lg font-semibold line-clamp-2 leading-[120%]">
-										IUH ký kết hợp tác với Trung tâm Giáo dục nghề nghiệp Lái xe
-										                  Trường Vinh
-									</div>
-									<div class="flex flex-row items-center justify-between w-full">
-										<dl class="flex items-center gap-0.5">
-											<dt class="text-navyBlue-700">
-												<svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewbox="0 0 24 24" fill="none">
-													<path d="M12 9V13L14 15M18 3L21 6M3 6L6 3M20 13C20 17.4183 16.4183 21 12 21C7.58172 21 4 17.4183 4 13C4 8.58172 7.58172 5 12 5C16.4183 5 20 8.58172 20 13Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-												</svg>
-											</dt>
-											<dd class="text-black2 text-sm lg:text-base font-normal">
-												02:30 - 04:25
-											</dd>
-										</dl>
-										<dl class="flex items-center gap-0.5">
-											<dt class="text-navyBlue-700">
-												<svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewbox="0 0 24 24" fill="none">
-													<path d="M12 13V21M12 13C14.7614 13 17 10.7614 17 8C17 5.23858 14.7614 3 12 3C9.23858 3 7 5.23858 7 8C7 10.7614 9.23858 13 12 13Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-												</svg>
-											</dt>
-											<dd class="text-black2 text-sm lg:text-base font-normal">
-												Hội Trường A7
-											</dd>
-										</dl>
-									</div>
-								</div>
-							</div>
-						</div>
-					{% endfor %}
-				</div>
-				<div class="swiper-pagination"></div>
-			</div>
-		</div>
-	</div>
+  <div class="w-full max-w-[1200px] px-4 mx-auto py-10 lg:py-16">
+    <div class="flex flex-col gap-5 lg:gap-[30px] relative">
+      <h2 class="text-2xl lg:text-titleDK md:leading-[1] font-bold text-white">
+        Sự kiện
+      </h2>
+      <div
+        class="size-9 lg:size-[48px] absolute top-0 lg:top-5 right-5 pulse-animation"
+        data-open-modal="openVideoEvent"
+      >
+        <div class="size-full bg-navyBlue-50/50 rounded-full">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="size-full relative z-[3]"
+            viewbox="0 0 48 48"
+            fill="none"
+          >
+            <path
+              d="M24 4C12.96 4 4 12.96 4 24C4 35.04 12.96 44 24 44C35.04 44 44 35.04 44 24C44 12.96 35.04 4 24 4ZM24 40C15.18 40 8 32.82 8 24C8 15.18 15.18 8 24 8C32.82 8 40 15.18 40 24C40 32.82 32.82 40 24 40ZM19 33L33 24L19 15V33Z"
+              fill="#0000CF"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="text-white text-base lg:text-lg max-w-[580px] font-normal leading-[166%]"
+      >
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since
+      </div>
+      <div class="iuh-btn w-full max-w-[200px]">
+        <a href="#">
+          Xem tất cả
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="size-5"
+            viewbox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M10.075 12L5.5 7.4L6.9 6L12.9 12L6.9 18L5.5 16.6L10.075 12ZM16.675 12L12.1 7.4L13.5 6L19.5 12L13.5 18L12.1 16.6L16.675 12Z"
+              fill="currentColor"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="w-full">
+      <div class="swiper iuh-event-slide -mx-4 !pt-10 !py-14 lg:!py-16">
+        <div class="swiper-wrapper">
+          {% for i in 1..6 %}
+          <!-- silde of event -->
+          <div class="swiper-slide">
+            <div
+              class="aspect-[0.76] w-full top-0 hover:-top-2 hover:shadow-lg relative p-3 flex items-end bg-navyBlue-200 hover:p-0 rounded-xl transition-all duration-700 overflow-hidden before:absolute before:pointer-events-none before:size-full before:inset-0 before:bg-gradient-to-b before:from-[#0070FF]/70 before:to-[#0070FF]/90 before:top-full before:scale-1 before:hover:top-0 before:hover:scale-[1.2] before:transition-all before:duration-700 before:z-[2]"
+            >
+              <div class="absolute size-full z-[1] top-0 left-0">
+                <div
+                  class="px-3 py-1 rounded-full text-sm text-white bg-red capitalize animate-flash-badge absolute top-2 left-2"
+                >
+                  new
+                </div>
+                <a href="#" class="size-full block"
+                  ><img
+                    src="assets/images/event.png"
+                    alt=""
+                    class="size-full object-cover"
+                /></a>
+              </div>
+              <div
+                class="flex flex-col items-start gap-1 lg:gap-2 p-2.5 bg-white rounded-lg w-full relative z-[3]"
+              >
+                <div
+                  class="p-1 lg:p-1.5 text-white text-sm lg:text-base font-normal bg-red rounded-lg"
+                >
+                  10/09/2024
+                </div>
+
+                <div
+                  class="w-full text-black1 text-base lg:text-lg font-semibold line-clamp-2 leading-[120%]"
+                >
+                  IUH ký kết hợp tác với Trung tâm Giáo dục nghề nghiệp Lái xe
+                  Trường Vinh, IUH ký kết hợp tác với Trung tâm Giáo dục nghề
+                  nghiệp Lái xe Trường Vinh
+                </div>
+                <div class="flex flex-row items-center justify-between w-full">
+                  <dl class="flex items-center gap-0.5">
+                    <dt class="text-navyBlue-700">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewbox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M12 9V13L14 15M18 3L21 6M3 6L6 3M20 13C20 17.4183 16.4183 21 12 21C7.58172 21 4 17.4183 4 13C4 8.58172 7.58172 5 12 5C16.4183 5 20 8.58172 20 13Z"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </dt>
+                    <dd class="text-black2 text-sm lg:text-base font-normal">
+                      02:30 - 04:25
+                    </dd>
+                  </dl>
+                  <dl class="flex items-center gap-0.5">
+                    <dt class="text-navyBlue-700">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="size-5"
+                        viewbox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M12 13V21M12 13C14.7614 13 17 10.7614 17 8C17 5.23858 14.7614 3 12 3C9.23858 3 7 5.23858 7 8C7 10.7614 9.23858 13 12 13Z"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </dt>
+                    <dd class="text-black2 text-sm lg:text-base font-normal">
+                      Hội Trường A7
+                    </dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </div>
 </div>
