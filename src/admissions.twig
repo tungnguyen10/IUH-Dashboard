@@ -48,7 +48,7 @@
             <div class="lg:w-1/2 relative">
               <div class="aspect-video sm:aspect-[4/3] lg:aspect-auto lg:h-full relative overflow-hidden group">
                 <img src="assets/images/cooperation.png" alt="About IUH"
-                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                  class="w-full min-h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 <div class="absolute inset-0 bg-gradient-to-r from-navyBlue-900/80 to-transparent"></div>
                 <!-- Stats Overlay -->
                 <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 grid grid-cols-2 gap-4">
@@ -242,7 +242,7 @@
             <!-- Card Header with Image -->
             <div class="relative aspect-video sm:aspect-[4/3] overflow-hidden">
               <img src="{{ item.image }}" alt="{{ item.title }}"
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                class="w-full min-h-full object-cover transition-transform duration-700 group-hover:scale-110">
               <div
                 class="absolute inset-0 bg-gradient-to-t from-navyBlue-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <div class="absolute bottom-4 left-4 text-white">
@@ -301,7 +301,7 @@
             class="lg:col-span-3 bg-gradient-to-r from-navyBlue-900 to-navyBlue-700 rounded-xl shadow-xl overflow-hidden">
             <div class="flex flex-col lg:flex-row">
               <div class="lg:w-1/2 relative aspect-video lg:aspect-auto">
-                <img src="assets/images/cooperation.png" alt="Đại học" class="w-full h-full object-cover">
+                <img src="assets/images/cooperation.png" alt="Đại học" class="w-full min-h-full object-cover">
                 <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent"></div>
               </div>
               <div class="px-4 py-6 sm:p-8 lg:w-1/2 flex flex-col gap-4 sm:gap-6 justify-center">
@@ -413,7 +413,7 @@
               </div>
               <div class="lg:w-1/2 relative aspect-square lg:aspect-auto lg:h-full">
                 <img src="assets/images/cooperation.png" alt="International Programs"
-                  class="w-full h-full object-cover opacity-90">
+                  class="w-full min-h-full aspect-square object-cover opacity-90">
                 <div class="absolute inset-0 bg-gradient-to-r from-navyBlue-900/50 via-transparent to-transparent">
                 </div>
               </div>
@@ -500,7 +500,7 @@
             </div>
             <div class="lg:w-1/2">
               <img src="assets/images/program-image.png" alt="Graduate Programs"
-                class="rounded-lg shadow-xl transform -rotate-3 hover:rotate-0 transition-transform duration-500">
+                class="rounded-lg w-full min-h-full object-cover shadow-xl transform -rotate-3 hover:rotate-0 transition-transform duration-500">
             </div>
           </div>
         </div>
@@ -540,7 +540,7 @@
             <!-- Header Image -->
             <div class="relative h-48 overflow-hidden">
               <img src="{{ program.image }}" alt="{{ program.title }}"
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                class="w-full object-cover transition-transform duration-700 group-hover:scale-110">
               <div class="absolute inset-0 bg-gradient-to-t from-navyBlue-900/90 to-transparent pointer-events-none">
               </div>
               <div class="absolute bottom-4 left-4 right-4">
