@@ -1,80 +1,85 @@
 <!DOCTYPE html>
 <html class="no-js" lang="vi">
 
-<head>
-  <!-- Primary Meta Tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="title" content="{{ title }}" />
-  <meta name="description"
-    content="{{ description | default('Trường Đại học Công nghiệp TP.HCM - IUH là trường đại học công lập đào tạo đa ngành, đa lĩnh vực.') }}" />
-  <meta name="keywords"
-    content="{{ keywords | default('IUH, Đại học Công nghiệp, Trường Đại học Công nghiệp TP.HCM, tuyển sinh, đào tạo') }}" />
-  <meta name="author" content="IUH - Industrial University of Ho Chi Minh City" />
-  <meta name="robots" content="index, follow" />
-  <meta name="language" content="Vietnamese" />
-  <meta name="revisit-after" content="7 days" />
+	<head>
+		<!-- Primary Meta Tags -->
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+		<meta name="title" content="{{ title }}"/>
+		<meta name="description" content="{{ description | default('Trường Đại học Công nghiệp TP.HCM - IUH là trường đại học công lập đào tạo đa ngành, đa lĩnh vực.') }}"/>
+		<meta name="keywords" content="{{ keywords | default('IUH, Đại học Công nghiệp, Trường Đại học Công nghiệp TP.HCM, tuyển sinh, đào tạo') }}"/>
+		<meta name="author" content="IUH - Industrial University of Ho Chi Minh City"/>
+		<meta name="robots" content="index, follow"/>
+		<meta name="language" content="Vietnamese"/>
+		<meta
+		name="revisit-after" content="7 days"/>
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="{{ currentUrl | default('https://iuh.edu.vn/') }}" />
-  <meta property="og:title" content="{{ title }}" />
-  <meta property="og:description"
-    content="{{ description | default('Trường Đại học Công nghiệp TP.HCM - IUH là trường đại học công lập đào tạo đa ngành, đa lĩnh vực.') }}" />
-  <meta property="og:image" content="{{ ogImage | default(data.assetPath ~ '/images/og-image.jpg') }}" />
-  <meta property="og:locale" content="vi_VN" />
-  <meta property="og:site_name" content="IUH - Đại học Công nghiệp TP.HCM" />
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website"/>
+		<meta property="og:url" content="{{ currentUrl | default('https://iuh.edu.vn/') }}"/>
+		<meta property="og:title" content="{{ title }}"/>
+		<meta property="og:description" content="{{ description | default('Trường Đại học Công nghiệp TP.HCM - IUH là trường đại học công lập đào tạo đa ngành, đa lĩnh vực.') }}"/>
+		<meta property="og:image" content="{{ ogImage | default(data.assetPath ~ '/images/og-image.jpg') }}"/>
+		<meta property="og:locale" content="vi_VN"/>
+		<meta
+		property="og:site_name" content="IUH - Đại học Công nghiệp TP.HCM"/>
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="{{ currentUrl | default('https://iuh.edu.vn/') }}" />
-  <meta name="twitter:title" content="{{ title }}" />
-  <meta name="twitter:description"
-    content="{{ description | default('Trường Đại học Công nghiệp TP.HCM - IUH là trường đại học công lập đào tạo đa ngành, đa lĩnh vực.') }}" />
-  <meta name="twitter:image" content="{{ ogImage | default(data.assetPath ~ '/images/og-image.jpg') }}" />
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image"/>
+		<meta name="twitter:url" content="{{ currentUrl | default('https://iuh.edu.vn/') }}"/>
+		<meta name="twitter:title" content="{{ title }}"/>
+		<meta name="twitter:description" content="{{ description | default('Trường Đại học Công nghiệp TP.HCM - IUH là trường đại học công lập đào tạo đa ngành, đa lĩnh vực.') }}"/>
+		<meta
+		name="twitter:image" content="{{ ogImage | default(data.assetPath ~ '/images/og-image.jpg') }}"/>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/images/favicons/favicon-32x32.png" sizes="32x32" />
-  <link rel="icon" type="image/png" href="assets/images/favicons/favicon-16x16.png" sizes="16x16" />
-  <link rel="apple-touch-icon" href="assets/images/favicons/apple-touch-icon.png" />
-  <link rel="manifest" href="assets/images/favicons/site.webmanifest" />
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" href="assets/images/favicons/favicon-32x32.png" sizes="32x32"/>
+		<link rel="icon" type="image/png" href="assets/images/favicons/favicon-16x16.png" sizes="16x16"/>
+		<link rel="apple-touch-icon" href="assets/images/favicons/apple-touch-icon.png"/>
+		<link
+		rel="manifest" href="assets/images/favicons/site.webmanifest"/>
 
-  <!-- Canonical URL -->
-  <link rel="canonical" href="{{ currentUrl | default('https://iuh.edu.vn/') }}" />
+		<!-- Canonical URL -->
+		<link
+		rel="canonical" href="{{ currentUrl | default('https://iuh.edu.vn/') }}"/>
 
-  <!-- meta tag for background header mobile -->
-  <meta name="theme-color" content="#000080">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<!-- meta tag for background header mobile -->
+		<meta name="theme-color" content="#000080">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-  <title>{{ title }} | IUH - Đại học Công nghiệp TP.HCM</title>
+		<title>{{ title }}
+			| IUH - Đại học Công nghiệp TP.HCM</title>
 
-  <!-- inject:css -->
-  <!-- endinject -->
-</head>
+		<!-- inject:css -->
+		<link
+		rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	<!-- endinject -->
+	</head>
 
-<body data-module="HelloModule">
+	<body
+		data-module="HelloModule">
 
-  <!-- HEADER -->
-  {% include './header.twig' %}
-  <!-- MAIN CONTENT -->
-  <main class="iuhMainContent opacity-0 {{ pageClass ?? '' }}">
+		<!-- HEADER -->
+		{% include './header.twig' %}
+		<!-- MAIN CONTENT -->
+		<main class="iuhMainContent opacity-0 {{ pageClass ?? '' }}">
 
-    {% if breadcrumbs is defined %}
-      {% include './components/_Breadcrumb.twig' with {
+			{% if breadcrumbs is defined %}
+				{% include './components/_Breadcrumb.twig' with {
         breadcrumbs: breadcrumbs
       } %}
-    {% endif %}
-    {% block page %}{% endblock %}
-    <!-- FOOTER -->
-    {% include './footer.twig' %}
-  </main>
-  <!---->
+			{% endif %}
+			{% block page %}{% endblock %}
+			<!-- FOOTER -->
+			{% include './footer.twig' %}
+		</main>
+		<!---->
 
-  <!-- Loading -->
-  {% include './components/_Loading.twig' %}
-  <!-- Modal -->
-  {% include './components/_Modal.twig' with {
+		<!-- Loading -->
+		{% include './components/_Loading.twig' %}
+		<!-- Modal -->
+		{% include './components/_Modal.twig' with {
   id: 'onSearch',
   title: 'Tìm kiếm',
   body: '
@@ -106,10 +111,10 @@
   '
   } %}
 
-  {% include './components/_SocialFixed.twig' %}
-</body>
+		{% include './components/_SocialFixed.twig' %}
+	</body>
 
-<!-- inject:js -->
-<!-- endinject -->
+	<!-- inject:js -->
+	<!-- endinject -->
 
 </html>
