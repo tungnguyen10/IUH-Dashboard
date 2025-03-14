@@ -7,7 +7,63 @@ export default class PdfViewer extends BaseModule {
     this.object = this.container.querySelector('#pdfViewer');
     this.printBtn = this.container.querySelector('.pdf-print');
     this.downloadBtn = this.container.querySelector('.pdf-download');
+    
+    // Check browser compatibility
+    this.checkBrowserCompatibility();
     this.setupOtherControls();
+  }
+
+  checkBrowserCompatibility() {
+    // Check if browser can handle PDF
+    const isPdfSupported = this.isPdfSupported();
+    
+    if (!isPdfSupported) {
+      
+      // Show fallback content
+      const fallbackContent = this.object?.querySelector('.fallback-content');
+      if (fallbackContent) {
+        fallbackContent.classList.remove('hidden');
+        fallbackContent.classList.add('block');
+      }
+      
+      // Disable print button as direct printing won't work
+      if (this.printBtn) {
+        this.printBtn.disabled = true;
+        this.printBtn.classList.add('opacity-50', 'cursor-not-allowed');
+        this.printBtn.title = 'In không khả dụng trên trình duyệt này';
+      }
+    }
+  }
+
+  isPdfSupported() {
+    // Check if running in a mobile browser
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    // Check if browser is Safari on iOS
+    const isIOSSafari = /iPhone|iPad|iPod/i.test(navigator.userAgent) && 
+                       /WebKit/i.test(navigator.userAgent) && 
+                       !/(CriOS|FxiOS|OPiOS|mercury)/i.test(navigator.userAgent);
+    
+    // Check if PDF plugin is available
+    const hasAcrobat = navigator.plugins && 
+                      (navigator.plugins['Chrome PDF Viewer'] || 
+                       navigator.plugins['Adobe Acrobat'] ||
+                       navigator.plugins['PDF Viewer']);
+    
+    // Test if browser can handle PDF
+    let testObject;
+    try {
+      testObject = document.createElement('object');
+      testObject.type = 'application/pdf';
+      const canEmbed = !!testObject.canPlayType || hasAcrobat;
+      
+      // Return true only if not on problematic browsers/devices
+      return !isMobile && !isIOSSafari && canEmbed;
+    } catch (e) {
+      return false;
+    } finally {
+      testObject = null;
+    }
   }
 
   setupOtherControls() {
