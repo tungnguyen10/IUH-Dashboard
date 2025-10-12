@@ -1,0 +1,14 @@
+<h2
+  class="group text-2xl flex items-center gap-2.5 lg:text-titleDK md:leading-[1] font-bold text-titleColor {{ titleClass|default('') }}">
+  {% if variant|default('default') == 'fill' %}
+  <span
+    class="bg-icon size-10 relative bg-no-repeat bg-center bg-contain group-hover:bg-icon-light transition-all duration-500 ease-in-out animate-toggleIcon"></span>
+  {% else %}
+  <span
+    class="bg-icon size-10 relative bg-no-repeat bg-center bg-contain group-hover:bg-icon-fill transition-all duration-500 ease-in-out animate-toggleIcon"></span>
+  {% endif %}
+  <span>{{ title }}</span>
+  {% if subtitle is defined and subtitle is not empty %}
+  <span class=" text-primary-yellow {{ subtitleClass|default('') }}">{{ subtitle }}</span>
+  {% endif %}
+</h2>

@@ -2,14 +2,14 @@
   class="fixed top-0 left-0 w-full z-50 shadow-lg header-nav"
   data-module="Header"
 >
-  <div class="w-full relative bg-navyBlue-900 text-navyBlue-50">
+  <div class="w-full relative bg-primary-darkblue text-white">
     <div
       class="w-full max-w-[1200px] px-4 mx-auto h-10 items-center justify-between hidden menuMb:flex"
     >
       <h2 class="text-sm">
         Chào mừng bạn đến với Đại học Công nghiệp Thành phố Hồ Chí Minh
       </h2>
-      <div class="flex flex-row items-center gap-3">
+      <div class="flex flex-row items-center gap-3 text-primary-yellow">
         <a href="#" class="flex items-center gap-2 text-sm">
           <svg
             class="size-5"
@@ -26,7 +26,7 @@
             />
           </svg>
 
-          E-Office
+         <span class="text-white">E-Office</span>
         </a>
         <a
           href="mailto:dhcn@iuh.edu.vn"
@@ -43,8 +43,7 @@
               fill="currentColor"
             />
           </svg>
-
-          dhcn@iuh.edu.vn
+          <span class="text-white">dhcn@iuh.edu.vn</span>
         </a>
         <a href="tel:02838940390" class="flex items-center gap-2 text-sm">
           <svg
@@ -61,7 +60,7 @@
               stroke-linejoin="round"
             />
           </svg>
-          0283 8940 390
+          <span class="text-white">0283 8940 390</span>
         </a>
         <div class="pr-2 border-r cursor-pointer" data-open-modal="onSearch">
           <svg
@@ -81,7 +80,7 @@
         </div>
         <!-- Language toggle -->
         <div
-          class="language-switcher border-[1px] rounded-full cursor-pointer border-navyBlue-50 px-2 py-1 text-sm flex items-center gap-2 transition-all duration-500"
+          class="language-switcher border-[1px] rounded-full cursor-pointer border-secondary-blue bg-white text-primary-darkblue px-2 py-1 text-sm flex items-center gap-2 transition-all duration-500"
           data-open-link="en/"
         >
           <p
@@ -90,12 +89,12 @@
             VNI
           </p>
           <div
-            class="language-switcher_img size-5 rounded-full border-[1px] border-navyBlue-50 overflow-hidden transform transition-all duration-500 group-hover/lang:rotate-12"
+            class="language-switcher_img size-5 rounded-full overflow-hidden transform transition-all duration-500 group-hover/lang:rotate-12"
           ></div>
         </div>
       </div>
     </div>
-    <div class="text-navyBlue-900 relative menuMb:bg-white">
+    <div class="text-primary-darkblue relative menuMb:bg-white">
       <!-- Mobile-only decorative elements -->
       <div
         class="absolute inset-0 menuMb:hidden pointer-events-none overflow-hidden"
@@ -323,11 +322,11 @@
             class="flex flex-row justify-start menuMb:h-full menuMb:items-center gap-4 flex-1"
           >
             <li
-              class="group/sub-menu text-navyBlue-900 relative h-full flex flex-col menuMb:flex-row items-center border-b menuMb:border-none"
+              class="group/sub-menu text-primary-darkblue relative h-full flex flex-col menuMb:flex-row items-center border-b menuMb:border-none"
             >
               <a
                 href="#"
-                class="relative font-semibold uppercase px-4 py-2 flex items-center gap-2 transition-all duration-300 hover:text-navyBlue-50 flex items-center h-full hover:bg-navyBlue-800"
+                class="relative font-semibold uppercase px-4 py-2 gap-2 transition-all duration-300 hover:text-primary-yellow flex items-center h-full hover:bg-primary-darkblue"
               >
                 Giới thiệu
                 <svg
@@ -347,14 +346,14 @@
               </a>
               <!-- Primary Submenu -->
               <ul
-                class="menuMb:absolute bg-white w-full menuMb:w-60 top-full left-0 transform opacity-0 invisible group-hover/sub-menu:opacity-100 group-hover/sub-menu:visible translate-y-2 group-hover/sub-menu:translate-y-0 transition-all duration-300 ease-in-out shadow-lg rounded-bl-lg rounded-br-lg border-t-3 border-navyBlue-900 z-50"
+                class="menuMb:absolute bg-white w-full menuMb:w-60 top-full left-0 transform opacity-0 invisible group-hover/sub-menu:opacity-100 group-hover/sub-menu:visible translate-y-2 group-hover/sub-menu:translate-y-0 transition-all duration-300 ease-in-out shadow-lg rounded-bl-lg rounded-br-lg border-t-3 border-primary-darkblue z-50"
               >
                 <li
                   class="group/sub1-menu relative border-t menuMb:border-b border-gray-100 last:border-none"
                 >
                   <a
                     href="#"
-                    class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal"
+                    class="text-sm text-primary-darkblue px-4 py-3 flex items-center justify-between hover:bg-primary-darkblue hover:text-primary-yellow transition-all duration-200 hover:pl-6 uppercase font-normal"
                   >
                     Giới thiệu chung
                     <svg
@@ -375,7 +374,7 @@
 
                   <!-- Secondary Submenu -->
                   <ul
-                    class="absolute bg-white min-w-full menuMb:w-[350px] grid grid-cols-1 menuMb:grid-cols-2 top-0 left-full transform opacity-0 invisible group-hover/sub1-menu:opacity-100 group-hover/sub1-menu:visible translate-x-2 group-hover/sub1-menu:translate-x-0 transition-all duration-300 ease-in-out shadow-lg rounded-bl-lg rounded-br-lg border-l-3 border-navyBlue-900"
+                    class="absolute bg-white min-w-full menuMb:w-[350px] grid grid-cols-1 menuMb:grid-cols-2 top-0 left-full transform opacity-0 invisible group-hover/sub1-menu:opacity-100 group-hover/sub1-menu:visible translate-x-2 group-hover/sub1-menu:translate-x-0 transition-all duration-300 ease-in-out shadow-lg rounded-bl-lg rounded-br-lg border-l-3 border-primary-darkblue"
                   >
                     {% for i in 1..10 %}
                     <li
@@ -383,7 +382,7 @@
                     >
                       <a
                         href="#"
-                        class="text-sm w-full h-full text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal"
+                        class="text-sm w-full h-full text-primary-darkblue px-4 py-3 flex items-center justify-between hover:bg-primary-darkblue  group-hover/sub1-menu:hover:text-primary-yellow transition-all duration-200 hover:pl-6 uppercase font-normal"
                       >
                         Webdesign
                       </a>
@@ -397,7 +396,7 @@
                 >
                   <a
                     href="#"
-                    class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal"
+                    class="text-sm text-primary-darkblue px-4 py-3 flex items-center justify-between hover:bg-primary-darkblue hover:text-primary-yellow transition-all duration-200 hover:pl-6 uppercase font-normal"
                   >
                     Đội ngũ
                   </a>
@@ -408,7 +407,7 @@
                 >
                   <a
                     href="#"
-                    class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal"
+                    class="text-sm text-primary-darkblue px-4 py-3 flex items-center justify-between hover:bg-primary-darkblue hover:text-primary-yellow transition-all duration-200 hover:pl-6 uppercase font-normal"
                   >
                     Sơ đồ bộ máy tổ chức
                     <svg
@@ -429,14 +428,14 @@
 
                   <!-- Secondary Submenu -->
                   <ul
-                    class="absolute bg-white w-full menuMb:w-60 top-0 left-full transform opacity-0 invisible group-hover/sub1-menu:opacity-100 group-hover/sub1-menu:visible translate-x-2 group-hover/sub1-menu:translate-x-0 transition-all duration-300 ease-in-out shadow-lg rounded-bl-lg rounded-br-lg border-l-3 border-navyBlue-900"
+                    class="absolute bg-white w-full menuMb:w-60 top-0 left-full transform opacity-0 invisible group-hover/sub1-menu:opacity-100 group-hover/sub1-menu:visible translate-x-2 group-hover/sub1-menu:translate-x-0 transition-all duration-300 ease-in-out shadow-lg rounded-bl-lg rounded-br-lg border-l-3 border-primary-darkblue"
                   >
                     <li
                       class="border-t menuMb:border-b border-gray-100 menuMb:last:border-none"
                     >
                       <a
                         href="#"
-                        class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal"
+                        class="text-sm text-primary-darkblue px-4 py-3 flex items-center justify-between hover:bg-primary-darkblue hover:text-primary-yellow transition-all duration-200 hover:pl-6 uppercase font-normal"
                       >
                         Webdesign
                       </a>
@@ -446,7 +445,7 @@
                     >
                       <a
                         href="#"
-                        class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal"
+                        class="text-sm text-primary-darkblue px-4 py-3 flex items-center justify-between hover:bg-primary-darkblue hover:text-primary-yellow transition-all duration-200 hover:pl-6 uppercase font-normal"
                       >
                         Digital marketing
                       </a>
@@ -457,7 +456,7 @@
                 <li class="border-b border-gray-100 last:border-none">
                   <a
                     href="#"
-                    class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal"
+                    class="text-sm text-primary-darkblue px-4 py-3 flex items-center justify-between hover:bg-primary-darkblue hover:text-primary-yellow transition-all duration-200 hover:pl-6 uppercase font-normal"
                   >
                     Giá trị cốt lõi
                   </a>
@@ -465,51 +464,51 @@
               </ul>
             </li>
             <li
-              class="group/sub-menu text-navyBlue-900 relative h-full flex flex-col menuMb:flex-row items-center border-b menuMb:border-none"
+              class="group/sub-menu text-primary-darkblue relative h-full flex flex-col menuMb:flex-row items-center border-b menuMb:border-none"
             >
               <a
                 href="/about.html"
-                class="relative font-semibold uppercase px-4 py-2 flex items-center gap-2 transition-all duration-300 hover:text-navyBlue-50 flex items-center h-full hover:bg-navyBlue-800"
+                class="relative font-semibold uppercase px-4 py-2 gap-2 transition-all duration-300 hover:text-primary-yellow flex items-center h-full hover:bg-primary-darkblue"
               >
                 Đào tạo
               </a>
             </li>
             <li
-              class="group/sub-menu text-navyBlue-900 relative h-full flex flex-col menuMb:flex-row items-center border-b menuMb:border-none"
+              class="group/sub-menu text-primary-darkblue relative h-full flex flex-col menuMb:flex-row items-center border-b menuMb:border-none"
             >
               <a
                 href="#"
-                class="relative font-semibold uppercase px-4 py-2 flex items-center gap-2 transition-all duration-300 hover:text-navyBlue-50 flex items-center h-full hover:bg-navyBlue-800"
+                class="relative font-semibold uppercase px-4 py-2 gap-2 transition-all duration-300 hover:text-primary-yellow flex items-center h-full hover:bg-primary-darkblue"
               >
                 Tuyển sinh
               </a>
             </li>
             <li
-              class="group/sub-menu text-navyBlue-900 relative h-full flex flex-col menuMb:flex-row items-center border-b menuMb:border-none"
+              class="group/sub-menu text-primary-darkblue relative h-full flex flex-col menuMb:flex-row items-center border-b menuMb:border-none"
             >
               <a
                 href="#"
-                class="relative font-semibold uppercase px-4 py-2 flex items-center gap-2 transition-all duration-300 hover:text-navyBlue-50 flex items-center h-full hover:bg-navyBlue-800"
+                class="relative font-semibold uppercase px-4 py-2 gap-2 transition-all duration-300 hover:text-primary-yellow flex items-center h-full hover:bg-primary-darkblue"
               >
                 Nghiên cứu khoa học
               </a>
             </li>
             <li
-              class="group/sub-menu text-navyBlue-900 relative h-full flex flex-col menuMb:flex-row items-center border-b menuMb:border-none"
+              class="group/sub-menu text-primary-darkblue relative h-full flex flex-col menuMb:flex-row items-center border-b menuMb:border-none"
             >
               <a
                 href="#"
-                class="relative font-semibold uppercase px-4 py-2 flex items-center gap-2 transition-all duration-300 hover:text-navyBlue-50 flex items-center h-full hover:bg-navyBlue-800"
+                class="relative font-semibold uppercase px-4 py-2 gap-2 transition-all duration-300 hover:text-primary-yellow flex items-center h-full hover:bg-primary-darkblue"
               >
                 Sinh viên
               </a>
             </li>
             <li
-              class="group/sub-menu text-navyBlue-900 relative h-full flex flex-col menuMb:flex-row items-center border-b menuMb:border-none"
+              class="group/sub-menu text-primary-darkblue relative h-full flex flex-col menuMb:flex-row items-center border-b menuMb:border-none"
             >
               <a
                 href="#"
-                class="relative font-semibold uppercase px-4 py-2 flex items-center gap-2 transition-all duration-300 hover:text-navyBlue-50 flex items-center h-full hover:bg-navyBlue-800"
+                class="relative font-semibold uppercase px-4 py-2 gap-2 transition-all duration-300 hover:text-primary-yellow flex items-center h-full hover:bg-primary-darkblue"
               >
                 Văn bằng
                 <svg
@@ -529,14 +528,14 @@
               </a>
               <!-- Primary Submenu -->
               <ul
-                class="menuMb:absolute bg-white w-full menuMb:w-60 top-full transform opacity-0 invisible group-hover/sub-menu:opacity-100 group-hover/sub-menu:visible translate-y-2 group-hover/sub-menu:translate-y-0 transition-all duration-300 ease-in-out shadow-lg rounded-bl-lg rounded-br-lg border-t-3 border-navyBlue-900 z-50"
+                class="menuMb:absolute bg-white w-full menuMb:w-60 top-full transform opacity-0 invisible group-hover/sub-menu:opacity-100 group-hover/sub-menu:visible translate-y-2 group-hover/sub-menu:translate-y-0 transition-all duration-300 ease-in-out shadow-lg rounded-bl-lg rounded-br-lg border-t-3 border-primary-darkblue z-50"
               >
                 <li
                   class="group/sub1-menu relative border-t menuMb:border-b border-gray-100 last:border-none"
                 >
                   <a
                     href="#"
-                    class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal"
+                    class="text-sm text-primary-darkblue px-4 py-3 flex items-center justify-between hover:bg-primary-darkblue hover:text-primary-yellow transition-all duration-200 hover:pl-6 uppercase font-normal"
                   >
                     Giới thiệu chung
                     <svg
@@ -557,7 +556,7 @@
 
                   <!-- Secondary Submenu -->
                   <ul
-                    class="absolute bg-white min-w-full menuMb:w-[350px] grid grid-cols-1 menuMb:grid-cols-2 top-0 left-full transform opacity-0 invisible group-hover/sub1-menu:opacity-100 group-hover/sub1-menu:visible translate-x-2 group-hover/sub1-menu:translate-x-0 transition-all duration-300 ease-in-out shadow-lg rounded-bl-lg rounded-br-lg border-l-3 border-navyBlue-900"
+                    class="absolute bg-white min-w-full menuMb:w-[350px] grid grid-cols-1 menuMb:grid-cols-2 top-0 left-full transform opacity-0 invisible group-hover/sub1-menu:opacity-100 group-hover/sub1-menu:visible translate-x-2 group-hover/sub1-menu:translate-x-0 transition-all duration-300 ease-in-out shadow-lg rounded-bl-lg rounded-br-lg border-l-3 border-primary-darkblue"
                   >
                     {% for i in 1..10 %}
                     <li
@@ -565,7 +564,7 @@
                     >
                       <a
                         href="#"
-                        class="text-sm w-full h-full text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal"
+                        class="text-sm w-full h-full text-primary-darkblue px-4 py-3 flex items-center justify-between hover:bg-primary-darkblue hover:text-primary-yellow transition-all duration-200 hover:pl-6 uppercase font-normal"
                       >
                         Webdesign
                       </a>
@@ -579,7 +578,7 @@
                 >
                   <a
                     href="#"
-                    class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal"
+                    class="text-sm text-primary-darkblue px-4 py-3 flex items-center justify-between hover:bg-primary-darkblue hover:text-primary-yellow transition-all duration-200 hover:pl-6 uppercase font-normal"
                   >
                     Đội ngũ
                   </a>
@@ -590,7 +589,7 @@
                 >
                   <a
                     href="#"
-                    class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal"
+                    class="text-sm text-primary-darkblue px-4 py-3 flex items-center justify-between hover:bg-primary-darkblue hover:text-primary-yellow transition-all duration-200 hover:pl-6 uppercase font-normal"
                   >
                     Sơ đồ bộ máy tổ chức
                     <svg
@@ -611,14 +610,14 @@
 
                   <!-- Secondary Submenu -->
                   <ul
-                    class="absolute bg-white min-w-full menuMb:w-[350px] grid grid-cols-1 menuMb:grid-cols-2 top-0 left-full transform opacity-0 invisible group-hover/sub1-menu:opacity-100 group-hover/sub1-menu:visible translate-x-2 group-hover/sub1-menu:translate-x-0 transition-all duration-300 ease-in-out shadow-lg rounded-bl-lg rounded-br-lg border-l-3 border-navyBlue-900"
+                    class="absolute bg-white min-w-full menuMb:w-[350px] grid grid-cols-1 menuMb:grid-cols-2 top-0 left-full transform opacity-0 invisible group-hover/sub1-menu:opacity-100 group-hover/sub1-menu:visible translate-x-2 group-hover/sub1-menu:translate-x-0 transition-all duration-300 ease-in-out shadow-lg rounded-bl-lg rounded-br-lg border-l-3 border-primary-darkblue"
                   >
                     <li
                       class="border-t menuMb:border-b border-gray-100 menuMb:last:border-none"
                     >
                       <a
                         href="#"
-                        class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal"
+                        class="text-sm text-primary-darkblue px-4 py-3 flex items-center justify-between hover:bg-primary-darkblue hover:text-primary-yellow transition-all duration-200 hover:pl-6 uppercase font-normal"
                       >
                         Webdesign
                       </a>
@@ -628,7 +627,7 @@
                     >
                       <a
                         href="#"
-                        class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal"
+                        class="text-sm text-primary-darkblue px-4 py-3 flex items-center justify-between hover:bg-primary-darkblue hover:text-primary-yellow transition-all duration-200 hover:pl-6 uppercase font-normal"
                       >
                         Digital marketing
                       </a>
@@ -638,7 +637,7 @@
                     >
                       <a
                         href="#"
-                        class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal"
+                        class="text-sm text-primary-darkblue px-4 py-3 flex items-center justify-between hover:bg-primary-darkblue hover:text-primary-yellow transition-all duration-200 hover:pl-6 uppercase font-normal"
                       >
                         Digital marketing
                       </a>
@@ -648,7 +647,7 @@
                     >
                       <a
                         href="#"
-                        class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal"
+                        class="text-sm text-primary-darkblue px-4 py-3 flex items-center justify-between hover:bg-primary-darkblue hover:text-primary-yellow transition-all duration-200 hover:pl-6 uppercase font-normal"
                       >
                         Digital marketing
                       </a>
@@ -659,7 +658,7 @@
                 <li class="border-b border-gray-100 last:border-none">
                   <a
                     href="#"
-                    class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 uppercase font-normal"
+                    class="text-sm text-primary-darkblue px-4 py-3 flex items-center justify-between hover:bg-primary-darkblue hover:text-primary-yellow transition-all duration-200 hover:pl-6 uppercase font-normal"
                   >
                     Giá trị cốt lõi
                   </a>
@@ -729,23 +728,23 @@
                 Cựu sinh viên
               </a>
             </div>
-            <div class="w-full text-center text-base font-medium">
+            <div class="w-full text-center text-base font-medium text-primary-yellow">
               Chọn ngôn ngữ
             </div>
             <div class="flex flex-row items-center justify-center gap-6">
               <!-- Vietnamese Option -->
               <button
-                class="lang-btn rounded-xl overflow-hidden data-[active=true]:bg-navyBlue-100 data-[active=true]:font-medium"
+                class="lang-btn rounded-xl overflow-hidden data-[active=true]:bg-secondary-subYellow data-[active=true]:font-medium"
                 data-lang="vi"
                 data-active="true"
               >
                 <a
                   href="#"
                   target="_blank"
-                  class="flex flex-row items-center gap-2 p-2 px-4 transition-all duration-300 hover:bg-navyBlue-100/50 active:scale-95"
+                  class="flex flex-row items-center gap-2 p-2 px-4 transition-all duration-300 active:scale-95"
                 >
                   <div
-                    class="size-8 rounded-full border-2 border-navyBlue-700 overflow-hidden relative transition-all duration-300 group-hover:border-navyBlue-500"
+                    class="size-8 rounded-full border-2 border-primary-darkblue overflow-hidden relative transition-all duration-300 group-hover:border-primary-yellow"
                   >
                     <img
                       src="assets/images/vietnam.png"
@@ -759,17 +758,17 @@
 
               <!-- English Option -->
               <button
-                class="lang-btn rounded-xl overflow-hidden data-[active=true]:bg-navyBlue-100 data-[active=true]:font-medium"
+                class="lang-btn rounded-xl overflow-hidden data-[active=true]:bg-secondary-subYellow data-[active=true]:font-medium"
                 data-lang="en"
                 data-active="false"
               >
                 <a
                   href="#"
                   target="_blank"
-                  class="flex flex-row items-center gap-2 p-2 px-4 transition-all duration-300 hover:bg-navyBlue-100/50 active:scale-95"
+                  class="flex flex-row items-center gap-2 p-2 px-4 transition-all duration-300 active:scale-95"
                 >
                   <div
-                    class="size-8 rounded-full border-2 border-navyBlue-700 overflow-hidden relative transition-all duration-300 group-hover:border-navyBlue-500"
+                    class="size-8 rounded-full border-2 border-primary-darkblue overflow-hidden relative transition-all duration-300 group-hover:border-primary-yellow"
                   >
                     <img
                       src="assets/images/eng.webp"

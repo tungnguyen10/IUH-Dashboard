@@ -38,42 +38,36 @@ export default class HomeAccredited extends BaseModule {
         {
           id: "vnu-cea",
           tabId: "tab1",
-          image: "assets/images/vnu.png",
           title: "VNU-CEA",
           active: false
         },
         {
           id: "aun-qa",
           tabId: "tab2",
-          image: "assets/images/asean.png",
           title: "AUN-QA",
           active: true
         },
         {
           id: "abet",
           tabId: "tab3",
-          image: "assets/images/abet.png",
           title: "ABET",
           active: false
         },
         {
           id: "other",
           tabId: "tab4",
-          image: "assets/images/other.png",
           title: "Other",
           active: false
         },
         {
           id: "iso",
           tabId: "tab5",
-          image: "assets/images/iso.png", // Add ISO image
           title: "ISO",
           active: false
         },
         {
           id: "vnu-hcm",
           tabId: "tab6",
-          image: "assets/images/international.png", // Add international image
           title: "VNU-HCM",
           active: false
         }
@@ -423,47 +417,51 @@ export default class HomeAccredited extends BaseModule {
     ctx.restore();
 
     if (quarter.active) {
-      ctx.save();
-      this.buildSlicePath(ctx, {
+      const highlightInnerRadius = Math.min(
+        outerRadius - 6,
+        innerRadius + Math.max(10, (outerRadius - innerRadius) * 0.22)
+      );
+      const highlightOuterRadius = Math.max(
+        highlightInnerRadius + 2,
+        outerRadius - 4
+      );
+
+      const highlightSlice = {
         centerX,
         centerY,
-        innerRadius,
-        outerRadius,
+        innerRadius: highlightInnerRadius,
+        outerRadius: highlightOuterRadius,
         innerStartAngle,
         innerEndAngle,
         outerStartAngle,
         outerEndAngle
-      }, true);
-      const glow = ctx.createRadialGradient(centerX, centerY, innerRadius, centerX, centerY, outerRadius);
-      glow.addColorStop(0, 'rgba(255, 255, 255, 0)');
-      glow.addColorStop(1, this.hexToRgba(colors.border, 0.35));
+      };
+
+      // Soft glow confined to slice
+      ctx.save();
+      this.buildSlicePath(ctx, highlightSlice, false);
+      ctx.clip();
+      const glow = ctx.createRadialGradient(centerX, centerY, highlightInnerRadius, centerX, centerY, highlightOuterRadius);
+      glow.addColorStop(0, this.hexToRgba(colors.border, 0.12));
+      glow.addColorStop(1, this.hexToRgba(colors.border, 0));
       ctx.fillStyle = glow;
-      ctx.globalAlpha = 0.6;
+      ctx.globalAlpha = 0.75;
+      ctx.beginPath();
+      this.buildSlicePath(ctx, highlightSlice, false);
       ctx.fill();
       ctx.restore();
 
+      // Add soft overlay
       ctx.save();
-      ctx.shadowColor = this.hexToRgba(colors.border, 0.6);
-      ctx.shadowBlur = 22;
-      ctx.lineWidth = 4;
-      ctx.strokeStyle = this.hexToRgba(colors.border, 0.75);
-      this.buildSlicePath(ctx, {
-        centerX,
-        centerY,
-        innerRadius,
-        outerRadius,
-        innerStartAngle,
-        innerEndAngle,
-        outerStartAngle,
-        outerEndAngle
-      }, true);
-      ctx.stroke();
+      this.buildSlicePath(ctx, highlightSlice, false);
+      ctx.clip();
+      ctx.globalAlpha = 0.3;
+      ctx.fillStyle = this.hexToRgba(colors.border, 0.35);
+      ctx.beginPath();
+      this.buildSlicePath(ctx, highlightSlice, false);
+      ctx.fill();
       ctx.restore();
     }
-
-    // Draw quarter image
-
-
     // Draw quarter text
     this.drawQuarterTextInSegment(quarter);
   }
@@ -477,130 +475,89 @@ export default class HomeAccredited extends BaseModule {
       centerY,
       contentInnerRadius,
       contentOuterRadius,
-      innerStartAngle,
-      innerEndAngle,
       outerStartAngle,
       outerEndAngle
     } = quarter;
 
-    const point = (radius, angle) => ({
-      x: centerX + radius * Math.cos(angle),
-      y: centerY + radius * Math.sin(angle)
-    });
 
-    const outerStartPoint = point(contentOuterRadius, outerStartAngle);
-    const outerEndPoint = point(contentOuterRadius, outerEndAngle);
-    const innerEndPoint = point(contentInnerRadius, innerEndAngle);
-    const innerStartPoint = point(contentInnerRadius, innerStartAngle);
+    const rawSpan = outerEndAngle - outerStartAngle;
+    const angleSpan = Math.abs(rawSpan);
+    const direction = Math.sign(rawSpan) || 1;
+    const label = quarter.title || '';
+    // chỉnh khoảng cách từ center
+    let radialCenter = contentInnerRadius + (contentOuterRadius - contentInnerRadius) * 0.75;
+    const baseFontSize = this.quartersConfig.quarters.length > 4 ? 20 : 24;
+    let fontSize = baseFontSize;
+    const minFontSize = 11;
 
-    const textX = (outerStartPoint.x + outerEndPoint.x + innerEndPoint.x + innerStartPoint.x) / 4;
-    const textY = (outerStartPoint.y + outerEndPoint.y + innerEndPoint.y + innerStartPoint.y) / 4;
+    const computeMetrics = () => {
+      ctx.font = `bold ${fontSize}px Inter`;
+      const textWidth = ctx.measureText(label).width;
+      const availableAngle = Math.max(0.2, angleSpan - 2 * 0.08);
+      const maxAngleForRadius = availableAngle;
+      const requiredAngle = textWidth / radialCenter;
+      return { textWidth, maxAngleForRadius, requiredAngle };
+    };
 
-    ctx.save();
-    ctx.fillStyle = quarter.active ? '#ffffff' : colors.text;
+    let metrics = computeMetrics();
 
-    // Adjust font size based on number of quarters
-    const fontSize = this.quartersConfig.quarters.length > 4 ? 20 : 24;
+    while (metrics.requiredAngle > metrics.maxAngleForRadius && fontSize > minFontSize) {
+      fontSize -= 1;
+      metrics = computeMetrics();
+    }
+
+    while (metrics.requiredAngle > metrics.maxAngleForRadius && radialCenter < contentOuterRadius - 4) {
+      radialCenter += 2;
+      metrics = computeMetrics();
+    }
+
+    // Final check with updated font
     ctx.font = `bold ${fontSize}px Inter`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
 
-    // Add text shadow for better readability
+    const anglePadding = 0.08;
+    const usableAngle = Math.max(0, angleSpan - 2 * anglePadding);
+    const totalAngleNeeded = metrics.requiredAngle;
+    const angleScale = totalAngleNeeded > usableAngle && totalAngleNeeded > 0
+      ? usableAngle / totalAngleNeeded
+      : 1;
+    const actualAngle = totalAngleNeeded * angleScale;
+    const centerAngle = (outerStartAngle + outerEndAngle) / 2;
+    let cursorAngle = centerAngle - direction * actualAngle / 2;
+
+    ctx.save();
+    ctx.fillStyle = quarter.active ? '#ffffff' : colors.text;
     ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
     ctx.shadowBlur = 2;
     ctx.shadowOffsetX = 1;
     ctx.shadowOffsetY = 1;
 
-    ctx.fillText(quarter.title, textX, textY);
-    ctx.restore();
-  }
-
-  // Draw quarter image so it follows the pie slice shape
-  drawQuarterImageInSegment(quarter, image) {
-    const ctx = this.ctx;
-    const {
-      centerX,
-      centerY,
-      innerStartAngle,
-      innerEndAngle,
-      outerStartAngle,
-      outerEndAngle,
-      contentInnerRadius,
-      contentOuterRadius,
-      imageX,
-      imageY
-    } = quarter;
-
-    const sliceInnerRadius = contentInnerRadius;
-    const sliceOuterRadius = contentOuterRadius;
-
-    ctx.save();
-
-    try {
-      if (image && image.complete) {
-        this.buildSlicePath(ctx, {
-          centerX,
-          centerY,
-          innerRadius: sliceInnerRadius,
-          outerRadius: sliceOuterRadius,
-          innerStartAngle,
-          innerEndAngle,
-          outerStartAngle,
-          outerEndAngle
-        }, true);
-        ctx.clip();
-
-        const drawSize = sliceOuterRadius * 2;
-        ctx.drawImage(
-          image,
-          imageX - drawSize / 2,
-          imageY - drawSize / 2,
-          drawSize,
-          drawSize
-        );
-      } else {
-        // Fallback: draw colored slice if image is not available
-        const colors = this.quartersConfig.quarterColors[quarter.colorIndex];
-        this.buildSlicePath(ctx, {
-          centerX,
-          centerY,
-          innerRadius: sliceInnerRadius,
-          outerRadius: sliceOuterRadius,
-          innerStartAngle,
-          innerEndAngle,
-          outerStartAngle,
-          outerEndAngle
-        }, true);
-        ctx.fillStyle = colors.border;
-        ctx.fill();
-
-        // Add text
-        ctx.fillStyle = '#ffffff';
-        ctx.font = '10px Arial';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(quarter.id.substring(0, 3).toUpperCase(), imageX, imageY);
+    for (const char of label) {
+      const charWidth = ctx.measureText(char).width;
+      let charAngle = charWidth / radialCenter;
+      charAngle *= angleScale;
+      if (charAngle <= 0) {
+        cursorAngle += direction * 0.001;
+        continue;
       }
-    } catch (error) {
-      console.error('Error drawing quarter image:', error);
-      // Draw fallback slice
-      const colors = this.quartersConfig.quarterColors[quarter.colorIndex];
-      this.buildSlicePath(ctx, {
-        centerX,
-        centerY,
-        innerRadius: sliceInnerRadius,
-        outerRadius: sliceOuterRadius,
-        innerStartAngle,
-        innerEndAngle,
-        outerStartAngle,
-        outerEndAngle
-      }, true);
-      ctx.fillStyle = colors.border;
-      ctx.fill();
+      const midAngle = cursorAngle + direction * charAngle / 2;
+
+      const posX = centerX + radialCenter * Math.cos(midAngle);
+      const posY = centerY + radialCenter * Math.sin(midAngle);
+
+      ctx.save();
+      ctx.translate(posX, posY);
+      ctx.rotate(midAngle + Math.PI / 2);
+      ctx.fillText(char, 0, 0);
+      ctx.restore();
+
+      cursorAngle += direction * charAngle;
     }
 
     ctx.restore();
   }
+
 
   // Render center logo với fallback
   renderCenterLogo() {

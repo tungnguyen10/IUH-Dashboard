@@ -3,41 +3,39 @@
   data-module="HomeCooperation"
 >
   <div class="w-full max-w-[1200px] px-4 mx-auto flex flex-col gap-5 lg:gap-10">
-    <h2
-      class="text-2xl lg:text-titleDK md:leading-[1] text-left lg:text-center font-bold text-titleColor"
-    >
-      Hợp tác quốc tế
-    </h2>
+
+    {% include '../common/_Title.twig' with {'title': 'Hợp tác quốc tế', titleClass:"flex-col items-center", }
+    %}
     <div class="w-full">
       <div class="cooperation-grid">
         {% for i in 1..2 %}
         <div
-          class="col-span-1 lg:col-span-1 group relative aspect-video md:aspect-auto w-full cursor-pointer overflow-hidden rounded-xl shadow-md hover:shadow-2xl"
+          class="col-span-1 group lg:col-span-1 group relative aspect-video md:aspect-auto w-full cursor-pointer overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 hover:shadow-primary-yellow/10"
         >
           <div
-            class="absolute inset-0 h-full w-full object-cover opacity-90 transition-opacity duration-300 ease-out group-hover:opacity-100 group-hover:transition-opacity group-hover:duration-300"
+            class="absolute inset-0 h-full w-full object-cover opacity-90 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-105"
           >
             <a href="#" class="absolute inset-0 size-full image-hover">
               <img
                 src="assets/images/cooperation.png"
                 alt="cooperation-noti"
-                class="size-full object-cover"
+                class="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               />
             </a>
           </div>
           <div
-            class="flex flex-col justify-end absolute pointer-events-none inset-0 bg-gradient-to-b from-black/0 to-black/60 p-2 md:p-4 to-90% text-white transition-all duration-300 group-hover:bg-gradient-to-t group-hover:to-black/30 group-hover:from-black group-hover:transition-all group-hover:duration-500"
+            class="flex flex-col justify-end absolute pointer-events-none inset-0 bg-gradient-to-b from-black/0 to-black/60 p-2 md:p-4 to-90% text-white transition-all duration-500 group-hover:bg-gradient-to-t group-hover:to-black/40 group-hover:from-black/80"
           >
             <div
-              class="m-0 transition-all delay-300 duration-200 ease-out group-hover:bottom-1/2 group-hover:delay-0 group-hover:duration-300"
+              class="m-0 transition-all delay-200 duration-300 ease-out group-hover:transform group-hover:delay-0"
             >
               <div
-                class="flex max-w-[130px] items-center gap-1 border border-stroke italic text-sm font-normal rounded-1.25 pl-1.25 pr-2.5 py-1"
+                class="flex max-w-[130px] items-center gap-1 border border-stroke italic text-sm font-normal rounded-1.25 pl-1.25 pr-2.5 py-1 transition-all duration-300 group-hover:border-primary-yellow group-hover:bg-secondary-subYellow group-hover:text-primary-yellow group-hover:backdrop-blur-sm"
               >
-                <span class="size-5">
+                <span class="size-5 text-primary-yellow transition-all duration-300">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="size-full"
+                    class="size-full transition-transform duration-300"
                     viewbox="0 0 24 24"
                     fill="none"
                   >
@@ -50,15 +48,15 @@
                     ></path>
                   </svg>
                 </span>
-                29/10/2024
+                <span class="transition-colors duration-300">29/10/2024</span>
               </div>
-              <h2 class="mt-2 font-semibold line-clamp-2 text-base lg:text-lg">
+              <h2 class="mt-2 font-semibold line-clamp-2 text-base lg:text-lg transition-all duration-300 group-hover:text-primary-yellow group-hover:transform group-hover:translate-x-1 group-hover:font-bold">
                 Kế hoạch về việc tổ chức cuộc thi viết "Ký ức thầy cô IUH" lần
                 thứ 3 năm 2024
               </h2>
             </div>
             <p
-              class="line-clamp-3 relative h-0 p-0 group-hover:h-auto opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 group-hover:delay-100 group-hover:duration-300"
+              class="line-clamp-3 relative h-0 p-0 opacity-0 transition-all duration-500 ease-out group-hover:h-auto group-hover:opacity-100 group-hover:delay-150 group-hover:transform group-hover:translate-y-0 translate-y-4"
             >
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor
               nostrum nesciunt reiciendis labore vel velit blanditiis vero, amet
@@ -91,7 +89,7 @@
       <div class="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4 mt-4 lg:mt-5">
         {% for i in 1..4 %}
         <div
-          class="flex flex-col gap-1 flex-1 group/news p-2 lg:p-4 rounded-xl border-b md:border-b-0 md:border-l md:border-r border-stroke transition-all duration-300 ease-out hover:bg-slate-50 hover:shadow-sm hover:-translate-y-0.5"
+          class="flex flex-col gap-1 flex-1 group/news p-2 lg:p-4 rounded-xl shadow-[inset_1px_1px_10px_0_rgba(142,216,248,0.30)] transition-all duration-300 ease-out hover:shadow-[2px_2px_15px_0_rgba(249,178,0,0.15)] border border-x-secondary-subBlue hover:border-secondary-yellow hover:-translate-y-0.5"
         >
           <!-- Date badge with hover effect -->
           <div class="flex flex-row items-center gap-2">
@@ -100,7 +98,7 @@
             >
               <!-- Icon with animation -->
               <span
-                class="text-red transition-all duration-300 ease-out group-hover/news:text-navyBlue-600 group-hover/news:scale-110"
+                class="text-primary-yellow transition-all duration-300 ease-out group-hover/news:scale-110"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +116,7 @@
                 </svg>
               </span>
               <span
-                class="transition-colors duration-300 ease-out group-hover/news:text-navyBlue-800"
+                class="transition-colors duration-300 ease-out group-hover/news:text-primary-yellow"
               >
                 29/10/2024
               </span>
@@ -131,7 +129,7 @@
 
           <!-- Title with enhanced hover effect -->
           <h3
-            class="text-base font-bold text-black1 line-clamp-2 transition-all duration-300 ease-out group-hover/news:text-navyBlue-800"
+            class="text-base font-bold text-primary-darkblue line-clamp-2 transition-all duration-300 ease-out group-hover/news:text-primary-yellow"
           >
             <a
               href="#"

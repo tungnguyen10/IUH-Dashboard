@@ -1,0 +1,38 @@
+<div class="flex gap-8 {{ containerClass|default('') }}">
+  <div
+    class="swiper-button-custom-prev cursor-pointer p-[5px] rounded-full bg-white drop-shadow-btn-slide hover:shadow-[inset_1px_1px_10px_rgba(142,216,248,0.3)] hover:text-primary-darkblue border hover:border-primary-darkblue text-[#9E9E9E] hover:scale-105 transition-all duration-500 ease-in-out {{ prevClass|default('') }}"
+  >
+    <svg
+      class="size-full"
+      viewbox="0 0 40 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M11.6665 19.9997L28.3332 19.9997M11.6665 19.9997L18.3332 13.333M11.6665 19.9997L18.3332 26.6663"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </div>
+  <div
+    class="swiper-button-custom-next cursor-pointer p-[5px] rounded-full bg-white drop-shadow-btn-slide hover:shadow-[inset_1px_1px_10px_rgba(142,216,248,0.3)] hover:text-primary-darkblue border hover:border-primary-darkblue text-[#9E9E9E] hover:scale-105 transition-all duration-500 ease-in-out {{ nextClass|default('') }}"
+  >
+    <svg
+      class="size-full"
+      viewbox="0 0 40 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M28.3333 20L11.6666 20M28.3333 20L21.6666 26.6667M28.3333 20L21.6666 13.3334"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </div>
+</div>

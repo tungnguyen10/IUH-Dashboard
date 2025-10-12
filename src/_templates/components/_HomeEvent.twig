@@ -1,9 +1,7 @@
 <div class="iuhFadeInScroll w-full relative iuh-event" data-module="HomeEvent">
   <div class="w-full max-w-[1200px] px-4 mx-auto py-10 lg:py-16">
     <div class="flex flex-col gap-5 lg:gap-[30px] relative">
-      <h2 class="text-2xl lg:text-titleDK md:leading-[1] font-bold text-white">
-        Sự kiện
-      </h2>
+       {% include '../common/_Title.twig' with {'title': ' Sự kiện', titleClass:"text-white", variant:"fill"} %}
       <div
         class="size-9 lg:size-[48px] absolute top-0 lg:top-5 right-5 pulse-animation"
         data-open-modal="openVideoEvent"
@@ -53,7 +51,7 @@
           <!-- silde of event -->
           <div class="swiper-slide">
             <div
-              class="aspect-[0.76] w-full top-0 hover:-top-2 hover:shadow-lg relative p-3 flex items-end bg-navyBlue-200 hover:p-0 rounded-xl transition-all duration-700 overflow-hidden before:absolute before:pointer-events-none before:size-full before:inset-0 before:bg-gradient-to-b before:from-[#0070FF]/70 before:to-[#0070FF]/90 before:top-full before:scale-1 before:hover:top-0 before:hover:scale-[1.2] before:transition-all before:duration-700 before:z-[2]"
+              class="aspect-[0.76] group w-full top-0 hover:-top-2 hover:shadow-lg relative p-3 flex items-end bg-navyBlue-200 hover:p-0 rounded-xl transition-all duration-700 overflow-hidden before:absolute before:pointer-events-none before:size-full before:inset-0 before:bg-gradient-to-b before:from-primary-yellow/50 before:to-primary-yefrom-primary-yellow/90 before:top-full before:scale-1 before:hover:top-0 before:hover:scale-[1.2] before:transition-all before:duration-700 before:z-[2]"
             >
               <div class="absolute size-full z-[1] top-0 left-0">
                 <div
@@ -72,13 +70,13 @@
                 class="flex flex-col items-start gap-1 lg:gap-2 p-2.5 bg-white rounded-lg w-full relative z-[3]"
               >
                 <div
-                  class="p-1 lg:p-1.5 text-white text-sm lg:text-base font-normal bg-red rounded-lg"
+                  class="p-0.5 lg:px-1.5 lg:py-1 text-primary-darkblue text-xs lg:text-base font-normal border border-secondary-blue group-hover:border-secondary-yellow group-hover:bg-secondary-subYellow group-hover:text-primary-yellow rounded-lg"
                 >
                   10/09/2024
                 </div>
 
                 <div
-                  class="w-full text-black1 text-base lg:text-lg font-semibold line-clamp-2 leading-[120%]"
+                  class="w-full text-primary-darkblue group-hover:text-primary-yellow text-base lg:text-lg font-semibold line-clamp-2 leading-[120%]"
                 >
                   IUH ký kết hợp tác với Trung tâm Giáo dục nghề nghiệp Lái xe
                   Trường Vinh, IUH ký kết hợp tác với Trung tâm Giáo dục nghề
@@ -86,7 +84,7 @@
                 </div>
                 <div class="flex flex-row items-center justify-between w-full">
                   <dl class="flex items-center gap-0.5">
-                    <dt class="text-navyBlue-700">
+                    <dt class="text-primary-darkblue group-hover:text-primary-yellow">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         class="size-5"
@@ -107,7 +105,7 @@
                     </dd>
                   </dl>
                   <dl class="flex items-center gap-0.5">
-                    <dt class="text-navyBlue-700">
+                    <dt class="text-primary-darkblue group-hover:text-primary-yellow">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         class="size-5"

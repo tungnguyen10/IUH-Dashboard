@@ -1,26 +1,16 @@
 <div class="w-full overflow-hidden" data-module="HomeAbout">
   <div
-    class="iuhFadeInScroll w-full max-w-[1200px] px-4 mx-auto flex gap-10 lg:gap-[90px] pt-10 lg:pt-16 flex-col lg:flex-row"
-  >
-    <div
-      class="flex flex-col gap-5 lg:gap-10 w-full lg:max-w-[480px] relative shrink-0 pt-5 lg:pt-[70px]"
-    >
-      <h2 class="text-3xl lg:text-titleDK font-bold text-titleColor">
+    class="iuhFadeInScroll w-full max-w-[1200px] px-4 mx-auto flex gap-10 lg:gap-[90px] pt-10 lg:pt-16 flex-col lg:flex-row">
+    <div class="flex flex-col gap-5 lg:gap-10 w-full lg:max-w-[480px] relative shrink-0 pt-5 lg:pt-[70px]">
+      <h2 class="text-3xl lg:text-titleDK font-bold text-titleColor font-montserrat">
         Về chúng tôi
       </h2>
       <div
-        class="absolute top-[40%] left-[80%] translate-x-[-50%] translate-y-[-50%] size-[200px] lg:size-[290px] z-[-1]"
-      >
-        <img
-          src="assets/images/text-around.png"
-          alt="iuh"
-          class="w-full absolute top-0 left-0 animate-rotation360"
-        />
+        class="absolute top-[40%] left-[80%] translate-x-[-50%] translate-y-[-50%] size-[200px] lg:size-[290px] z-[-1]">
+        <img src="assets/images/text-around.png" alt="iuh" class="w-full absolute top-0 left-0 animate-rotation360" />
         <img src="assets/images/iuh.png" alt="iuh" class="w-full" />
       </div>
-      <div
-        class="text-lg leading-[166.667%] font-normal text-black2 text-justify"
-      >
+      <div class="text-lg leading-[166.667%] font-normal text-black2 text-justify">
         Với mục tiêu và tầm nhìn trở thành Trường đại học hàng đầu của Việt Nam,
         tiên phong trong lĩnh vực giáo dục và nghiên cứu ứng dụng, chuyển giao
         công nghệ và đổi mới sáng tạo ; giá trị cốt lõi Trường Đại học Công
@@ -31,57 +21,15 @@
         <div class="iuh-btn w-full max-w-[200px]">
           <a href="#">
             Xem tất cả
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="size-5"
-              viewbox="0 0 24 24"
-              fill="none"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewbox="0 0 24 24" fill="none">
               <path
                 d="M10.075 12L5.5 7.4L6.9 6L12.9 12L6.9 18L5.5 16.6L10.075 12ZM16.675 12L12.1 7.4L13.5 6L19.5 12L13.5 18L12.1 16.6L16.675 12Z"
-                fill="currentColor"
-              />
+                fill="currentColor" />
             </svg>
           </a>
         </div>
-        <div class="flex gap-8">
-          <div
-            class="swiper-button-custom-prev cursor-pointer size-[50px] p-[5px] rounded-full bg-white drop-shadow-btn-slide transition-all duration-500 ease-in hover:bg-gradient-to-r from-navyBlue-800 to-navyBlue-700 hover:text-white"
-          >
-            <svg
-              class="size-full"
-              viewbox="0 0 40 40"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M11.6665 19.9997L28.3332 19.9997M11.6665 19.9997L18.3332 13.333M11.6665 19.9997L18.3332 26.6663"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
-          <div
-            class="swiper-button-custom-next cursor-pointer size-[50px] p-[5px] rounded-full bg-white drop-shadow-btn-slide transition-all duration-500 ease-in hover:bg-gradient-to-r from-navyBlue-800 to-navyBlue-700 hover:text-white"
-          >
-            <svg
-              class="size-full"
-              viewbox="0 0 40 40"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M28.3333 20L11.6666 20M28.3333 20L21.6666 26.6667M28.3333 20L21.6666 13.3334"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
-        </div>
+
+        {% include '../common/_SwiperNavigation.twig' with {'prevClass': "size-11", 'nextClass': "size-11"} %}
       </div>
     </div>
     <div class="w-full max-w-[972px] flex-1 bg-about">
@@ -90,38 +38,28 @@
           {% for i in 1..8 %}
           <div class="swiper-slide">
             <div
-              class="aspect-[280/330] relative group/about cursor-pointer rounded-[10px] overflow-hidden hover:translate-y-[-0.5rem] hover:border hover:border-navyBlue-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
-            >
+              class="aspect-[280/330] relative group/about cursor-pointer rounded-[10px] overflow-hidden hover:translate-y-[-0.5rem] hover:border hover:border-navyBlue-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
               <a href="#" class="block size-full">
-                <img
-                  src="assets/images/about-img.png"
-                  alt="about"
-                  class="size-full rounded-md object-cover transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/about:scale-110 group-hover/about:brightness-[0.85]"
-                />
+                <img src="assets/images/about-img.png" alt="about"
+                  class="size-full rounded-md object-cover transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/about:scale-110 group-hover/about:brightness-[0.85]" />
               </a>
               <h3
-                class="text-base lg:text-lg tracking-tight uppercase font-medium p-4 transition-all duration-500 absolute bottom-0 w-full left-0 text-black1 bg-white group-hover/about:opacity-0 group-hover/about:translate-y-full"
-              >
+                class="text-base lg:text-lg tracking-tight uppercase font-medium p-4 transition-all duration-500 absolute bottom-0 w-full left-0 text-black1 bg-white group-hover/about:opacity-0 group-hover/about:translate-y-full">
                 Thông điệp Hiệu Trưởng
               </h3>
-              <div
-                class="absolute inset-0 flex flex-col justify-end overflow-hidden"
-              >
+              <div class="absolute inset-0 flex flex-col justify-end overflow-hidden">
                 <div
-                  class="absolute inset-0 bg-gradient-to-t from-navyBlue-900/90 via-navyBlue-800/50 to-transparent translate-y-full group-hover/about:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
-                ></div>
+                  class="absolute inset-0 bg-gradient-to-t from-primary-darkblue/90 via-primary-darkblue/50 to-transparent translate-y-full group-hover/about:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
+                </div>
                 <div
-                  class="relative z-10 translate-y-[100%] group-hover/about:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
-                >
+                  class="relative z-10 translate-y-[100%] group-hover/about:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
                   <h3
-                    class="text-base lg:text-lg tracking-tight uppercase font-medium px-4 py-3 transition-all duration-500 delay-200 text-yellow"
-                  >
+                    class="text-base lg:text-lg tracking-tight uppercase font-medium px-4 py-3 transition-all duration-500 delay-200 text-yellow">
                     Thông điệp Hiệu Trưởng
                   </h3>
                   <div class="overflow-hidden">
                     <div
-                      class="text-sm lg:text-base px-4 pb-4 lg:pb-6 leading-[150%] font-normal text-white/90 opacity-0 -translate-y-4 transition-all duration-500 delay-250 group-hover/about:opacity-100 group-hover/about:translate-y-0"
-                    >
+                      class="text-sm lg:text-base px-4 pb-4 lg:pb-6 leading-[150%] font-normal text-white/90 opacity-0 -translate-y-4 transition-all duration-500 delay-250 group-hover/about:opacity-100 group-hover/about:translate-y-0">
                       Tiến sĩ Phan Hồng Hải hiện là Hiệu trưởng Trường Đại học
                       Công nghiệp Thành phố Hồ Chí Minh (IUH).
                     </div>
@@ -135,66 +73,69 @@
       </div>
     </div>
   </div>
+  <!--  -->
   <div
-    class="iuhFadeInScroll w-full max-w-[1200px] ml-4 lg:mx-auto lg:px-4 mx-auto mt-[64px] overflow-x-scroll lg:overflow-x-auto srollHorizontal pb-5 mb-8 md:mb-0 lg:pb-16"
-  >
+    class="iuhFadeInScroll w-full max-w-[1200px] ml-4 lg:mx-auto lg:px-4 mx-auto mt-[64px] overflow-x-scroll lg:overflow-x-auto srollHorizontal pb-5 mb-8 md:mb-0 lg:pb-16">
     <div class="w-[900px] md:w-[1100px] lg:w-full grid grid-cols-3 gap-5">
       <div
-        class="group px-5 py-8 bg-stroke1 border border-stroke text-navyBlue-700 rounded-[5px] bg-card transition-all duration-500 ease-in-out cursor-pointer hover:shadow-[0_0_25px_rgba(0,70,186,0.1)] hover:border-navyBlue-200"
-      >
+        class="group px-5 py-8 relative bg-secondary-subBlue border border-secondary-blue text-primary-darkblue rounded-[5px] transition-all duration-500 ease-in-out cursor-pointer hover:shadow-[0_0_25px_rgba(0,70,186,0.1)] hover:border-primary-darkblue hover:bg-primary-darkblue hover:text-white">
         <div
-          class="size-[75px] lg:size-[100px] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[8deg]"
-        >
-          <img
-            src="assets/images/inovation.png"
-            alt="innovation"
-            class="size-full"
-          />
+          class="scale-0 bg-icon bg-no-repeat bg-cover size-12 absolute top-5 right-5 transition-all duration-700 group-hover:scale-110 group-hover:rotate-[180deg]">
+        </div>
+        <div
+          class="size-[75px] relative lg:size-[100px] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[8deg]">
+          <img src="assets/images/innovation.png" alt="innovation"
+            class="size-full opacity-100 group-hover:opacity-0" />
+          <img src="assets/images/innovation-w.png" alt="innovation"
+            class="size-full opacity-0 group-hover:opacity-100 absolute inset-0" />
         </div>
         <div class="flex flex-col gap-3 lg:gap-5 mt-5 lg:mt-8">
           <h3 class="uppercase text-xl font-bold font-montserrat">Đổi mới</h3>
           <div
-            class="text-base font-normal leading-[166.667%] text-black1 transition-colors duration-500 group-hover:text-black"
-          >
-					Luôn tìm kiếm phương pháp mới và hiệu quả hơn, không ngừng sáng tạo, đổi mới và dám nghĩ dám làm. Sẵn sàng thử thách giới hạn, tạo cơ hội cải tiến để vươn tới những tầm cao mới và thành công đột phá.
+            class="text-base font-normal leading-[166.667%] text-black1 transition-colors duration-500 group-hover:text-white">
+            Luôn tìm kiếm phương pháp mới và hiệu quả hơn, không ngừng sáng tạo, đổi mới và dám nghĩ dám làm. Sẵn sàng
+            thử thách giới hạn, tạo cơ hội cải tiến để vươn tới những tầm cao mới và thành công đột phá.
           </div>
         </div>
       </div>
       <div
-        class="group px-5 py-8 bg-stroke1 border border-stroke text-navyBlue-700 rounded-[5px] bg-card transition-all duration-500 ease-in-out cursor-pointer hover:shadow-[0_0_25px_rgba(0,70,186,0.1)] hover:border-navyBlue-200"
-      >
+        class="group px-5 py-8 relative bg-secondary-subBlue border border-secondary-blue text-primary-darkblue rounded-[5px] transition-all duration-500 ease-in-out cursor-pointer hover:shadow-[0_0_25px_rgba(0,70,186,0.1)] hover:border-primary-darkblue hover:bg-primary-darkblue hover:text-white">
         <div
-          class="size-[75px] lg:size-[100px] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[8deg]"
-        >
-          <img src="assets/images/unity.png" alt="unity" class="size-full" />
+          class="scale-0 bg-icon bg-no-repeat bg-cover size-12 absolute top-5 right-5 transition-all duration-700 group-hover:scale-110 group-hover:rotate-[180deg]">
+        </div>
+        <div
+          class="size-[75px] relative lg:size-[100px] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[8deg]">
+          <img src="assets/images/unity.png" alt="unity" class="size-full opacity-100 group-hover:opacity-0" />
+          <img src="assets/images/unity-w.png" alt="unity"
+            class="size-full opacity-0 group-hover:opacity-100 absolute inset-0" />
         </div>
         <div class="flex flex-col gap-3 lg:gap-5 mt-5 lg:mt-8">
           <h3 class="uppercase text-xl font-bold font-montserrat">Đoàn kết</h3>
           <div
-            class="text-base font-normal leading-[166.667%] text-black1 transition-colors duration-500 group-hover:text-black"
-          >
-					Chủ động chịu trách nhiệm, làm chủ công việc, phối hợp với các đơn vị, đối tác để tối ưu nguồn lực, khai thác năng lực sẵn có và triển khai chúng hiệu quả nhằm đạt kết quả tốt nhất.
+            class="text-base font-normal leading-[166.667%] text-black1 transition-colors duration-500 group-hover:text-white">
+            Chủ động chịu trách nhiệm, làm chủ công việc, phối hợp với các đơn vị, đối tác để tối ưu nguồn lực, khai
+            thác năng lực sẵn có và triển khai chúng hiệu quả nhằm đạt kết quả tốt nhất.
           </div>
         </div>
       </div>
       <div
-        class="group px-5 py-8 bg-stroke1 border border-stroke text-navyBlue-700 rounded-[5px] bg-card transition-all duration-500 ease-in-out cursor-pointer hover:shadow-[0_0_25px_rgba(0,70,186,0.1)] hover:border-navyBlue-200"
-      >
+        class="group px-5 py-8 relative bg-secondary-subBlue border border-secondary-blue text-primary-darkblue rounded-[5px] transition-all duration-500 ease-in-out cursor-pointer hover:shadow-[0_0_25px_rgba(0,70,186,0.1)] hover:border-primary-darkblue hover:bg-primary-darkblue hover:text-white">
         <div
-          class="size-[75px] lg:size-[100px] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[8deg]"
-        >
-          <img
-            src="assets/images/humanity.png"
-            alt="humanity"
-            class="size-full"
-          />
+          class="scale-0 bg-icon bg-no-repeat bg-cover size-12 absolute top-5 right-5 transition-all duration-700 group-hover:scale-110 group-hover:rotate-[180deg]">
+        </div>
+
+        <div
+          class="size-[75px] relative lg:size-[100px] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[8deg]">
+          <img src="assets/images/humanity.png" alt="humanity" class="size-full opacity-100 group-hover:opacity-0" />
+          <img src="assets/images/humanity-w.png" alt="humanity"
+            class="size-full opacity-0 group-hover:opacity-100 absolute inset-0" />
         </div>
         <div class="flex flex-col gap-3 lg:gap-5 mt-5 lg:mt-8">
           <h3 class="uppercase text-xl font-bold font-montserrat">Nhân văn</h3>
           <div
-            class="text-base font-normal leading-[166.667%] text-black1 transition-colors duration-500 group-hover:text-black"
-          >
-					Đối xử với mọi người bằng nhân ái, công bằng, chính trực, hướng đến phát triển tiềm năng. Làm việc chuyên nghiệp, đạo đức, cống hiến cho cộng đồng và hành động như một công dân trách nhiệm.
+            class="text-base font-normal leading-[166.667%] text-black1 transition-colors duration-500 group-hover:text-white">
+            Đối xử với mọi người bằng nhân ái, công bằng, chính trực, hướng đến phát triển tiềm năng. Làm việc chuyên
+            nghiệp, đạo đức, cống hiến cho cộng đồng và hành động như một công dân trách nhiệm.
           </div>
         </div>
       </div>

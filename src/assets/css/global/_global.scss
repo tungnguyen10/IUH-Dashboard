@@ -19,18 +19,7 @@ a {
   text-decoration: none;
 }
 
-.bg-card {
-  &:hover {
-    background: linear-gradient(
-      90deg,
-      #ffd74f 0%,
-      #ffc624 31.98%,
-      #fff98c 68.02%,
-      #ffd440 100%
-    );
-    border-radius: 10px;
-  }
-}
+
 .bg-about {
   position: relative;
   &::before {
@@ -41,12 +30,12 @@ a {
     left: -16px;
     height: 80%;
     border-radius: 87px 0px 0px 0px;
-    background: linear-gradient(90deg, #0000cf 0%, #0000a8 100%);
+    background: #F9B200;
     @media (min-width: 1024px) {
       left: 10%;
       height: 100%;
       border-radius: 250px 0px 0px 250px;
-      background: linear-gradient(180deg, #0705e6 0%, #01008a 100%);
+      background: #F9B200;
     }
   }
 }
@@ -153,9 +142,7 @@ a {
     }
   }
 }
-.iuh-news-notify {
-  background: linear-gradient(0deg, #fff 0%, #edf9ff 100%);
-}
+
 .iuh-gallery-item {
   &::before {
     content: "";
@@ -179,6 +166,7 @@ a {
     width: 100%;
     height: 500px;
     z-index: -1;
+    background: linear-gradient(90deg, rgba(21, 56, 152, 0.80) 11.43%,  #153898) 92.6%;
     background: linear-gradient(
       240deg,
       rgba(0, 0, 207, 0.5) 11.43%,
@@ -201,12 +189,12 @@ a {
   position: relative;
   overflow: hidden;
   border-radius: 60px;
-  background: linear-gradient(90deg, #0000a8 0%, #0000cf 100%);
+  background: #153898;
   transition: all 0.5s ease-in-out;
   &::before {
     content: "";
     position: absolute;
-    background: #0046ba;
+    background: #F9B200;
     z-index: 1;
     height: 100%;
     width: 100%;
@@ -243,7 +231,7 @@ a {
     width: 14px;
     height: 14px;
     border-radius: 100%;
-    border: 1px solid #0000cf;
+    border: 1px solid #153898;
     background-color: #fff;
     @media (min-width: 768px) {
       width: 20px;
@@ -258,7 +246,7 @@ a {
       width: 9px;
       height: 9px;
       border-radius: 100%;
-      background-color: #0000cf;
+      background-color: #153898;
       opacity: 0;
       @media (min-width: 768px) {
         width: 14px;
@@ -388,9 +376,9 @@ a {
     grid-auto-rows: 300px;
   }
 }
-.iuh-program {
-  background: url(../images/program.png) no-repeat center center / cover;
-}
+// .iuh-program {
+//   background: url(../images/program.png) no-repeat center center / cover;
+// }
 .iuh-program-item {
   background: linear-gradient(
     90deg,
@@ -412,12 +400,8 @@ a {
   }
 }
 .iuh-awards {
-  background: conic-gradient(
-      from -45deg at 50% 50%,
-      #0046ba 0deg,
-      rgba(0, 0, 168, 0.8) 360deg
-    ),
-    url(../images/award.png) lightgray 50% / cover no-repeat;
+  background: conic-gradient(from -45deg at 50% 50%,  #153898 0deg, rgba(21, 56, 152, 0.60) 360deg),
+    url(../images/award.jpg) lightgray 50% / cover no-repeat;
   .iuh-awards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -477,7 +461,7 @@ a {
       width: 100%;
     }
     &-content-title {
-      color: #0000cf;
+      color: #153898;
       font-size: 35px;
       font-weight: 800;
       @media (min-width: 768px) {
@@ -487,7 +471,7 @@ a {
     &-content-plus {
       font-size: 30px;
       font-weight: 700;
-      color: #0000cf;
+      color: #153898;
       @media (min-width: 768px) {
         font-size: 40px;
       }
@@ -1006,7 +990,7 @@ a {
 
   // Enhanced Links
   a {
-    color: #0000cf;
+    color: #153898;
     text-decoration: none;
     background: linear-gradient(to right, currentColor 0%, currentColor 100%);
     background-size: 0 1px;
@@ -1135,7 +1119,7 @@ a {
 
   .note {
     background-color: #edf9ff;
-    border-color: #0000cf;
+    border-color: #153898;
   }
 
   .warning {
