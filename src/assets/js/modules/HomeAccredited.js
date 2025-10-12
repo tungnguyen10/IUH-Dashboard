@@ -432,7 +432,7 @@ export default class HomeAccredited extends BaseModule {
     const direction = Math.sign(rawSpan) || 1;
     const label = quarter.title || '';
     // chỉnh khoảng cách từ center
-    let radialCenter = contentInnerRadius + (contentOuterRadius - contentInnerRadius) * 0.75;
+    let radialCenter = contentInnerRadius + (contentOuterRadius - contentInnerRadius) * 0.9;
     const baseFontSize = this.quartersConfig.quarters.length > 4 ? 20 : 24;
     let fontSize = baseFontSize;
     const minFontSize = 11;
@@ -577,13 +577,35 @@ export default class HomeAccredited extends BaseModule {
     const centerX = this.quartersConfig.canvasSize / 2;
     const centerY = this.quartersConfig.canvasSize / 2;
     const logoRadius = this.quartersConfig.centerRadius;
-    // Draw white circle background
+
+    // Calculate pulse animation
+    const time = Date.now() * 0.002; // Control speed of pulse
+    const pulseScale = 1.04 + Math.sin(time) * 0.04; // Pulse between 1.0 and 1.08
+    const pulseOpacity = 0.8 + Math.sin(time) * 0.2; // Opacity between 0.6 and 1.0
+    const animatedRadius = logoRadius * pulseScale;
+
+    // Draw white circle background with pulse animation and shadow
     this.ctx.save();
+
+    // Add shadow effect
+    this.ctx.shadowColor = 'rgba(21, 56, 152, 0.3)';
+    this.ctx.shadowBlur = 12;
+    this.ctx.shadowOffsetX = 0;
+    this.ctx.shadowOffsetY = 4;
+
     this.ctx.beginPath();
-    this.ctx.arc(centerX, centerY, logoRadius, 0, 2 * Math.PI);
+    this.ctx.arc(centerX, centerY, animatedRadius, 0, 2 * Math.PI);
     this.ctx.fillStyle = '#ffffff';
+    this.ctx.globalAlpha = pulseOpacity;
     this.ctx.fill();
-    this.ctx.strokeStyle = '#153898';
+
+    // Reset shadow for stroke
+    this.ctx.shadowColor = 'transparent';
+    this.ctx.shadowBlur = 0;
+    this.ctx.shadowOffsetX = 0;
+    this.ctx.shadowOffsetY = 0;
+
+    this.ctx.strokeStyle = 'rgba(21, 56, 152, 1)';
     this.ctx.lineWidth = 1;
     this.ctx.setLineDash([1, 2]);
     this.ctx.stroke();
@@ -607,6 +629,11 @@ export default class HomeAccredited extends BaseModule {
       }
     } else {
       this.drawFallbackLogo(centerX, centerY, logoRadius);
+    }
+
+    // Continue animation if not explicitly stopped
+    if (!this.animationStopped) {
+      requestAnimationFrame(() => this.renderCanvas());
     }
   }
 
@@ -919,6 +946,7 @@ export default class HomeAccredited extends BaseModule {
   }
 
   destroy() {
+    this.animationStopped = true;
     if (this.rotationAnimationFrame) {
       cancelAnimationFrame(this.rotationAnimationFrame);
       this.rotationAnimationFrame = null;
