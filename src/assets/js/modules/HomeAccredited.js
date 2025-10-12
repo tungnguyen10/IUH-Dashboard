@@ -583,8 +583,9 @@ export default class HomeAccredited extends BaseModule {
     this.ctx.arc(centerX, centerY, logoRadius, 0, 2 * Math.PI);
     this.ctx.fillStyle = '#ffffff';
     this.ctx.fill();
-    this.ctx.strokeStyle = '#e0e0e0';
-    this.ctx.lineWidth = 1.5;
+    this.ctx.strokeStyle = '#153898';
+    this.ctx.lineWidth = 1;
+    this.ctx.setLineDash([1, 2]);
     this.ctx.stroke();
     this.ctx.restore();
 

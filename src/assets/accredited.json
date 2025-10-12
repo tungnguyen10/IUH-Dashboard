@@ -84,5 +84,13 @@
       "title": "VNU-HCM",
       "active": false
     }
-  ]
+  ],
+  "centerLogoAnimation": {
+    "pulse": {
+      "minScale": 0.8,
+      "maxScale": 1.0,
+      "speed": 0.02
+    },
+    "borderSpeed": 0.05
+  }
 }
