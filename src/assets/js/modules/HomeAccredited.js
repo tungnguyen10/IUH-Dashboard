@@ -1,28 +1,956 @@
 import BaseModule from "./BaseModule";
+
+// Class kế thừa từ BaseModule - theo pattern module architecture
 export default class HomeAccredited extends BaseModule {
+
+  // Method khởi tạo - được gọi khi module được đăng ký
   register() {
-    this.initTabs();
+    this.initializeConfig();
+    this.initializeElements();
+    this.initCanvas();
+    this.bindEvents();
+    this.rotationAnimationFrame = null;
+    this.rotationAnimating = false;
   }
 
-  initTabs() {
-    const quarters = document.querySelectorAll(".quarter");
-    const tabPanes = document.querySelectorAll(".tab-pane");
+  // Initialize configuration data
+  initializeConfig() {
+    this.quartersConfig = {
+      centerLogo: "assets/images/logo-circle.png",
+      canvasSize: 500,
+      centerRadius: 42,
+      segmentGap: 6,
+      quarterGap: 4,
+      outerCornerRadius: 15,
+      rotationOffset: 0,
+      currentRotationOffset: 0,
+      targetRotationOffset: 0,
+      rotationAnimationSpeed: 0.18,
+      quarterColors: [
+        { bg: '#e8f5e8', border: '#4CAF50', text: '#2E7D32' }, // VNU-CEA - Green
+        { bg: '#fff3e0', border: '#FF9800', text: '#E65100' }, // AUN-QA - Orange
+        { bg: '#e3f2fd', border: '#2196F3', text: '#0D47A1' }, // ABET - Blue
+        { bg: '#fce4ec', border: '#E91E63', text: '#880E4F' }, // Other - Pink
+        { bg: '#f3e5f5', border: '#9C27B0', text: '#4A148C' }, // New - Purple
+        { bg: '#e0f2f1', border: '#009688', text: '#004D40' }  // New - Teal
+      ],
+      quarters: [
+        {
+          id: "vnu-cea",
+          tabId: "tab1",
+          image: "assets/images/vnu.png",
+          title: "VNU-CEA",
+          active: false
+        },
+        {
+          id: "aun-qa",
+          tabId: "tab2",
+          image: "assets/images/asean.png",
+          title: "AUN-QA",
+          active: true
+        },
+        {
+          id: "abet",
+          tabId: "tab3",
+          image: "assets/images/abet.png",
+          title: "ABET",
+          active: false
+        },
+        {
+          id: "other",
+          tabId: "tab4",
+          image: "assets/images/other.png",
+          title: "Other",
+          active: false
+        },
+        {
+          id: "iso",
+          tabId: "tab5",
+          image: "assets/images/iso.png", // Add ISO image
+          title: "ISO",
+          active: false
+        },
+        {
+          id: "vnu-hcm",
+          tabId: "tab6",
+          image: "assets/images/international.png", // Add international image
+          title: "VNU-HCM",
+          active: false
+        }
+      ]
+    };
+  }
 
+  // Khởi tạo và lưu trữ các DOM elements
+  initializeElements() {
+    this.canvas = document.querySelector("#quarters-canvas");
+    this.tabPanes = document.querySelectorAll(".tab-pane");
 
-    quarters.forEach((quarter) => {
-      quarter.addEventListener("click", () => {
-        // Remove active class from all quarters and panes
-        quarters.forEach((q) => q.classList.remove("active"));
-        tabPanes.forEach((pane) => pane.classList.remove("active"));
+    if (!this.canvas || !this.tabPanes.length) {
+      console.warn('HomeAccredited: Required elements not found');
+      return false;
+    }
 
-        // Add active class to clicked quarter
-        quarter.classList.add("active");
+    this.ctx = this.canvas.getContext('2d');
+    this.loadedImages = new Map();
+    this.quarterPositions = [];
 
-        // Show corresponding tab content
-        const tabId = quarter.dataset.tab;
-        const tabPane = document.getElementById(tabId);
-        tabPane?.classList.add("active");
-      });
+    return true;
+  }
+
+  // Khởi tạo canvas và render quarters
+  async initCanvas() {
+    if (!this.canvas || !this.quartersConfig) {
+      console.error('Canvas or config not available');
+      return;
+    }
+
+    try {
+      this.setupCanvas();
+      await this.loadImages();
+      this.updateRotationOffset(true);
+      this.quartersConfig.currentRotationOffset = this.quartersConfig.targetRotationOffset ?? this.quartersConfig.rotationOffset ?? 0;
+      this.quartersConfig.rotationOffset = this.quartersConfig.currentRotationOffset;
+      this.calculateQuarterPositions();
+      this.renderCanvas();
+      console.log('Canvas initialized successfully');
+    } catch (error) {
+      console.error('Error initializing canvas:', error);
+      // Render without images as fallback
+      this.calculateQuarterPositions();
+      this.renderCanvas();
+    }
+  }
+
+  // Setup canvas properties
+  setupCanvas() {
+    const size = this.quartersConfig.canvasSize;
+    const pixelRatio = typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1;
+
+    // Store for reference if needed elsewhere
+    this.pixelRatio = pixelRatio;
+
+    // Increase internal resolution for HiDPI displays
+    this.canvas.width = size * pixelRatio;
+    this.canvas.height = size * pixelRatio;
+
+    // Make canvas responsive while keeping logical size consistent
+    this.canvas.style.maxWidth = "100%";
+    this.canvas.style.width = `${size}px`;
+    this.canvas.style.height = `${size}px`;
+
+    if (this.ctx) {
+      // Reset any existing transforms before scaling
+      this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+      this.ctx.scale(pixelRatio, pixelRatio);
+      this.ctx.imageSmoothingEnabled = true;
+      this.ctx.imageSmoothingQuality = 'high';
+    }
+  }
+
+  // Load single image helper with better error handling
+  loadImage(src, key) {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => {
+        this.loadedImages.set(key, img);
+        console.log(`Successfully loaded image: ${src}`);
+        resolve(img);
+      };
+      img.onerror = (error) => {
+        console.warn(`Failed to load image: ${src}`, error);
+        // Create a fallback colored rectangle instead of failing
+        const fallbackCanvas = document.createElement('canvas');
+        fallbackCanvas.width = 100;
+        fallbackCanvas.height = 100;
+        const ctx = fallbackCanvas.getContext('2d');
+
+        // Use different colors based on key
+        const colors = {
+          'centerLogo': '#1e40af',
+          'vnu-cea': '#4CAF50',
+          'aun-qa': '#FF9800',
+          'abet': '#2196F3',
+          'other': '#E91E63',
+          'iso': '#9C27B0',
+          'international': '#009688'
+        };
+
+        ctx.fillStyle = colors[key] || '#gray';
+        ctx.fillRect(0, 0, 100, 100);
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '12px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText(key.toUpperCase(), 50, 50);
+
+        // Convert canvas to image
+        const fallbackImg = new Image();
+        fallbackImg.src = fallbackCanvas.toDataURL();
+        this.loadedImages.set(key, fallbackImg);
+
+        resolve(fallbackImg);
+      };
+
+      // Add timeout to prevent hanging
+      setTimeout(() => {
+        if (!this.loadedImages.has(key)) {
+          console.warn(`Image load timeout: ${src}`);
+          img.onerror(new Error('Timeout'));
+        }
+      }, 10000); // 10 second timeout
+
+      img.src = src;
     });
+  }
+
+  // Load tất cả images với better error handling
+  async loadImages() {
+    const imagePromises = [];
+    const imagesToLoad = [
+      { src: this.quartersConfig.centerLogo, key: 'centerLogo' },
+      ...this.quartersConfig.quarters.map(quarter => ({
+        src: quarter.image,
+        key: quarter.id
+      }))
+    ];
+
+    console.log('Starting to load images:', imagesToLoad);
+
+    for (const { src, key } of imagesToLoad) {
+      imagePromises.push(
+        this.loadImage(src, key).catch(error => {
+          console.error(`Critical error loading ${src}:`, error);
+          return null; // Continue even if one image fails
+        })
+      );
+    }
+
+    try {
+      await Promise.allSettled(imagePromises);
+      console.log('All images processed. Loaded images:', Array.from(this.loadedImages.keys()));
+    } catch (error) {
+      console.error('Error in loadImages:', error);
+    }
+  }
+
+  // Tính toán vị trí của từng quarter theo hình tròn pie-style
+  calculateQuarterPositions() {
+    const centerX = this.quartersConfig.canvasSize / 2;
+    const centerY = this.quartersConfig.canvasSize / 2;
+    const outerRadius = this.quartersConfig.canvasSize / 2 - 10;
+    const innerRadius = this.quartersConfig.centerRadius + (this.quartersConfig.segmentGap || 0);
+    const angleStep = (2 * Math.PI) / this.quartersConfig.quarters.length;
+    const maxGapAngle = angleStep * 0.8; // prevent overlap
+    const gapSize = Math.max(0, this.quartersConfig.quarterGap || 0);
+    const outerGapAngle = Math.min(maxGapAngle, gapSize / outerRadius || 0);
+    const innerGapAngle = innerRadius > 0 ? Math.min(maxGapAngle, gapSize / innerRadius || 0) : 0;
+    const halfOuterGap = outerGapAngle / 2;
+    const halfInnerGap = innerGapAngle / 2;
+
+    const rotationOffsetRaw = this.quartersConfig.currentRotationOffset ?? this.quartersConfig.rotationOffset ?? 0;
+    const rotationOffset = this.normalizeAngle(rotationOffsetRaw);
+
+    this.quarterPositions = this.quartersConfig.quarters.map((quarter, index) => {
+      const baseStart = index * angleStep + rotationOffset;
+      const baseEnd = (index + 1) * angleStep + rotationOffset;
+
+      const rawOuterStart = baseStart + halfOuterGap;
+      const rawOuterEnd = baseEnd - halfOuterGap;
+      const rawInnerStart = baseStart + halfInnerGap;
+      const rawInnerEnd = baseEnd - halfInnerGap;
+
+      // Clamp in case gap is too large
+      const hasOuterGap = rawOuterStart < rawOuterEnd;
+      const hasInnerGap = rawInnerStart < rawInnerEnd;
+
+      const outerStart = hasOuterGap ? rawOuterStart : baseStart;
+      const outerEnd = hasOuterGap ? rawOuterEnd : baseEnd;
+      const innerStart = hasInnerGap ? rawInnerStart : baseStart;
+      const innerEnd = hasInnerGap ? rawInnerEnd : baseEnd;
+
+      const outerStartAngle = outerStart - Math.PI / 2;
+      const outerEndAngle = outerEnd - Math.PI / 2;
+      const innerStartAngle = innerStart - Math.PI / 2;
+      const innerEndAngle = innerEnd - Math.PI / 2;
+
+      const normalizedOuterStart = this.normalizeAngle(outerStart);
+      const normalizedOuterEnd = this.normalizeAngle(outerEnd);
+
+      // Calculate text and image position (middle of the quarter)
+      const midAngle = outerStartAngle + (outerEndAngle - outerStartAngle) / 2;
+      const availableThickness = outerRadius - innerRadius;
+      const contentInnerRadius = innerRadius + availableThickness * 0.25;
+      const contentOuterRadius = innerRadius + availableThickness * 0.75;
+      const denom = Math.pow(contentOuterRadius, 2) - Math.pow(contentInnerRadius, 2);
+      const centroidRadius = denom !== 0
+        ? (2 / 3) * (Math.pow(contentOuterRadius, 3) - Math.pow(contentInnerRadius, 3)) / denom
+        : (contentInnerRadius + contentOuterRadius) / 2;
+      const textRadius = centroidRadius;
+      const imageRadius = innerRadius + availableThickness * 0.43;
+
+      return {
+        ...quarter,
+        startAngle: outerStartAngle,
+        endAngle: outerEndAngle,
+        outerStartAngle,
+        outerEndAngle,
+        innerStartAngle,
+        innerEndAngle,
+        normalizedOuterStart,
+        normalizedOuterEnd,
+        midAngle,
+        centerX,
+        centerY,
+        innerRadius,
+        outerRadius,
+        textX: centerX + textRadius * Math.cos(midAngle),
+        textY: centerY + textRadius * Math.sin(midAngle),
+        imageX: centerX + imageRadius * Math.cos(midAngle),
+        imageY: centerY + imageRadius * Math.sin(midAngle),
+        contentInnerRadius,
+        contentOuterRadius,
+        colorIndex: index
+      };
+    });
+  }
+
+  // Render toàn bộ canvas
+  renderCanvas() {
+    if (!this.ctx) return;
+
+    this.clearCanvas();
+    this.renderQuarters();
+    this.renderCenterLogo();
+  }
+
+  // Clear canvas
+  clearCanvas() {
+    this.ctx.clearRect(0, 0, this.quartersConfig.canvasSize, this.quartersConfig.canvasSize);
+  }
+
+  // Render tất cả quarters như pie segments
+  renderQuarters() {
+    this.quarterPositions.forEach(quarter => {
+      this.renderQuarterSegment(quarter);
+    });
+  }
+
+  // Render single quarter segment (pie slice)
+  renderQuarterSegment(quarter) {
+    const ctx = this.ctx;
+    const colors = this.quartersConfig.quarterColors[quarter.colorIndex];
+    const {
+      centerX,
+      centerY,
+      innerRadius,
+      outerRadius,
+      outerStartAngle,
+      outerEndAngle,
+      innerStartAngle,
+      innerEndAngle
+    } = quarter;
+
+    // Draw pie segment
+    ctx.save();
+    ctx.beginPath();
+
+    const baseCornerRadius = Math.max(0, this.quartersConfig.outerCornerRadius || 0);
+    const outerSpan = outerEndAngle - outerStartAngle;
+    const maxCornerBySpan = outerSpan > 0 ? (outerRadius * outerSpan) / 2 : 0;
+    const effectiveCornerRadius = Math.min(
+      baseCornerRadius,
+      maxCornerBySpan,
+      Math.max(0, outerRadius - innerRadius)
+    );
+
+    const point = (radius, angle) => ({
+      x: centerX + radius * Math.cos(angle),
+      y: centerY + radius * Math.sin(angle)
+    });
+
+    if (effectiveCornerRadius > 0 && outerSpan > 0) {
+      const cornerAngle = effectiveCornerRadius / outerRadius;
+      const clampedCornerAngle = Math.min(cornerAngle, Math.max(outerSpan / 2 - 1e-4, 0));
+
+      const startOffsetAngle = outerStartAngle + clampedCornerAngle;
+      const endOffsetAngle = outerEndAngle - clampedCornerAngle;
+
+      const outerStartOffset = point(outerRadius, startOffsetAngle);
+      const outerStartCorner = point(outerRadius, outerStartAngle);
+      const outerEndCorner = point(outerRadius, outerEndAngle);
+      const innerEndPoint = point(innerRadius, innerEndAngle);
+      const startControl = innerRadius > 0
+        ? point(innerRadius + effectiveCornerRadius, outerStartAngle)
+        : { x: centerX, y: centerY };
+
+      ctx.moveTo(outerStartOffset.x, outerStartOffset.y);
+      ctx.arc(centerX, centerY, outerRadius, startOffsetAngle, endOffsetAngle);
+      ctx.arcTo(outerEndCorner.x, outerEndCorner.y, innerEndPoint.x, innerEndPoint.y, effectiveCornerRadius);
+
+      if (innerRadius > 0) {
+        ctx.arc(centerX, centerY, innerRadius, innerEndAngle, innerStartAngle, true);
+      } else {
+        ctx.lineTo(centerX, centerY);
+      }
+
+      ctx.arcTo(startControl.x, startControl.y, outerStartCorner.x, outerStartCorner.y, effectiveCornerRadius);
+      ctx.arcTo(outerStartCorner.x, outerStartCorner.y, outerStartOffset.x, outerStartOffset.y, effectiveCornerRadius);
+      ctx.lineTo(outerStartOffset.x, outerStartOffset.y);
+    } else {
+      const startPoint = point(outerRadius, outerStartAngle);
+      ctx.moveTo(startPoint.x, startPoint.y);
+      ctx.arc(centerX, centerY, outerRadius, outerStartAngle, outerEndAngle);
+
+      if (innerRadius > 0) {
+        const innerEndPoint = point(innerRadius, innerEndAngle);
+        ctx.lineTo(innerEndPoint.x, innerEndPoint.y);
+        ctx.arc(centerX, centerY, innerRadius, innerEndAngle, innerStartAngle, true);
+      } else {
+        ctx.lineTo(centerX, centerY);
+      }
+    }
+
+    ctx.closePath();
+
+    // Fill based on active state (no border stroke)
+    if (quarter.active) {
+      ctx.fillStyle = colors.border; // Active uses border color as fill
+    } else {
+      ctx.fillStyle = colors.bg;
+    }
+
+    ctx.fill();
+    ctx.restore();
+
+    if (quarter.active) {
+      ctx.save();
+      this.buildSlicePath(ctx, {
+        centerX,
+        centerY,
+        innerRadius,
+        outerRadius,
+        innerStartAngle,
+        innerEndAngle,
+        outerStartAngle,
+        outerEndAngle
+      }, true);
+      const glow = ctx.createRadialGradient(centerX, centerY, innerRadius, centerX, centerY, outerRadius);
+      glow.addColorStop(0, 'rgba(255, 255, 255, 0)');
+      glow.addColorStop(1, this.hexToRgba(colors.border, 0.35));
+      ctx.fillStyle = glow;
+      ctx.globalAlpha = 0.6;
+      ctx.fill();
+      ctx.restore();
+
+      ctx.save();
+      ctx.shadowColor = this.hexToRgba(colors.border, 0.6);
+      ctx.shadowBlur = 22;
+      ctx.lineWidth = 4;
+      ctx.strokeStyle = this.hexToRgba(colors.border, 0.75);
+      this.buildSlicePath(ctx, {
+        centerX,
+        centerY,
+        innerRadius,
+        outerRadius,
+        innerStartAngle,
+        innerEndAngle,
+        outerStartAngle,
+        outerEndAngle
+      }, true);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    // Draw quarter image
+
+
+    // Draw quarter text
+    this.drawQuarterTextInSegment(quarter);
+  }
+
+  // Draw quarter text centered within the slice
+  drawQuarterTextInSegment(quarter) {
+    const ctx = this.ctx;
+    const colors = this.quartersConfig.quarterColors[quarter.colorIndex];
+    const {
+      centerX,
+      centerY,
+      contentInnerRadius,
+      contentOuterRadius,
+      innerStartAngle,
+      innerEndAngle,
+      outerStartAngle,
+      outerEndAngle
+    } = quarter;
+
+    const point = (radius, angle) => ({
+      x: centerX + radius * Math.cos(angle),
+      y: centerY + radius * Math.sin(angle)
+    });
+
+    const outerStartPoint = point(contentOuterRadius, outerStartAngle);
+    const outerEndPoint = point(contentOuterRadius, outerEndAngle);
+    const innerEndPoint = point(contentInnerRadius, innerEndAngle);
+    const innerStartPoint = point(contentInnerRadius, innerStartAngle);
+
+    const textX = (outerStartPoint.x + outerEndPoint.x + innerEndPoint.x + innerStartPoint.x) / 4;
+    const textY = (outerStartPoint.y + outerEndPoint.y + innerEndPoint.y + innerStartPoint.y) / 4;
+
+    ctx.save();
+    ctx.fillStyle = quarter.active ? '#ffffff' : colors.text;
+
+    // Adjust font size based on number of quarters
+    const fontSize = this.quartersConfig.quarters.length > 4 ? 20 : 24;
+    ctx.font = `bold ${fontSize}px Inter`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+
+    // Add text shadow for better readability
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+    ctx.shadowBlur = 2;
+    ctx.shadowOffsetX = 1;
+    ctx.shadowOffsetY = 1;
+
+    ctx.fillText(quarter.title, textX, textY);
+    ctx.restore();
+  }
+
+  // Draw quarter image so it follows the pie slice shape
+  drawQuarterImageInSegment(quarter, image) {
+    const ctx = this.ctx;
+    const {
+      centerX,
+      centerY,
+      innerStartAngle,
+      innerEndAngle,
+      outerStartAngle,
+      outerEndAngle,
+      contentInnerRadius,
+      contentOuterRadius,
+      imageX,
+      imageY
+    } = quarter;
+
+    const sliceInnerRadius = contentInnerRadius;
+    const sliceOuterRadius = contentOuterRadius;
+
+    ctx.save();
+
+    try {
+      if (image && image.complete) {
+        this.buildSlicePath(ctx, {
+          centerX,
+          centerY,
+          innerRadius: sliceInnerRadius,
+          outerRadius: sliceOuterRadius,
+          innerStartAngle,
+          innerEndAngle,
+          outerStartAngle,
+          outerEndAngle
+        }, true);
+        ctx.clip();
+
+        const drawSize = sliceOuterRadius * 2;
+        ctx.drawImage(
+          image,
+          imageX - drawSize / 2,
+          imageY - drawSize / 2,
+          drawSize,
+          drawSize
+        );
+      } else {
+        // Fallback: draw colored slice if image is not available
+        const colors = this.quartersConfig.quarterColors[quarter.colorIndex];
+        this.buildSlicePath(ctx, {
+          centerX,
+          centerY,
+          innerRadius: sliceInnerRadius,
+          outerRadius: sliceOuterRadius,
+          innerStartAngle,
+          innerEndAngle,
+          outerStartAngle,
+          outerEndAngle
+        }, true);
+        ctx.fillStyle = colors.border;
+        ctx.fill();
+
+        // Add text
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '10px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(quarter.id.substring(0, 3).toUpperCase(), imageX, imageY);
+      }
+    } catch (error) {
+      console.error('Error drawing quarter image:', error);
+      // Draw fallback slice
+      const colors = this.quartersConfig.quarterColors[quarter.colorIndex];
+      this.buildSlicePath(ctx, {
+        centerX,
+        centerY,
+        innerRadius: sliceInnerRadius,
+        outerRadius: sliceOuterRadius,
+        innerStartAngle,
+        innerEndAngle,
+        outerStartAngle,
+        outerEndAngle
+      }, true);
+      ctx.fillStyle = colors.border;
+      ctx.fill();
+    }
+
+    ctx.restore();
+  }
+
+  // Render center logo với fallback
+  renderCenterLogo() {
+    const centerX = this.quartersConfig.canvasSize / 2;
+    const centerY = this.quartersConfig.canvasSize / 2;
+    const logoRadius = this.quartersConfig.centerRadius;
+    // Draw white circle background
+    this.ctx.save();
+    this.ctx.beginPath();
+    this.ctx.arc(centerX, centerY, logoRadius, 0, 2 * Math.PI);
+    this.ctx.fillStyle = '#ffffff';
+    this.ctx.fill();
+    this.ctx.strokeStyle = '#e0e0e0';
+    this.ctx.lineWidth = 1.5;
+    this.ctx.stroke();
+    this.ctx.restore();
+
+    // Draw logo or fallback
+    const centerLogo = this.loadedImages.get('centerLogo');
+    if (centerLogo && centerLogo.complete) {
+      try {
+        const logoSize = 76;
+        this.ctx.drawImage(
+          centerLogo,
+          centerX - logoSize / 2,
+          centerY - logoSize / 2,
+          logoSize,
+          logoSize
+        );
+      } catch (error) {
+        console.error('Error drawing center logo:', error);
+        this.drawFallbackLogo(centerX, centerY, logoRadius);
+      }
+    } else {
+      this.drawFallbackLogo(centerX, centerY, logoRadius);
+    }
+  }
+
+  // Draw fallback logo
+  drawFallbackLogo(centerX, centerY) {
+    this.ctx.save();
+    this.ctx.fillStyle = '#1e40af';
+    this.ctx.font = 'bold 24px Arial';
+    this.ctx.textAlign = 'center';
+    this.ctx.textBaseline = 'middle';
+    this.ctx.fillText('IUH', centerX, centerY);
+    this.ctx.restore();
+  }
+
+  // Bind events cho canvas và tab panes
+  bindEvents() {
+    if (this.canvas) {
+      this.canvas.addEventListener('click', (event) => {
+        this.handleCanvasClick(event);
+      });
+    }
+  }
+
+  // Xử lý click trên canvas
+  handleCanvasClick(event) {
+    const rect = this.canvas.getBoundingClientRect();
+    // Map click coordinates from screen space to canvas logical space
+    const scaleX = this.quartersConfig.canvasSize / rect.width;
+    const scaleY = this.quartersConfig.canvasSize / rect.height;
+
+    const clickX = (event.clientX - rect.left) * scaleX;
+    const clickY = (event.clientY - rect.top) * scaleY;
+
+    // Kiểm tra click có trúng quarter nào không
+    const clickedQuarter = this.getClickedQuarter(clickX, clickY);
+    if (clickedQuarter) {
+      this.handleQuarterClick(clickedQuarter);
+    }
+  }
+
+  // Detect quarter được click trong pie segment
+  getClickedQuarter(x, y) {
+    const centerX = this.quartersConfig.canvasSize / 2;
+    const centerY = this.quartersConfig.canvasSize / 2;
+
+    // Calculate distance from center
+    const distance = Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2));
+
+    // Check if click is within the pie ring (not center)
+    const innerBound = this.quartersConfig.centerRadius + (this.quartersConfig.segmentGap || 0);
+    if (distance < innerBound || distance > this.quartersConfig.canvasSize / 2 - 10) {
+      return null;
+    }
+
+    // Calculate angle of click
+    const angle = this.normalizeAngle(Math.atan2(y - centerY, x - centerX) + Math.PI / 2); // Adjust + normalize
+
+    // Find which quarter this angle belongs to (accounting for gaps)
+    for (const quarter of this.quarterPositions) {
+      if (!quarter) continue;
+      const { normalizedOuterStart, normalizedOuterEnd } = quarter;
+      if (normalizedOuterStart <= normalizedOuterEnd) {
+        if (angle >= normalizedOuterStart && angle <= normalizedOuterEnd) {
+          return quarter;
+        }
+      } else {
+        // Range wraps around 2π
+        if (angle >= normalizedOuterStart || angle <= normalizedOuterEnd) {
+          return quarter;
+        }
+      }
+    }
+
+    return null;
+  }
+
+  // Xử lý sự kiện click trên quarter
+  handleQuarterClick(clickedQuarter) {
+    // Update config active states
+    this.quartersConfig.quarters.forEach(q => {
+      q.active = q.id === clickedQuarter.id;
+    });
+
+    this.updateRotationOffset();
+    this.calculateQuarterPositions();
+
+    // Re-render canvas
+    this.renderCanvas();
+
+    // Show corresponding tab content
+    this.showTabContent(clickedQuarter.tabId);
+  }
+
+  // Hiển thị tab content tương ứng
+  showTabContent(tabId) {
+    // Hide all tab panes
+    this.tabPanes.forEach(pane => {
+      pane.classList.remove("active");
+    });
+
+    // Show target tab pane
+    const tabPane = document.getElementById(tabId);
+    if (tabPane) {
+      tabPane.classList.add("active");
+    }
+  }
+
+  // Utility: Set active quarter theo tab ID
+  setActiveQuarterByTabId(targetTabId) {
+    const quarter = this.quartersConfig.quarters.find(q => q.tabId === targetTabId);
+    if (quarter) {
+      this.handleQuarterClick(quarter);
+    }
+  }
+
+  // Normalize angle to range [0, 2π)
+  normalizeAngle(angle) {
+    const twoPi = Math.PI * 2;
+    return ((angle % twoPi) + twoPi) % twoPi;
+  }
+
+  hexToRgba(hex, alpha = 1) {
+    if (!hex) return `rgba(255, 255, 255, ${alpha})`;
+    const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+    const normalized = hex.replace(shorthandRegex, (_, r, g, b) => r + r + g + g + b + b);
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(normalized);
+    if (!result) return `rgba(255, 255, 255, ${alpha})`;
+    const [, r, g, b] = result;
+    return `rgba(${parseInt(r, 16)}, ${parseInt(g, 16)}, ${parseInt(b, 16)}, ${alpha})`;
+  }
+
+  // Helper: build a pie-slice path, optionally applying outer corner rounding
+  buildSlicePath(ctx, slice, applyOuterCorner = false) {
+    const {
+      centerX,
+      centerY,
+      innerRadius,
+      outerRadius,
+      innerStartAngle,
+      innerEndAngle,
+      outerStartAngle,
+      outerEndAngle
+    } = slice;
+
+    const point = (radius, angle) => ({
+      x: centerX + radius * Math.cos(angle),
+      y: centerY + radius * Math.sin(angle)
+    });
+
+    ctx.beginPath();
+
+    const baseCorner = applyOuterCorner ? Math.max(0, this.quartersConfig.outerCornerRadius || 0) : 0;
+    const span = outerEndAngle - outerStartAngle;
+    const cornerLimitSpan = span > 0 ? (outerRadius * span) / 2 : 0;
+    const cornerLimitThickness = outerRadius - innerRadius;
+    const cornerRadius = Math.min(baseCorner, cornerLimitSpan, Math.max(0, cornerLimitThickness));
+
+    if (cornerRadius > 0 && span > 0) {
+      const cornerAngle = cornerRadius / outerRadius;
+      const clampedCornerAngle = Math.min(cornerAngle, Math.max(span / 2 - 1e-4, 0));
+
+      const startOffsetAngle = outerStartAngle + clampedCornerAngle;
+      const endOffsetAngle = outerEndAngle - clampedCornerAngle;
+
+      const outerStartOffset = point(outerRadius, startOffsetAngle);
+      const outerStartCorner = point(outerRadius, outerStartAngle);
+      const outerEndCorner = point(outerRadius, outerEndAngle);
+      const innerEndPoint = point(innerRadius, innerEndAngle);
+      const innerStartPoint = point(innerRadius, innerStartAngle);
+      // const startControl = innerRadius > 0
+      //   ? point(innerRadius + cornerRadius, outerStartAngle)
+      //   : { x: centerX, y: centerY };
+
+      ctx.moveTo(outerStartOffset.x, outerStartOffset.y);
+      ctx.arc(centerX, centerY, outerRadius, startOffsetAngle, endOffsetAngle);
+      ctx.arcTo(outerEndCorner.x, outerEndCorner.y, innerEndPoint.x, innerEndPoint.y, cornerRadius);
+
+      if (innerRadius > 0) {
+        ctx.arc(centerX, centerY, innerRadius, innerEndAngle, innerStartAngle, true);
+        ctx.arcTo(innerStartPoint.x, innerStartPoint.y, outerStartCorner.x, outerStartCorner.y, cornerRadius);
+      } else {
+        ctx.lineTo(centerX, centerY);
+        ctx.arcTo(centerX, centerY, outerStartCorner.x, outerStartCorner.y, cornerRadius);
+      }
+
+      ctx.arcTo(outerStartCorner.x, outerStartCorner.y, outerStartOffset.x, outerStartOffset.y, cornerRadius);
+    } else {
+      const startOuter = point(outerRadius, outerStartAngle);
+      ctx.moveTo(startOuter.x, startOuter.y);
+      ctx.arc(centerX, centerY, outerRadius, outerStartAngle, outerEndAngle);
+
+      if (innerRadius > 0) {
+        const innerEndPoint = point(innerRadius, innerEndAngle);
+        ctx.lineTo(innerEndPoint.x, innerEndPoint.y);
+        ctx.arc(centerX, centerY, innerRadius, innerEndAngle, innerStartAngle, true);
+      } else {
+        ctx.lineTo(centerX, centerY);
+      }
+    }
+
+    ctx.closePath();
+  }
+
+  updateRotationOffset(forceImmediate = false) {
+    if (!this.quartersConfig?.quarters?.length) {
+      this.quartersConfig.targetRotationOffset = 0;
+      this.quartersConfig.rotationOffset = 0;
+      return;
+    }
+
+    const quarters = this.quartersConfig.quarters;
+    let activeIndex = quarters.findIndex(q => q.active);
+    if (activeIndex === -1) {
+      activeIndex = 0;
+    }
+
+    const angleStep = (2 * Math.PI) / quarters.length;
+    const desiredCenterPreShift = Math.PI / 2; // orientation before subtracting π/2
+    const rawTarget = desiredCenterPreShift - (activeIndex * angleStep + angleStep / 2);
+
+    const current = this.quartersConfig.currentRotationOffset ?? this.quartersConfig.rotationOffset ?? 0;
+    let delta = this.normalizeAngle(rawTarget - current);
+    if (delta > Math.PI) delta -= 2 * Math.PI;
+    if (delta < -Math.PI) delta += 2 * Math.PI;
+    const target = current + delta;
+
+    this.quartersConfig.targetRotationOffset = target;
+    if (forceImmediate) {
+      this.startRotationAnimation(true);
+    } else {
+      this.startRotationAnimation();
+    }
+  }
+
+  startRotationAnimation(forceImmediate = false) {
+    const target = this.quartersConfig.targetRotationOffset ?? this.quartersConfig.rotationOffset ?? 0;
+    let current = this.quartersConfig.currentRotationOffset ?? this.quartersConfig.rotationOffset ?? 0;
+
+    if (forceImmediate) {
+      this.quartersConfig.currentRotationOffset = target;
+      this.quartersConfig.rotationOffset = this.normalizeAngle(target);
+      this.calculateQuarterPositions();
+      this.renderCanvas();
+      if (this.rotationAnimationFrame) {
+        cancelAnimationFrame(this.rotationAnimationFrame);
+        this.rotationAnimationFrame = null;
+      }
+      this.rotationAnimating = false;
+      return;
+    }
+
+    if (this.rotationAnimationFrame) {
+      cancelAnimationFrame(this.rotationAnimationFrame);
+      this.rotationAnimationFrame = null;
+    }
+
+    const step = () => {
+      const targetOffset = this.quartersConfig.targetRotationOffset ?? 0;
+      current = this.quartersConfig.currentRotationOffset ?? 0;
+      let delta = targetOffset - current;
+      delta = ((delta + Math.PI) % (2 * Math.PI)) - Math.PI;
+
+      const speed = this.quartersConfig.rotationAnimationSpeed ?? 0.18;
+      if (Math.abs(delta) < 0.0005) {
+        current = targetOffset;
+        this.quartersConfig.currentRotationOffset = current;
+        this.quartersConfig.rotationOffset = this.normalizeAngle(current);
+        this.calculateQuarterPositions();
+        this.renderCanvas();
+        this.rotationAnimating = false;
+        this.rotationAnimationFrame = null;
+        return;
+      }
+
+      current += delta * Math.min(Math.max(speed, 0.05), 0.35);
+      this.quartersConfig.currentRotationOffset = current;
+      this.quartersConfig.rotationOffset = this.normalizeAngle(current);
+      this.calculateQuarterPositions();
+      this.renderCanvas();
+      this.rotationAnimating = true;
+      this.rotationAnimationFrame = requestAnimationFrame(step);
+    };
+
+    this.rotationAnimationFrame = requestAnimationFrame(step);
+  }
+
+  // Utility: Add new quarter dynamically
+  addQuarter(quarterData) {
+    this.quartersConfig.quarters.push(quarterData);
+    this.updateRotationOffset();
+    this.calculateQuarterPositions();
+    this.loadImage(quarterData.image, quarterData.id).then(() => {
+      this.renderCanvas();
+    });
+  }
+
+  // Utility: Remove quarter
+  removeQuarter(quarterId) {
+    this.quartersConfig.quarters = this.quartersConfig.quarters.filter(q => q.id !== quarterId);
+    this.loadedImages.delete(quarterId);
+    this.updateRotationOffset();
+    this.calculateQuarterPositions();
+    this.renderCanvas();
+  }
+
+  // Add method to check if all images are loaded
+  areImagesLoaded() {
+    const expectedImages = ['centerLogo', ...this.quartersConfig.quarters.map(q => q.id)];
+    return expectedImages.every(key => this.loadedImages.has(key));
+  }
+
+  destroy() {
+    if (this.rotationAnimationFrame) {
+      cancelAnimationFrame(this.rotationAnimationFrame);
+      this.rotationAnimationFrame = null;
+    }
   }
 }
