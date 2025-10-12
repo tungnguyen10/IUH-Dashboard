@@ -10,9 +10,16 @@ url: '/news' } ] %}
     {% include "./_components/page-header.twig" with { title: 'TIN TỨC - THÔNG BÁO' } %}
 
     <div class="w-full flex flex-col gap-8 sm:gap-16">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 ">
-        <a href="#"
-          class="rounded-[50px] border border-gray-100 overflow-hidden py-2 px-4 text-base flex items-center gap-2 shadow-sm hover:shadow-lg bg-white hover:text-navyBlue-800 hover:border-navyBlue-800 transition-all duration-300 hover:-translate-y-1">
+      {% set quickLinks = [
+      { title: 'Cổng thông tin sinh viên', url: '#' },
+      { title: 'Khảo sát sinh viên', url: '#' },
+      { title: 'Đăng ký học phần', url: '#' },
+      { title: 'Hướng dẫn tra cứu', url: '#' }
+      ] %}
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {% for item in quickLinks %}
+        <a href="{{ item.url }}"
+          class="rounded-[50px] border border-secondary-blue overflow-hidden py-2 px-4 text-base flex items-center gap-2 shadow-sm hover:shadow-lg bg-white text-primary-darkblue hover:text-primary-yellow hover:border-primary-yellow transition-all duration-300 hover:-translate-y-1">
           <svg xmlns="http://www.w3.org/2000/svg" class="size-4 shrink-0" viewBox="0 0 20 20" fill="none">
             <g>
               <path
@@ -20,188 +27,43 @@ url: '/news' } ] %}
                 fill="currentColor" />
             </g>
           </svg>
-          <span class="flex-1 block text-center"> Cổng thông tin sinh viên</span>
+          <span class="flex-1 block text-center">{{ item.title }}</span>
         </a>
-        <a href="#"
-          class="rounded-[50px] border border-gray-100 overflow-hidden py-2 px-4 text-base flex items-center gap-2 shadow-sm hover:shadow-lg bg-white hover:text-navyBlue-800 hover:border-navyBlue-800 transition-all duration-300 hover:-translate-y-1">
-          <svg xmlns="http://www.w3.org/2000/svg" class="size-4 shrink-0" viewBox="0 0 20 20" fill="none">
-            <g>
-              <path
-                d="M4.42688 17.0834C4.00341 17.0834 3.64584 16.9376 3.35417 16.6459C3.06251 16.3542 2.91667 15.9979 2.91667 15.577V4.42321C2.91667 4.00223 3.06251 3.64591 3.35417 3.35425C3.64584 3.06258 4.00216 2.91675 4.42313 2.91675H15.5769C15.9979 2.91675 16.3542 3.06258 16.6458 3.35425C16.9375 3.64591 17.0833 4.00223 17.0833 4.42321V10.912L14.4183 13.577L12.6875 11.8463L9.21 15.303L10.9904 17.0834H4.42688ZM9.24688 10.6251H13.9904V9.37508H9.24688V10.6251ZM9.24688 7.38779H13.9904V6.138H9.24688V7.38779ZM14.4183 17.9167L11.7965 15.303L12.6875 14.4249L14.4183 16.1555L17.8798 12.694L18.7579 13.5851L14.4183 17.9167ZM6.71521 10.7372C6.92424 10.7372 7.09931 10.6665 7.24042 10.5251C7.38139 10.3837 7.45188 10.2085 7.45188 9.99946C7.45188 9.79043 7.38119 9.61543 7.2398 9.47446C7.09841 9.33348 6.9232 9.263 6.71417 9.263C6.50514 9.263 6.33014 9.33369 6.18917 9.47508C6.04806 9.61647 5.97751 9.79168 5.97751 10.0007C5.97751 10.2097 6.0482 10.3847 6.18959 10.5257C6.33112 10.6667 6.50632 10.7372 6.71521 10.7372ZM6.71521 7.50008C6.92424 7.50008 7.09931 7.42939 7.24042 7.288C7.38139 7.14661 7.45188 6.9714 7.45188 6.76237C7.45188 6.55335 7.38119 6.37835 7.2398 6.23737C7.09841 6.09626 6.9232 6.02571 6.71417 6.02571C6.50514 6.02571 6.33014 6.0964 6.18917 6.23779C6.04806 6.37918 5.97751 6.55439 5.97751 6.76342C5.97751 6.97244 6.0482 7.14751 6.18959 7.28862C6.33112 7.42959 6.50632 7.50008 6.71521 7.50008Z"
-                fill="currentColor" />
-            </g>
-          </svg>
-          <span class="flex-1 block text-center"> Khảo sát sinh viên</span>
-        </a>
-        <a href="#"
-          class="rounded-[50px] border border-gray-100 overflow-hidden py-2 px-4 text-base flex items-center gap-2 shadow-sm hover:shadow-lg bg-white hover:text-navyBlue-800 hover:border-navyBlue-800 transition-all duration-300 hover:-translate-y-1">
-          <svg xmlns="http://www.w3.org/2000/svg" class="size-4 shrink-0" viewBox="0 0 20 20" fill="none">
-            <g>
-              <path
-                d="M4.42688 17.0834C4.00341 17.0834 3.64584 16.9376 3.35417 16.6459C3.06251 16.3542 2.91667 15.9979 2.91667 15.577V4.42321C2.91667 4.00223 3.06251 3.64591 3.35417 3.35425C3.64584 3.06258 4.00216 2.91675 4.42313 2.91675H15.5769C15.9979 2.91675 16.3542 3.06258 16.6458 3.35425C16.9375 3.64591 17.0833 4.00223 17.0833 4.42321V10.912L14.4183 13.577L12.6875 11.8463L9.21 15.303L10.9904 17.0834H4.42688ZM9.24688 10.6251H13.9904V9.37508H9.24688V10.6251ZM9.24688 7.38779H13.9904V6.138H9.24688V7.38779ZM14.4183 17.9167L11.7965 15.303L12.6875 14.4249L14.4183 16.1555L17.8798 12.694L18.7579 13.5851L14.4183 17.9167ZM6.71521 10.7372C6.92424 10.7372 7.09931 10.6665 7.24042 10.5251C7.38139 10.3837 7.45188 10.2085 7.45188 9.99946C7.45188 9.79043 7.38119 9.61543 7.2398 9.47446C7.09841 9.33348 6.9232 9.263 6.71417 9.263C6.50514 9.263 6.33014 9.33369 6.18917 9.47508C6.04806 9.61647 5.97751 9.79168 5.97751 10.0007C5.97751 10.2097 6.0482 10.3847 6.18959 10.5257C6.33112 10.6667 6.50632 10.7372 6.71521 10.7372ZM6.71521 7.50008C6.92424 7.50008 7.09931 7.42939 7.24042 7.288C7.38139 7.14661 7.45188 6.9714 7.45188 6.76237C7.45188 6.55335 7.38119 6.37835 7.2398 6.23737C7.09841 6.09626 6.9232 6.02571 6.71417 6.02571C6.50514 6.02571 6.33014 6.0964 6.18917 6.23779C6.04806 6.37918 5.97751 6.55439 5.97751 6.76342C5.97751 6.97244 6.0482 7.14751 6.18959 7.28862C6.33112 7.42959 6.50632 7.50008 6.71521 7.50008Z"
-                fill="currentColor" />
-            </g>
-          </svg>
-          <span class="flex-1 block text-center">Đăng ký học phần</span>
-        </a>
-        <a href="#"
-          class="rounded-[50px] border border-gray-100 overflow-hidden py-2 px-4 text-base flex items-center gap-2 shadow-sm hover:shadow-lg bg-white hover:text-navyBlue-800 hover:border-navyBlue-800 transition-all duration-300 hover:-translate-y-1">
-          <svg xmlns="http://www.w3.org/2000/svg" class="size-4 shrink-0" viewBox="0 0 20 20" fill="none">
-            <g>
-              <path
-                d="M4.42688 17.0834C4.00341 17.0834 3.64584 16.9376 3.35417 16.6459C3.06251 16.3542 2.91667 15.9979 2.91667 15.577V4.42321C2.91667 4.00223 3.06251 3.64591 3.35417 3.35425C3.64584 3.06258 4.00216 2.91675 4.42313 2.91675H15.5769C15.9979 2.91675 16.3542 3.06258 16.6458 3.35425C16.9375 3.64591 17.0833 4.00223 17.0833 4.42321V10.912L14.4183 13.577L12.6875 11.8463L9.21 15.303L10.9904 17.0834H4.42688ZM9.24688 10.6251H13.9904V9.37508H9.24688V10.6251ZM9.24688 7.38779H13.9904V6.138H9.24688V7.38779ZM14.4183 17.9167L11.7965 15.303L12.6875 14.4249L14.4183 16.1555L17.8798 12.694L18.7579 13.5851L14.4183 17.9167ZM6.71521 10.7372C6.92424 10.7372 7.09931 10.6665 7.24042 10.5251C7.38139 10.3837 7.45188 10.2085 7.45188 9.99946C7.45188 9.79043 7.38119 9.61543 7.2398 9.47446C7.09841 9.33348 6.9232 9.263 6.71417 9.263C6.50514 9.263 6.33014 9.33369 6.18917 9.47508C6.04806 9.61647 5.97751 9.79168 5.97751 10.0007C5.97751 10.2097 6.0482 10.3847 6.18959 10.5257C6.33112 10.6667 6.50632 10.7372 6.71521 10.7372ZM6.71521 7.50008C6.92424 7.50008 7.09931 7.42939 7.24042 7.288C7.38139 7.14661 7.45188 6.9714 7.45188 6.76237C7.45188 6.55335 7.38119 6.37835 7.2398 6.23737C7.09841 6.09626 6.9232 6.02571 6.71417 6.02571C6.50514 6.02571 6.33014 6.0964 6.18917 6.23779C6.04806 6.37918 5.97751 6.55439 5.97751 6.76342C5.97751 6.97244 6.0482 7.14751 6.18959 7.28862C6.33112 7.42959 6.50632 7.50008 6.71521 7.50008Z"
-                fill="currentColor" />
-            </g>
-          </svg>
-          <span class="flex-1 block text-center"> Hướng dẫn tra cứu</span>
-        </a>
+        {% endfor %}
       </div>
       <div class="flex flex-row gap-4">
         <div class="flex-col gap-4 hidden xl:flex sm:gap-5 w-full lg:w-3/12 ">
-          <h2 class="text-lg lg:text-2xl font-semibold text-navyBlue-800 uppercase flex flex-row items-center gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" class="size-6 shrink-0" viewBox="0 0 30 30" fill="none">
-
-              <g mask="">
-                <path
-                  d="M4.375 21.875V20H19.6394V21.875H4.375ZM24.3078 20.685L18.5984 15L24.3078 9.32688L25.625 10.6444L21.2331 15L25.625 19.3678L24.3078 20.685ZM4.375 15.9375V14.0625H15.9856V15.9375H4.375ZM4.375 10V8.125H19.6394V10H4.375Z"
-                  fill="currentColor"></path>
-              </g>
-            </svg>Cơ cấu tổ chức
-          </h2>
-          <ul class="flex flex-col justify-between gap-2 flex-1">
-            {% set mainMenu = [
-            {
-            title: "Lãnh đạo",
-            subitems: [
-            "Đảng ủy",
-            "Ban giám hiệu"
-            ]
-            },
-            {
-            title: "Các Phòng Ban",
-            subitems: [
-            "Phòng Tổ chức - Hành chính",
-            "Phòng Tài chính - Kế toán",
-            "Phòng Kế hoạch - Đầu tư",
-            "Phòng Đào tạo",
-            "Phòng Quản lý Khoa học và Hợp tác quốc tế",
-            "Phòng Công tác chính trị và Hỗ trợ sinh viên",
-            "Phòng Khảo thí và Đảm bảo chất lượng",
-            "Phòng Quản trị",
-            "Phòng Dịch vụ",
-            "Phòng Quản lý Ký túc xá",
-            "Tạp chí Khoa học và Công nghệ",
-            "Nhà xuất bản"
-            ]
-            },
-            {
-            title: "Các Khoa",
-            subitems: [
-            "Khoa Công nghệ Cơ khí",
-            "Khoa Công nghệ Thông tin",
-            "Khoa Công nghệ Điện",
-            "Khoa Công nghệ Điện tử",
-            "Khoa Công nghệ Động lực",
-            "Khoa Công nghệ Nhiệt - Lạnh",
-            "Khoa Công nghệ May - Thời trang",
-            "Khoa Công nghệ Hóa học",
-            "Khoa Khoa học Cơ bản",
-            "Khoa Luật và Khoa học Chính trị",
-            "Khoa Ngoại ngữ",
-            "Khoa Quản trị Kinh doanh",
-            "Khoa Thương mại - Du lịch",
-            "Khoa Kỹ thuật Xây dựng"
-            ]
-            },
-            {
-            title: "Các Viện",
-            subitems: [
-            "Viện Tài chính - Kế toán",
-            "Viện Đào tạo quốc tế và Sau Đại học",
-            "Viện Công nghệ Sinh học và Thực phẩm",
-            "Viện Khoa học Công nghệ và Quản lý Môi trường"
-            ]
-            },
-            {
-            title: "Các Trung tâm",
-            subitems: [
-            "Trung tâm Quản trị Hệ thống",
-            "Trung tâm Ngoại ngữ",
-            "Trung tâm Giáo dục Quốc phòng và Thể chất",
-            "Trung tâm Thư viện",
-            "Trung tâm Thông tin - Truyền thông"
-            ]
-            },
-            {
-            title: "Các Phân hiệu",
-            subitems: [
-            "Phân hiệu Quảng Ngãi",
-            "Cơ sở Thanh Hóa"
-            ]
-            },
-            {
-            title: "Đoàn thể",
-            subitems: [
-            "Công đoàn",
-            "Đoàn Thanh niên",
-            "Hội Sinh viên"
-            ]
-            }
-            ] %}
-
-            {% for item in mainMenu %}
-            <li class="group/subbar-menu relative">
-              <a href="#"
-                class="font-semibold px-4 py-2 flex items-center bg-navyBlue-800 text-white rounded-md justify-between gap-2 transition-all duration-300 hover:text-navyBlue-800 hover:bg-navyBlue-100 ">
-                {{ item.title }}
-                <svg class="w-4 h-4 transition-transform duration-300 group-hover/subbar-menu:rotate-180"
-                  viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 14L4 9M20 9L12 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
-              </a>
-              <ul class="menuMb:absolute bg-white w-[150%] top-0 left-full transform opacity-0
-            invisible group-hover/subbar-menu:opacity-100 group-hover/subbar-menu:visible
-            translate-y-2 group-hover/subbar-menu:translate-y-0 transition-all duration-300
-            ease-in-out shadow-lg rounded-md border-t-3 border-navyBlue-900 z-50
-            grid grid-cols-2
-            ">
-                {% for subItem in item.subitems %}
-                <li class="border-t menuMb:border-b border-gray-100 last:border-none">
-                  <a href="#"
-                    class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 font-normal">
-                    {{ subItem }}
-                  </a>
-                </li>
-                {% endfor %}
-              </ul>
-            </li>
-            {% endfor %}
-          </ul>
+          <!-- Organizational structure  -->
+          {% include './_templates/components/_MenuBar.twig' %}
         </div>
         <!-- Featured News -->
         <div class="w-full lg:w-9/12 gap-4">
           {% for i in 1..1 %}
-          <div class="group relative h-[300px] lg:h-[400px] rounded-xl overflow-hidden">
+          <div class="group relative h-[300px] lg:h-[400px] rounded-xl overflow-hidden cursor-pointer">
             <div class="image-hover size-full">
               <img src="assets/images/gallery-2.png" alt="Featured News"
-                class="size-full object-cover transform group-hover:scale-105 transition-all duration-500" />
+                class="size-full object-cover transform group-hover:scale-110 transition-all duration-700 ease-out" />
             </div>
 
             <div
-              class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none">
+              class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent group-hover:from-black/95 group-hover:via-black/60 transition-all duration-500 pointer-events-none">
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
+            <div
+              class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 transform group-hover:translate-y-[-8px] transition-transform duration-300">
               <div class="flex items-center gap-2 mb-3">
-                <span class="px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-xs text-navyBlue-800 font-medium">
+                <span
+                  class="px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-xs text-primary-darkblue font-medium group-hover:bg-primary-yellow group-hover:text-white transition-all duration-300">
                   Tin nổi bật
                 </span>
-                <span class="text-xs text-white">29/02/2024</span>
+                <span
+                  class="text-xs text-white/80 group-hover:text-white transition-colors duration-300">29/02/2024</span>
               </div>
-              <h3 class="text-lg sm:text-xl font-bold text-white mb-2 line-clamp-2 transition-colors line-clamp-2">
+              <h3
+                class="text-lg sm:text-xl font-bold text-white mb-2 line-clamp-2 group-hover:text-primary-yellow transition-colors duration-300">
                 <a href="#">Hội nghị Khoa học Công nghệ lần thứ 24 năm 2024</a>
               </h3>
-              <p class="text-sm text-white line-clamp-2 sm:line-clamp-3 lg:line-clamp-4">
+              <p
+                class="text-sm text-white/90 line-clamp-2 sm:line-clamp-3 lg:line-clamp-4 group-hover:text-white transition-colors duration-300">
                 Sự kiện quy tụ các nhà khoa học hàng đầu trong và ngoài nước, mở ra cơ hội hợp tác nghiên cứu mới. Sự
                 kiện quy tụ các nhà khoa học hàng đầu trong và ngoài nước, mở ra cơ hội hợp tác nghiên cứu mới.Sự kiện
                 quy tụ các nhà khoa học hàng đầu trong và ngoài nước, mở ra cơ hội hợp tác nghiên cứu mới.Sự kiện quy tụ
@@ -227,8 +89,9 @@ url: '/news' } ] %}
         ] %} {%
         for item in list %}
         <a href="{{ item.url }}"
-          class="flex w-full items-center gap-2 rounded-lg p-2 border border-gray-100 bg-gray-50/80 px-4 py-2 transition-all duration-300 hover:bg-navyBlue-50 hover:border-navyBlue-50 hover:scale-105 shadow-md">
-          <span class="text-sm font-medium flex-1">{{ item.title }}</span>
+          class="group flex w-full items-center gap-2 rounded-lg p-2 border border-secondary-blue px-4 py-2 transition-all duration-300 hover:bg-secondary-subYellow hover:border-secondary-yellow hover:scale-105 shadow-md">
+          <span class="text-sm font-medium flex-1 text-primary-darkblue group-hover:text-primary-yellow">{{ item.title
+            }}</span>
           <span class="size-10 shrink-0">
             <img src="{{ item.img }}" alt="{{ item.title }}" class="size-full object-cover" />
           </span>
@@ -237,51 +100,59 @@ url: '/news' } ] %}
       </div>
 
       <div class="flex flex-col gap-4 sm:gap-8">
-
         <!-- Tin tức nổi bật -->
-        <h2 class="text-lg lg:text-2xl font-bold text-navyBlue-800 uppercase ">Tin tức nổi bật</h2>
+        {% include './_templates/common/_TitleChild.twig' with {
+        title: 'Tin tức nổi bật',
+        titleClass: '',
+        svgIcon: '
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="currentColor" viewBox="0 0 640 640">
+          <path
+            d="M232 144C218.7 144 208 154.7 208 168L208 472C208 480.4 206.6 488.5 203.9 496L504 496C517.3 496 528 485.3 528 472L528 168C528 154.7 517.3 144 504 144L232 144zM136 544C96.2 544 64 511.8 64 472L64 176C64 162.7 74.7 152 88 152C101.3 152 112 162.7 112 176L112 472C112 485.3 122.7 496 136 496C149.3 496 160 485.3 160 472L160 168C160 128.2 192.2 96 232 96L504 96C543.8 96 576 128.2 576 168L576 472C576 511.8 543.8 544 504 544L136 544zM256 216C256 202.7 266.7 192 280 192L328 192C341.3 192 352 202.7 352 216L352 264C352 277.3 341.3 288 328 288L280 288C266.7 288 256 277.3 256 264L256 216zM408 240L456 240C469.3 240 480 250.7 480 264C480 277.3 469.3 288 456 288L408 288C394.7 288 384 277.3 384 264C384 250.7 394.7 240 408 240zM280 320L456 320C469.3 320 480 330.7 480 344C480 357.3 469.3 368 456 368L280 368C266.7 368 256 357.3 256 344C256 330.7 266.7 320 280 320zM280 400L456 400C469.3 400 480 410.7 480 424C480 437.3 469.3 448 456 448L280 448C266.7 448 256 437.3 256 424C256 410.7 266.7 400 280 400z" />
+        </svg>
+        '
+        } %}
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {% for i in 1..12 %}
-          <div
-            class="group flex flex-col bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300">
-            <div class="relative h-48">
+            <div
+            class="group flex flex-col bg-white rounded-xl overflow-hidden border border-secondary-blue hover:shadow-xl hover:border-primary-yellow hover:-translate-y-1 transition-all duration-300">
+            <div class="relative h-48 overflow-hidden">
               <div class="image-hover size-full">
-                <img src="assets/images/gallery-2.png" alt="News Image"
-                  class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500" />
+              <img src="assets/images/gallery-2.png" alt="News Image"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition-all duration-500" />
               </div>
+              <div class="absolute inset-0 bg-primary-darkblue/0 group-hover:bg-primary-darkblue/10 transition-all duration-300"></div>
               <div class="absolute top-3 left-3 flex items-center gap-2">
-                <span class="px-2.5 py-1 rounded-full bg-navyBlue-50/70 text-xs text-navyBlue-800 font-medium">
-                  29/02/2024
-                </span>
-                <span class="px-2.5 py-1 rounded-full bg-navyBlue-50/70 text-xs text-navyBlue-800 font-medium">
-                  Tin tức
-                </span>
+              <span class="px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm text-xs text-primary-darkblue font-medium group-hover:bg-primary-yellow group-hover:text-white transition-all duration-300">
+                29/02/2024
+              </span>
+              <span class="px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm text-xs text-primary-darkblue font-medium group-hover:bg-primary-yellow group-hover:text-white transition-all duration-300">
+                Tin tức
+              </span>
               </div>
             </div>
             <div class="flex flex-col flex-1 p-4">
               <h3
-                class="text-base font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-navyBlue-800 transition-colors">
-                <a href="#">Sinh viên IUH đạt giải nhất cuộc thi Sáng tạo Khoa học Kỹ thuật</a>
+              class="text-base font-bold text-primary-darkblue mb-2 line-clamp-2 group-hover:text-primary-yellow transition-colors duration-300">
+              <a href="#">Sinh viên IUH đạt giải nhất cuộc thi Sáng tạo Khoa học Kỹ thuật</a>
               </h3>
-              <p class="text-sm text-gray-600 line-clamp-2 mb-4">
-                Đội thi của sinh viên khoa Công nghệ Thông tin đã xuất sắc giành giải nhất với đề tài nghiên cứu về trí
-                tuệ nhân tạo.
+              <p class="text-sm text-gray-600 line-clamp-2 mb-4 group-hover:text-gray-700 transition-colors duration-300">
+              Đội thi của sinh viên khoa Công nghệ Thông tin đã xuất sắc giành giải nhất với đề tài nghiên cứu về trí
+              tuệ nhân tạo.
               </p>
-              <div class="mt-auto flex items-center gap-2 text-navyBlue-800">
-                <span class="text-sm font-medium">Xem thêm</span>
-                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
-                  viewbox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              <a href="#" class="text-sm inline-flex items-center gap-2 text-primary-darkblue group-hover:text-primary-yellow font-medium group-hover:gap-3 transition-all">
+                Xem chi tiết
+                <svg class="w-4 h-4 rounded-full px-0.5 group-hover:bg-primary-yellow group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                 </svg>
-              </div>
+              </a>
             </div>
-          </div>
+            </div>
           {% endfor %}
         </div>
         <!-- Load More Button -->
         <div class="flex justify-center">
           <button
-            class="px-6 py-3 rounded-full bg-navyBlue-50 text-navyBlue-800 font-medium hover:bg-navyBlue-100 transition-colors flex items-center gap-2">
+            class="px-6 py-3 rounded-full bg-secondary-subBlue text-primary-darkblue font-medium hover:text-primary-yellow hover:bg-secondary-subYellow transition-colors flex items-center gap-2">
             <span>Xem thêm tin tức</span>
             <svg class="w-4 h-4" fill="none" viewbox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -291,28 +162,43 @@ url: '/news' } ] %}
       </div>
       <div class="flex flex-col gap-4 sm:gap-8">
         <!-- Thông báo nổi bật -->
-        <h2 class="text-lg lg:text-2xl font-bold text-navyBlue-800 uppercase">Thông báo nổi bật</h2>
+        {% include './_templates/common/_TitleChild.twig' with {
+        title: 'Thông báo nổi bật',
+        titleClass: '',
+        svgIcon: '
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="currentColor" viewBox="0 0 640 640">
+        <path d="M525.2 82.9C536.7 88 544 99.4 544 112L544 528C544 540.6 536.7 552 525.2 557.1C513.7 562.2 500.4 560.3 490.9 552L444.3 511.3C400.7 473.2 345.6 451 287.9 448.3L287.9 544C287.9 561.7 273.6 576 255.9 576L223.9 576C206.2 576 191.9 561.7 191.9 544L191.9 448C121.3 448 64 390.7 64 320C64 249.3 121.3 192 192 192L276.5 192C338.3 191.8 397.9 169.3 444.4 128.7L491 88C500.4 79.7 513.9 77.8 525.3 82.9zM288 384L288 384.2C358.3 386.9 425.8 412.7 480 457.6L480 182.3C425.8 227.2 358.3 253 288 255.7L288 384z"/>
+          </svg>
+        '
+        } %}
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-          {% for i in 1..12 %}
-          <div
-            class="group flex bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300">
-            <div class="relative w-1/3 shrink-0 image-hover ">
+            {% for i in 1..12 %}
+            <div
+            class="group flex bg-white rounded-xl overflow-hidden border border-secondary-blue hover:shadow-xl hover:border-primary-yellow hover:-translate-y-1 transition-all duration-300">
+            <div class="relative w-1/3 shrink-0 overflow-hidden">
               <img src="assets/images/gallery-2.png" alt="News Image"
-                class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500" />
+              class="w-full h-full object-cover transform group-hover:scale-110 transition-all duration-500" />
+              <div class="absolute inset-0 bg-primary-darkblue/0 group-hover:bg-primary-darkblue/10 transition-all duration-300"></div>
             </div>
-            <div class="flex-1 p-4">
+            <div class="flex-1 p-4 flex flex-col">
               <div class="flex items-center gap-2 mb-2">
-                <span class="text-xs text-gray-500">29/02/2024</span>
-                <span class="w-1 h-1 rounded-full bg-gray-300"></span>
-                <span class="text-xs text-navyBlue-800">Thông báo</span>
+              <span class="text-xs text-gray-500 group-hover:text-primary-yellow transition-colors">29/02/2024</span>
+              <span class="w-1 h-1 rounded-full bg-gray-300 group-hover:bg-primary-yellow transition-colors"></span>
+              <span class="text-xs text-primary-darkblue group-hover:text-primary-yellow transition-colors">Thông báo</span>
               </div>
               <h3
-                class="text-base font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-navyBlue-800 transition-colors">
-                <a href="#">Hợp tác nghiên cứu với Đại học Quốc tế</a>
+              class="text-base font-bold text-primary-darkblue mb-2 line-clamp-2 group-hover:text-primary-yellow transition-colors">
+              <a href="#">Hợp tác nghiên cứu với Đại học Quốc tế</a>
               </h3>
-              <p class="text-sm text-gray-600 line-clamp-2">
-                IUH ký kết thỏa thuận hợp tác nghiên cứu với các trường đại học hàng đầu trong khu vực.
+              <p class="text-sm text-gray-600 line-clamp-2 mb-3 group-hover:text-gray-700 transition-colors">
+              IUH ký kết thỏa thuận hợp tác nghiên cứu với các trường đại học hàng đầu trong khu vực.
               </p>
+             <a href="#" class="text-sm inline-flex items-center gap-2 text-primary-darkblue group-hover:text-primary-yellow font-medium group-hover:gap-3 transition-all">
+                Xem chi tiết
+                <svg class="w-4 h-4 rounded-full px-0.5 group-hover:bg-primary-yellow group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+              </a>
             </div>
           </div>
           {% endfor %}
@@ -320,7 +206,7 @@ url: '/news' } ] %}
         <!-- Load More Button -->
         <div class="flex justify-center">
           <button
-            class="px-6 py-3 rounded-full bg-navyBlue-50 text-navyBlue-800 font-medium hover:bg-navyBlue-100 transition-colors flex items-center gap-2">
+            class="px-6 py-3 rounded-full bg-secondary-subBlue text-primary-darkblue font-medium hover:text-primary-yellow hover:bg-secondary-subYellow transition-colors flex items-center gap-2">
             <span>Xem thêm thông báo</span>
             <svg class="w-4 h-4" fill="none" viewbox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />

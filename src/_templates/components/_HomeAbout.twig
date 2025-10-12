@@ -2,9 +2,7 @@
   <div
     class="iuhFadeInScroll w-full max-w-[1200px] px-4 mx-auto flex gap-10 lg:gap-[90px] pt-10 lg:pt-16 flex-col lg:flex-row">
     <div class="flex flex-col gap-5 lg:gap-10 w-full lg:max-w-[480px] relative shrink-0 pt-5 lg:pt-[70px]">
-      <h2 class="text-3xl lg:text-titleDK font-bold text-titleColor font-montserrat">
-        Về chúng tôi
-      </h2>
+       {% include '../common/_Title.twig' with {'title': 'Về chúng tôi'} %}
       <div
         class="absolute top-[40%] left-[80%] translate-x-[-50%] translate-y-[-50%] size-[200px] lg:size-[290px] z-[-1]">
         <img src="assets/images/text-around.png" alt="iuh" class="w-full absolute top-0 left-0 animate-rotation360" />
@@ -29,7 +27,7 @@
           </a>
         </div>
 
-        {% include '../common/_SwiperNavigation.twig' with {'prevClass': "size-11", 'nextClass': "size-11"} %}
+        {% include '../common/_SwiperNavigation.twig' with {"containerClass": "gap-8",'prevClass': "size-11", 'nextClass': "size-11"} %}
       </div>
     </div>
     <div class="w-full max-w-[972px] flex-1 bg-about">
@@ -38,13 +36,13 @@
           {% for i in 1..8 %}
           <div class="swiper-slide">
             <div
-              class="aspect-[280/330] relative group/about cursor-pointer rounded-[10px] overflow-hidden hover:translate-y-[-0.5rem] hover:border hover:border-navyBlue-50 transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
+              class="aspect-[280/330] relative group/about cursor-pointer rounded-[10px] overflow-hidden hover:translate-y-[-0.5rem] hover:border hover:border-secondary-subBlue transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
               <a href="#" class="block size-full">
                 <img src="assets/images/about-img.png" alt="about"
                   class="size-full rounded-md object-cover transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/about:scale-110 group-hover/about:brightness-[0.85]" />
               </a>
               <h3
-                class="text-base lg:text-lg tracking-tight uppercase font-medium p-4 transition-all duration-500 absolute bottom-0 w-full left-0 text-black1 bg-white group-hover/about:opacity-0 group-hover/about:translate-y-full">
+                class="text-sm lg:text-lg tracking-tight uppercase font-medium p-4 transition-all duration-500 absolute bottom-0 w-full left-0 text-black1 bg-white group-hover/about:opacity-0 group-hover/about:translate-y-full">
                 Thông điệp Hiệu Trưởng
               </h3>
               <div class="absolute inset-0 flex flex-col justify-end overflow-hidden">

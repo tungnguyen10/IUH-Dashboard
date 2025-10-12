@@ -22,6 +22,8 @@ module.exports = {
         accredited: "3px 3px 12px 0px rgba(0, 0, 207, 0.20)",
         news: "3px 3px 12px 0px rgba(0, 0, 207, 0.20)",
         childPage: "9px 0 20px 0px rgb(0 4 168 / 18%);",
+        'inset-blue': 'inset 1px 1px 15px 0 rgba(142, 216, 248, 0.5)',
+        'gold': '2px 2px 15px 0 rgba(249, 178, 0, 0.15)',
       },
       dropShadow: {
         "btn-slide": "2px 2px 10px rgba(0, 0, 0, 0.05)",

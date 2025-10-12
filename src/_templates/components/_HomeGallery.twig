@@ -1,7 +1,7 @@
 <div class="iuhFadeInScroll w-full relative iuh-gallery" data-module="HomeGallery">
 	<div class="w-full max-w-[1200px] px-4 mx-auto pb-10 lg:pb-[65px] flex flex-col gap-5">
 		<div class="flex flex-row justify-between items-center">
-			{% include '../common/_Title.twig' with 'title': 'Thư viện hình ảnh' %}
+      {% include '../common/_Title.twig' with {'title': ' Thư viện hình ảnh'} %}
 			<div class="iuh-btn w-full max-w-[200px] hidden lg:block">
 				<a href="#">
 					Xem tất cả
@@ -17,7 +17,7 @@
 					<img src="assets/images/gallery-1.png" alt="" class="size-full object-cover z-[1]">
 				</div>
 				<div class="size-9 lg:size-[48px] absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 pulse-animation" data-open-modal="openVideoGallery">
-					<div class="size-full bg-navyBlue-50/50 rounded-full">
+					<div class="size-full bg-secondary-subBlue/50 rounded-full">
 					<svg xmlns="http://www.w3.org/2000/svg" class="size-full relative z-[3]" viewbox="0 0 48 48" fill="none">
 						<path d="M24 4C12.96 4 4 12.96 4 24C4 35.04 12.96 44 24 44C35.04 44 44 35.04 44 24C44 12.96 35.04 4 24 4ZM24 40C15.18 40 8 32.82 8 24C8 15.18 15.18 8 24 8C32.82 8 40 15.18 40 24C40 32.82 32.82 40 24 40ZM19 33L33 24L19 15V33Z" fill="#0000CF"/>
 					</svg>

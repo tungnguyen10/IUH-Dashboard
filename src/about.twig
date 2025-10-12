@@ -19,7 +19,7 @@ thiệu', url: '/about' }] %} {% set pageClass = 'iuhAbout' %} {% block page %}
       </div>
 
       <div class="w-full lg:w-1/2 flex flex-col gap-4">
-        <h1 class="text-lg sm:text-2xl font-semibold text-navyBlue-800">
+        <h1 class="text-lg sm:text-2xl font-semibold text-primary-darkblue">
           GIỚI THIỆU ĐẠI HỌC CÔNG NGHIỆP THÀNH PHỐ HỒ CHÍ MINH
         </h1>
 
@@ -56,137 +56,73 @@ thiệu', url: '/about' }] %} {% set pageClass = 'iuhAbout' %} {% block page %}
       aria-label="Quick navigation"
       class="w-full col-span-2 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 my-5 lg:my-8"
     >
+      {% set menuItems = [
+        {
+          title: 'Tin tức và Sự kiện',
+          icon: 'assets/images/icons/news.png',
+          url: '/news',
+          hoverBg: 'hover:bg-secondary-subYellow',
+          hoverText: 'group-hover:text-primary-yellow'
+        },
+        {
+          title: 'Thông báo',
+          icon: 'assets/images/icons/notify.png',
+          url: '/news',
+          hoverBg: 'hover:bg-secondary-subYellow',
+          hoverText: 'group-hover:text-primary-yellow'
+        },
+        {
+          title: 'Học bổng',
+          icon: 'assets/images/icons/scholarship.png',
+          url: '/news',
+          hoverBg: 'hover:bg-secondary-subYellow',
+          hoverText: 'group-hover:text-primary-yellow'
+        },
+        {
+          title: 'Tuyển sinh',
+          icon: 'assets/images/icons/admission.png',
+          url: '/news',
+          hoverBg: 'hover:bg-secondary-subYellow',
+          hoverText: 'group-hover:text-primary-yellow'
+        }
+      ] %}
+
+      {% for item in menuItems %}
       <div
-        class="w-full aspect-[280/200] flex flex-col items-center justify-center bg-stroke1 rounded-xl group transition-all duration-300 hover:bg-navyBlue-50 hover:scale-105 hover:shadow-lg"
+        class="w-full aspect-[280/200] flex flex-col items-center justify-center bg-stroke1 rounded-xl group transition-all duration-300 {{ item.hoverBg }} hover:scale-105 hover:shadow-lg"
       >
         <figure
           class="size-[60px] lg:size-[100px] group-hover:scale-110 transition-transform duration-300"
         >
           <a
-            aria-label="Tin tức và Sự kiện"
+            aria-label="{{ item.title }}"
             class="flex flex-col items-center justify-center size-full gap-3 sm:gap-5 p-2 sm:p-4"
-            href="/news"
-            ><img
-              alt="Biểu tượng tin tức và sự kiện"
+            href="{{ item.url }}"
+          >
+            <img
+              alt="Biểu tượng {{ item.title|lower }}"
               class="size-full object-cover"
               height="100"
               loading="lazy"
-              src="assets/images/icons/news.png"
+              src="{{ item.icon }}"
               width="100"
             />
           </a>
         </figure>
 
         <h2
-          class="text-base sm:text-xl text-center font-semibold text-gray-800 group-hover:text-navyBlue-800 transition-colors duration-300"
+          class="text-base sm:text-xl text-center font-semibold text-gray-800 {{ item.hoverText }} transition-colors duration-300"
         >
           <a
-            aria-label="Tin tức và Sự kiện"
+            aria-label="{{ item.title }}"
             class="flex flex-col items-center justify-center size-full gap-3 sm:gap-5 p-2 sm:p-4"
-            href="/news"
-            >Tin tức và Sự kiện
+            href="{{ item.url }}"
+          >
+            {{ item.title }}
           </a>
         </h2>
       </div>
-
-      <div
-        class="w-full aspect-[280/200] flex flex-col items-center justify-center bg-stroke1 rounded-xl group transition-all duration-300 hover:bg-navyBlue-50 hover:scale-105 hover:shadow-lg"
-      >
-        <figure
-          class="size-[60px] lg:size-[100px] group-hover:scale-110 transition-transform duration-300"
-        >
-          <a
-            aria-label="Thông báo"
-            class="flex flex-col items-center justify-center size-full gap-3 sm:gap-5 p-2 sm:p-4"
-            href="/news"
-            ><img
-              alt="Biểu tượng thông báo"
-              class="size-full object-cover"
-              height="100"
-              loading="lazy"
-              src="assets/images/icons/notify.png"
-              width="100"
-            />
-          </a>
-        </figure>
-
-        <h2
-          class="text-base sm:text-xl text-center font-semibold text-gray-800 group-hover:text-navyBlue-800 transition-colors duration-300"
-        >
-          <a
-            aria-label="Thông báo"
-            class="flex flex-col items-center justify-center size-full gap-3 sm:gap-5 p-2 sm:p-4"
-            href="/news"
-            >Thông báo
-          </a>
-        </h2>
-      </div>
-
-      <div
-        class="w-full aspect-[280/200] flex flex-col items-center justify-center bg-stroke1 rounded-xl group transition-all duration-300 hover:bg-navyBlue-50 hover:scale-105 hover:shadow-lg"
-      >
-        <figure
-          class="size-[60px] lg:size-[100px] group-hover:scale-110 transition-transform duration-300"
-        >
-          <a
-            aria-label="Học bổng"
-            class="flex flex-col items-center justify-center size-full gap-3 sm:gap-5 p-2 sm:p-4"
-            href="/news"
-            ><img
-              alt="Biểu tượng học bổng"
-              class="size-full object-cover"
-              height="100"
-              loading="lazy"
-              src="assets/images/icons/scholarship.png"
-              width="100"
-            />
-          </a>
-        </figure>
-
-        <h2
-          class="text-base sm:text-xl text-center font-semibold text-gray-800 group-hover:text-navyBlue-800 transition-colors duration-300"
-        >
-          <a
-            aria-label="Học bổng"
-            class="flex flex-col items-center justify-center size-full gap-3 sm:gap-5 p-2 sm:p-4"
-            href="/news"
-            >Học bổng
-          </a>
-        </h2>
-      </div>
-
-      <div
-        class="w-full aspect-[280/200] flex flex-col items-center justify-center bg-stroke1 rounded-xl group transition-all duration-300 hover:bg-navyBlue-50 hover:scale-105 hover:shadow-lg"
-      >
-        <figure
-          class="size-[60px] lg:size-[100px] group-hover:scale-110 transition-transform duration-300"
-        >
-          <a
-            aria-label="Tuyển sinh"
-            class="flex flex-col items-center justify-center size-full gap-3 sm:gap-5 p-2 sm:p-4"
-            href="/news"
-            ><img
-              alt="Biểu tượng tuyển sinh"
-              class="size-full object-cover"
-              height="100"
-              loading="lazy"
-              src="assets/images/icons/admission.png"
-              width="100"
-            />
-          </a>
-        </figure>
-
-        <h2
-          class="text-base sm:text-xl text-center font-semibold text-gray-800 group-hover:text-navyBlue-800 transition-colors duration-300"
-        >
-          <a
-            aria-label="Tuyển sinh"
-            class="flex flex-col items-center justify-center size-full gap-3 sm:gap-5 p-2 sm:p-4"
-            href="/news"
-            >Tuyển sinh
-          </a>
-        </h2>
-      </div>
+      {% endfor %}
     </nav>
     <!-- Goals Section -->
 
@@ -194,7 +130,7 @@ thiệu', url: '/about' }] %} {% set pageClass = 'iuhAbout' %} {% block page %}
       class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-8"
     >
       <h2
-        class="text-2xl font-semibold text-navyBlue-800 w-full col-span-1 sm:col-span-2 lg:col-span-3 uppercase"
+        class="text-2xl font-semibold text-primary-darkblue w-full col-span-1 sm:col-span-2 lg:col-span-3 uppercase"
       >
         Mục tiêu và Tầm nhìn
       </h2>
@@ -216,7 +152,7 @@ thiệu', url: '/about' }] %} {% set pageClass = 'iuhAbout' %} {% block page %}
           </a>
         </figure>
         <div class="flex flex-col gap-2">
-          <h3 class="text-base sm:text-lg font-semibold text-navyBlue-800">
+          <h3 class="text-base sm:text-lg font-semibold text-primary-darkblue">
             <a class="flex flex-col items-start gap-3 sm:gap-5" href="#"
               >1. Tầm nhìn
             </a>
@@ -244,7 +180,7 @@ thiệu', url: '/about' }] %} {% set pageClass = 'iuhAbout' %} {% block page %}
           </a>
         </figure>
         <div class="flex flex-col gap-2">
-          <h3 class="text-base sm:text-lg font-semibold text-navyBlue-800">
+          <h3 class="text-base sm:text-lg font-semibold text-primary-darkblue">
             <a class="flex flex-col items-start gap-3 sm:gap-5" href="#"
               >2. Sứ mệnh
           </a>
@@ -275,7 +211,7 @@ thiệu', url: '/about' }] %} {% set pageClass = 'iuhAbout' %} {% block page %}
           </a>
         </figure>
         <div class="flex flex-col gap-2">
-          <h3 class="text-base sm:text-lg font-semibold text-navyBlue-800">
+          <h3 class="text-base sm:text-lg font-semibold text-primary-darkblue">
             <a class="flex flex-col items-start gap-3 sm:gap-5" href="#"
               >3. Giá trị cốt lõi
           </a>
@@ -295,7 +231,7 @@ thiệu', url: '/about' }] %} {% set pageClass = 'iuhAbout' %} {% block page %}
 
     <section class="mt-8 sm:mt-10">
       <h2
-        class="text-2xl font-semibold text-navyBlue-800"
+        class="text-2xl font-semibold text-primary-darkblue"
         id="locations-heading"
       >
         TRƯỜNG CÓ CÁC PHÂN HIỆU VÀ CƠ SỞ ĐÀO TẠO:
@@ -305,14 +241,14 @@ thiệu', url: '/about' }] %} {% set pageClass = 'iuhAbout' %} {% block page %}
       <div
         class="mt-8 bg-white rounded-xl shadow-md p-6 border border-gray-200"
       >
-        <h3 class="text-xl font-semibold text-navyBlue-800 mb-4">Trụ sở</h3>
+        <h3 class="text-xl font-semibold text-primary-darkblue mb-4">Trụ sở</h3>
 
         <address class="not-italic space-y-4">
           <!-- Location -->
-          <div class="flex items-start gap-2">
+          <div class="flex gap-2">
             <svg
               aria-hidden="true"
-              class="w-6 h-6 text-navyBlue-600 mt-1 flex-shrink-0"
+              class="w-6 h-6 text-primary-darkblue mt-1 flex-shrink-0"
               fill="none"
               stroke="currentColor"
               viewbox="0 0 24 24"
@@ -337,9 +273,9 @@ thiệu', url: '/about' }] %} {% set pageClass = 'iuhAbout' %} {% block page %}
           </div>
           <!-- Contact Information -->
 
-          <div class="flex items-start gap-2 items-center">
+          <div class="flex gap-2 items-center">
             <svg
-              class="w-6 h-6 text-navyBlue-600 mt-1 flex-shrink-0"
+              class="w-6 h-6 text-primary-darkblue mt-1 flex-shrink-0"
               fill="none"
               stroke="currentColor"
               viewbox="0 0 24 24"
@@ -359,9 +295,9 @@ thiệu', url: '/about' }] %} {% set pageClass = 'iuhAbout' %} {% block page %}
             </div>
           </div>
 
-          <div class="flex items-start gap-2 items-center">
+          <div class="flex gap-2 items-center">
             <svg
-              class="w-6 h-6 text-navyBlue-600 mt-1 flex-shrink-0"
+              class="w-6 h-6 text-primary-darkblue mt-1 flex-shrink-0"
               fill="none"
               stroke="currentColor"
               viewbox="0 0 24 24"
@@ -377,16 +313,16 @@ thiệu', url: '/about' }] %} {% set pageClass = 'iuhAbout' %} {% block page %}
             <p class="text-gray-700">
               Website:
               <a
-                class="text-navyBlue-600 hover:underline"
+                class="text-primary-darkblue hover:underline hover:text-primary-yellow"
                 href="https://www.iuh.edu.vn"
                 >www.iuh.edu.vn</a
               >
             </p>
           </div>
 
-          <div class="flex items-start gap-2 items-start">
+          <div class="flex gap-2 items-start">
             <svg
-              class="w-6 h-6 text-navyBlue-600 mt-1 flex-shrink-0"
+              class="w-6 h-6 text-primary-darkblue mt-1 flex-shrink-0"
               fill="none"
               stroke="currentColor"
               viewbox="0 0 24 24"
@@ -406,7 +342,7 @@ thiệu', url: '/about' }] %} {% set pageClass = 'iuhAbout' %} {% block page %}
                 <li class="text-gray-700">
                   Trường Đại học Công nghiệp thành phố Hồ Chí Minh:
                   <a
-                    class="text-navyBlue-600 hover:underline break-all"
+                    class="text-primary-darkblue hover:underline hover:text-primary-yellow break-all"
                     href="mailto:dhcn@iuh.edu.vn"
                     >dhcn@iuh.edu.vn</a
                   >
@@ -414,7 +350,7 @@ thiệu', url: '/about' }] %} {% set pageClass = 'iuhAbout' %} {% block page %}
                 <li class="text-gray-700">
                   Phòng Tổ chức - Hành chính:
                   <a
-                    class="text-navyBlue-600 hover:underline break-all"
+                    class="text-primary-darkblue hover:underline hover:text-primary-yellow break-all"
                     href="mailto:ptchc@iuh.edu.vn"
                     >ptchc@iuh.edu.vn</a
                   >
@@ -422,7 +358,7 @@ thiệu', url: '/about' }] %} {% set pageClass = 'iuhAbout' %} {% block page %}
                 <li class="text-gray-700">
                   Phòng Tài chính - Kế toán:
                   <a
-                    class="text-navyBlue-600 hover:underline break-all"
+                    class="text-primary-darkblue hover:underline hover:text-primary-yellow break-all"
                     href="mailto:ptckt@iuh.edu.vn"
                     >ptckt@iuh.edu.vn</a
                   >
@@ -430,7 +366,7 @@ thiệu', url: '/about' }] %} {% set pageClass = 'iuhAbout' %} {% block page %}
                 <li class="text-gray-700">
                   Phòng Đào tạo:
                   <a
-                    class="text-navyBlue-600 hover:underline break-all"
+                    class="text-primary-darkblue hover:underline hover:text-primary-yellow break-all"
                     href="mailto:phongdaotao@iuh.edu.vn"
                     >phongdaotao@iuh.edu.vn</a
                   >
@@ -438,7 +374,7 @@ thiệu', url: '/about' }] %} {% set pageClass = 'iuhAbout' %} {% block page %}
                 <li class="text-gray-700">
                   Bộ phận Tuyển sinh:
                   <a
-                    class="text-navyBlue-600 hover:underline break-all"
+                    class="text-primary-darkblue hover:underline hover:text-primary-yellow break-all"
                     href="mailto:tuyensinh@iuh.edu.vn"
                     >tuyensinh@iuh.edu.vn</a
                   >
@@ -455,14 +391,14 @@ thiệu', url: '/about' }] %} {% set pageClass = 'iuhAbout' %} {% block page %}
         <div
           class="bg-white rounded-xl shadow-md p-4 sm:p-6 border border-gray-200"
         >
-          <h3 class="text-lg sm:text-xl font-semibold text-navyBlue-800 mb-4">
+          <h3 class="text-lg sm:text-xl font-semibold text-primary-darkblue mb-4">
             Phân hiệu Quảng Ngãi
           </h3>
 
           <address class="not-italic space-y-4">
             <div class="flex gap-2 items-center">
               <svg
-                class="w-6 h-6 text-navyBlue-600 mt-1 flex-shrink-0"
+                class="w-6 h-6 text-primary-darkblue mt-1 flex-shrink-0"
                 fill="none"
                 stroke="currentColor"
                 viewbox="0 0 24 24"
@@ -486,9 +422,9 @@ thiệu', url: '/about' }] %} {% set pageClass = 'iuhAbout' %} {% block page %}
               </p>
             </div>
 
-            <div class="flex items-start gap-2 items-center">
+            <div class="flex gap-2 items-center">
               <svg
-                class="w-6 h-6 text-navyBlue-600 mt-1 flex-shrink-0"
+                class="w-6 h-6 text-primary-darkblue mt-1 flex-shrink-0"
                 fill="none"
                 stroke="currentColor"
                 viewbox="0 0 24 24"
@@ -512,9 +448,9 @@ thiệu', url: '/about' }] %} {% set pageClass = 'iuhAbout' %} {% block page %}
               </div>
             </div>
 
-            <div class="flex items-start gap-2 items-center">
+            <div class="flex gap-2 items-center">
               <svg
-                class="w-6 h-6 text-navyBlue-600 mt-1 flex-shrink-0"
+                class="w-6 h-6 text-primary-darkblue mt-1 flex-shrink-0"
                 fill="none"
                 stroke="currentColor"
                 viewbox="0 0 24 24"
@@ -530,7 +466,7 @@ thiệu', url: '/about' }] %} {% set pageClass = 'iuhAbout' %} {% block page %}
               <p class="text-sm sm:text-base text-gray-700">
                 Website:
                 <a
-                  class="text-navyBlue-600 hover:underline break-all"
+                  class="text-primary-darkblue hover:underline hover:text-primary-yellow break-all"
                   href="http://www.qn.iuh.edu.vn"
                   >www.qn.iuh.edu.vn</a
                 >
@@ -543,14 +479,14 @@ thiệu', url: '/about' }] %} {% set pageClass = 'iuhAbout' %} {% block page %}
         <div
           class="bg-white rounded-xl shadow-md p-4 sm:p-6 border border-gray-200"
         >
-          <h3 class="text-lg sm:text-xl font-semibold text-navyBlue-800 mb-4">
+          <h3 class="text-lg sm:text-xl font-semibold text-primary-darkblue mb-4">
             Cơ sở Thanh Hóa
           </h3>
 
           <address class="not-italic space-y-4">
-            <div class="flex items-start gap-2 items-center">
+            <div class="flex gap-2 items-center">
               <svg
-                class="w-6 h-6 text-navyBlue-600 mt-1 flex-shrink-0"
+                class="w-6 h-6 text-primary-darkblue mt-1 flex-shrink-0"
                 fill="none"
                 stroke="currentColor"
                 viewbox="0 0 24 24"
@@ -574,9 +510,9 @@ thiệu', url: '/about' }] %} {% set pageClass = 'iuhAbout' %} {% block page %}
               </p>
             </div>
 
-            <div class="flex items-start gap-2 items-center">
+            <div class="flex gap-2 items-center">
               <svg
-                class="w-6 h-6 text-navyBlue-600 mt-1 flex-shrink-0"
+                class="w-6 h-6 text-primary-darkblue mt-1 flex-shrink-0"
                 fill="none"
                 stroke="currentColor"
                 viewbox="0 0 24 24"
@@ -600,9 +536,9 @@ thiệu', url: '/about' }] %} {% set pageClass = 'iuhAbout' %} {% block page %}
               </div>
             </div>
 
-            <div class="flex items-start gap-2 items-center">
+            <div class="flex gap-2 items-center">
               <svg
-                class="w-6 h-6 text-navyBlue-600 mt-1 flex-shrink-0"
+                class="w-6 h-6 text-primary-darkblue mt-1 flex-shrink-0"
                 fill="none"
                 stroke="currentColor"
                 viewbox="0 0 24 24"
@@ -618,7 +554,7 @@ thiệu', url: '/about' }] %} {% set pageClass = 'iuhAbout' %} {% block page %}
               <p class="text-sm sm:text-base text-gray-700">
                 Website:
                 <a
-                  class="text-navyBlue-600 hover:underline break-all"
+                  class="text-primary-darkblue hover:underline hover:text-primary-yellow break-all"
                   href="http://www.th.iuh.edu.vn"
                   >www.th.iuh.edu.vn</a
                 >

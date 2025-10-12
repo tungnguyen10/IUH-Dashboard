@@ -6,139 +6,22 @@
   <div class="w-full max-w-[1200px] px-4 mx-auto">
     <div class="w-full flex flex-col gap-8 sm:gap-14">
 
-      <div class="flex flex-col-reverse lg:flex-row gap-4">
-        <div class="flex-col gap-4 flex sm:gap-5 w-full lg:w-3/12">
-          <div class="hidden menuMb:flex flex-col gap-4 sm:gap-5">
-            <h2 class="text-lg lg:text-2xl font-semibold text-navyBlue-800 uppercase flex flex-row items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" class="size-6 shrink-0" viewBox="0 0 30 30" fill="none">
-
-                <g mask="">
-                  <path
-                    d="M4.375 21.875V20H19.6394V21.875H4.375ZM24.3078 20.685L18.5984 15L24.3078 9.32688L25.625 10.6444L21.2331 15L25.625 19.3678L24.3078 20.685ZM4.375 15.9375V14.0625H15.9856V15.9375H4.375ZM4.375 10V8.125H19.6394V10H4.375Z"
-                    fill="currentColor"></path>
-                </g>
-              </svg>Cơ cấu tổ chức
-            </h2>
-            <ul class="flex flex-col gap-2">
-              {% set mainMenu = [
-              {
-              title: "Lãnh đạo",
-              subitems: [
-              "Đảng ủy",
-              "Ban giám hiệu"
-              ]
-              },
-              {
-              title: "Các Phòng Ban",
-              subitems: [
-              "Phòng Tổ chức - Hành chính",
-              "Phòng Tài chính - Kế toán",
-              "Phòng Kế hoạch - Đầu tư",
-              "Phòng Đào tạo",
-              "Phòng Quản lý Khoa học và Hợp tác quốc tế",
-              "Phòng Công tác chính trị và Hỗ trợ sinh viên",
-              "Phòng Khảo thí và Đảm bảo chất lượng",
-              "Phòng Quản trị",
-              "Phòng Dịch vụ",
-              "Phòng Quản lý Ký túc xá",
-              "Tạp chí Khoa học và Công nghệ",
-              "Nhà xuất bản"
-              ]
-              },
-              {
-              title: "Các Khoa",
-              subitems: [
-              "Khoa Công nghệ Cơ khí",
-              "Khoa Công nghệ Thông tin",
-              "Khoa Công nghệ Điện",
-              "Khoa Công nghệ Điện tử",
-              "Khoa Công nghệ Động lực",
-              "Khoa Công nghệ Nhiệt - Lạnh",
-              "Khoa Công nghệ May - Thời trang",
-              "Khoa Công nghệ Hóa học",
-              "Khoa Khoa học Cơ bản",
-              "Khoa Luật và Khoa học Chính trị",
-              "Khoa Ngoại ngữ",
-              "Khoa Quản trị Kinh doanh",
-              "Khoa Thương mại - Du lịch",
-              "Khoa Kỹ thuật Xây dựng"
-              ]
-              },
-              {
-              title: "Các Viện",
-              subitems: [
-              "Viện Tài chính - Kế toán",
-              "Viện Đào tạo quốc tế và Sau Đại học",
-              "Viện Công nghệ Sinh học và Thực phẩm",
-              "Viện Khoa học Công nghệ và Quản lý Môi trường"
-              ]
-              },
-              {
-              title: "Các Trung tâm",
-              subitems: [
-              "Trung tâm Quản trị Hệ thống",
-              "Trung tâm Ngoại ngữ",
-              "Trung tâm Giáo dục Quốc phòng và Thể chất",
-              "Trung tâm Thư viện",
-              "Trung tâm Thông tin - Truyền thông"
-              ]
-              },
-              {
-              title: "Các Phân hiệu",
-              subitems: [
-              "Phân hiệu Quảng Ngãi",
-              "Cơ sở Thanh Hóa"
-              ]
-              },
-              {
-              title: "Đoàn thể",
-              subitems: [
-              "Công đoàn",
-              "Đoàn Thanh niên",
-              "Hội Sinh viên"
-              ]
-              }
-              ] %}
-
-              {% for item in mainMenu %}
-              <li class="group/subbar-menu relative">
-                <a href="#"
-                  class="font-semibold px-4 py-2 flex items-center bg-navyBlue-800 text-white rounded-md justify-between gap-2 transition-all duration-300 hover:text-navyBlue-800 hover:bg-navyBlue-100 ">
-                  {{ item.title }}
-                  <svg class="w-4 h-4 transition-transform duration-300 group-hover/subbar-menu:rotate-180"
-                    viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9 14L4 9M20 9L12 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                </a>
-                <ul class="menuMb:absolute bg-white w-[150%] top-0 left-full transform opacity-0
-invisible group-hover/subbar-menu:opacity-100 group-hover/subbar-menu:visible
-translate-y-2 group-hover/subbar-menu:translate-y-0 transition-all duration-300
-ease-in-out shadow-lg rounded-md border-t-3 border-navyBlue-900 z-50
-grid grid-cols-2
-">
-                  {% for subItem in item.subitems %}
-                  <li class="border-t menuMb:border-b border-gray-100 last:border-none">
-                    <a href="#"
-                      class="text-sm text-navyBlue-900 px-4 py-3 flex items-center justify-between hover:bg-navyBlue-50 transition-all duration-200 hover:pl-6 font-normal">
-                      {{ subItem }}
-                    </a>
-                  </li>
-                  {% endfor %}
-                </ul>
-              </li>
-              {% endfor %}
-            </ul>
-          </div>
+      <div class="flex flex-col-reverse lg:flex-row gap-10 md:gap-4">
+        <div class="flex-col gap-4 flex md:gap-8 lg:gap-10 w-full lg:w-3/12">
+          <!-- Organizational structure  -->
+          {% include './_templates/components/_MenuBar.twig' %}
           <!-- Video Section -->
           <div class="flex gap-4 flex-col">
-            <h3 class="text-xl font-bold text-navyBlue-800 mt-6 flex items-center gap-2">
-              <svg class="size-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
-                </path>
-              </svg>Trường Đại học Công nghiệp TP.HCM
-            </h3>
+
+            {% include './_templates/common/_TitleChild.twig' with {
+            title: 'Trường Đại học Công nghiệp TP.HCM',
+            titleClass: '',
+            svgIcon: '<svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+              </path>
+            </svg>'
+            } %}
             <div class="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg">
               <iframe class="size-full" src="https://www.youtube.com/embed/cXyNKPR9WA4?si=N9mcSOSJHM5VcdER"
                 title="YouTube video player" frameborder="0"
@@ -146,158 +29,495 @@ grid grid-cols-2
                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
           </div>
-          <div class="flex flex-col gap-6">
-            <h3 class="text-xl font-bold text-navyBlue-800 flex items-center gap-2">
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <!-- news special v1 -->
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center justify-between">
+              {% include './_templates/common/_TitleChild.twig' with {
+              title: 'Thông Báo Nổi Bật',
+              titleClass: '',
+              svgIcon: '<svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15" />
-              </svg>
-              Tin tức mới nhất
-            </h3>
+                  d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+              </svg>'
+              } %}
+            </div>
 
-            <div class="flex flex-col gap-4 flex-1">
-              {% set recentNews = [
+            <!-- Featured Articles -->
+            <div class="space-y-2">
+              {% set featuredNews = [
               {
-              title: "Hội nghị tổng kết công tác Đảng năm 2023",
-              date: "28/02/2024",
-              image: "assets/images/biotech4.jpg",
-              excerpt: "Đánh giá kết quả thực hiện nhiệm vụ công tác xây dựng Đảng năm 2023..."
+              title: "Thông báo V/v nghỉ Tết Nguyên đán Giáp Thìn 2024",
+              date: "02/02/2024",
+              type: "HOT",
+              typeColor: "bg-red",
+              img: "assets/images/news-default.jpg"
               },
               {
-              title: "Lễ kết nạp đảng viên mới tháng 2/2024",
-              date: "15/02/2024",
-              image: "assets/images/biotech4.jpg",
-              excerpt: "Chi bộ tổ chức lễ kết nạp cho 15 quần chúng ưu tú..."
+              title: "Thông báo Tuyển sinh Thạc sĩ đợt 1 năm 2024",
+              date: "25/01/2024",
+              type: "Mới",
+              typeColor: "bg-green-500",
+              img: "assets/images/news-default.jpg"
+              },
+              {
+              title: "Kế hoạch Tổ chức Lễ tốt nghiệp Đại học chính quy đợt 3 năm 2023",
+              date: "20/01/2024",
+              type: "Quan trọng",
+              typeColor: "bg-orange-500",
+              img: "assets/images/news-default.jpg"
+              },
+              {
+              title: "Thông báo Đăng ký học phần học kỳ 2 năm học 2023-2024",
+              date: "15/01/2024",
+              img: "assets/images/news-default.jpg"
+              },
+              {
+              title: "Lịch thi học kỳ 1 năm học 2023-2024 (cập nhật mới)",
+              date: "10/01/2024",
+              img: "assets/images/news-default.jpg"
+              },
+              {
+              title: "Thông báo về việc nộp học phí học kỳ 2 năm học 2023-2024",
+              date: "05/01/2024",
+              img: "assets/images/news-default.jpg"
               }
               ] %}
 
-              {% for item in recentNews %}
-              <a href="#" class="group block bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
-                <div class="flex gap-3 p-3">
-                  <!-- Thumbnail -->
-                  <div class="w-20 h-20 shrink-0 rounded-lg overflow-hidden">
-                    <img src="{{ item.image }}" alt="{{ item.title }}"
-                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
-                  </div>
+              {% for item in featuredNews %}
+              <div
+                class="group bg-white rounded-xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-secondary-yellow transform hover:-translate-y-1 overflow-hidden relative">
 
-                  <!-- Content -->
+                <a href="#" class="flex gap-3 p-3 relative z-10">
+                  <div
+                    class="flex flex-col w-1/3 aspect-[4/3] items-center justify-center shrink-0  overflow-hidden rounded-lg">
+                    <img src="{{ item.img }}" alt="{{ item.title }}"
+                      class="size-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2 " />
+                  </div>
                   <div class="flex-1 min-w-0">
-                    <div class="flex items-center gap-2 text-xs text-gray-500 mb-1">
-                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      {{ item.date }}
+                    <div class="flex items-center gap-2 mb-1">
+                      {% if item.type %}
+                      <span
+                        class="px-2 py-1 rounded-full text-xs text-white {{ item.typeColor }} group-hover:scale-105 transition-transform duration-300">{{
+                        item.type }}</span>
+                      {% endif %}
+                      <span
+                        class="text-xs text-gray-500 group-hover:text-primary-darkblue group-hover:font-medium transition-all duration-300">{{
+                        item.date }}</span>
                     </div>
                     <h4
-                      class="font-medium text-navyBlue-800 line-clamp-2 group-hover:text-navyBlue-600 transition-colors">
+                      class="font-medium text-black1 line-clamp-2 group-hover:text-primary-yellow group-hover:translate-x-1 transition-all duration-500">
                       {{ item.title }}
                     </h4>
-                    <p class="text-sm text-gray-600 line-clamp-2 mt-1">
-                      {{ item.excerpt }}
-                    </p>
                   </div>
-                </div>
-              </a>
+
+                </a>
+              </div>
               {% endfor %}
-
-              <!-- View All Link -->
-              <a href="#"
-                class="block text-center py-2 text-sm font-medium text-navyBlue-600 hover:text-navyBlue-800 transition-colors">
-                Xem tất cả tin tức
-                <svg class="w-4 h-4 inline-block ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"></svg>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
-
-                </path>
-              </a>
             </div>
           </div>
-          <!-- Ads Banner -->
-          <div class="space-y-4">
-            <!-- Featured Ad Banner -->
-            <a href="#"
-              class="group block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500">
-              <div class="relative aspect-[4/3] overflow-hidden">
-                <img src="assets/images/biotech1.jpg" alt="Advertisement"
-                  class="size-full object-cover transform transition-transform duration-700 group-hover:scale-110">
-                <div
-                  class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500">
-                </div>
-                <div class="absolute inset-0 flex flex-col justify-end p-4">
-                  <div class="transform transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                    <div
-                      class="flex items-center gap-2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity delay-100">
-                      <span class="px-3 py-1 rounded-full bg-navyBlue-600 text-white text-xs font-medium">Hot</span>
-                      <span class="px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs">Tuyển sinh
-                        2024</span>
+          <!-- news special v2 -->
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center justify-between">
+
+              {% include './_templates/common/_TitleChild.twig' with {
+              title: 'Thông Báo Nổi Bật',
+              titleClass: '',
+              svgIcon: '<svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+              </svg>'
+              } %}
+            </div>
+
+            <!-- Featured Articles -->
+            <div class="space-y-2">
+              {% set featuredNews = [
+              {
+              title: "Thông báo V/v nghỉ Tết Nguyên đán Giáp Thìn 2024",
+              date: "02/02/2024",
+              type: "HOT",
+              typeColor: "bg-red",
+              img: "assets/images/news-default.jpg"
+              },
+              {
+              title: "Thông báo Tuyển sinh Thạc sĩ đợt 1 năm 2024",
+              date: "25/01/2024",
+              type: "Mới",
+              typeColor: "bg-green-500",
+              img: "assets/images/news-default.jpg"
+              },
+              {
+              title: "Kế hoạch Tổ chức Lễ tốt nghiệp Đại học chính quy đợt 3 năm 2023",
+              date: "20/01/2024",
+              type: "Quan trọng",
+              typeColor: "bg-orange-500",
+              img: "assets/images/news-default.jpg"
+              },
+              {
+              title: "Thông báo Đăng ký học phần học kỳ 2 năm học 2023-2024",
+              date: "15/01/2024",
+              img: "assets/images/news-default.jpg"
+              },
+              {
+              title: "Lịch thi học kỳ 1 năm học 2023-2024 (cập nhật mới)",
+              date: "10/01/2024",
+              img: "assets/images/news-default.jpg"
+              },
+              {
+              title: "Thông báo về việc nộp học phí học kỳ 2 năm học 2023-2024",
+              date: "05/01/2024",
+              img: "assets/images/news-default.jpg"
+              }
+              ] %}
+
+              {% for item in featuredNews %}
+              <div
+                class="group bg-white rounded-xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-secondary-yellow transform hover:-translate-y-1 overflow-hidden relative">
+                <a href="#" class="flex gap-3 p-3 relative z-10">
+                  <div
+                    class="flex flex-col w-12 aspect-[1/1] items-center justify-center shrink-0 border-r border-gray-100 group-hover:border-secondary-yellow transition-colors duration-300">
+                    <span
+                      class="text-lg font-bold text-primary-darkblue group-hover:text-primary-yellow group-hover:scale-110 transition-all duration-300">{{
+                      item.date|slice(0, 2) }}</span>
+                    <span
+                      class="text-xs text-gray-500 group-hover:text-primary-yellow group-hover:font-medium transition-all duration-300">Th{{
+                      item.date|slice(3, 2) }}</span>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-1">
+                      {% if item.type %}
+                      <span
+                        class="px-2 py-1 rounded-full text-xs text-white {{ item.typeColor }} group-hover:scale-105 transition-transform duration-300">{{
+                        item.type }}</span>
+                      {% endif %}
                     </div>
-                    <h4 class="text-lg font-bold text-white mb-2">Chương trình đào tạo Công nghệ Sinh học</h4>
-                    <div
-                      class="flex items-center gap-3 text-white/80 text-sm opacity-0 group-hover:opacity-100 transition-all delay-200">
-                      <span class="flex items-center gap-1">
-                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                        </svg>
-                        2.5k lượt xem
-                      </span>
-                      <span class="flex items-center gap-1 group-hover:text-navyBlue-400 transition-colors">
-                        Xem thêm
-                        <svg class="w-4 h-4 transform transition-transform group-hover:translate-x-1" fill="none"
-                          viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </span>
+                    <h4
+                      class="font-medium text-black1 line-clamp-2 group-hover:text-primary-yellow group-hover:translate-x-1 transition-all duration-500">
+                      {{ item.title }}
+                    </h4>
+                  </div>
+                </a>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          <!-- Quick Links Box -->
+          <div class="bg-white rounded-xl overflow-hidden border border-gray-100 transition-all duration-300">
+            <div class="bg-gradient-to-r from-primary-darkblue to-primary-darkblue/80 px-4 py-3">
+              <h3 class="text-base font-semibold text-white uppercase flex flex-row items-center gap-2">
+                <svg class="size-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                Truy cập nhanh
+              </h3>
+            </div>
+            <div class="p-4 flex flex-col gap-2">
+              {% set quickLinks = [
+              { title: 'E-Learning', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168
+              18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5
+              1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' },
+              { title: 'Thư viện số', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168
+              18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5
+              1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' },
+              { title: 'Lịch công tác', icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2
+              2v12a2 2 0 002 2z' }
+              ] %}
+              {% for link in quickLinks %}
+              <a href="#"
+                class="group bg-white transition-all duration-500 transform overflow-hidden relative flex items-center gap-3 p-2">
+                <svg
+                  class="size-6 shrink-0 text-primary-darkblue group-hover:text-primary-yellow transition-transform duration-300"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ link.icon }}" />
+                </svg>
+                <span
+                  class="text-primary-darkblue font-medium group-hover:text-primary-yellow transition-all duration-500">{{
+                  link.title }}</span>
+              </a>
+              {% endfor %}
+            </div>
+          </div>
+          <!-- Statistics Box -->
+          <div class="bg-white rounded-xl  overflow-hidden border border-gray-100 transition-all duration-300">
+            <div class="bg-gradient-to-r from-primary-darkblue to-primary-darkblue/80 px-4 py-3">
+              <h3 class="text-base font-semibold text-white uppercase flex flex-row items-center gap-2">
+                <svg class="size-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+                Thống kê truy cập
+              </h3>
+            </div>
+            <div class="p-4">
+              <div class="grid grid-cols-2 gap-4">
+                <div
+                  class="group bg-white rounded-xl transition-all duration-500 border border-gray-100 hover:border-secondary-yellow transform hover:-translate-y-1 overflow-hidden relative text-center p-3">
+                  <div
+                    class="text-2xl font-bold text-primary-darkblue group-hover:text-primary-yellow group-hover:scale-110 transition-all duration-500">
+                    2,547</div>
+                  <div
+                    class="text-sm text-primary-darkblue group-hover:text-primary-yellow transition-colors duration-300">
+                    Hôm nay
+                  </div>
+                </div>
+                <div
+                  class="group bg-white rounded-xl transition-all duration-500 border border-gray-100 hover:border-secondary-yellow transform hover:-translate-y-1 overflow-hidden relative text-center p-3">
+                  <div
+                    class="text-2xl font-bold text-primary-darkblue group-hover:text-primary-yellow group-hover:scale-110 transition-all duration-500">
+                    1.2M</div>
+                  <div
+                    class="text-sm text-primary-darkblue group-hover:text-primary-yellow transition-colors duration-300">
+                    Tổng
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Box -->
+          <div
+            class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="bg-gradient-to-r from-primary-darkblue to-primary-darkblue/80 px-4 py-3">
+              <h3 class="text-base font-semibold text-white uppercase flex flex-row items-center gap-2">
+                <svg class="size-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                Liên hệ
+              </h3>
+            </div>
+            <div class="p-4 flex flex-col gap-3">
+              <a href="tel:02838940390"
+                class="group bg-white rounded-xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-secondary-yellow transform hover:-translate-y-1 overflow-hidden relative flex items-center gap-3 p-2">
+                <svg
+                  class="size-6 shrink-0 text-primary-darkblue group-hover:scale-110 transition-transform duration-300"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <span class="group-hover:text-primary-yellow group-hover:translate-x-1 transition-all duration-500">0283
+                  8940 390</span>
+              </a>
+              <a href="mailto:dhcn@iuh.edu.vn"
+                class="group bg-white rounded-xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-secondary-yellow transform hover:-translate-y-1 overflow-hidden relative flex items-center gap-3 p-2">
+                <svg
+                  class="size-6 shrink-0 text-primary-darkblue group-hover:scale-110 transition-transform duration-300"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span
+                  class="group-hover:text-primary-yellow group-hover:translate-x-1 transition-all duration-500">dhcn@iuh.edu.vn</span>
+              </a>
+              <div
+                class="group bg-white rounded-xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-secondary-yellow transform hover:-translate-y-1 overflow-hidden relative flex items-center gap-3 p-2">
+                <svg
+                  class="size-6 shrink-0 text-primary-darkblue group-hover:scale-110 transition-transform duration-300"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <span
+                  class="text-sm group-hover:text-primary-yellow group-hover:translate-x-1 transition-all duration-500">12
+                  Nguyễn Văn Bảo, P.4, Q.Gò Vấp, TP.HCM</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Events Calendar Box -->
+          <div
+            class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="bg-gradient-to-r from-primary-darkblue to-primary-darkblue/80 px-4 py-3">
+              <h3 class="text-base font-semibold text-white uppercase flex flex-row items-center gap-2">
+                <svg class="size-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                Sự kiện sắp tới
+              </h3>
+            </div>
+            <div class="p-4 flex flex-col gap-3">
+              {% set upcomingEvents = [
+              {
+              title: "Hội thảo Khoa học Công nghệ",
+              date: "15/03/2024",
+              location: "Hội trường A",
+              time: "08:30"
+              },
+              {
+              title: "Lễ tốt nghiệp Đợt 1/2024",
+              date: "20/03/2024",
+              location: "Hội trường B",
+              time: "09:00"
+              },
+              {
+              title: "Ngày hội việc làm IUH 2024",
+              date: "25/03/2024",
+              location: "Sân trường",
+              time: "07:30"
+              }
+              ] %}
+
+              {% for event in upcomingEvents %}
+              <div
+                class="group bg-white rounded-xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-secondary-yellow transform overflow-hidden relative">
+                <div class="flex items-center gap-3 p-2">
+                  <div
+                    class="flex flex-col items-center justify-center shrink-0 size-16 rounded-lg bg-secondary-subBlue text-primary-darkblue  group-hover:text-primary-yellow group-hover:bg-secondary-subYellow transition-all duration-300">
+                    <span class="text-lg font-bold">{{ event.date|slice(0, 2) }}</span>
+                    <span class="text-xs">Th{{ event.date|slice(3, 2) }}</span>
+                    <span class="text-sm italic">
+                      {{ event.time }}
+                    </span>
+                  </div>
+                  <div class="flex-1">
+                    <h4
+                      class="font-medium text-primary-darkblue group-hover:text-primary-yellow group-hover:translate-x-1 transition-all duration-500">
+                      {{
+                      event.title }}</h4>
+                    <div class="flex items-center gap-1 text-sm text-gray-600 mt-1">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      </svg>
+                      {{ event.location }}
                     </div>
                   </div>
                 </div>
               </div>
-            </a>
+              {% endfor %}
 
-            {% for i in 1..3 %}
-            <!-- Compact Ad Banner -->
-            <div
-              class="group rounded-xl overflow-hidden shadow-lg bg-gradient-to-r from-navyBlue-500 to-navyBlue-600 hover:from-navyBlue-800 hover:to-navyBlue-600 transition-all duration-500">
-              <a href="#" class="block p-4">
-                <div class="flex gap-4">
-                  <div class="w-24 h-24 shrink-0 rounded-lg overflow-hidden">
-                    <img src="assets/images/biotech2.png" alt="Advertisement"
-                      class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
-                  </div>
-                  <div class="flex-1 transform transition-all duration-300 group-hover:translate-x-1">
-                    <div class="flex items-center gap-2">
-                      <span
-                        class="px-2 py-0.5 rounded-full bg-white/10 text-white/90 text-xs backdrop-blur-sm group-hover:bg-white/20 transition-colors">
-                        Sự kiện
-                      </span>
-                      <span
-                        class="px-2 py-0.5 rounded-full bg-navyBlue-500/50 text-white/90 text-xs backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity">
-                        Hot
-                      </span>
-                    </div>
-                    <h4
-                      class="text-white font-semibold mt-2 line-clamp-2 group-hover:text-navyBlue-100 transition-colors">
-                      Hội thảo: Công nghệ Sinh học trong Nông nghiệp 4.0
-                    </h4>
-                    <div class="flex items-center gap-2 text-white/70 text-sm">
-                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      <span>20/03/2024</span>
-                    </div>
-                  </div>
-                </div>
+              <a href="#"
+                class="group block text-center py-3 px-4 text-sm font-medium text-primary-darkblue hover:text-white bg-secondary-subBlue hover:bg-primary-yellow rounded-lg transition-all duration-300 hover:shadow-lg transform">
+                <span class="inline-flex items-center gap-2 group-hover:gap-3 transition-all duration-300">
+                  Xem tất cả sự kiện
+                  <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+                    </path>
+                  </svg>
+                </span>
               </a>
             </div>
-            {% endfor %}
+          </div>
+          <!-- Popular Tags Box -->
+          <div
+            class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="bg-gradient-to-r from-primary-darkblue to-primary-darkblue/80 px-4 py-3">
+              <h3 class="text-base font-semibold text-white uppercase flex flex-row items-center gap-2">
+                <svg class="size-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z" />
+                </svg>
+                Chủ đề phổ biến
+              </h3>
+            </div>
+            <div class="p-4">
+              <div class="flex flex-wrap gap-2">
+                {% set tags = [
+                {name: 'Tuyển sinh 2024', count: 25},
+                {name: 'Học bổng', count: 18},
+                {name: 'Khoa học', count: 15},
+                {name: 'Công nghệ', count: 12},
+                {name: 'Sinh viên', count: 30},
+                {name: 'Đào tạo', count: 22},
+                {name: 'Việc làm', count: 16},
+                {name: 'Hợp tác', count: 10}
+                ] %}
+
+                {% for tag in tags %}
+                <a href="#"
+                  class="group px-3 py-1.5 rounded-full bg-secondary-subBlue text-primary-darkblue text-sm hover:bg-primary-yellow hover:text-white hover:scale-105 transition-all duration-300">
+                  {{ tag.name }}
+                  <span
+                    class="text-xs text-primary-darkblue/80 group-hover:text-white transition-colors duration-300">({{
+                    tag.count }})</span>
+                </a>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <!-- Social Media Feed -->
+          <div
+            class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="bg-gradient-to-r from-primary-darkblue to-primary-darkblue/80 px-4 py-3">
+              <h3 class="text-base font-semibold text-white uppercase flex flex-row items-center gap-2">
+                <svg class="size-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
+                </svg>
+                Mạng xã hội
+              </h3>
+            </div>
+            <div class="divide-y divide-gray-100">
+              {% set socialPosts = [
+              {
+              platform: 'facebook',
+              content: 'Chúc mừng đội tuyển sinh viên IUH đạt giải Nhất cuộc thi KHKT 2024! 🎉',
+              time: '2 giờ trước',
+              engagement: '1.2k thích'
+              },
+              {
+              platform: 'youtube',
+              content: 'Video mới: Tham quan khuôn viên Đại học Công nghiệp TP.HCM 🎥',
+              time: '5 giờ trước',
+              engagement: '3.5k xem'
+              },
+              {
+              platform: 'facebook',
+              content: 'Thông báo quan trọng về lịch thi học kỳ 2 năm học 2023-2024 📢',
+              time: '1 ngày trước',
+              engagement: '856 thích'
+              }
+              ] %}
+
+              {% for post in socialPosts %}
+              <div
+                class="group bg-white hover:shadow-2xl transition-all duration-500 border border-gray-100 transform overflow-hidden relative p-4">
+                <p
+                  class="text-sm text-primary-darkblue mb-2 group-hover:text-primary-yellow transition-all duration-500">
+                  {{ post.content }}</p>
+                <div class="flex items-center justify-between text-xs text-gray-500">
+                  <span>{{ post.time }}</span>
+                  <span>{{ post.engagement }}</span>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+            <div class="p-4 bg-gray-50">
+              <div class="flex items-center justify-between gap-4">
+                {% set socialLinks = [
+                {platform: 'Facebook', url: '#', color: 'bg-primary-darkblue'},
+                {platform: 'Tiktok', url: '#', color: 'bg-black'}
+                ] %}
+
+                {% for link in socialLinks %}
+                <a href="{{ link.url }}" class="flex-1">
+                  <div
+                    class="flex items-center justify-center gap-2 p-2 rounded-lg {{ link.color }} text-white hover:bg-primary-yellow text-sm hover:opacity-90 hover:scale-105 transition-all duration-300">
+                    <span>{{ link.platform }}</span>
+                  </div>
+                </a>
+                {% endfor %}
+              </div>
+            </div>
           </div>
         </div>
         <div class="flex-1 flex flex-col gap-5">
-          <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-3">
+          {% include './_templates/common/_TitleChild.twig' with {
+          title: 'Thông Báo Mới',
+          titleClass: '',
+          subtitle: 'Cập nhật thông tin mới nhất từ IUH',
+          svgIcon: '<svg class="size-6" fill="currentColor" viewBox="0 0 640 640" >
+            <path d="M525.2 82.9C536.7 88 544 99.4 544 112L544 528C544 540.6 536.7 552 525.2 557.1C513.7 562.2 500.4 560.3 490.9 552L444.3 511.3C400.7 473.2 345.6 451 287.9 448.3L287.9 544C287.9 561.7 273.6 576 255.9 576L223.9 576C206.2 576 191.9 561.7 191.9 544L191.9 448C121.3 448 64 390.7 64 320C64 249.3 121.3 192 192 192L276.5 192C338.3 191.8 397.9 169.3 444.4 128.7L491 88C500.4 79.7 513.9 77.8 525.3 82.9zM288 384L288 384.2C358.3 386.9 425.8 412.7 480 457.6L480 182.3C425.8 227.2 358.3 253 288 255.7L288 384z"/> </svg>'
+          } %}
+
+
+          <!-- Rest of the content -->
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 mb-3">
             {% set list = [ { title: 'Thành tích học tập', url: '#',
             img: 'assets/images/icons/graduation-certificate.png' }, { title: 'Thông tin học bổng',
             url: '#', img: 'assets/images/icons/scholarship.png' }, { title: 'Chuyên trang đào tạo', url: '#', img:
@@ -308,121 +528,98 @@ grid grid-cols-2
             ] %} {%
             for item in list %}
             <a href="{{ item.url }}"
-              class="flex w-full items-center gap-2 rounded-lg p-2 border border-gray-100 bg-gray-50/80 px-4 py-2 transition-all duration-300 hover:bg-navyBlue-50 hover:border-navyBlue-50 hover:scale-105 shadow-md">
-              <span class="text-sm font-medium flex-1">{{ item.title }}</span>
-              <span class="size-10 shrink-0">
-                <img src="{{ item.img }}" alt="{{ item.title }}" class="size-full object-cover" />
+              class="group flex w-full items-center gap-2 rounded-lg p-2 border border-secondary-subBlue bg-white px-4 py-2 transition-all duration-500  hover:border-secondary-yellow transform overflow-hidden relative">
+              <span class="text-sm font-medium flex-1 text-primary-darkblue group-hover:text-primary-yellow group-hover:translate-x-1 transition-all duration-500">{{ item.title }}</span>
+              <span class="size-10 shrink-0 transition-transform duration-300">
+              <img src="{{ item.img }}" alt="{{ item.title }}" class="size-full object-cover" />
               </span>
             </a>
             {% endfor %}
-          </div>
-          {% for i in 1..10 %}
-          <div class="group/news flex flex-row items-center gap-2 w-full border border-stroke rounded-md p-2.5 bg-white hover:shadow-news hover:border-navyBlue-800 transition-all duration-500 ease-in-out">
-            <div class="relative aspect-square md:aspect-video rounded-1.25 overflow-hidden w-4/12 shrink-0 overflow-hidden">
-              <a href="#" class="absolute inset-0 size-full image-hover">
-                <img src="assets/images/news-image.png" alt="news-noti" class="size-full object-cover" />
-              </a>
             </div>
-            <div class="flex flex-col gap-2.5 flex-1">
-              <div class="flex gap-2 items-center">
-                <div
-                  class="flex max-w-[130px] items-center gap-1 border border-stroke italic text-sm font-normal rounded-1.25 bg-stroke1 pl-1.25 pr-2.5 py-1 transition-all duration-500 group-hover/news:bg-navyBlue-50 group-hover/news:border-navyBlue-200">
-                  <span class="text-red transition-colors duration-500 group-hover/news:text-navyBlue-800">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewbox="0 0 24 24" fill="none">
-                      <path
-                        d="M16 15.3018V16.9893L16.9 18.0018M9 11.1018H4M20 9.10181V7.10181C20 5.99724 19.1046 5.10181 18 5.10181H6C4.89543 5.10181 4 5.99724 4 7.10181V19.1018C4 20.2064 4.89543 21.1018 6 21.1018H9M15 3.10181V7.10181M9 3.10181V7.10181M20.5 17.1018C20.5 19.5871 18.4853 21.6018 16 21.6018C13.5147 21.6018 11.5 19.5871 11.5 17.1018C11.5 14.6165 13.5147 12.6018 16 12.6018C18.4853 12.6018 20.5 14.6165 20.5 17.1018Z"
-                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                  </span>
-                  29/10/2024
-                </div>
-                <span class="px-2 py-1 rounded-full bg-white/90 text-xs text-navyBlue-800 font-medium">
-                  Thông báo
-                </span>
+          {% for i in 1..10 %}
+          <div
+            class="group bg-white rounded-xl transition-all duration-500 border border-secondary-subBlue hover:border-secondary-yellow transform hover:-translate-y-1 overflow-hidden relative">
+            <div class="flex flex-row gap-3 p-3">
+              <div class="relative rounded-lg overflow-hidden aspect-video w-4/12 shrink-0">
+                <a href="#" class="absolute block inset-0 size-full">
+                  <img src="assets/images/default.jpg" alt="news-noti"
+                    class="size-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1" />
+                  <div class="absolute bottom-2 left-2">
+                    <span class="px-2 py-1 rounded-full bg-white/90 text-xs text-primary-darkblue group-hover:text-primary-yellow font-medium group-hover:bg-secondary-subYellow transition-all duration-300">
+                      Tin tức
+                    </span>
+                  </div>
+                </a>
               </div>
-              <h3
-                class="text-base font-bold text-black1 line-clamp-2 group-hover/news:text-navyBlue-800 transition-all duration-300 ease-in-out">
-                <a href="#">Thông báo tuyển sinh trình độ thạc sĩ đợt 2 năm 2024</a>
-              </h3>
-              <p class="text-sm lg:text-base font-normal leading-[166.667%] text-black2  line-clamp-2">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum is simply dummy text of the
-                printing and typesetting industry. Lorem Ipsum is simply dummy
-                text of the printing and typesetting industry. Lorem Ipsum is
-                simply dummy text of the printing and typesetting industry. Lorem
-                Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum is simply dummy text of the
-                printing and typesetting industry.
-              </p>
+              <div class="flex flex-col gap-2 flex-1">
+                <div class="flex gap-2 items-center">
+                  <div
+                    class="flex items-center gap-1 border border-secondary-subBlue italic text-sm font-normal rounded-lg px-2 py-1 transition-all duration-500 group-hover:text-primary-yellow group-hover:bg-secondary-subYellow group-hover:border-secondary-yellow">
+                    <span class="text-primary-yellow transition-colors duration-500 ">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewbox="0 0 24 24" fill="none">
+                        <path
+                          d="M16 15.3018V16.9893L16.9 18.0018M9 11.1018H4M20 9.10181V7.10181C20 5.99724 19.1046 5.10181 18 5.10181H6C4.89543 5.10181 4 5.99724 4 7.10181V19.1018C4 20.2064 4.89543 21.1018 6 21.1018H9M15 3.10181V7.10181M9 3.10181V7.10181M20.5 17.1018C20.5 19.5871 18.4853 21.6018 16 21.6018C13.5147 21.6018 11.5 19.5871 11.5 17.1018C11.5 14.6165 13.5147 12.6018 16 12.6018C18.4853 12.6018 20.5 14.6165 20.5 17.1018Z"
+                          stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </span>
+                    <span class="group-hover:font-medium transition-all duration-300">29/10/2024</span>
+                  </div>
+                </div>
+                <h3 class="text-base lg:text-lg font-bold text-primary-darkblue line-clamp-2 group-hover:text-primary-yellow group-hover:translate-x-1">
+                  <a href="#"
+                    class="">
+                    Thông báo tuyển sinh trình độ thạc sĩ đợt 2 năm 2024 Thông báo tuyển sinh trình độ thạc sĩ đợt 2 năm
+                    2024 Thông báo tuyển sinh trình độ thạc sĩ đợt 2 năm 2024
+                  </a>
+                </h3>
+                <div
+                  class="text-sm font-normal leading-[166.667%] text-black2 line-clamp-3 transition-colors duration-500 group-hover:text-black1">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting
+                  industry. Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum is simply dummy text of the
+                  printing and typesetting industry. Lorem Ipsum is simply dummy
+                  text of the printing and typesetting industry.
+                </div>
+              </div>
             </div>
           </div>
           {% endfor %}
+          <div class="flex justify-center items-center gap-2 sm:gap-3 mt-4">
+            <!-- Previous Page -->
+            <a href="#"
+              class="flex items-center justify-center size-8 sm:size-10 rounded-full border border-primary-darkblue text-gray-500 hover:border-primary-yellow hover:text-primary-yellow transition-colors">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+              </svg>
+            </a>
+
+            <!-- Page Numbers -->
+            <div class="flex items-center gap-1 sm:gap-2">
+              {% set pages = [1, 2, 3, '...', 8, 9, 10] %}
+              {% for page in pages %}
+              {% if page == '...' %}
+              <span class="flex items-center justify-center size-8 sm:size-10 text-sm sm:text-base text-gray-500">{{
+                page }}</span>
+              {% else %}
+              <a href="#"
+                class="flex items-center justify-center size-8 sm:size-10 rounded-full text-sm sm:text-base {% if page == 1 %}bg-primary-darkblue hover:bg-primary-yellow text-white{% else %}text-gray-700 hover:bg-secondary-subYellow hover:text-primary-yellow {% endif %} transition-colors">
+                {{ page }}
+              </a>
+              {% endif %}
+              {% endfor %}
+            </div>
+
+            <!-- Next Page -->
+            <a href="#"
+              class="flex items-center justify-center size-8 sm:size-10 rounded-full border border-primary-darkblue text-gray-500 hover:border-primary-yellow hover:text-primary-yellow transition-colors">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
 
-      <!-- Related News Section -->
-      <!-- <div class="border-t border-gray-200 pt-8" data-module="ChildRelatedNews">
-        <h2 class="text-xl lg:text-2xl font-bold text-navyBlue-800 flex items-center gap-3 mb-5 sm:mb-0">
-          <span class="size-10 rounded-xl bg-navyBlue-100 flex items-center justify-center"><svg
-              class="size-6 text-navyBlue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15M9 11l3 3m0 0l3-3m-3 3V8" />
-            </svg></span>
-
-          Tin tức liên quan
-        </h2>
-        <div class="w-full">
-          <div class="swiper child-related-news !pt-5 !pb-14 ">
-            <div class="swiper-wrapper">
-              {% for i in 1..3 %}
-              <div class="swiper-slide">
-                <div
-                  class="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500">
-                  <div class="relative aspect-video overflow-hidden">
-                    <img src="assets/images/gallery-{{ i }}.png" alt="Related News"
-                      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <div class="absolute bottom-3 left-3">
-                      <span class="px-2 py-1 rounded-full bg-white/90 text-xs text-navyBlue-800 font-medium">
-                        Tin tức
-                      </span>
-                    </div>
-                  </div>
-                  <div class="p-4">
-                    <div class="text-sm text-gray-600 mb-2 flex items-center gap-2">
-                      <span class="transition-colors duration-500">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24" fill="none">
-                          <path
-                            d="M16 15.3018V16.9893L16.9 18.0018M9 11.1018H4M20 9.10181V7.10181C20 5.99724 19.1046 5.10181 18 5.10181H6C4.89543 5.10181 4 5.99724 4 7.10181V19.1018C4 20.2064 4.89543 21.1018 6 21.1018H9M15 3.10181V7.10181M9 3.10181V7.10181M20.5 17.1018C20.5 19.5871 18.4853 21.6018 16 21.6018C13.5147 21.6018 11.5 19.5871 11.5 17.1018C11.5 14.6165 13.5147 12.6018 16 12.6018C18.4853 12.6018 20.5 14.6165 20.5 17.1018Z"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                          </path>
-                        </svg>
-                      </span>
-                      28/02/2024
-                    </div>
-                    <h3
-                      class="font-semibold text-navyBlue-800 line-clamp-2 group-hover:text-navyBlue-600 transition-colors">
-                      Sinh viên IUH đạt giải nhất cuộc thi Sáng tạo Khoa học Kỹ thuật
-                    </h3>
-                    <a href="#"
-                      class="mt-3 inline-flex items-center gap-2 text-navyBlue-600 text-sm font-medium group-hover:gap-3 transition-all">
-                      Xem chi tiết
-                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              {% endfor %}
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
 </div>

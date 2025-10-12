@@ -19,7 +19,7 @@ export default class HelloModule extends BaseModule {
           document.body.style.overflow = "auto";
         }, 500);
       }, loadingScreen.dataset.time); // 3 seconds delay
-      
+
     } else {
       setTimeout(() => {
         this.onShowMain();
@@ -38,7 +38,7 @@ export default class HelloModule extends BaseModule {
   moveElementsToBody() {
     const main = document.querySelector('main');
     if (!main) return;
-    
+
     // Move modals to body
     const modals = main.querySelectorAll('.modal');
     modals.forEach(modal => {
@@ -285,7 +285,7 @@ export default class HelloModule extends BaseModule {
     if (arrow) {
       arrow.style.transform = 'rotate(270deg)';
     }
-    card.classList.add('border-navyBlue-600');
+    card.classList.add('border-primary-darkblue');
   }
 
   removeActiveStyles(card) {
@@ -293,7 +293,7 @@ export default class HelloModule extends BaseModule {
     if (arrow) {
       arrow.style.transform = 'rotate(90deg)';
     }
-    card.classList.remove('border-navyBlue-600');
+    card.classList.remove('border-primary-darkblue');
   }
   initTabsGlobal() {
     const quarters = document.querySelectorAll(".iuhBtnTab");

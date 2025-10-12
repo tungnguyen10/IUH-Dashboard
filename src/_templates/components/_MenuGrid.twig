@@ -30,7 +30,7 @@
 
   {% for item in menus %}
   <div
-    class="w-full aspect-[280/200] bg-stroke1 rounded-xl group transition-all duration-300 hover:bg-navyBlue-50 hover:scale-105 hover:shadow-lg">
+    class="w-full aspect-[280/200] bg-stroke1 rounded-xl group transition-all duration-300 hover:bg-secondary-subYellow hover:scale-105 hover:shadow-lg">
     <a href="{{ item.url }}" class="flex flex-col items-center justify-center size-full gap-3 sm:gap-5 p-2 sm:p-4"
       aria-label="{{ item.name }}">
       <figure
@@ -39,7 +39,7 @@
           loading="lazy" />
       </figure>
       <h2
-        class="text-base sm:text-xl text-center font-semibold text-gray-800 group-hover:text-navyBlue-800 transition-colors duration-300">
+        class="text-base sm:text-xl text-center font-semibold text-primary-darkblue group-hover:text-primary-yellow transition-colors duration-300">
         {{ item.name }}
       </h2>
     </a>

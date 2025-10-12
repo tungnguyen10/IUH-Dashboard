@@ -1,0 +1,21 @@
+
+<div class="group text-lg lg:text-[1.2rem] md:leading-[1.5] font-bold text-titleColor hover:text-primary-yellow flex items-center gap-3 mb-5 sm:mb-0 {{ titleClass|default('') }}">
+  <span class="size-10 shrink-0 rounded-xl bg-secondary-subBlue text-primary-darkblue group-hover:text-primary-yellow flex items-center justify-center transition-all duration-300 group-hover:bg-secondary-subYellow ">
+    {% if svgIcon is defined %}
+      {{ svgIcon|raw }}
+    {% else %}
+      <svg class="size-6 text-primary-darkblue transition-colors duration-300 group-hover:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+      </svg>
+    {% endif %}
+  </span>
+
+  <a href="#" class="transition-transform duration-300 group-hover:translate-x-1">
+    <div class="uppercase ">{{ title }}</div>
+    {% if subtitle is defined %}
+      <div class="text-sm font-normal text-gray-600">{{ subtitle }}</div>
+    {% endif %}
+  </a>
+</div>
+

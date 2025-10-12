@@ -2,7 +2,7 @@
   <div class="w-full max-w-[1200px] px-4 mx-auto">
     <ol class="flex items-center py-4 md:py-5 text-sm">
       <li class="flex items-center">
-        <a href="/" class="text-black1 hover:text-navyBlue-800 transition-colors duration-200">
+        <a href="/" class="text-black1 hover:text-primary-yellow transition-colors duration-200">
           Trang chủ
         </a>
         <span class="mx-2 text-black1">/</span>
@@ -10,15 +10,15 @@
       {% for item in breadcrumbs %}
         <li class="flex items-center">
           {% if not loop.last %}
-            <a href="{{ item.url }}" class="text-navyBlue-600 hover:text-navyBlue-900 transition-colors duration-200">
+            <a href="{{ item.url }}" class="text-primary-darkblue hover:text-primary-yellow transition-colors duration-200">
               {{ item.title }}
             </a>
             <span class="mx-2 text-black1">/</span>
           {% else %}
-            <span class="text-navyBlue-800">{{ item.title }}</span>
+            <span class="text-primary-darkblue">{{ item.title }}</span>
           {% endif %}
         </li>
       {% endfor %}
     </ol>
   </div>
-</nav> 
+</nav>

@@ -3,743 +3,334 @@
 {% set pageClass = 'iuhNewsDetail' %}
 {% block page %}
 <div class="w-full py-4 pb-6 lg:pt-0 lg:pb-16 relative">
-<div class="w-full max-w-[1200px] px-4 mx-auto">
-<div class="w-full flex flex-col gap-8 sm:gap-14">
+  <div class="w-full max-w-[1200px] px-4 mx-auto">
+    <div class="w-full flex flex-col gap-8 sm:gap-14">
 
-<div class="flex flex-col-reverse lg:flex-row gap-10 md:gap-4">
-<div class="flex-col gap-4 flex md:gap-8 lg:gap-10 w-full lg:w-3/12">
-<!-- Organizational structure -->
-{% include './_templates/components/_MenuBar.twig' %}
-<!-- Video Section -->
-<div class="flex gap-4 flex-col">
-<h3
-class="text-lg lg:text-[1.2rem] font-semibold text-navyBlue-800 uppercase flex flex-row items-center gap-2">
-<svg class="size-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
-</path>
-</svg>Trường Đại học Công nghiệp TP.HCM
-</h3>
-<div class="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg">
-<iframe class="size-full" src="https://www.youtube.com/embed/cXyNKPR9WA4?si=N9mcSOSJHM5VcdER"
-title="YouTube video player" frameborder="0"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>
-</div>
-<!-- news special v1 -->
-<div class="flex flex-col gap-4">
-<div class="flex items-center justify-between">
-<h3
-class="text-lg lg:text-[1.2rem] font-semibold text-navyBlue-800 uppercase flex flex-row items-center gap-2">
-<svg class="size-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
-</svg>
-Thông Báo Nổi Bật
-</h3>
-</div>
+      <div class="flex flex-row gap-4">
+        <div class="flex-col gap-4 hidden xl:flex sm:gap-5 w-full lg:w-3/12">
+          <!-- Organizational structure  -->
+          {% include './_templates/components/_MenuBar.twig' %}
+          <!-- Video Section -->
+          <div class="flex gap-4 flex-col">
 
-<!-- Featured Articles -->
-<div class="space-y-2 ">
-{% set featuredNews = [
-{
-title: "Thông báo V/v nghỉ Tết Nguyên đán Giáp Thìn 2024",
-date: "02/02/2024",
-type: "HOT",
-typeColor: "bg-red",
-img: "assets/images/news-default.jpg"
-},
-{
-title: "Thông báo Tuyển sinh Thạc sĩ đợt 1 năm 2024",
-date: "25/01/2024",
-type: "Mới",
-typeColor: "bg-green-500",
-img: "assets/images/news-default.jpg"
-},
-{
-title: "Kế hoạch Tổ chức Lễ tốt nghiệp Đại học chính quy đợt 3 năm 2023",
-date: "20/01/2024",
-type: "Quan trọng",
-typeColor: "bg-orange-500",
-img: "assets/images/news-default.jpg"
-},
-{
-title: "Thông báo Đăng ký học phần học kỳ 2 năm học 2023-2024",
-date: "15/01/2024",
-img: "assets/images/news-default.jpg"
-},
-{
-title: "Lịch thi học kỳ 1 năm học 2023-2024 (cập nhật mới)",
-date: "10/01/2024",
-img: "assets/images/news-default.jpg"
-},
-{
-title: "Thông báo về việc nộp học phí học kỳ 2 năm học 2023-2024",
-date: "05/01/2024",
-img: "assets/images/news-default.jpg"
-}
-] %}
+            {% include './_templates/common/_TitleChild.twig' with {
+            title: 'Trường Đại học Công nghiệp TP.HCM',
+            titleClass: '',
+            svgIcon: '<svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+              </path>
+            </svg>'
+            } %}
+            <div class="relative aspect-[4/3] rounded-xl overflow-hidden shadow-lg">
+              <iframe class="size-full" src="https://www.youtube.com/embed/cXyNKPR9WA4?si=N9mcSOSJHM5VcdER"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
+          <!-- news special v1 -->
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center justify-between">
+              {% include './_templates/common/_TitleChild.twig' with {
+              title: 'Thông Báo Nổi Bật',
+              titleClass: '',
+              svgIcon: '<svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+              </svg>'
+              } %}
+            </div>
 
-{% for item in featuredNews %}
-<div
-class="group bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
-<a href="#" class="flex gap-3 p-3">
-<div
-class="flex flex-col w-1/3 aspect-[4/3] items-center justify-center shrink-0 border-r border-gray-100">
-<!-- <span class="text-lg font-bold text-navyBlue-800">{{ item.date|slice(0, 2) }}</span>
-<span class="text-xs text-gray-500">Th{{ item.date|slice(3, 2) }}</span> -->
-<img src="{{ item.img }}" alt="{{ item.title }}" class="size-full object-cover" />
-</div>
-<div class="flex-1 min-w-0">
-<div class="flex items-center gap-2 mb-1">
-{% if item.type %}
-<span class="px-2 py-1 rounded-full text-xs text-white {{ item.typeColor }}">{{ item.type
-}}</span>
-{% endif %}
-<span class="text-xs text-gray-500">{{ item.date }}</span>
-</div>
-<h4 class="font-medium text-black1 line-clamp-2 group-hover:text-navyBlue-600 transition-colors">
-{{ item.title }}
-</h4>
-</div>
-</a>
-</div>
-{% endfor %}
-</div>
-</div>
-<!-- news special v2 -->
-<div class="flex flex-col gap-4">
-<div class="flex items-center justify-between">
-<h3
-class="text-lg lg:text-[1.2rem] font-semibold text-navyBlue-800 uppercase flex flex-row items-center gap-2">
-<svg class="size-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
-</svg>
-Thông Báo Nổi Bật
-</h3>
-</div>
+            <!-- Featured Articles -->
+            <div class="space-y-2">
+              {% set featuredNews = [
+              {
+              title: "Thông báo V/v nghỉ Tết Nguyên đán Giáp Thìn 2024",
+              date: "02/02/2024",
+              type: "HOT",
+              typeColor: "bg-red",
+              img: "assets/images/news-default.jpg"
+              },
+              {
+              title: "Thông báo Tuyển sinh Thạc sĩ đợt 1 năm 2024",
+              date: "25/01/2024",
+              type: "Mới",
+              typeColor: "bg-green-500",
+              img: "assets/images/news-default.jpg"
+              },
+              {
+              title: "Kế hoạch Tổ chức Lễ tốt nghiệp Đại học chính quy đợt 3 năm 2023",
+              date: "20/01/2024",
+              type: "Quan trọng",
+              typeColor: "bg-orange-500",
+              img: "assets/images/news-default.jpg"
+              },
+              {
+              title: "Thông báo Đăng ký học phần học kỳ 2 năm học 2023-2024",
+              date: "15/01/2024",
+              img: "assets/images/news-default.jpg"
+              },
+              {
+              title: "Lịch thi học kỳ 1 năm học 2023-2024 (cập nhật mới)",
+              date: "10/01/2024",
+              img: "assets/images/news-default.jpg"
+              },
+              {
+              title: "Thông báo về việc nộp học phí học kỳ 2 năm học 2023-2024",
+              date: "05/01/2024",
+              img: "assets/images/news-default.jpg"
+              }
+              ] %}
 
-<!-- Featured Articles -->
-<div class="space-y-2 ">
-{% set featuredNews = [
-{
-title: "Thông báo V/v nghỉ Tết Nguyên đán Giáp Thìn 2024",
-date: "02/02/2024",
-type: "HOT",
-typeColor: "bg-red",
-img: "assets/images/news-default.jpg"
-},
-{
-title: "Thông báo Tuyển sinh Thạc sĩ đợt 1 năm 2024",
-date: "25/01/2024",
-type: "Mới",
-typeColor: "bg-green-500",
-img: "assets/images/news-default.jpg"
-},
-{
-title: "Kế hoạch Tổ chức Lễ tốt nghiệp Đại học chính quy đợt 3 năm 2023",
-date: "20/01/2024",
-type: "Quan trọng",
-typeColor: "bg-orange-500",
-img: "assets/images/news-default.jpg"
-},
-{
-title: "Thông báo Đăng ký học phần học kỳ 2 năm học 2023-2024",
-date: "15/01/2024",
-img: "assets/images/news-default.jpg"
-},
-{
-title: "Lịch thi học kỳ 1 năm học 2023-2024 (cập nhật mới)",
-date: "10/01/2024",
-img: "assets/images/news-default.jpg"
-},
-{
-title: "Thông báo về việc nộp học phí học kỳ 2 năm học 2023-2024",
-date: "05/01/2024",
-img: "assets/images/news-default.jpg"
-}
-] %}
+              {% for item in featuredNews %}
+              <div
+                class="group bg-white rounded-xl shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-secondary-yellow transform hover:-translate-y-1 overflow-hidden relative">
 
-{% for item in featuredNews %}
-<div
-class="group bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
-<a href="#" class="flex gap-3 p-3">
-<div
-class="flex flex-col w-12 aspect-[1/1] items-center justify-center shrink-0 border-r border-gray-100">
-<span class="text-lg font-bold text-navyBlue-800">{{ item.date|slice(0, 2) }}</span>
-<span class="text-xs text-gray-500">Th{{ item.date|slice(3, 2) }}</span>
-</div>
-<div class="flex-1 min-w-0">
-<div class="flex items-center gap-2 mb-1">
-{% if item.type %}
-<span class="px-2 py-1 rounded-full text-xs text-white {{ item.typeColor }}">{{ item.type
-}}</span>
-{% endif %}
-</div>
-<h4 class="font-medium text-black1 line-clamp-2 group-hover:text-navyBlue-600 transition-colors">
-{{ item.title }}
-</h4>
-</div>
-</a>
-</div>
-{% endfor %}
-</div>
-</div>
-<!-- Quick Links Box -->
-<div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
-<div class="bg-navyBlue-800 px-4 py-3">
-<h3 class="text-base font-semibold text-white uppercase flex flex-row items-center gap-2">
-<svg class="size-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-d="M13 10V3L4 14h7v7l9-11h-7z" />
-</svg>
-Truy cập nhanh
-</h3>
-</div>
-<div class="p-4 flex flex-col gap-2">
-{% set quickLinks = [
-{ title: 'E-Learning', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168
-18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5
-1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' },
-{ title: 'Thư viện số', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168
-18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5
-1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' },
-{ title: 'Lịch công tác', icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2
-2v12a2 2 0 002 2z' }
-] %}
-{% for link in quickLinks %}
-<a href="#" class="flex items-center gap-3 p-2 rounded-lg hover:bg-navyBlue-50 transition-colors">
-<svg class="size-6 shrink-0 text-navyBlue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ link.icon }}" />
-</svg>
-<span class="text-navyBlue-800 font-medium">{{ link.title }}</span>
-</a>
-{% endfor %}
-</div>
-</div>
-<!-- Statistics Box -->
-<div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
-<div class="bg-gradient-to-r from-navyBlue-800 to-navyBlue-700 px-4 py-3">
-<h3 class="text-base font-semibold text-white uppercase flex flex-row items-center gap-2">
-<svg class="size-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-</svg>
-Thống kê truy cập
-</h3>
-</div>
-<div class="p-4">
-<div class="grid grid-cols-2 gap-4">
-<div class="text-center p-3 bg-navyBlue-50 rounded-lg">
-<div class="text-2xl font-bold text-navyBlue-800">2,547</div>
-<div class="text-sm text-navyBlue-600">Hôm nay</div>
-</div>
-<div class="text-center p-3 bg-navyBlue-50 rounded-lg">
-<div class="text-2xl font-bold text-navyBlue-800">1.2M</div>
-<div class="text-sm text-navyBlue-600">Tổng</div>
-</div>
-</div>
-</div>
-</div>
+                <a href="#" class="flex gap-3 p-3 relative z-10">
+                  <div
+                    class="flex flex-col w-1/3 aspect-[4/3] items-center justify-center shrink-0  overflow-hidden rounded-lg">
+                    <img src="{{ item.img }}" alt="{{ item.title }}"
+                      class="size-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2 " />
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-1">
+                      {% if item.type %}
+                      <span
+                        class="px-2 py-1 rounded-full text-xs text-white {{ item.typeColor }} group-hover:scale-105 transition-transform duration-300">{{
+                        item.type }}</span>
+                      {% endif %}
+                      <span
+                        class="text-xs text-gray-500 group-hover:text-primary-yellow group-hover:font-medium transition-all duration-300">{{
+                        item.date }}</span>
+                    </div>
+                    <h4
+                      class="font-medium text-black1 line-clamp-2 group-hover:text-primary-yellow group-hover:translate-x-1 transition-all duration-500">
+                      {{ item.title }}
+                    </h4>
+                  </div>
 
-<!-- Contact Box -->
-<div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
-<div class="bg-gradient-to-r from-navyBlue-700 to-navyBlue-600 px-4 py-3">
-<h3 class="text-base font-semibold text-white uppercase flex flex-row items-center gap-2">
-<svg class="size-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-</svg>
-Liên hệ
-</h3>
-</div>
-<div class="p-4 flex flex-col gap-3">
-<a href="tel:02838940390" class="flex items-center gap-3 hover:text-navyBlue-600 transition-colors">
-<svg class="size-6 shrink-0 text-navyBlue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-</svg>
-<span>0283 8940 390</span>
-</a>
-<a href="mailto:dhcn@iuh.edu.vn"
-class="flex items-center gap-3 hover:text-navyBlue-600 transition-colors">
-<svg class="size-6 shrink-0 text-navyBlue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-</svg>
-<span>dhcn@iuh.edu.vn</span>
-</a>
-<div class="flex items-center gap-3">
-<svg class="size-6 shrink-0 text-navyBlue-600 shrink-0" fill="none" viewBox="0 0 24 24"
-stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-</svg>
-<span class="text-sm">12 Nguyễn Văn Bảo, P.4, Q.Gò Vấp, TP.HCM</span>
-</div>
-</div>
-</div>
+                </a>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="flex-1">
+          <!-- News Article Content -->
 
-<!-- Events Calendar Box -->
-<div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
-<div class="bg-gradient-to-r from-navyBlue-600 to-navyBlue-500 px-4 py-3">
-<h3 class="text-base font-semibold text-white uppercase flex flex-row items-center gap-2">
-<svg class="size-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-</svg>
-Sự kiện sắp tới
-</h3>
-</div>
-<div class="p-4 flex flex-col gap-3">
-{% set upcomingEvents = [
-{
-title: "Hội thảo Khoa học Công nghệ",
-date: "15/03/2024",
-location: "Hội trường A",
-time: "08:30"
-},
-{
-title: "Lễ tốt nghiệp Đợt 1/2024",
-date: "20/03/2024",
-location: "Hội trường B",
-time: "09:00"
-},
-{
-title: "Ngày hội việc làm IUH 2024",
-date: "25/03/2024",
-location: "Sân trường",
-time: "07:30"
-}
-] %}
+          <article class="bg-white rounded-xl shadow-lg overflow-hidden" role="article">
+            <!-- Hero Section -->
+            <div class="relative aspect-[16/9] sm:aspect-[21/9] overflow-hidden group">
+              <img src="assets/images/program-image.png" alt="Ban giám hiệu đại học công nghiệp TPHCM"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy">
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-primary-darkblue/90 via-primary-darkblue/50 to-transparent opacity-60 group-hover:opacity-75 transition-opacity duration-500"
+                aria-hidden="true">
+              </div>
+              <div
+                class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 transform group-hover:translate-y-0 transition-transform duration-500">
+                <div class="flex items-center gap-2 mb-3">
+                  <time datetime="2025-01-15"
+                    class="flex items-center gap-2 text-sm text-white group-hover:text-primary-yellow transition-colors duration-300">
+                    <svg class="w-4 h-4 group-hover:scale-110 transition-transform duration-300" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" role="img">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    15/01/2025
+                  </time>
+                </div>
+                <h2
+                  class="text-xl sm:text-2xl font-bold text-white group-hover:text-primary-yellow transition-colors duration-500">
+                  BAN GIÁM HIỆU - ĐẠI HỌC CÔNG NGHIỆP TP.HCM
+                </h2>
+              </div>
+            </div>
 
-{% for event in upcomingEvents %}
-<div class="group hover:bg-navyBlue-50 p-1 rounded-lg transition-colors">
-<div class="flex items-center gap-3">
-<div
-class="flex flex-col items-center justify-center shrink-0 size-16 rounded-lg bg-navyBlue-100 text-navyBlue-800">
-<span class="text-lg font-bold">{{ event.date|slice(0, 2) }}</span>
-<span class="text-xs">Th{{ event.date|slice(3, 2) }}</span>
-<span class="text-sm italic">
-{{ event.time }}
-</span>
-</div>
-<div class="flex-1">
-<h4 class="font-medium text-navyBlue-800 group-hover:text-navyBlue-600 transition-colors">{{
-event.title }}</h4>
-<div class="flex items-center gap-1 text-sm text-gray-600 mt-1">
-<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-</svg>
-{{ event.location }}
-</div>
-</div>
-</div>
-</div>
-{% endfor %}
+            <!-- Main Content -->
+            <div class="p-4 sm:p-6 lg:p-8 prose prose-lg w-full max-w-none iuhArticleContent">
+              <!-- Content intro -->
+              <div class="text-black1 leading-relaxed">
+                Ban Giám hiệu Đại học Công nghiệp TP.HCM (IUH) là đội ngũ lãnh đạo chủ chốt, giữ vai trò quan trọng
+                trong việc quản lý, điều hành và phát triển nhà trường. Với sứ mệnh đào tạo nguồn nhân lực chất lượng
+                cao, IUH không ngừng đổi mới chương trình giảng dạy, đầu tư cơ sở vật chất hiện đại và đẩy mạnh hợp tác
+                quốc tế nhằm đáp ứng yêu cầu của nền kinh tế số và hội nhập toàn cầu.
+              </div>
+              <p class="lead">
+                Chiều ngày 10/1/2025, tại Đại học Công nghiệp TP. HCM đã diễn ra Đại hội đảng viên Chi bộ 1 nhiệm kỳ
+                2025-2027.
+                Đại hội được chọn là đại hội điểm của Đảng ủy Đại học Công nghiệp TP. HCM.
+              </p>
 
-<a href="#"
-class="flex items-center justify-center gap-2 text-navyBlue-600 font-medium hover:gap-3 transition-all mt-2">
-Xem tất cả sự kiện
-<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-</svg>
-</a>
-</div>
-</div>
-<!-- Popular Tags Box -->
-<div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
-<div class="bg-gradient-to-r from-navyBlue-500 to-navyBlue-400 px-4 py-3">
-<h3 class="text-base font-semibold text-white uppercase flex flex-row items-center gap-2">
-<svg class="size-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z" />
-</svg>
-Chủ đề phổ biến
-</h3>
-</div>
-<div class="p-4">
-<div class="flex flex-wrap gap-2">
-{% set tags = [
-{name: 'Tuyển sinh 2024', count: 25},
-{name: 'Học bổng', count: 18},
-{name: 'Khoa học', count: 15},
-{name: 'Công nghệ', count: 12},
-{name: 'Sinh viên', count: 30},
-{name: 'Đào tạo', count: 22},
-{name: 'Việc làm', count: 16},
-{name: 'Hợp tác', count: 10}
-] %}
+              <p>
+                Đến tham dự đại hội có đồng chí Phan Hồng Hải – Ủy viên BTV Đảng ủy Khối, Bí thư Đảng ủy, Hiệu trưởng
+                Nhà trường;
+                đồng chí Hoàng Đơ – Phó Bí thư Đảng ủy; đồng chí Phạm Trung Kiên – Phó Bí thư Đảng ủy; các đại diện chi
+                bộ tại IUH
+                và 24 đảng viên của Chi bộ 1.
+              </p>
 
-{% for tag in tags %}
-<a href="#"
-class="px-3 py-1.5 rounded-full bg-navyBlue-50 text-navyBlue-600 text-sm hover:bg-navyBlue-100 transition-colors group">
-{{ tag.name }}
-<span class="text-xs text-navyBlue-500 group-hover:text-navyBlue-700 transition-colors">({{
-tag.count }})</span>
-</a>
-{% endfor %}
-</div>
-</div>
-</div>
-<!-- Social Media Feed -->
-<div class="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100">
-<div class="bg-gradient-to-r from-navyBlue-400 to-navyBlue-300 px-4 py-3">
-<h3 class="text-base font-semibold text-white uppercase flex flex-row items-center gap-2">
-<svg class="size-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
-</svg>
-Mạng xã hội
-</h3>
-</div>
-<div class="divide-y divide-gray-100">
-{% set socialPosts = [
-{
-platform: 'facebook',
-content: 'Chúc mừng đội tuyển sinh viên IUH đạt giải Nhất cuộc thi KHKT 2024! 🎉',
-time: '2 giờ trước',
-engagement: '1.2k thích'
-},
-{
-platform: 'youtube',
-content: 'Video mới: Tham quan khuôn viên Đại học Công nghiệp TP.HCM 🎥',
-time: '5 giờ trước',
-engagement: '3.5k xem'
-},
-{
-platform: 'facebook',
-content: 'Thông báo quan trọng về lịch thi học kỳ 2 năm học 2023-2024 📢',
-time: '1 ngày trước',
-engagement: '856 thích'
-}
-] %}
+              <p>
+                Báo cáo tổng kết nhiệm kỳ 2022-2025 khẳng định nhiều kết quả tích cực đã đạt được như: nâng cao chất
+                lượng
+                giáo dục chính trị - tư tưởng, quản lý và phát triển đảng viên, thực hiện đúng nguyên tắc tập trung dân
+                chủ,
+                nâng cao chất lượng sinh hoạt chi bộ.
+              </p>
 
-{% for post in socialPosts %}
-<div class="p-4 hover:bg-navyBlue-50 transition-colors">
-<p class="text-sm text-black1 mb-2">{{ post.content }}</p>
-<div class="flex items-center justify-between text-xs text-gray-500">
-<span>{{ post.time }}</span>
-<span>{{ post.engagement }}</span>
-</div>
-</div>
-{% endfor %}
-</div>
-<div class="p-4 bg-gray-50">
-<div class="flex items-center justify-between gap-4">
-{% set socialLinks = [
-{platform: 'Facebook', url: '#', color: 'bg-blue-500'},
-{platform: 'Youtube', url: '#', color: 'bg-red-500'},
-{platform: 'Tiktok', url: '#', color: 'bg-black'}
-] %}
+              <h2 class="text-xl font-bold text-primary-darkblue mt-6">Các tham luận tại đại hội</h2>
+              <ul class="list-disc pl-6 space-y-2">
+                <li>
+                  Đồng chí Trịnh Ngọc Nam – Trưởng phòng QLKH & HTQT: "Thúc đẩy hoạt động khoa học công nghệ tại
+                  Đại học Công nghiệp TP. HCM."
+                </li>
+                <li>
+                  Đồng chí Phạm Trung Kiên – Trưởng phòng TCHC: "Các giải pháp phát triển đội ngũ giảng viên theo
+                  định hướng của Nhà trường."
+                </li>
+              </ul>
 
-{% for link in socialLinks %}
-<a href="{{ link.url }}" class="flex-1">
-<div
-class="flex items-center justify-center gap-2 p-2 rounded-lg {{ link.color }} text-white text-sm hover:opacity-90 transition-opacity">
-<span>{{ link.platform }}</span>
-</div>
-</a>
-{% endfor %}
-</div>
-</div>
-</div>
-</div>
-<div class="flex-1">
+              <blockquote class="border-l-4 border-pritext-primary-darkblue pl-4 my-6">
+                Trong bài phát biểu chỉ đạo, đồng chí Phan Hồng Hải nhấn mạnh ý nghĩa của đại hội điểm, đánh giá cao
+                kết quả đạt được và chỉ đạo các nhiệm vụ trọng tâm cho nhiệm kỳ mới, đặc biệt chú trọng vào nâng cao
+                chất lượng đào tạo, hỗ trợ người học và phát triển nguồn nhân lực.
+              </blockquote>
 
-<!-- News Article Content -->
-<article class="bg-white rounded-xl shadow-lg overflow-hidden">
-<!-- Hero Image -->
-<div class="relative aspect-[16/9] sm:aspect-[21/9] overflow-hidden">
-<img src="assets/images/default.jpg" alt="Đại hội Chi bộ 1" class="w-full h-full object-cover">
-<div class="absolute inset-0 bg-gradient-to-t from-navyBlue-900/90 via-navyBlue-900/50 to-transparent opacity-60"></div>
-<div class="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
-<div class="flex items-center gap-2 mb-3">
-<span class="flex items-center gap-2 text-sm text-white">
-<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-</svg>
-15/01/2025
-</span>
-</div>
-<h1 class="text-xl sm:text-2xl sm:text-3xl font-bold text-white">
-Nâng cao tính giáo dục trong sinh hoạt chi bộ - Đại hội Chi bộ 1 nhiệm kỳ 2025 - 2027
-</h1>
-</div>
-</div>
+              <h2 class="text-xl font-bold text-primary-darkblue mt-6">Ban Chi ủy nhiệm kỳ 2025-2027</h2>
+              <ul class="list-disc pl-6 space-y-2">
+                <li>Đồng chí Lê Ngọc Sơn – Bí thư</li>
+                <li>Đồng chí Phạm Thị Quế Minh – Phó Bí thư</li>
+                <li>Đồng chí Trịnh Ngọc Nam – Chi ủy viên</li>
+              </ul>
 
-<!-- Article Content -->
-<div class="p-4 sm:p-6 lg:p-8 prose prose-lg max-w-none iuhArticleContent">
+              <p class="italic mt-6">
+                Chi ủy mới cam kết sẽ lãnh đạo chi bộ hoàn thành thắng lợi các nhiệm vụ đã đề ra trong Nghị quyết Đại
+                hội.
+              </p>
 
-<p class="lead mt-4">
-Chiều ngày 10/1/2025, tại Đại học Công nghiệp TP. HCM đã diễn ra Đại hội đảng viên Chi bộ 1 nhiệm kỳ
-2025-2027. Đại hội được chọn là đại hội điểm của Đảng ủy Đại học Công nghiệp TP. HCM.
-</p>
 
-<!-- Add image after introduction -->
-<figure class="my-8">
-<img src="assets/images/default.jpg" alt="Đại hội Chi bộ 1">
-<figcaption>Toàn cảnh Đại hội Chi bộ 1 nhiệm kỳ 2025-2027</figcaption>
-</figure>
 
-<p>
-Đến tham dự đại hội có đồng chí Phan Hồng Hải – Ủy viên BTV Đảng ủy Khối, Bí thư Đảng ủy, Hiệu trưởng
-Nhà trường                                                                                                                                   ;
-đồng chí Hoàng Đơ – Phó Bí thư Đảng ủy                                                                                          ; đồng chí Phạm Trung Kiên – Phó Bí thư Đảng ủy; các đại diện chi
-bộ tại IUH
-và 24 đảng viên của Chi bộ 1.
-</p>
 
-<p>
-Báo cáo tổng kết nhiệm kỳ 2022-2025 khẳng định nhiều kết quả tích cực đã đạt được như: nâng cao chất
-lượng
-giáo dục chính trị - tư tưởng, quản lý và phát triển đảng viên, thực hiện đúng nguyên tắc tập trung dân
-chủ,
-nâng cao chất lượng sinh hoạt chi bộ.
-</p>
-
-<h2 class="">Các tham luận tại đại hội</h2>
-<ul class="">
-<li>
-Đồng chí Trịnh Ngọc Nam – Trưởng phòng QLKH & HTQT: "Thúc đẩy hoạt động khoa học công nghệ tại
-Đại học Công nghiệp TP. HCM."
-</li>
-<li>
-Đồng chí Phạm Trung Kiên – Trưởng phòng TCHC: "Các giải pháp phát triển đội ngũ giảng viên theo
-định hướng của Nhà trường."
-</li>
-</ul>
-
-<blockquote class="">
-Trong bài phát biểu chỉ đạo, đồng chí Phan Hồng Hải nhấn mạnh ý nghĩa của đại hội điểm, đánh giá cao
-kết quả đạt được và chỉ đạo các nhiệm vụ trọng tâm cho nhiệm kỳ mới, đặc biệt chú trọng vào nâng cao
-chất lượng đào tạo, hỗ trợ người học và phát triển nguồn nhân lực.
-</blockquote>
-
-<h2 class="">Ban Chi ủy nhiệm kỳ 2025-2027</h2>
-<ul class="">
-<li>Đồng chí Lê Ngọc Sơn – Bí thư</li>
-<li>Đồng chí Phạm Thị Quế Minh – Phó Bí thư</li>
-<li>Đồng chí Trịnh Ngọc Nam – Chi ủy viên</li>
-</ul>
-
-<p class="">
-Chi ủy mới cam kết sẽ lãnh đạo chi bộ hoàn thành thắng lợi các nhiệm vụ đã đề ra trong Nghị quyết Đại
-hội.
-</p>
-
-<!-- Add new section about achievements -->
-<h2>Thành tựu nổi bật trong nhiệm kỳ 2022-2025</h2>
-
-<table class="w-full my-6">
-<thead>
-<tr>
-<th>Chỉ tiêu</th>
-<th>2022</th>
-<th>2023</th>
-<th>2024</th>
-<th>Tăng trưởng</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Số lượng đảng viên mới</td>
-<td>15</td>
-<td>18</td>
-<td>22</td>
-<td class="text-green-600">+46.7%</td>
-</tr>
-<tr>
-<td>Công trình nghiên cứu</td>
-<td>24</td>
-<td>28</td>
-<td>35</td>
-<td class="text-green-600">+45.8%</td>
-</tr>
-<tr>
-<td>Hoạt động cộng đồng</td>
-<td>12</td>
-<td>16</td>
-<td>20</td>
-<td class="text-green-600">+66.7%</td>
-</tr>
-</tbody>
-</table>
-
-<!-- Add key activities section -->
-<h2>Hoạt động tiêu biểu</h2>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-<div class="bg-navyBlue-50/50 rounded-xl p-6">
-<h3 class="text-lg font-semibold text-navyBlue-800 mb-4">Nghiên cứu khoa học</h3>
-<ul class="space-y-3">
-<li>35 đề tài nghiên cứu các cấp</li>
-<li>15 bài báo quốc tế ISI/Scopus</li>
-<li>25 bài báo trong nước</li>
-<li>02 sáng chế được cấp bằng</li>
-</ul>
-</div>
-<div class="bg-navyBlue-50/50 rounded-xl p-6">
-<h3 class="text-lg font-semibold text-navyBlue-800 mb-4">Phát triển đảng viên</h3>
-<ul class="space-y-3">
-<li>55 đảng viên chính thức</li>
-<li>22 đảng viên mới kết nạp</li>
-<li>15 lớp bồi dưỡng nhận thức</li>
-<li>100% đảng viên hoàn thành nhiệm vụ</li>
-</ul>
-</div>
-</div>
-
-<!-- Add image gallery -->
-<h2>Hình ảnh hoạt động</h2>
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-8">
-<figure>
-<img src="assets/images/default.jpg" alt="Hoạt động 1"
-class="rounded-lg shadow-md hover:shadow-xl transition-shadow">
-<figcaption>Lễ kết nạp đảng viên mới</figcaption>
-</figure>
-<figure>
-<img src="assets/images/default.jpg" alt="Hoạt động 2"
-class="rounded-lg shadow-md hover:shadow-xl transition-shadow">
-<figcaption>Sinh hoạt chuyên đề</figcaption>
-</figure>
-<figure>
-<img src="assets/images/default.jpg" alt="Hoạt động 3"
-class="rounded-lg shadow-md hover:shadow-xl transition-shadow">
-<figcaption>Hoạt động tình nguyện</figcaption>
-</figure>
-</div>
-
-<!-- Add conclusion -->
-<div class="bg-gradient-to-r from-navyBlue-50 to-transparent p-6 rounded-xl my-8">
-<h2 class="text-navyBlue-800">Phương hướng nhiệm kỳ 2025-2027</h2>
-<ul class="mt-4 space-y-2">
-<li>Phát triển đảng viên mới với chỉ tiêu 25 đảng viên/năm</li>
-<li>Nâng cao chất lượng sinh hoạt chi bộ</li>
-<li>Đẩy mạnh công tác nghiên cứu khoa học</li>
-<li>Tăng cường hoạt động phục vụ cộng đồng</li>
-</ul>
-</div>
-
-<!-- Article Footer -->
-<div class="flex items-center justify-between mt-8 pt-6 border-t border-gray-200">
-<div class="flex items-center gap-4">
-<span class="text-sm text-gray-600">Chia sẻ:</span>
-<div class="flex items-center gap-2">
-<div class="text-navyBlue-600 hover:text-navyBlue-800 transition-colors">
-<svg class="size-6 shrink-0" fill="currentColor" viewBox="0 0 24 24">
-<path
-d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z" />
-</svg>
-</div>
-<a href="#" class="text-navyBlue-600 hover:text-navyBlue-800 transition-colors">
-<svg class="size-6 shrink-0" fill="currentColor" viewBox="0 0 24 24">
-<path
-d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z" />
-</svg>
-</a>
-</div>
-</div>
-<div class="flex items-center gap-2 text-sm text-gray-600">
-<svg class="size-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-</svg>
-1.2k lượt xem
-</div>
-</div>
-</div>
-</article>
-</div>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-{% set list = [ { title: 'Thành tích học tập', url: '#',
-img: 'assets/images/icons/graduation-certificate.png' }, { title: 'Thông tin học bổng',
-url: '#', img: 'assets/images/icons/scholarship.png' }, { title: 'Chuyên trang đào tạo', url: '#', img:
-'assets/images/icons/training.png' },
-{ title: 'Thông tin đoàn - Hội', url: '#', img: 'assets/images/icons/group.png' },
-{ title: 'Chuyên trang việc làm', url: '#', img: 'assets/images/icons/job-seeker.png' },
-{ title: 'Chuyên trang Cựu sinh viên', url: '#', img: 'assets/images/icons/student.png' }
-] %} {%
-for item in list %}
-<a href="{{ item.url }}"
-class="flex w-full items-center gap-2 rounded-lg p-2 border border-gray-100 bg-gray-50/80 px-4 py-2 transition-all duration-300 hover:bg-navyBlue-50 hover:border-navyBlue-50 hover:scale-105 shadow-md">
-<span class="text-sm font-medium flex-1">{{ item.title }}</span>
-<span class="size-10 shrink-0">
-<img src="{{ item.img }}" alt="{{ item.title }}" class="size-full object-cover" />
-</span>
-</a>
-{% endfor %}
-</div>
-<!-- Related News Section -->
-<div class="border-t border-gray-200 pt-8" data-module="ChildRelatedNews">
-<h2 class="text-lg lg:text-[1.2rem] font-bold text-navyBlue-800 flex items-center gap-3 mb-5 sm:mb-0">
-<span class="size-10 rounded-xl bg-navyBlue-100 flex items-center justify-center"><svg
-class="size-6 text-navyBlue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15M9 11l3 3m0 0l3-3m-3 3V8" />
-</svg></span>
-
-Tin tức liên quan
-</h2>
-<div class="w-full">
-<div class="swiper child-related-news !pt-5 !pb-14 ">
-<div class="swiper-wrapper">
-{% for i in 1..3 %}
-<div class="swiper-slide">
-<div
-class="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500">
-<div class="relative aspect-video overflow-hidden">
-<img src="assets/images/gallery-{{ i }}.png" alt="Related News"
-class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-<div class="absolute bottom-3 left-3">
-<span class="px-2 py-1 rounded-full bg-white/90 text-xs text-navyBlue-800 font-medium">
-Tin tức
-</span>
-</div>
-</div>
-<div class="p-4">
-<div class="text-sm text-gray-600 mb-2 flex items-center gap-2">
-<span class="transition-colors duration-500">
-<svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24" fill="none">
-<path
-d="M16 15.3018V16.9893L16.9 18.0018M9 11.1018H4M20 9.10181V7.10181C20 5.99724 19.1046 5.10181 18 5.10181H6C4.89543 5.10181 4 5.99724 4 7.10181V19.1018C4 20.2064 4.89543 21.1018 6 21.1018H9M15 3.10181V7.10181M9 3.10181V7.10181M20.5 17.1018C20.5 19.5871 18.4853 21.6018 16 21.6018C13.5147 21.6018 11.5 19.5871 11.5 17.1018C11.5 14.6165 13.5147 12.6018 16 12.6018C18.4853 12.6018 20.5 14.6165 20.5 17.1018Z"
-stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-</path>
-</svg>
-</span>
-28/02/2024
-</div>
-<h3
-class="font-semibold text-navyBlue-800 line-clamp-2 group-hover:text-navyBlue-600 transition-colors">
-Sinh viên IUH đạt giải nhất cuộc thi Sáng tạo Khoa học Kỹ thuật
-</h3>
-<a href="#"
-class="mt-3 inline-flex items-center gap-2 text-navyBlue-600 text-sm font-medium group-hover:gap-3 transition-all">
-Xem chi tiết
-<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-d="M17 8l4 4m0 0l-4 4m4-4H3" />
-</svg>
-</a>
-</div>
-</div>
-</div>
-{% endfor %}
-</div>
-<div class="swiper-pagination"></div>
-</div>
-</div>
-</div>
-</div>
-</div>
+              <!-- Footer/Share Section -->
+              <div class="flex items-center justify-between mt-8 pt-6 border-t border-gray-200">
+                <div class="flex items-center gap-4">
+                  <span class="text-sm text-gray-600">Chia sẻ:</span>
+                  <div class="flex items-center gap-2" role="group" aria-label="Chia sẻ mạng xã hội">
+                    <!-- Social share buttons with proper aria-labels -->
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.iuh.edu.vn/vi/dang-uy.html"
+                      target="_blank" rel="noopener noreferrer" aria-label="Chia sẻ trên Facebook"
+                      class="text-primary-darkblue hover:text-primary-darkblue transition-colors">
+                      <svg class="size-6 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                          d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z">
+                        </path>
+                      </svg>
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?text=Đảng ủy nhiệm kỳ 2020 - 2025&amp;url=https://www.iuh.edu.vn/vi/dang-uy.html"
+                      target="_blank" rel="noopener noreferrer" aria-label="Chia sẻ trên Twitter"
+                      class="text-primary-darkblue hover:text-primary-darkblue transition-colors">
+                      <svg class="size-6 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                          d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z">
+                        </path>
+                      </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://example.com" target="_blank"
+                      rel="noopener noreferrer" aria-label="Chia sẻ trên LinkedIn">
+                      <svg class="size-6 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                          d="M22.23 0H1.77C0.79 0 0 0.77 0 1.72v20.56C0 23.23 0.79 24 1.77 24h20.46c0.98 0 1.77-0.77 1.77-1.72V1.72C24 0.77 23.21 0 22.23 0zM7.06 20.45H3.56V9h3.5v11.45zM5.31 7.57c-1.12 0-2.03-0.91-2.03-2.03s0.91-2.03 2.03-2.03 2.03 0.91 2.03 2.03-0.91 2.03-2.03 2.03zM20.45 20.45h-3.5v-5.57c0-1.33-0.03-3.05-1.86-3.05s-2.15 1.45-2.15 2.95v5.67h-3.5V9h3.36v1.56h0.05c0.47-0.9 1.62-1.86 3.33-1.86 3.57 0 4.23 2.35 4.23 5.4v6.35z">
+                        </path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2 text-sm text-gray-600" aria-label="Số lượt xem">
+                  <svg class="size-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                    </path>
+                  </svg>
+                  16 lượt xem
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="border-t border-gray-200 pt-8" data-module="ChildRelatedNews">
+        {% include './_templates/common/_TitleChild.twig' with {
+        title: 'Tin tức liên quan',
+        titleClass: '',
+        subtitle: 'Xem thêm các Tin tức khác',
+        svgIcon: '<svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15M9 11l3 3m0 0l3-3m-3 3V8" />
+        </svg>'
+        } %}
+        <div class="w-full">
+          <div class="swiper child-related-news !pt-5 !pb-14 ">
+            <div class="swiper-wrapper">
+              {% for i in 1..3 %}
+              <div class="swiper-slide">
+                <div
+                  class="group bg-white rounded-xl transition-all duration-500 border border-gray-100 hover:border-secondary-yellow transform hover:-translate-y-1 overflow-hidden p-2.5">
+                  <div class="relative aspect-video rounded-lg overflow-hidden w-full shrink-0">
+                    <a href="#" class="absolute inset-0 size-full">
+                      <img src="assets/images/news-image.png" alt="news-noti"
+                        class="size-full object-cover transition-all duration-700 group-hover:scale-110">
+                    </a>
+                  </div>
+                  <div class="flex flex-col gap-2.5 flex-1 mt-2">
+                    <div class="flex gap-2 items-center">
+                      <div
+                        class="flex max-w-[130px] items-center gap-1 border border-secondary-subBlue italic text-sm font-normal rounded-1.25 pl-1.25 pr-2.5 py-1 transition-all duration-300 group-hover:bg-secondary-subYellow group-hover:border-primary-yellow group-hover:text-primary-yellow">
+                        <span class="text-primary-yellow transition-colors duration-300">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24" fill="none">
+                            <path
+                              d="M16 15.3018V16.9893L16.9 18.0018M9 11.1018H4M20 9.10181V7.10181C20 5.99724 19.1046 5.10181 18 5.10181H6C4.89543 5.10181 4 5.99724 4 7.10181V19.1018C4 20.2064 4.89543 21.1018 6 21.1018H9M15 3.10181V7.10181M9 3.10181V7.10181M20.5 17.1018C20.5 19.5871 18.4853 21.6018 16 21.6018C13.5147 21.6018 11.5 19.5871 11.5 17.1018C11.5 14.6165 13.5147 12.6018 16 12.6018C18.4853 12.6018 20.5 14.6165 20.5 17.1018Z"
+                              stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                          </svg>
+                        </span>
+                        <span class="transition-colors duration-300">29/10/2024</span>
+                      </div>
+                      <span
+                        class="px-2 py-1 rounded-full bg-white/90 text-xs text-primary-darkblue font-medium group-hover:scale-105 transition-transform duration-300">
+                        Thông báo
+                      </span>
+                    </div>
+                    <h3
+                      class="text-base font-bold text-primary-darkblue line-clamp-2 group-hover:text-primary-yellow group-hover:translate-x-1 transition-all duration-500">
+                      <a href="#">Thông báo tuyển sinh trình độ thạc sĩ đợt 2 năm 2024</a>
+                    </h3>
+                    <p
+                      class="text-sm lg:text-base font-normal leading-[166.667%] text-black2 line-clamp-2 transition-colors duration-300 group-hover:text-gray-700">
+                      Lorem Ipsum is simply dummy text of the printing and typesetting
+                      industry. Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum is simply dummy text of the
+                      printing and typesetting industry. Lorem Ipsum is simply dummy
+                      text of the printing and typesetting industry. Lorem Ipsum is
+                      simply dummy text of the printing and typesetting industry. Lorem
+                      Ipsum is simply dummy text of the printing and typesetting
+                      industry. Lorem Ipsum is simply dummy text of the printing and
+                      typesetting industry. Lorem Ipsum is simply dummy text of the
+                      printing and typesetting industry.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

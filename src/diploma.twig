@@ -6,15 +6,15 @@
     {% include "./_components/page-header.twig" with {
       title: 'TRA CỨU VĂN BẰNG'
     } %}
-    
+
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <!-- Search Form -->
       <div class="w-full">
         <div class="bg-white rounded-xl shadow-md p-6 sm:p-8 border border-gray-200">
           <form class="space-y-6">
             <!-- Note about search conditions -->
-            <div class="p-4 bg-navyBlue-50 rounded-lg">
-              <p class="text-sm text-navyBlue-800">
+            <div class="p-4 bg-secondary-subBlue rounded-lg">
+              <p class="text-sm text-primary-darkblue">
                 <span class="font-semibold">Điều kiện tra cứu:</span><br/>
                 (MSSV + Họ tên + Ngày sinh) hoặc (Số hiệu văn bằng)
               </p>
@@ -30,7 +30,7 @@
                 id="studentId"
                 name="studentId"
                 required
-                class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-navyBlue-300 focus:border-navyBlue-500 transition-all duration-300 outline-none"
+                class="w-full px-4 py-2.5 rounded-lg border border-gray-300 transition-all duration-300 outline-none"
                 placeholder="Nhập mã sinh viên"
               />
             </div>
@@ -45,7 +45,7 @@
                 id="fullName"
                 name="fullName"
                 required
-                class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-navyBlue-300 focus:border-navyBlue-500 transition-all duration-300 outline-none"
+                class="w-full px-4 py-2.5 rounded-lg border border-gray-300 transition-all duration-300 outline-none"
                 placeholder="Nhập họ tên"
               />
             </div>
@@ -60,7 +60,7 @@
                 id="dateOfBirth"
                 name="dateOfBirth"
                 required
-                class="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-navyBlue-300 focus:border-navyBlue-500 transition-all duration-300 outline-none"
+                class="w-full px-4 py-2.5 rounded-lg border border-gray-300 transition-all duration-300 outline-none"
               />
             </div>
 
@@ -76,20 +76,20 @@
                     id="captcha"
                     name="captcha"
                     required
-                    class="flex-1 min-w-0 px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-navyBlue-300 focus:border-navyBlue-500 transition-all duration-300 outline-none"
+                    class="flex-1 min-w-0 px-4 py-2.5 rounded-lg border border-gray-300 transition-all duration-300 outline-none"
                     placeholder="Nhập mã bảo vệ"
                   />
                 </div>
                 <div class="flex items-center gap-3 order-1 sm:order-2">
-                  <div class="flex-shrink-0 w-32 h-[42px] bg-gray-100 rounded-lg flex items-center justify-center">
-                    <span class="text-lg font-mono font-bold tracking-wider text-gray-700">ABC123</span>
+                  <div class="group flex-shrink-0 w-32 h-[42px] bg-secondary-subBlue rounded-lg flex items-center justify-center hover:bg-primary-yellow/20 transition-all duration-300 hover:shadow-lg">
+                    <span class="text-lg font-mono font-bold tracking-wider text-primary-darkblue group-hover:text-primary-yellow transition-colors duration-300">ABC123</span>
                   </div>
-                  <button 
+                  <button
                     type="button"
-                    class="flex-shrink-0 p-2 text-navyBlue-600 hover:text-navyBlue-800 transition-colors duration-300 active:scale-95"
+                    class="group flex-shrink-0 p-2 text-primary-darkblue hover:text-primary-yellow bg-secondary-subBlue/30 hover:bg-primary-yellow/20 rounded-lg transition-all duration-300 hover:scale-110 hover:rotate-12 hover:shadow-lg"
                     title="Làm mới mã bảo vệ"
                   >
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-6 h-6 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                     </svg>
                   </button>
@@ -100,22 +100,22 @@
             <!-- Submit Button -->
             <div class="pt-4 flex flex-col sm:flex-row gap-4">
               <button
-                type="submit"
-                class="w-full sm:w-auto px-6 py-2.5 bg-navyBlue-600 text-white font-medium rounded-lg hover:bg-navyBlue-700 focus:ring-4 focus:ring-navyBlue-300 transition-all duration-300 active:scale-95 flex items-center justify-center gap-2"
+              type="submit"
+              class="w-full sm:w-auto px-6 py-2.5 bg-primary-darkblue text-white font-medium rounded-lg hover:bg-primary-yellow hover:text-white focus:ring-4 focus:ring-primary-yellow/30 transition-all duration-300 active:scale-95 hover:shadow-lg hover:-translate-y-0.5 flex items-center justify-center gap-2"
               >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-                Tra cứu
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              Tra cứu
               </button>
               <button
-                type="reset"
-                class="w-full sm:w-auto px-6 py-2.5 bg-gray-100 text-gray-700 font-medium rounded-lg hover:bg-gray-200 focus:ring-4 focus:ring-gray-200 transition-all duration-300 active:scale-95 flex items-center justify-center gap-2"
+              type="reset"
+              class="w-full sm:w-auto px-6 py-2.5 bg-gray-100 text-gray-700 font-medium rounded-lg hover:bg-primary-yellow hover:text-white hover:shadow-md focus:ring-4 focus:ring-primary-yellow transition-all duration-300 active:scale-95 hover:-translate-y-0.5 flex items-center justify-center gap-2"
               >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-                Xóa
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+              Xóa
               </button>
             </div>
           </form>
@@ -125,18 +125,18 @@
       <!-- Instructions or Additional Information -->
       <div class="w-full">
         <div class="bg-white rounded-xl shadow-md p-6 sm:p-8 border border-gray-200">
-          <h3 class="text-lg sm:text-xl font-semibold text-navyBlue-800 mb-4">
+          <h3 class="text-lg sm:text-xl font-semibold text-primary-darkblue mb-4">
             Hướng dẫn tra cứu
           </h3>
           <div class="space-y-4 text-gray-600">
             <p>Để tra cứu thông tin văn bằng, vui lòng sử dụng một trong hai cách sau:</p>
             <div class="pl-5 space-y-2">
               <p class="flex items-start gap-2">
-                <span class="text-navyBlue-600 font-bold">1.</span>
+                <span class="text-primary-darkblue font-bold">1.</span>
                 Nhập đầy đủ Mã sinh viên, Họ tên và Ngày sinh
               </p>
               <p class="flex items-start gap-2">
-                <span class="text-navyBlue-600 font-bold">2.</span>
+                <span class="text-primary-darkblue font-bold">2.</span>
                 Nhập Số hiệu văn bằng
               </p>
             </div>

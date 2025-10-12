@@ -11,10 +11,10 @@
 
     <div class="flex flex-row gap-4 mt-12 sm:mt-16">
       <div class="w-3/12 flex-col gap-8 hidden xl:flex">
-          <!-- Organizational structure -->
-          {% include './_templates/components/_MenuBar.twig' %}
+        <!-- Organizational structure -->
+        {% include './_templates/components/_MenuBar.twig' %}
         <div class="flex flex-col gap-6">
-          <h3 class="text-xl font-bold text-navyBlue-800 flex items-center gap-2">
+          <h3 class="text-xl font-bold text-primary-darkblue flex items-center gap-2">
             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15" />
@@ -39,333 +39,389 @@
             ] %}
 
             {% for item in recentNews %}
-            <a href="#" class="group block bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
-              <div class="flex gap-3 p-3">
+            <a href="#"
+              class="group block bg-white rounded-xl shadow-sm hover:shadow-2xl border border-gray-100 hover:border-primary-yellow/30 transition-all duration-500 overflow-hidden transform hover:-translate-y-2">
+              <div class="flex gap-3 p-3 relative">
+                <!-- Hover Background Effect -->
+                <div
+                  class="absolute inset-0 bg-gradient-to-br from-primary-yellow/0 to-primary-yellow/0 group-hover:from-primary-yellow/5 group-hover:to-primary-darkblue/5 transition-all duration-700">
+                </div>
+
+                <!-- Animated Border Glow -->
+                <div
+                  class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-primary-yellow/20 via-primary-yellow/30 to-primary-yellow/20 blur-sm">
+                </div>
+
+                <!-- Decorative Element -->
+                <div
+                  class="absolute -bottom-2 -right-2 w-20 h-20 bg-primary-yellow/5 rounded-full blur-2xl group-hover:bg-primary-yellow/10 transition-all duration-700 group-hover:scale-150">
+                </div>
+
                 <!-- Thumbnail -->
-                <div class="w-20 h-20 shrink-0 rounded-lg overflow-hidden">
+                <div
+                  class="relative w-20 h-20 shrink-0 rounded-lg overflow-hidden ring-2 ring-gray-100 group-hover:ring-primary-yellow/50 group-hover:shadow-lg transition-all duration-500">
                   <img src="{{ item.image }}" alt="{{ item.title }}"
-                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-3 ">
+                  <div
+                    class="absolute inset-0 bg-gradient-to-br from-primary-darkblue/0 via-transparent to-primary-darkblue/0 group-hover:from-primary-darkblue/20 group-hover:to-primary-yellow/10 transition-all duration-500">
+                  </div>
                 </div>
 
                 <!-- Content -->
-                <div class="flex-1 min-w-0">
-                  <div class="flex items-center gap-2 text-xs text-gray-500 mb-1">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="flex-1 min-w-0 relative z-10">
+                  <div
+                    class="flex items-center gap-2 text-xs text-gray-500 mb-1 group-hover:text-primary-darkblue transition-all duration-300">
+                    <svg
+                      class="w-4 h-4 group-hover:scale-110 group-hover:text-primary-yellow group-hover:rotate-12 transition-all duration-500"
+                      fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
-                    {{ item.date }}
+                    <span class="group-hover:font-medium transition-all duration-300">{{ item.date }}</span>
                   </div>
                   <h4
-                    class="font-medium text-navyBlue-800 line-clamp-2 group-hover:text-navyBlue-600 transition-colors">
+                    class="font-semibold text-primary-darkblue line-clamp-2 group-hover:text-primary-yellow group-hover:translate-x-1 transition-all duration-500">
                     {{ item.title }}
                   </h4>
-                  <p class="text-sm text-gray-600 line-clamp-2 mt-1">
+                  <p
+                    class="text-sm text-black1 line-clamp-2 mt-1 group-hover:text-primary-darkblue transition-all duration-500">
                     {{ item.excerpt }}
                   </p>
+                </div>
+
+                <!-- Arrow Icon -->
+                <div
+                  class="absolute right-3 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0 transition-all duration-500">
+                  <svg
+                    class="w-5 h-5 text-primary-yellow bg-primary-yellow/20 rounded-full p-1 group-hover:bg-primary-yellow group-hover:text-white transition-all duration-300"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
                 </div>
               </div>
             </a>
             {% endfor %}
 
             <!-- View All Link -->
-            <a href="#" class="block text-center py-2 text-sm font-medium text-navyBlue-600 hover:text-navyBlue-800 transition-colors">
-              Xem tất cả tin tức
-              <svg class="w-4 h-4 inline-block ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"></svg>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
-
-            </path></a>
+            <a href="#"
+              class="group block text-center py-3 px-4 text-sm font-medium text-primary-darkblue hover:text-white bg-secondary-subBlue hover:bg-primary-yellow rounded-lg transition-all duration-300 hover:shadow-lg transform hover:scale-105 hover:-translate-y-1">
+              <span class="inline-flex items-center gap-2 group-hover:gap-3 transition-all duration-300">
+                Xem tất cả tin tức
+                <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </a>
           </div>
         </div>
 
         <div class="flex flex-col gap-8 flex-1">
-
-
           <!-- Banner Section -->
-          <div class="rounded-xl overflow-hidden shadow-lg">
-            <div class="relative aspect-[16/9]">
-              <img src="assets/images/slide2mb.png" alt="IUH Banner" class="w-full h-full object-cover">
-              <div class="absolute inset-0 bg-gradient-to-t from-navyBlue-900/90 to-transparent">
-                <div class="absolute bottom-0 left-0 right-0 p-4">
-                  <h3 class="text-lg font-bold text-white">Các Phân hiệu và Cơ sở</h3>
-                  <p class="text-sm text-white/80">Hệ thống cơ sở đào tạo của IUH</p>
+          <div
+            class="group block rounded-xl overflow-hidden shadow-lg hover:shadow-2xl border border-gray-100 hover:border-primary-yellow/30 transition-all duration-500 relative">
+
+            <!-- Hover Background Effect -->
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-primary-yellow/0 to-primary-yellow/0 group-hover:from-primary-yellow/5 group-hover:to-primary-darkblue/5 transition-all duration-700 z-10 pointer-events-none">
+            </div>
+
+            <!-- Animated Border Glow -->
+            <div
+              class="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-primary-yellow/20 via-primary-yellow/30 to-primary-yellow/20 blur-sm pointer-events-none">
+            </div>
+
+            <!-- Decorative Element -->
+            <div
+              class="absolute -bottom-2 -right-2 w-20 h-20 bg-primary-yellow/5 rounded-full blur-2xl group-hover:bg-primary-yellow/10 transition-all duration-700 group-hover:scale-150 pointer-events-none">
+            </div>
+
+            <a href="#" class="relative aspect-[16/9] block">
+              <img src="assets/images/slide2mb.png" alt="IUH Banner"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ">
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-primary-darkblue/90 via-primary-darkblue/40 to-transparent group-hover:from-primary-darkblue/80 transition-all duration-500">
+                <div
+                  class="absolute bottom-0 left-0 right-0 p-4 transform group-hover:translate-y-[-4px] transition-transform duration-300 z-20">
+                  <h3
+                    class="text-lg font-bold text-white group-hover:text-primary-yellow transition-colors duration-300">
+                    Các Phân hiệu và Cơ sở</h3>
+                  <p class="text-sm text-white/80 group-hover:text-white transition-colors duration-300">Hệ thống cơ sở
+                    đào tạo của IUH</p>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
 
-          <!-- Branch Cards -->
-          <div class="space-y-4">
-            <!-- Branch 1 -->
-            {% for i in 1..3 %}
+        <!-- Branch Cards -->
+        <div class="space-y-4">
+            {% set branches = [
+            { name: 'Phân hiệu Quảng Ngãi', address: 'Số 938 Quang Trung, TP. Quảng Ngãi', image: 'assets/images/slide2mb.png' },
+            { name: 'Cơ sở Nguyễn Văn Bảo', address: '12 Nguyễn Văn Bảo, Q.Gò Vấp', image: 'assets/images/slide2mb.png' },
+            { name: 'Cơ sở Việt Trì', address: 'Khu CN Việt Trì, Phú Thọ', image: 'assets/images/slide2mb.png' }
+            ] %}
+
+            {% for branch in branches %}
             <div
-              class="group bg-white rounded-lg shadow-lg overflow-hidden border border-stroke hover:shadow-xl transition-all duration-500">
-              <a href="#" class="flex items-center gap-3 p-3">
-                <div class="w-16 h-16 shrink-0 rounded-lg overflow-hidden">
-                  <img src="assets/images/slide2mb.png" alt="Phân hiệu Quảng Ngãi"
-                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+              class="group bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 hover:border-primary-yellow transition-all duration-500 relative transform hover:-translate-y-2">
+              <a href="#" class="flex items-center gap-3 p-3 relative z-10">
+                <div
+                  class="w-16 h-16 shrink-0 rounded-lg overflow-hidden ring-2 ring-gray-100 group-hover:ring-primary-yellow/50 group-hover:shadow-lg transition-all duration-500">
+                  <img src="{{ branch.image }}" alt="{{ branch.name }}"
+                    class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-3 ">
                 </div>
                 <div class="flex-1 min-w-0">
-                  <h4 class="font-medium text-navyBlue-800 truncate group-hover:text-navyBlue-600 transition-colors">
-                    Phân hiệu Quảng Ngãi
+                  <h4
+                    class="font-semibold text-primary-darkblue truncate group-hover:text-primary-yellow group-hover:translate-x-1 transition-all duration-500">
+                    {{ branch.name }}
                   </h4>
-                  <p class="text-sm text-gray-600 line-clamp-2">
-                    Số 938 Quang Trung, TP. Quảng Ngãi
+                  <p class="text-sm text-black1 line-clamp-2 group-hover:text-primary-darkblue transition-all duration-500">
+                    {{ branch.address }}
                   </p>
                 </div>
-                <svg class="w-5 h-5 text-navyBlue-600 shrink-0 transform transition-transform group-hover:translate-x-1"
+                <svg
+                  class="w-5 h-5 text-primary-yellow bg-primary-yellow/20 rounded-full p-1 shrink-0 transform transition-all duration-300 group-hover:bg-primary-yellow group-hover:text-white group-hover:translate-x-1 group-hover:scale-110"
                   fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>
               </a>
             </div>
             {% endfor %}
+
             <!-- View All Button -->
             <a href="#"
-              class="block text-center py-2 text-sm font-medium text-navyBlue-600 hover:text-navyBlue-800 transition-colors">
-              Xem tất cả cơ sở
-              <svg class="w-4 h-4 inline-block ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"></svg>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+              class="group block text-center py-3 px-4 text-sm font-medium text-primary-darkblue hover:text-white bg-secondary-subBlue hover:bg-primary-yellow rounded-lg transition-all duration-300 hover:shadow-lg transform hover:scale-105 hover:-translate-y-1">
+              <span class="inline-flex items-center gap-2 group-hover:gap-3 transition-all duration-300">
+                Xem tất cả cơ sở
+                <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
             </a>
-          </div>
-
         </div>
-
       </div>
-
-      <div class="w-full lg:w-9/12 flex flex-col gap-8 sm:gap-12 flex-1">
-        <!-- Level 1: Secretary -->
-        <div class="flex flex-col items-center">
-          <div class="relative max-w-2xl mx-auto w-full">
-            <!-- Hexagon Container -->
-            <div class="group relative flex gap-8 items-center">
-              <!-- Hexagon Shape with Rounded Corners -->
-              <div class="relative w-[200px] aspect-[400/460]">
-
-                <!-- Image Container with Rounded Corners -->
-                <div class="absolute inset-2 overflow-hidden">
-                  <div class="w-full h-full transform -skew-y-[10deg] overflow-hidden rounded-[2rem]">
-                    <div class="w-full h-full transform skew-y-[10deg] overflow-hidden">
-                      <img src="assets/images/thayhai.png" alt="Bí thư"
-                        class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110">
-
-                    </div>
-                  </div>
-                </div>
-                <!-- Decorative Elements -->
-                <div class="absolute -top-3 -left-3 size-6 bg-navyBlue-600 rounded-full shadow-lg blur-[1px]"></div>
-                <div class="absolute -bottom-3 -right-3 size-6 bg-navyBlue-600 rounded-full shadow-lg blur-[1px]"></div>
-                <div class="absolute top-1/2 -right-3 size-4 bg-navyBlue-400 rounded-full shadow-md"></div>
-                <div class="absolute top-1/2 -left-3 size-4 bg-navyBlue-400 rounded-full shadow-md"></div>
-                <!-- Additional Decorative Lines -->
-                <div
-                  class="absolute top-0 left-8 w-20 h-1 bg-gradient-to-r from-navyBlue-400/50 to-transparent rounded-full">
-                </div>
-                <div
-                  class="absolute bottom-0 right-8 w-20 h-1 bg-gradient-to-l from-navyBlue-400/50 to-transparent rounded-full">
-                </div>
-              </div>
-              <!-- Content Overlay -->
-              <div class="flex flex-col gap-4 items-center">
-                <div class="flex items-center gap-2 rounded-full text-sm text-black1 font-medium">
-                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                  Bí thư Đảng ủy
-                </div>
-                <h3 class="text-xl font-bold text-black1">PGS.TS Phan Hồng Hải</h3>
-                <p class="text-sm text-black1">Hiệu trưởng Trường Đại học Công nghiệp TP.HCM</p>
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-        <!-- Ornate Connector -->
-        <div class="flex flex-col items-center">
-          <div class="w-0.5 h-16 bg-gradient-to-b from-navyBlue-200 to-navyBlue-400"></div>
-          <div class="w-3 h-3 rotate-45 bg-navyBlue-500 transform -translate-y-1.5"></div>
-        </div>
-
-        <!-- Level 2: Deputy Secretaries -->
-        <div class="grid grid-cols-2 sm:grid-cols-2 justify-between gap-8 max-w-4xl mx-auto w-full">
-          {% set deputySecretaries = [
-          { name: 'PGS.TS Hoàng Đơ', role: 'Phó Bí thư', position: 'Phó Hiệu trưởng' },
-          { name: 'TS. Phạm Trung Kiên', role: 'Phó Bí thư', position: 'Phó Hiệu trưởng' }
-          ] %}
-          {% for member in deputySecretaries %}
-          <!-- Hexagon Container -->
-          <div class="group relative flex flex-col gap-4 items-center">
-            <!-- Hexagon Shape with Rounded Corners -->
-            <div class="relative w-[150px] aspect-[400/460]">
-              <!-- Image Container with Rounded Corners -->
-              <div class="absolute inset-2 overflow-hidden">
-                <div class="w-full h-full transform -skew-y-[10deg] overflow-hidden rounded-[2rem]">
-                  <div class="w-full h-full transform skew-y-[10deg] overflow-hidden">
-                    <img src="assets/images/thayhai.png" alt="{{ member.name }}"
-                      class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110">
-
-                  </div>
-                </div>
-              </div>
-              <!-- Decorative Elements -->
-              <div class="absolute -top-3 -left-3 size-6 bg-navyBlue-600 rounded-full shadow-lg blur-[1px]"></div>
-              <div class="absolute -bottom-3 -right-3 size-6 bg-navyBlue-600 rounded-full shadow-lg blur-[1px]"></div>
-              <div class="absolute top-1/2 -right-3 size-4 bg-navyBlue-400 rounded-full shadow-md"></div>
-              <div class="absolute top-1/2 -left-3 size-4 bg-navyBlue-400 rounded-full shadow-md"></div>
-              <!-- Additional Decorative Lines -->
-              <div
-                class="absolute top-0 left-8 w-20 h-1 bg-gradient-to-r from-navyBlue-400/50 to-transparent rounded-full">
-              </div>
-              <div
-                class="absolute bottom-0 right-8 w-20 h-1 bg-gradient-to-l from-navyBlue-400/50 to-transparent rounded-full">
-              </div>
-            </div>
-            <!-- Content Overlay -->
-            <div class="flex flex-col gap-1 items-center">
-              <div class="flex items-center gap-2 rounded-full text-sm text-black1 font-medium">
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-                {{ member.role }}
-              </div>
-              <h3 class="text-base font-bold text-black1">{{ member.name }}</h3>
-              <p class="text-sm text-black1">{{ member.position }}</p>
-            </div>
-
-          </div>
-          {% endfor %}
-        </div>
-
-        <!-- Ornate Connector -->
-        <div class="flex flex-col items-center">
-          <div class="w-0.5 h-16 bg-gradient-to-b from-navyBlue-200 to-navyBlue-400"></div>
-          <div class="w-3 h-3 rotate-45 bg-navyBlue-500 transform -translate-y-1.5"></div>
-        </div>
-
-        <!-- Level 3: Standing Committee -->
-        <div class="grid grid-cols-2 sm:grid-cols-2 justify-between gap-8 max-w-4xl mx-auto w-full">
-          {% set standingMembers = [
-          { name: 'TS. Nguyễn Xuân Hồng', role: 'Ủy viên Thường vụ', position: 'Trưởng phòng Đào tạo' },
-          { name: 'ThS. Huỳnh Trung Hiếu', role: 'Ủy viên Thường vụ', position: 'Trưởng phòng TCHC' }
-          ] %}
-          {% for member in standingMembers %}
-          <div class="group relative flex flex-col gap-4 items-center">
-            <!-- Hexagon Shape with Rounded Corners -->
-            <div class="relative w-[150px] aspect-[400/460]">
-              <!-- Image Container with Rounded Corners -->
-              <div class="absolute inset-2 overflow-hidden">
-                <div class="w-full h-full transform -skew-y-[10deg] overflow-hidden rounded-[2rem]">
-                  <div class="w-full h-full transform skew-y-[10deg] overflow-hidden">
-                    <img src="assets/images/thayhai.png" alt="{{ member.name }}"
-                      class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110">
-
-                  </div>
-                </div>
-              </div>
-              <!-- Decorative Elements -->
-              <div class="absolute -top-3 -left-3 size-6 bg-navyBlue-600 rounded-full shadow-lg blur-[1px]"></div>
-              <div class="absolute -bottom-3 -right-3 size-6 bg-navyBlue-600 rounded-full shadow-lg blur-[1px]"></div>
-              <div class="absolute top-1/2 -right-3 size-4 bg-navyBlue-400 rounded-full shadow-md"></div>
-              <div class="absolute top-1/2 -left-3 size-4 bg-navyBlue-400 rounded-full shadow-md"></div>
-              <!-- Additional Decorative Lines -->
-              <div
-                class="absolute top-0 left-8 w-20 h-1 bg-gradient-to-r from-navyBlue-400/50 to-transparent rounded-full">
-              </div>
-              <div
-                class="absolute bottom-0 right-8 w-20 h-1 bg-gradient-to-l from-navyBlue-400/50 to-transparent rounded-full">
-              </div>
-            </div>
-            <!-- Content Overlay -->
-            <div class="flex flex-col gap-1 items-center">
-              <div class="flex items-center gap-2 rounded-full text-sm text-black1 font-medium">
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-                {{ member.role }}
-              </div>
-              <h3 class="text-base font-bold text-black1">{{ member.name }}</h3>
-              <p class="text-sm text-black1">{{ member.position }}</p>
-            </div>
-
-          </div>
-          {% endfor %}
-        </div>
-
-        <!-- Ornate Connector -->
-        <div class="flex flex-col items-center">
-          <div class="w-0.5 h-16 bg-gradient-to-b from-navyBlue-200 to-navyBlue-400"></div>
-          <div class="w-3 h-3 rotate-45 bg-navyBlue-500 transform -translate-y-1.5"></div>
-        </div>
-
-        <!-- Level 4: Committee Members -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-8">
-          {% set committeeMembers = [
-          { name: 'ThS. Đàm Sao Mai', position: 'Trưởng khoa', role: 'Ủy viên ban chấp hành' },
-          { name: 'TS. Nguyễn Thị Thương', position: 'Phó Trưởng khoa',role: 'Ủy viên ban chấp hành' },
-          { name: 'ThS. Phạm Thị Quế Minh', position: 'Trưởng phòng',role: 'Ủy viên ban chấp hành' },
-          { name: 'PGS.TS Nguyễn Trung Dũng', position: 'Trưởng khoa',role: 'Ủy viên ban chấp hành' },
-          { name: 'TS. Phạm Thanh Tùng', position: 'Phó Trưởng khoa',role: 'Ủy viên ban chấp hành' },
-          { name: 'ThS. Lê Ngọc Sơn', position: 'Trưởng phòng',role: 'Ủy viên ban chấp hành' },
-          { name: 'TS. Nguyễn Huy Phúc', position: 'Trưởng khoa',role: 'Ủy viên ban chấp hành' },
-          { name: 'ThS. Nguyễn Trường Thi', position: 'Phó Trưởng phòng',role: 'Ủy viên ban chấp hành' }
-          ] %}
-
-          {% for member in committeeMembers %}
-          <div class="group relative flex flex-col gap-4 items-center">
-            <!-- Hexagon Shape with Rounded Corners -->
-            <div class="relative w-[150px] aspect-[400/460]">
-
-              <!-- Image Container with Rounded Corners -->
-              <div class="absolute inset-2 overflow-hidden">
-                <div class="w-full h-full transform -skew-y-[10deg] overflow-hidden rounded-[2rem]">
-                  <div class="w-full h-full transform skew-y-[10deg] overflow-hidden">
-                    <img src="assets/images/thayhai.png" alt="{{ member.name }}"
-                      class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110">
-
-                  </div>
-                </div>
-              </div>
-              <!-- Decorative Elements -->
-              <div class="absolute -top-3 -left-3 size-6 bg-navyBlue-600 rounded-full shadow-lg blur-[1px]"></div>
-              <div class="absolute -bottom-3 -right-3 size-6 bg-navyBlue-600 rounded-full shadow-lg blur-[1px]"></div>
-              <div class="absolute top-1/2 -right-3 size-4 bg-navyBlue-400 rounded-full shadow-md"></div>
-              <div class="absolute top-1/2 -left-3 size-4 bg-navyBlue-400 rounded-full shadow-md"></div>
-              <!-- Additional Decorative Lines -->
-              <div
-                class="absolute top-0 left-8 w-20 h-1 bg-gradient-to-r from-navyBlue-400/50 to-transparent rounded-full">
-              </div>
-              <div
-                class="absolute bottom-0 right-8 w-20 h-1 bg-gradient-to-l from-navyBlue-400/50 to-transparent rounded-full">
-              </div>
-            </div>
-            <!-- Content Overlay -->
-            <div class="flex flex-col gap-1 items-center text-center">
-              <div class="flex items-center gap-2 rounded-full text-sm text-black1 font-medium">
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-                {{ member.role }}
-              </div>
-              <h3 class="text-base font-bold text-black1">{{ member.name }}</h3>
-              <p class="text-sm text-black1">{{ member.position }}</p>
-
-            </div>
-
-          </div>
-          {% endfor %}
-        </div>
-
-      </div>
-
     </div>
-    <!-- Organization Tree -->
+
+    <div class="w-full lg:w-9/12 flex flex-col gap-8 sm:gap-12 flex-1">
+      <!-- Level 1: Secretary -->
+      <div class="flex flex-col items-center">
+        <div class="relative max-w-2xl mx-auto w-full">
+          <!-- Hexagon Container -->
+          <div class="group relative flex gap-8 items-center">
+            <!-- Hexagon Shape with Rounded Corners -->
+            <div class="relative w-[200px] aspect-[400/460] transform transition-all duration-500 hover:scale-105">
+              <!-- Animated Border Glow -->
+              <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-primary-yellow/30 via-primary-yellow/40 to-primary-yellow/30 blur-md -z-10"></div>
+
+              <!-- Image Container with Rounded Corners -->
+              <div class="absolute inset-2 overflow-hidden">
+                <div class="w-full h-full transform -skew-y-[10deg] overflow-hidden rounded-[2rem] ring-2 ring-secondary-subBlue group-hover:ring-primary-yellow/50 transition-all duration-500">
+                  <div class="w-full h-full transform skew-y-[10deg] overflow-hidden">
+                    <img src="assets/images/thayhai.png" alt="Bí thư"
+                      class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110 ">
+
+                  </div>
+                </div>
+              </div>
+              <!-- Decorative Elements -->
+              <div class="absolute -top-3 -left-3 size-6 bg-primary-darkblue rounded-full shadow-lg blur-[1px] group-hover:bg-primary-yellow group-hover:scale-125 transition-all duration-500"></div>
+              <div class="absolute -bottom-3 -right-3 size-6 bg-primary-darkblue rounded-full shadow-lg blur-[1px] group-hover:bg-primary-yellow group-hover:scale-125 transition-all duration-500"></div>
+              <div class="absolute top-1/2 -right-3 size-4 bg-secondary-blue rounded-full shadow-md group-hover:bg-secondary-yellow group-hover:scale-110 transition-all duration-500"></div>
+              <div class="absolute top-1/2 -left-3 size-4 bg-secondary-blue rounded-full shadow-md group-hover:bg-secondary-yellow group-hover:scale-110 transition-all duration-500"></div>
+              <!-- Additional Decorative Lines -->
+              <div class="absolute top-0 left-8 w-20 h-1 bg-gradient-to-r from-secondary-blue/50 to-transparent rounded-full group-hover:from-primary-yellow/70 transition-all duration-500"></div>
+              <div class="absolute bottom-0 right-8 w-20 h-1 bg-gradient-to-l from-secondary-blue/50 to-transparent rounded-full group-hover:from-primary-yellow/70 transition-all duration-500"></div>
+            </div>
+            <!-- Content Overlay -->
+            <div class="flex flex-col gap-4 items-center transform group-hover:translate-x-2 transition-transform duration-500">
+              <div class="flex items-center gap-2 rounded-full text-sm text-black1 font-medium group-hover:text-primary-darkblue transition-colors duration-300">
+                <svg class="w-4 h-4 group-hover:text-primary-yellow group-hover:scale-110 transition-all duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                Bí thư Đảng ủy
+              </div>
+              <h3 class="text-xl font-bold text-black1 group-hover:text-primary-yellow transition-colors duration-500">PGS.TS Phan Hồng Hải</h3>
+              <p class="text-sm text-black1 group-hover:text-primary-darkblue transition-colors duration-500">Hiệu trưởng Trường Đại học Công nghiệp TP.HCM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Ornate Connector -->
+      <div class="flex flex-col items-center">
+        <div class="w-0.5 h-16 bg-gradient-to-b from-secondary-subBlue to-secondary-blue"></div>
+        <div class="w-3 h-3 rotate-45 bg-secondary-blue transform -translate-y-1.5"></div>
+      </div>
+
+      <!-- Level 2: Deputy Secretaries -->
+      <div class="grid grid-cols-2 sm:grid-cols-2 justify-between gap-8 max-w-4xl mx-auto w-full">
+        {% set deputySecretaries = [
+        { name: 'PGS.TS Hoàng Đơ', role: 'Phó Bí thư', position: 'Phó Hiệu trưởng' },
+        { name: 'TS. Phạm Trung Kiên', role: 'Phó Bí thư', position: 'Phó Hiệu trưởng' }
+        ] %}
+        {% for member in deputySecretaries %}
+        <!-- Hexagon Container -->
+        <div class="group relative flex flex-col gap-4 items-center">
+          <!-- Hexagon Shape with Rounded Corners -->
+          <div class="relative w-[150px] aspect-[400/460] transform transition-all duration-500 hover:scale-105 hover:-translate-y-2">
+            <!-- Animated Border Glow -->
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-primary-yellow/30 via-primary-yellow/40 to-primary-yellow/30 blur-md -z-10"></div>
+
+            <!-- Image Container with Rounded Corners -->
+            <div class="absolute inset-2 overflow-hidden">
+              <div class="w-full h-full transform -skew-y-[10deg] overflow-hidden rounded-[2rem] ring-2 ring-secondary-subBlue group-hover:ring-primary-yellow/50 transition-all duration-500">
+                <div class="w-full h-full transform skew-y-[10deg] overflow-hidden">
+                  <img src="assets/images/thayhai.png" alt="{{ member.name }}"
+                    class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110 ">
+
+                </div>
+              </div>
+            </div>
+            <!-- Decorative Elements -->
+            <div class="absolute -top-3 -left-3 size-6 bg-primary-darkblue rounded-full shadow-lg blur-[1px] group-hover:bg-primary-yellow group-hover:scale-125 transition-all duration-500"></div>
+            <div class="absolute -bottom-3 -right-3 size-6 bg-primary-darkblue rounded-full shadow-lg blur-[1px] group-hover:bg-primary-yellow group-hover:scale-125 transition-all duration-500"></div>
+            <div class="absolute top-1/2 -right-3 size-4 bg-secondary-blue rounded-full shadow-md group-hover:bg-secondary-yellow group-hover:scale-110 transition-all duration-500"></div>
+            <div class="absolute top-1/2 -left-3 size-4 bg-secondary-blue rounded-full shadow-md group-hover:bg-secondary-yellow group-hover:scale-110 transition-all duration-500"></div>
+            <!-- Additional Decorative Lines -->
+            <div class="absolute top-0 left-8 w-20 h-1 bg-gradient-to-r from-secondary-blue/50 to-transparent rounded-full group-hover:from-primary-yellow/70 transition-all duration-500"></div>
+            <div class="absolute bottom-0 right-8 w-20 h-1 bg-gradient-to-l from-secondary-blue/50 to-transparent rounded-full group-hover:from-primary-yellow/70 transition-all duration-500"></div>
+          </div>
+          <!-- Content Overlay -->
+          <div class="flex flex-col gap-1 items-center">
+            <div class="flex items-center gap-2 rounded-full text-sm text-black1 font-medium group-hover:text-primary-darkblue transition-colors duration-300">
+              <svg class="w-4 h-4 group-hover:text-primary-yellow group-hover:scale-110 transition-all duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              {{ member.role }}
+            </div>
+            <h3 class="text-base font-bold text-black1 group-hover:text-primary-yellow transition-colors duration-500">{{ member.name }}</h3>
+            <p class="text-sm text-black1 group-hover:text-primary-darkblue transition-colors duration-500">{{ member.position }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- Ornate Connector -->
+      <div class="flex flex-col items-center">
+        <div class="w-0.5 h-16 bg-gradient-to-b from-secondary-subBlue to-secondary-blue"></div>
+        <div class="w-3 h-3 rotate-45 bg-secondary-blue transform -translate-y-1.5"></div>
+      </div>
+
+      <!-- Level 3: Standing Committee -->
+      <div class="grid grid-cols-2 sm:grid-cols-2 justify-between gap-8 max-w-4xl mx-auto w-full">
+        {% set standingMembers = [
+        { name: 'TS. Nguyễn Xuân Hồng', role: 'Ủy viên Thường vụ', position: 'Trưởng phòng Đào tạo' },
+        { name: 'ThS. Huỳnh Trung Hiếu', role: 'Ủy viên Thường vụ', position: 'Trưởng phòng TCHC' }
+        ] %}
+        {% for member in standingMembers %}
+        <div class="group relative flex flex-col gap-4 items-center">
+          <!-- Hexagon Shape with Rounded Corners -->
+          <div class="relative w-[150px] aspect-[400/460] transform transition-all duration-500 hover:scale-105 hover:-translate-y-2">
+            <!-- Animated Border Glow -->
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-primary-yellow/30 via-primary-yellow/40 to-primary-yellow/30 blur-md -z-10"></div>
+
+            <!-- Image Container with Rounded Corners -->
+            <div class="absolute inset-2 overflow-hidden">
+              <div class="w-full h-full transform -skew-y-[10deg] overflow-hidden rounded-[2rem] ring-2 ring-secondary-subBlue group-hover:ring-primary-yellow/50 transition-all duration-500">
+                <div class="w-full h-full transform skew-y-[10deg] overflow-hidden">
+                  <img src="assets/images/thayhai.png" alt="{{ member.name }}"
+                    class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110 ">
+
+                </div>
+              </div>
+            </div>
+            <!-- Decorative Elements -->
+            <div class="absolute -top-3 -left-3 size-6 bg-primary-darkblue rounded-full shadow-lg blur-[1px] group-hover:bg-primary-yellow group-hover:scale-125 transition-all duration-500"></div>
+            <div class="absolute -bottom-3 -right-3 size-6 bg-primary-darkblue rounded-full shadow-lg blur-[1px] group-hover:bg-primary-yellow group-hover:scale-125 transition-all duration-500"></div>
+            <div class="absolute top-1/2 -right-3 size-4 bg-secondary-blue rounded-full shadow-md group-hover:bg-secondary-yellow group-hover:scale-110 transition-all duration-500"></div>
+            <div class="absolute top-1/2 -left-3 size-4 bg-secondary-blue rounded-full shadow-md group-hover:bg-secondary-yellow group-hover:scale-110 transition-all duration-500"></div>
+            <!-- Additional Decorative Lines -->
+            <div class="absolute top-0 left-8 w-20 h-1 bg-gradient-to-r from-secondary-blue/50 to-transparent rounded-full group-hover:from-primary-yellow/70 transition-all duration-500"></div>
+            <div class="absolute bottom-0 right-8 w-20 h-1 bg-gradient-to-l from-secondary-blue/50 to-transparent rounded-full group-hover:from-primary-yellow/70 transition-all duration-500"></div>
+          </div>
+          <!-- Content Overlay -->
+          <div class="flex flex-col gap-1 items-center">
+            <div class="flex items-center gap-2 rounded-full text-sm text-black1 font-medium group-hover:text-primary-darkblue transition-colors duration-300">
+              <svg class="w-4 h-4 group-hover:text-primary-yellow group-hover:scale-110 transition-all duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              {{ member.role }}
+            </div>
+            <h3 class="text-base font-bold text-black1 group-hover:text-primary-yellow transition-colors duration-500">{{ member.name }}</h3>
+            <p class="text-sm text-black1 group-hover:text-primary-darkblue transition-colors duration-500">{{ member.position }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- Ornate Connector -->
+      <div class="flex flex-col items-center">
+        <div class="w-0.5 h-16 bg-gradient-to-b from-secondary-subBlue to-secondary-blue"></div>
+        <div class="w-3 h-3 rotate-45 bg-secondary-blue transform -translate-y-1.5"></div>
+      </div>
+
+      <!-- Level 4: Committee Members -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-8">
+        {% set committeeMembers = [
+        { name: 'ThS. Đàm Sao Mai', position: 'Trưởng khoa', role: 'Ủy viên ban chấp hành' },
+        { name: 'TS. Nguyễn Thị Thương', position: 'Phó Trưởng khoa',role: 'Ủy viên ban chấp hành' },
+        { name: 'ThS. Phạm Thị Quế Minh', position: 'Trưởng phòng',role: 'Ủy viên ban chấp hành' },
+        { name: 'PGS.TS Nguyễn Trung Dũng', position: 'Trưởng khoa',role: 'Ủy viên ban chấp hành' },
+        { name: 'TS. Phạm Thanh Tùng', position: 'Phó Trưởng khoa',role: 'Ủy viên ban chấp hành' },
+        { name: 'ThS. Lê Ngọc Sơn', position: 'Trưởng phòng',role: 'Ủy viên ban chấp hành' },
+        { name: 'TS. Nguyễn Huy Phúc', position: 'Trưởng khoa',role: 'Ủy viên ban chấp hành' },
+        { name: 'ThS. Nguyễn Trường Thi', position: 'Phó Trưởng phòng',role: 'Ủy viên ban chấp hành' }
+        ] %}
+
+        {% for member in committeeMembers %}
+        <div class="group relative flex flex-col gap-4 items-center">
+          <!-- Hexagon Shape with Rounded Corners -->
+          <div class="relative w-[150px] aspect-[400/460] transform transition-all duration-500 hover:scale-105 hover:-translate-y-2">
+            <!-- Animated Border Glow -->
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-primary-yellow/30 via-primary-yellow/40 to-primary-yellow/30 blur-md -z-10"></div>
+
+            <!-- Image Container with Rounded Corners -->
+            <div class="absolute inset-2 overflow-hidden">
+              <div class="w-full h-full transform -skew-y-[10deg] overflow-hidden rounded-[2rem] ring-2 ring-secondary-subBlue group-hover:ring-primary-yellow/50 transition-all duration-500">
+                <div class="w-full h-full transform skew-y-[10deg] overflow-hidden">
+                  <img src="assets/images/thayhai.png" alt="{{ member.name }}"
+                    class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110 ">
+
+                </div>
+              </div>
+            </div>
+            <!-- Decorative Elements -->
+            <div class="absolute -top-3 -left-3 size-6 bg-primary-darkblue rounded-full shadow-lg blur-[1px] group-hover:bg-primary-yellow group-hover:scale-125 transition-all duration-500"></div>
+            <div class="absolute -bottom-3 -right-3 size-6 bg-primary-darkblue rounded-full shadow-lg blur-[1px] group-hover:bg-primary-yellow group-hover:scale-125 transition-all duration-500"></div>
+            <div class="absolute top-1/2 -right-3 size-4 bg-secondary-blue rounded-full shadow-md group-hover:bg-secondary-yellow group-hover:scale-110 transition-all duration-500"></div>
+            <div class="absolute top-1/2 -left-3 size-4 bg-secondary-blue rounded-full shadow-md group-hover:bg-secondary-yellow group-hover:scale-110 transition-all duration-500"></div>
+            <!-- Additional Decorative Lines -->
+            <div class="absolute top-0 left-8 w-20 h-1 bg-gradient-to-r from-secondary-blue/50 to-transparent rounded-full group-hover:from-primary-yellow/70 transition-all duration-500"></div>
+            <div class="absolute bottom-0 right-8 w-20 h-1 bg-gradient-to-l from-secondary-blue/50 to-transparent rounded-full group-hover:from-primary-yellow/70 transition-all duration-500"></div>
+          </div>
+          <!-- Content Overlay -->
+          <div class="flex flex-col gap-1 items-center text-center">
+            <div class="flex items-center gap-2 rounded-full text-sm text-black1 font-medium group-hover:text-primary-darkblue transition-colors duration-300">
+              <svg class="w-4 h-4 group-hover:text-primary-yellow group-hover:scale-110 transition-all duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              {{ member.role }}
+            </div>
+            <h3 class="text-base font-bold text-black1 group-hover:text-primary-yellow transition-colors duration-500">{{ member.name }}</h3>
+            <p class="text-sm text-black1 group-hover:text-primary-darkblue transition-colors duration-500">{{ member.position }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
 
   </div>
+  <!-- Organization Tree -->
+
+</div>
 </div>
 {% endblock %}

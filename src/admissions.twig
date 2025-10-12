@@ -8,7 +8,8 @@
       <!-- Hero Section with Background -->
       <div class="relative h-[300px] sm:h-[350px] lg:h-[400px] rounded-2xl overflow-hidden">
         <img src="assets/images/program-image.png" alt="IUH Campus" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-r from-navyBlue-800/80 via-navyBlue-800/40 to-navyBlue-600/0 backdrop-blur-[1px]">
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-primary-darkblue/80 via-primary-darkblue/40 to-secondary-subBlue/0 backdrop-blur-[1px]">
           <div class="h-full flex flex-col justify-center px-4 sm:px-8 lg:px-16 max-w-full sm:max-w-2xl">
             <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">Tuyển sinh 2024</h1>
             <div class="text-lg line-clamp-3 text-white/90 mb-8">IUH - Nơi đào tạo những thế hệ sinh viên tài năng, sáng
@@ -16,11 +17,11 @@
               nhiệt huyết.</div>
             <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <a href="#"
-                class="w-full sm:w-auto text-center px-6 py-3 bg-white text-navyBlue-800 rounded-full font-medium hover:bg-navyBlue-50 transition-colors">
+                class="w-full sm:w-auto text-center px-6 py-3 bg-white text-primary-darkblue rounded-full font-medium hover:bg-primary-yellow hover:text-white transition-colors">
                 Xem thông tin tuyển sinh
               </a>
               <a href="#"
-                class="w-full sm:w-auto text-center px-6 py-3 bg-navyBlue-600 text-white rounded-full font-medium hover:bg-navyBlue-700 transition-colors">
+                class="w-full sm:w-auto text-center px-6 py-3 bg-primary-darkblue text-white rounded-full font-medium hover:bg-primary-yellow transition-colors">
                 Đăng ký ngay
               </a>
             </div>
@@ -32,15 +33,14 @@
 
       <!-- Slogan and About IUH -->
       <div class="flex flex-col gap-4 sm:gap-8">
-        <h2 class="text-xl lg:text-2xl font-bold text-navyBlue-800 flex items-center gap-3 mb-5 sm:mb-0">
-          <span class="size-10 rounded-xl bg-navyBlue-100 flex items-center justify-center">
-            <svg class="size-6 text-navyBlue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-            </svg>
-          </span>
-          Đôi nét về IUH
-        </h2>
+        {% include './_templates/common/_TitleChild.twig' with {
+        title: 'Đôi nét về IUH',
+        titleClass: '',
+        svgIcon: '<svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+        </svg>'
+        } %}
 
         <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
           <div class="flex flex-col lg:flex-row">
@@ -51,11 +51,11 @@
                   class="w-full min-h-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                 <!-- Stats Overlay -->
                 <div class="absolute bottom-0 left-0 right-0 p-4 sm:p-6 grid grid-cols-2 gap-4">
-                  <div class="bg-navyBlue-800/40 backdrop-blur-sm rounded-lg p-2 sm:p-4">
+                  <div class="bg-primary-darkblue/40 backdrop-blur-sm rounded-lg p-2 sm:p-4">
                     <div class="text-xl sm:text-3xl font-bold text-white">65+</div>
                     <div class="text-sm text-white/80">Năm phát triển</div>
                   </div>
-                  <div class="bg-navyBlue-800/40 backdrop-blur-sm rounded-lg p-2 sm:p-4">
+                  <div class="bg-primary-darkblue/40 backdrop-blur-sm rounded-lg p-2 sm:p-4">
                     <div class="text-xl sm:text-3xl font-bold text-white">20+</div>
                     <div class="text-sm text-white/80">Ngành đào tạo</div>
                   </div>
@@ -68,14 +68,14 @@
               <div class="space-y-6">
                 <!-- Vision -->
                 <div class="flex items-start gap-4">
-                  <div class="w-12 h-12 rounded-full bg-navyBlue-50 flex items-center justify-center shrink-0">
-                    <svg class="w-6 h-6 text-navyBlue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div class="w-12 h-12 rounded-full bg-secondary-subBlue flex items-center justify-center shrink-0">
+                    <svg class="w-6 h-6 text-primary-darkblue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
                     </svg>
                   </div>
                   <div>
-                    <h3 class="text-xl font-semibold text-navyBlue-800 mb-2">Tầm nhìn</h3>
+                    <h3 class="text-xl font-semibold text-primary-darkblue mb-2">Tầm nhìn</h3>
                     <div class="text-black1 line-clamp-3">Trở thành một trong những trường đại học hàng đầu tại Việt Nam
                       và khu vực.</div>
                   </div>
@@ -83,14 +83,14 @@
 
                 <!-- Mission -->
                 <div class="flex items-start gap-4">
-                  <div class="w-12 h-12 rounded-full bg-navyBlue-50 flex items-center justify-center shrink-0">
-                    <svg class="w-6 h-6 text-navyBlue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div class="w-12 h-12 rounded-full bg-secondary-subBlue flex items-center justify-center shrink-0">
+                    <svg class="w-6 h-6 text-primary-darkblue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                     </svg>
                   </div>
                   <div>
-                    <h3 class="text-xl font-semibold text-navyBlue-800 mb-2">Sứ mệnh</h3>
+                    <h3 class="text-xl font-semibold text-primary-darkblue mb-2">Sứ mệnh</h3>
                     <div class="text-black1">Đào tạo nguồn nhân lực chất lượng cao, nghiên cứu khoa học và chuyển giao
                       công nghệ, phục vụ sự phát triển kinh tế - xã hội của đất nước.</div>
                   </div>
@@ -98,31 +98,31 @@
 
                 <!-- Strategic Goals -->
                 <div class="flex items-start gap-4">
-                  <div class="w-12 h-12 rounded-full bg-navyBlue-50 flex items-center justify-center shrink-0">
-                    <svg class="w-6 h-6 text-navyBlue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div class="w-12 h-12 rounded-full bg-secondary-subBlue flex items-center justify-center shrink-0">
+                    <svg class="w-6 h-6 text-primary-darkblue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                     </svg>
                   </div>
                   <div>
-                    <h3 class="text-xl font-semibold text-navyBlue-800 mb-2">Mục tiêu chiến lược</h3>
+                    <h3 class="text-xl font-semibold text-primary-darkblue mb-2">Mục tiêu chiến lược</h3>
                     <ul class="space-y-2">
                       <li class="flex items-center gap-2 text-black1">
-                        <svg class="w-4 h-4 text-navyBlue-600 shrink-0" fill="none" viewBox="0 0 24 24"
+                        <svg class="w-4 h-4 text-primary-darkblue shrink-0" fill="none" viewBox="0 0 24 24"
                           stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                         </svg>
                         <span>Phát triển đào tạo đa ngành, đa lĩnh vực</span>
                       </li>
                       <li class="flex items-center gap-2 text-black1">
-                        <svg class="w-4 h-4 text-navyBlue-600 shrink-0" fill="none" viewBox="0 0 24 24"
+                        <svg class="w-4 h-4 text-primary-darkblue shrink-0" fill="none" viewBox="0 0 24 24"
                           stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                         </svg>
                         <span>Nâng cao chất lượng nghiên cứu khoa học</span>
                       </li>
                       <li class="flex items-center gap-2 text-black1">
-                        <svg class="w-4 h-4 text-navyBlue-600 shrink-0" fill="none" viewBox="0 0 24 24"
+                        <svg class="w-4 h-4 text-primary-darkblue shrink-0" fill="none" viewBox="0 0 24 24"
                           stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                         </svg>
@@ -138,19 +138,19 @@
                 </div>
                 <ul class="space-y-3">
                   <li class="flex items-center gap-3 text-black1">
-                    <svg class="w-5 h-5 text-navyBlue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="w-5 h-5 text-primary-darkblue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Chương trình đào tạo đa ngành hiện đại</span>
                   </li>
                   <li class="flex items-center gap-3 text-black1">
-                    <svg class="w-5 h-5 text-navyBlue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="w-5 h-5 text-primary-darkblue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Đội ngũ giảng viên giàu kinh nghiệm</span>
                   </li>
                   <li class="flex items-center gap-3 text-black1">
-                    <svg class="w-5 h-5 text-navyBlue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="w-5 h-5 text-primary-darkblue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>
                     <span>Cơ sở vật chất và trang thiết bị hiện đại</span>
@@ -159,7 +159,7 @@
 
                 <!-- CTA Button -->
                 <a href="#"
-                  class="inline-flex items-center gap-2 text-navyBlue-600 font-medium hover:gap-3 transition-all mt-4">
+                  class="inline-flex items-center gap-2 text-primary-darkblue font-medium hover:gap-3 transition-all mt-4">
                   Tìm hiểu thêm về IUH
                   <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -172,35 +172,72 @@
         </div>
       </div>
       <!-- Quick Stats -->
+      {% set quickStats = [
+      { number: '65+', label: 'Năm phát triển', icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' },
+      { number: '20+', label: 'Ngành đào tạo', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3
+      6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5
+      1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253' },
+      { number: '50+', label: 'Đối tác quốc tế', icon: 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8
+      3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9
+      0 11-18 0 9 9 0 0118 0z' },
+      { number: '90%', label: 'Tỷ lệ có việc làm', icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' }
+      ] %}
+
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
-        <div class="bg-white rounded-xl p-4 sm:p-6 shadow-lg border border-gray-100">
-          <div class="text-2xl sm:text-4xl font-bold text-navyBlue-800 mb-1 sm:mb-2">65+</div>
-          <div class="text-xs sm:text-sm text-black1">Năm phát triển</div>
+        {% for stat in quickStats %}
+        <div
+          class="group bg-white rounded-xl p-4 sm:p-6 shadow-lg border border-gray-100 hover:shadow-xl hover:border-primary-yellow/30 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
+          <!-- Background Animation -->
+          <div
+            class="absolute inset-0 bg-gradient-to-br from-primary-yellow/0 to-primary-yellow/0 group-hover:from-primary-yellow/5 group-hover:to-primary-darkblue/5 transition-all duration-500">
+          </div>
+
+          <div class="flex flex-row justify-between gap-2">
+            <!-- Number -->
+            <div
+              class="relative text-2xl sm:text-4xl font-bold text-primary-darkblue mb-1 sm:mb-2 group-hover:text-primary-yellow transition-all duration-500 group-hover:scale-110 transform-gpu">
+              {{ stat.number }}
+            </div>
+            <!-- Icon -->
+            <div class="relative mb-3 sm:mb-4">
+              <div
+                class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-secondary-subBlue/30 group-hover:bg-primary-yellow/20 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+                <svg
+                  class="w-5 h-5 sm:w-6 sm:h-6 text-primary-darkblue group-hover:text-primary-yellow transition-colors duration-500"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ stat.icon }}" />
+                </svg>
+              </div>
+            </div>
+
+
+          </div>
+
+          <!-- Label -->
+          <div
+            class="relative text-xs sm:text-sm text-black1 group-hover:text-primary-yellow transition-all duration-500 group-hover:scale-110 transform-gpu">
+            {{ stat.label }}
+          </div>
+
+          <!-- Decorative Element -->
+          <div
+            class="absolute -bottom-2 -right-2 w-20 h-20 bg-primary-yellow/5 rounded-full blur-2xl group-hover:bg-primary-yellow/10 transition-all duration-700 group-hover:scale-150">
+          </div>
         </div>
-        <div class="bg-white rounded-xl p-4 sm:p-6 shadow-lg border border-gray-100">
-          <div class="text-2xl sm:text-4xl font-bold text-navyBlue-800 mb-1 sm:mb-2">20+</div>
-          <div class="text-xs sm:text-sm text-black1">Ngành đào tạo</div>
-        </div>
-        <div class="bg-white rounded-xl p-4 sm:p-6 shadow-lg border border-gray-100">
-          <div class="text-2xl sm:text-4xl font-bold text-navyBlue-800 mb-1 sm:mb-2">50+</div>
-          <div class="text-xs sm:text-sm text-black1">Đối tác quốc tế</div>
-        </div>
-        <div class="bg-white rounded-xl p-4 sm:p-6 shadow-lg border border-gray-100">
-          <div class="text-2xl sm:text-4xl font-bold text-navyBlue-800 mb-1 sm:mb-2">90%</div>
-          <div class="text-xs sm:text-sm text-black1">Tỷ lệ có việc làm</div>
-        </div>
+        {% endfor %}
       </div>
       <!-- Additional Information -->
       <div class="flex flex-col gap-5 sm:gap-8">
         <!-- Section Header -->
-        <h2 class="text-xl lg:text-2xl font-bold text-navyBlue-800 flex items-center gap-3 mb-5 sm:mb-0">
-          <span class="size-10 rounded-xl bg-navyBlue-100 flex items-center justify-center">
-            <svg class="size-6 text-navyBlue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-          </span>
-          Thành tựu nổi bật
-        </h2>
+
+        {% include './_templates/common/_TitleChild.twig' with {
+        title: 'Thành tựu nổi bật',
+        titleClass: '',
+        svgIcon: '
+        <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>'
+        } %}
 
         <!-- Cards Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
@@ -243,7 +280,7 @@
               <img src="{{ item.image }}" alt="{{ item.title }}"
                 class="w-full min-h-full object-cover transition-transform duration-700 group-hover:scale-110">
               <div
-                class="absolute inset-0 bg-gradient-to-t from-navyBlue-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                class="absolute inset-0 bg-gradient-to-t from-primary-yellow to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <div class="absolute bottom-4 left-4 text-white">
                   <div class="text-4xl font-bold mb-1">{{ item.stats }}</div>
                   <div class="text-sm opacity-80">Thành tựu</div>
@@ -255,23 +292,24 @@
             <div class="flex flex-col gap-4 sm:gap-6 p-4 sm:p-6 relative">
               <!-- Icon Badge -->
               <div
-                class="absolute -top-8 right-6 size-16 rounded-2xl bg-white shadow-lg flex items-center justify-center group-hover:bg-navyBlue-800 transition-colors duration-500">
-                <svg class="size-8 text-navyBlue-600 group-hover:text-white transition-colors duration-500" fill="none"
-                  viewBox="0 0 24 24" stroke="currentColor">
+                class="absolute -top-8 right-6 size-16 rounded-2xl bg-white shadow-lg flex items-center justify-center group-hover:bg-secondary-subYellow transition-colors duration-500">
+                <svg class="size-8 text-primary-darkblue group-hover:text-primary-yellow transition-colors duration-500"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="{{ item.icon }}" />
                 </svg>
               </div>
 
-              <h3 class="text-xl font-bold text-navyBlue-800 group-hover:text-navyBlue-600 transition-colors">
+              <h3 class="text-xl font-bold text-primary-darkblue group-hover:text-primary-yellow transition-colors">
                 {{ item.title }}
               </h3>
               <div class="text-black1 line-clamp-3 leading-relaxed">{{ item.desc }}</div>
 
               <!-- Action Link -->
               <a href="#"
-                class="inline-flex items-center gap-2 text-navyBlue-600 font-medium group-hover:gap-3 transition-all">
+                class="inline-flex items-center gap-2 text-primary-darkblue group-hover:text-primary-yellow font-medium group-hover:gap-3 transition-all">
                 Xem chi tiết
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg class="w-4 h-4 rounded-full px-0.5 group-hover:bg-primary-yellow group-hover:text-white"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
@@ -283,54 +321,97 @@
 
       <!-- Tuyển sinh Đại học -->
       <div class="flex flex-col gap-4 sm:gap-8">
-        <h2 class="text-xl lg:text-2xl font-bold text-navyBlue-800 flex items-center gap-3 mb-5 sm:mb-0">
-          <span class="size-10 rounded-lg bg-navyBlue-100 flex items-center justify-center">
-            <svg class="size-6 text-navyBlue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
-            </svg>
-          </span>
-          Tuyển sinh Đại học
-        </h2>
+        {% include './_templates/common/_TitleChild.twig' with {
+        title: 'Tuyển sinh Đại học',
+        titleClass: '',
+        svgIcon: '<svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+        </svg>'
+        } %}
+
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-8">
           <!-- Main Program Card -->
           <div
-            class="lg:col-span-3 bg-gradient-to-r from-navyBlue-900 to-navyBlue-700 rounded-xl shadow-xl overflow-hidden">
-            <div class="flex flex-col lg:flex-row">
-              <div class="lg:w-1/2 relative aspect-video lg:aspect-auto">
-                <img src="assets/images/cooperation.png" alt="Đại học" class="w-full min-h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent"></div>
+            class="relative cursor-pointer flex flex-col lg:flex-row lg:col-span-3 bg-gradient-to-br from-primary-darkblue via-primary-darkblue/70 to-secondary-blue rounded-xl shadow-xl overflow-hidden group">
+            <!-- Decorative Elements -->
+            <div
+              class="absolute top-0 right-0 w-64 h-64 bg-primary-yellow/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-700">
+            </div>
+            <div
+              class="absolute bottom-0 left-0 w-48 h-48 bg-secondary-subBlue/20 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2 group-hover:scale-125 transition-transform duration-700">
+            </div>
+
+            <!-- Image Section -->
+            <div class="lg:w-1/2 relative aspect-video lg:aspect-auto">
+              <img src="assets/images/cooperation.png" alt="Đại học"
+                class="w-full min-h-full object-cover transition-transform duration-700 group-hover:scale-105">
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-primary-darkblue/80 via-primary-darkblue/40 to-transparent">
               </div>
-              <div class="px-4 py-6 sm:p-8 lg:w-1/2 flex flex-col gap-4 sm:gap-6 justify-center">
-                <h3 class="text-2xl sm:text-3xl font-bold text-white">Chương trình Đại học</h3>
-                <div class="flex items-center gap-6 ">
-                  <span class="flex items-center gap-2 text-white/80">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span>4 năm</span>
-                  </span>
-                  <span class="flex items-center gap-2 text-white/80">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                    </svg>
-                    <span>20+ ngành</span>
-                  </span>
+
+              <!-- Stats Badge on Image -->
+              <div class="absolute bottom-6 left-6 flex gap-3">
+                <div class="bg-white/95 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg">
+                  <div class="text-2xl font-bold text-primary-darkblue">20+</div>
+                  <div class="text-xs text-primary-darkblue/70">Ngành học</div>
                 </div>
-                <div class="text-white/90 ">Chương trình đào tạo đại học chuẩn quốc tế, đa dạng ngành nghề, trang bị
-                  kiến thức và kỹ năng toàn diện cho sinh viên.</div>
-                <a href="#" class="inline-flex items-center gap-2 text-white font-medium hover:gap-4 transition-all">
-                  Tìm hiểu thêm
-                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </a>
+                <div class="bg-white/95 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg">
+                  <div class="text-2xl font-bold text-primary-darkblue">4</div>
+                  <div class="text-xs text-primary-darkblue/70">Năm</div>
+                </div>
               </div>
+            </div>
+
+            <!-- Content Section with Decorative Elements -->
+            <div class="relative px-4 py-6 sm:p-8 lg:p-10 lg:w-1/2 flex flex-col gap-4 sm:gap-6 justify-center">
+              <!-- Decorative Lines -->
+              <div class="absolute top-8 right-8 w-20 h-20 border-2 border-primary-yellow/20 rounded-lg rotate-12">
+              </div>
+              <div class="absolute bottom-12 right-12 w-16 h-16 border-2 border-white/10 rounded-full"></div>
+
+              <h3 class="text-2xl sm:text-3xl font-bold text-white relative z-10 group-hover:text-primary-yellow">Chương
+                trình Đại học</h3>
+
+              <div class="flex flex-wrap items-center gap-4 sm:gap-6 relative z-10">
+                <span class="flex items-center gap-2 text-white backdrop-blur-sm px-3 py-1.5 rounded-full">
+                  <svg class="w-5 h-5 text-primary-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span class="font-medium">4 năm</span>
+                </span>
+                <span class="flex items-center gap-2 text-white backdrop-blur-sm px-3 py-1.5 rounded-full">
+                  <svg class="w-5 h-5 text-primary-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                  </svg>
+                  <span class="font-medium">20+ ngành</span>
+                </span>
+              </div>
+
+              <div class="text-white leading-relaxed relative z-10">Chương trình đào tạo đại học chuẩn quốc tế, đa dạng
+                ngành nghề, trang bị
+                kiến thức và kỹ năng toàn diện cho sinh viên.</div>
+
+              <!-- Features List -->
+              <div class="flex flex-wrap gap-2 relative z-10">
+                <span class="px-3 py-1 rounded-full backdrop-blur-sm text-white text-sm">Chuẩn quốc tế</span>
+                <span class="px-3 py-1 rounded-full backdrop-blur-sm text-white text-sm">Thực hành cao</span>
+                <span class="px-3 py-1 rounded-full backdrop-blur-sm text-white text-sm">Đa ngành</span>
+              </div>
+
+              <a href="#"
+                class="inline-flex items-center gap-2 text-white group-hover:text-primary-yellow font-semibold hover:gap-4 transition-all relative z-10 group/link">
+                Tìm hiểu thêm
+                <svg
+                  class="w-5 h-5 bg-white/20 rounded-full p-1 group-hover:bg-primary-yellow group-hover:text-white transition-colors"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
             </div>
           </div>
 
@@ -359,24 +440,41 @@
 
           {% for program in programs %}
           <div
-            class="group bg-white p-4 sm:p-6 flex flex-col gap-4 sm:gap-6 rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            class="group relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-primary-yellow/30 hover:-translate-y-2">
+            <!-- Background Animation -->
             <div
-              class="w-12 h-12 rounded-full bg-navyBlue-50 flex items-center justify-center group-hover:bg-navyBlue-100 transition-colors">
-              <svg class="w-6 h-6 text-navyBlue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ program.icon }}" />
-              </svg>
+              class="absolute inset-0 bg-gradient-to-br from-primary-yellow/0 to-primary-yellow/0 group-hover:from-primary-yellow/5 group-hover:to-primary-darkblue/5 transition-all duration-500">
             </div>
-            <h3 class="text-xl font-semibold text-navyBlue-800 group-hover:text-navyBlue-600 transition-colors">
-              {{ program.title }}
-            </h3>
-            <div class="text-black1 line-clamp-3">{{ program.desc }}</div>
-            <a href="#"
-              class="inline-flex items-center gap-2 text-navyBlue-600 font-medium group-hover:gap-3 transition-all">
-              Xem chi tiết
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
+
+            <!-- Decorative Element -->
+            <div
+              class="absolute -bottom-2 -right-2 w-20 h-20 bg-primary-yellow/5 rounded-full blur-2xl group-hover:bg-primary-yellow/10 transition-all duration-700 group-hover:scale-150">
+            </div>
+
+            <div class="relative p-4 sm:p-6 flex flex-col gap-4 sm:gap-6">
+              <div
+                class="w-12 h-12 rounded-2xl bg-secondary-subBlue/30 group-hover:bg-primary-yellow/20 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+                <svg
+                  class="w-6 h-6 text-primary-darkblue group-hover:text-primary-yellow transition-colors duration-500"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ program.icon }}" />
+                </svg>
+              </div>
+              <h3
+                class="text-xl font-semibold text-primary-darkblue group-hover:text-primary-yellow transition-colors duration-500">
+                {{ program.title }}
+              </h3>
+              <div class="text-black1 line-clamp-3">{{ program.desc }}</div>
+              <a href="#"
+                class="inline-flex items-center gap-2 text-primary-darkblue group-hover:text-primary-yellow font-medium group-hover:gap-3 transition-all">
+                Xem chi tiết
+                <svg
+                  class="w-4 h-4 rounded-full px-0.5 group-hover:bg-primary-yellow group-hover:text-white transition-colors"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
           </div>
           {% endfor %}
         </div>
@@ -384,36 +482,78 @@
 
       <!-- Tuyển sinh chương trình liên kết -->
       <div class="flex flex-col gap-5 sm:gap-8">
-        <h2 class="text-xl lg:text-2xl font-bold text-navyBlue-800 flex items-center gap-3 mb-5 sm:mb-0">
-          <span class="size-10 rounded-xl bg-navyBlue-100 flex items-center justify-center">
-            <svg class="size-6 text-navyBlue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9" />
-            </svg>
-          </span>
-          Chương trình liên kết quốc tế
-        </h2>
+
+        {% include './_templates/common/_TitleChild.twig' with {
+        title: 'Chương trình liên kết quốc tế',
+        titleClass: '',
+        svgIcon: '<svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9" />
+        </svg>'
+        } %}
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8">
           <!-- Featured Program -->
           <div
-            class="lg:col-span-2 bg-gradient-to-br from-navyBlue-900 via-navyBlue-800 to-navyBlue-700 rounded-xl shadow-xl overflow-hidden">
-            <div class="flex flex-col lg:flex-row items-center">
-              <div class="lg:w-1/2 p-4 py-6 sm:p-8 lg:p-12">
-                <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6">Chương trình liên kết đào tạo</h3>
-                <p class="text-white/90 mb-4 sm:mb-8 text-base sm:text-lg">
-                  Hợp tác với các trường đại học hàng đầu trên thế giới, mang đến cơ hội học tập và trải nghiệm quốc tế.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                  <span class="px-4 py-2 rounded-full bg-white/10 text-white backdrop-blur-sm">20+ Đối tác</span>
-                  <span class="px-4 py-2 rounded-full bg-white/10 text-white backdrop-blur-sm">5+ Quốc gia</span>
-                  <span class="px-4 py-2 rounded-full bg-white/10 text-white backdrop-blur-sm">100+ Suất học bổng</span>
-                </div>
+            class="relative cursor-pointer flex flex-col lg:flex-row lg:col-span-2 bg-gradient-to-br from-primary-darkblue via-primary-darkblue/70 to-secondary-blue rounded-xl shadow-xl overflow-hidden group">
+            <!-- Decorative Elements -->
+            <div
+              class="absolute top-0 right-0 w-64 h-64 bg-primary-yellow/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-700">
+            </div>
+            <div
+              class="absolute bottom-0 left-0 w-48 h-48 bg-secondary-subBlue/20 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2 group-hover:scale-125 transition-transform duration-700">
+            </div>
+
+            <!-- Content Section with Decorative Elements -->
+            <div class="relative px-4 py-6 sm:p-8 lg:p-10 lg:w-1/2 flex flex-col gap-4 sm:gap-6 justify-center">
+              <!-- Decorative Lines -->
+              <div class="absolute top-8 right-8 w-20 h-20 border-2 border-primary-yellow/20 rounded-lg rotate-12">
               </div>
-              <div class="lg:w-1/2 relative aspect-square lg:aspect-auto lg:h-full">
-                <img src="assets/images/cooperation.png" alt="International Programs"
-                  class="w-full min-h-full aspect-square object-cover opacity-90">
-                <div class="absolute inset-0 bg-gradient-to-r from-navyBlue-900/50 via-transparent to-transparent">
+              <div class="absolute bottom-12 right-12 w-16 h-16 border-2 border-white/10 rounded-full"></div>
+
+              <h3
+                class="text-2xl sm:text-3xl font-bold text-white relative z-10 group-hover:text-primary-yellow transition-colors duration-500">
+                Chương trình liên kết đào tạo</h3>
+
+              <div class="text-white leading-relaxed relative z-10">Hợp tác với các trường đại học hàng đầu trên thế
+                giới, mang đến cơ hội học tập và trải nghiệm quốc tế.</div>
+
+              <!-- Features List -->
+              <div class="flex flex-wrap gap-2 relative z-10">
+                <span class="px-3 py-1 rounded-full backdrop-blur-sm bg-white/10 text-white text-sm">20+ Đối tác</span>
+                <span class="px-3 py-1 rounded-full backdrop-blur-sm bg-white/10 text-white text-sm">5+ Quốc gia</span>
+                <span class="px-3 py-1 rounded-full backdrop-blur-sm bg-white/10 text-white text-sm">100+ Học
+                  bổng</span>
+              </div>
+
+              <a href="#"
+                class="inline-flex items-center gap-2 text-white group-hover:text-primary-yellow font-semibold hover:gap-4 transition-all relative z-10">
+                Tìm hiểu thêm
+                <svg
+                  class="w-5 h-5 bg-white/20 rounded-full p-1 group-hover:bg-primary-yellow group-hover:text-white transition-colors"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
+
+            <!-- Image Section -->
+            <div class="lg:w-1/2 relative aspect-video lg:aspect-auto overflow-hidden">
+              <img src="assets/images/cooperation.png" alt="International Programs"
+                class="w-full min-h-full object-cover transition-transform duration-700 group-hover:scale-105">
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-primary-darkblue/80 via-primary-darkblue/40 to-transparent">
+              </div>
+
+              <!-- Stats Badge on Image -->
+              <div class="absolute bottom-6 left-6 flex gap-3">
+                <div class="bg-white/95 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg">
+                  <div class="text-2xl font-bold text-primary-darkblue">20+</div>
+                  <div class="text-xs text-primary-darkblue/70">Đối tác</div>
+                </div>
+                <div class="bg-white/95 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg">
+                  <div class="text-2xl font-bold text-primary-darkblue">5+</div>
+                  <div class="text-xs text-primary-darkblue/70">Quốc gia</div>
                 </div>
               </div>
             </div>
@@ -438,28 +578,44 @@
 
           {% for program in programs %}
           <div
-            class="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 border border-gray-100 flex flex-col gap-4 sm:gap-8 p-4 sm:p-6">
-            <!-- Icon Header -->
+            class="group relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-primary-yellow/30 hover:-translate-y-2">
+            <!-- Background Animation -->
             <div
-              class="size-12 rounded-2xl bg-navyBlue-50 flex items-center justify-center group-hover:bg-navyBlue-100 transition-colors">
-              <svg class="size-6 text-navyBlue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="{{ program.icon }}" />
-              </svg>
+              class="absolute inset-0 bg-gradient-to-br from-primary-yellow/0 to-primary-yellow/0 group-hover:from-primary-yellow/5 group-hover:to-primary-darkblue/5 transition-all duration-500">
             </div>
 
-            <h3 class="text-xl font-bold text-navyBlue-800 group-hover:text-navyBlue-600 transition-colors">
-              {{ program.title }}
-            </h3>
-            <div class="text-black1 line-clamp-3">{{ program.desc }}</div>
+            <!-- Decorative Element -->
+            <div
+              class="absolute -bottom-2 -right-2 w-20 h-20 bg-primary-yellow/5 rounded-full blur-2xl group-hover:bg-primary-yellow/10 transition-all duration-700 group-hover:scale-150">
+            </div>
 
-            <a href="#"
-              class="inline-flex items-center gap-2 text-navyBlue-600 font-medium group-hover:gap-3 transition-all">
-              Tìm hiểu thêm
-              <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none"
-                viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
+            <div class="relative flex flex-col gap-4 sm:gap-6 p-4 sm:p-6">
+              <!-- Icon Header -->
+              <div
+                class="w-12 h-12 rounded-2xl bg-secondary-subBlue/30 group-hover:bg-primary-yellow/20 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+                <svg
+                  class="w-6 h-6 text-primary-darkblue group-hover:text-primary-yellow transition-colors duration-500"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ program.icon }}" />
+                </svg>
+              </div>
+
+              <h3
+                class="text-xl font-bold text-primary-darkblue group-hover:text-primary-yellow transition-colors duration-500">
+                {{ program.title }}
+              </h3>
+              <div class="text-black1 line-clamp-3">{{ program.desc }}</div>
+
+              <a href="#"
+                class="inline-flex items-center gap-2 text-primary-darkblue group-hover:text-primary-yellow font-medium group-hover:gap-3 transition-all">
+                Tìm hiểu thêm
+                <svg
+                  class="w-4 h-4 rounded-full px-0.5 group-hover:bg-primary-yellow group-hover:text-white transition-colors"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </div>
           </div>
           {% endfor %}
         </div>
@@ -467,39 +623,84 @@
 
       <!-- Tuyển sinh trình độ Tiến sĩ - Thạc sĩ -->
       <div class="flex flex-col gap-5 sm:gap-8">
-        <h2 class="text-2xl lg:text-3xl font-bold text-navyBlue-800 flex items-center gap-3 mb-5">
-          <span class="w-10 h-10 rounded-xl bg-navyBlue-100 flex items-center justify-center">
-            <svg class="w-6 h-6 text-navyBlue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
-            </svg>
-          </span>
-          Chương trình sau đại học
-        </h2>
+
+
+        {% include './_templates/common/_TitleChild.twig' with {
+        title: 'Chương trình sau đại học',
+        titleClass: '',
+        svgIcon: '<svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+        </svg>'
+        } %}
 
         <!-- Featured Section -->
         <div
-          class="relative rounded-2xl bg-gradient-to-br from-navyBlue-900 to-navyBlue-700 p-4 py-6 sm:p-8 lg:p-12 overflow-hidden">
+          class="group relative rounded-2xl bg-primary-darkblue p-4 py-6 sm:p-8 lg:p-12 overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl hover:border-primary-yellow/30 transition-all duration-500">
+          <!-- Decorative Elements -->
+          <div
+            class="absolute top-0 right-0 w-64 h-64 bg-secondary-subBlue/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-700">
+          </div>
+          <div
+            class="absolute bottom-0 left-0 w-48 h-48 bg-primary-yellow/10 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2 group-hover:scale-125 transition-transform duration-700">
+          </div>
+
+          <!-- Decorative Lines -->
+          <div
+            class="absolute top-8 left-8 w-20 h-20 border-2 border-secondary-subBlue/30 rounded-lg -rotate-12 group-hover:rotate-0 transition-transform duration-500">
+          </div>
+          <div
+            class="absolute bottom-8 right-8 w-16 h-16 border-2 border-primary-yellow/20 rounded-full group-hover:scale-110 transition-transform duration-500">
+          </div>
+
           <div class="relative z-10 flex flex-col lg:flex-row items-center gap-8">
             <div class="lg:w-1/2">
-              <h3 class="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6">Đào tạo sau đại học</h3>
-              <p class="text-base sm:text-lg text-white/90 mb-4 sm:mb-8">
+              <!-- Icon Badge -->
+              <div
+                class="w-16 h-16 rounded-2xl bg-secondary-subBlue/30 group-hover:bg-secondary-subYellow flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+                <svg
+                  class="w-8 h-8 text-primary-darkblue group-hover:text-primary-yellow transition-colors duration-500"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
+                </svg>
+              </div>
+
+              <h3
+                class="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6 group-hover:text-primary-yellow transition-colors duration-500">
+                Đào tạo sau đại học</h3>
+              <p class="text-base sm:text-lg text-white mb-4 sm:mb-8 leading-relaxed">
                 Phát triển năng lực nghiên cứu, sáng tạo và đổi mới trong môi trường học thuật chuyên nghiệp
               </p>
               <div class="grid grid-cols-2 gap-4">
-                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <div class="text-2xl font-bold text-white mb-1">25+</div>
-                  <div class="text-sm text-white/80">Chương trình</div>
+                <div
+                  class="bg-secondary-subBlue/20 backdrop-blur-sm rounded-lg p-4 group-hover:bg-secondary-subYellow transition-all duration-500 group-hover:scale-105 border border-secondary-subBlue/30 group-hover:border-secondary-yellow">
+                  <div
+                    class="text-2xl font-bold text-white mb-1 group-hover:text-primary-yellow transition-colors duration-500">
+                    25+</div>
+                  <div class="text-sm text-white/70 group-hover:text-primary-yellow">Chương trình</div>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <div class="text-2xl font-bold text-white mb-1">200+</div>
-                  <div class="text-sm text-white/80">Giảng viên</div>
+                <div
+                  class="bg-secondary-subBlue/20 backdrop-blur-sm rounded-lg p-4 group-hover:bg-secondary-subYellow transition-all duration-500 group-hover:scale-105 border border-secondary-subBlue/30 group-hover:border-secondary-yellow">
+                  <div
+                    class="text-2xl font-bold text-white mb-1 group-hover:text-primary-yellow transition-colors duration-500">
+                    200+</div>
+                  <div class="text-sm text-white/70 group-hover:text-primary-yellow">Giảng viên</div>
                 </div>
               </div>
             </div>
-            <div class="lg:w-1/2">
+            <div class="lg:w-1/2 relative">
               <img src="assets/images/program-image.png" alt="Graduate Programs"
-                class="rounded-lg w-full min-h-full object-cover shadow-xl transform -rotate-3 hover:rotate-0 transition-transform duration-500">
+                class="rounded-lg w-full min-h-full object-cover shadow-xl transform -rotate-3 group-hover:rotate-0 group-hover:scale-105 transition-transform duration-500">
+              <!-- Image Overlay on Hover -->
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-primary-yellow/0 to-primary-yellow/0 group-hover:from-primary-yellow/10 group-hover:to-transparent rounded-lg transition-all duration-500">
+              </div>
+
+              <!-- Decorative border around image -->
+              <div
+                class="absolute -inset-2 border-2 border-secondary-subBlue/20 rounded-lg -z-10 group-hover:border-primary-yellow/30 transition-colors duration-500">
+              </div>
             </div>
           </div>
         </div>
@@ -535,25 +736,45 @@
 
           {% for program in postGradPrograms %}
           <div
-            class="group relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500">
+            class="group relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-primary-yellow/30 hover:-translate-y-2">
+            <!-- Background Animation -->
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-primary-yellow/0 to-primary-yellow/0 group-hover:from-primary-yellow/5 group-hover:to-primary-darkblue/5 transition-all duration-500 pointer-events-none">
+            </div>
+
+            <!-- Decorative Element -->
+            <div
+              class="absolute -bottom-2 -right-2 w-20 h-20 bg-primary-yellow/5 rounded-full blur-2xl group-hover:bg-primary-yellow/10 transition-all duration-700 group-hover:scale-150">
+            </div>
+
             <!-- Header Image -->
             <div class="relative h-48 overflow-hidden">
               <img src="{{ program.image }}" alt="{{ program.title }}"
-                class="w-full object-cover transition-transform duration-700 group-hover:scale-110">
-              <div class="absolute inset-0 bg-gradient-to-t from-navyBlue-900/90 to-transparent pointer-events-none">
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-primary-darkblue/90 to-transparent pointer-events-none">
               </div>
+              <!-- Decorative overlay on hover -->
+              <div
+                class="absolute inset-0 bg-primary-yellow/0 group-hover:bg-primary-yellow/10 transition-all duration-500 pointer-events-none">
+              </div>
+
               <div class="absolute bottom-4 left-4 right-4">
-                <h3 class="text-2xl font-bold text-white mb-2">{{ program.title }}</h3>
+                <h3
+                  class="text-2xl font-bold text-white mb-2 group-hover:text-primary-yellow transition-colors duration-500">
+                  {{ program.title }}</h3>
                 <div class="flex items-center gap-4 text-white/80 text-sm">
-                  <span class="flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <span class="flex items-center gap-2 group-hover:text-white transition-colors duration-300">
+                    <svg class="w-4 h-4 group-hover:scale-110 transition-transform duration-300" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     {{ program.duration }}
                   </span>
-                  <span class="flex items-center gap-2">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <span class="flex items-center gap-2 group-hover:text-white transition-colors duration-300">
+                    <svg class="w-4 h-4 group-hover:scale-110 transition-transform duration-300" fill="none"
+                      viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                     </svg>
@@ -564,32 +785,41 @@
             </div>
 
             <!-- Content -->
-            <div class="flex flex-col gap-4 sm:gap-6 p-4 sm:p-6">
+            <div class="relative flex flex-col gap-4 sm:gap-6 p-4 sm:p-6">
               <!-- Stats Grid -->
               <div class="grid grid-cols-2 gap-4">
                 {% for stat in program.stats %}
-                <div class="bg-navyBlue-50/50 rounded-lg p-3 text-center">
-                  <div class="text-xl font-bold text-navyBlue-800">{{ stat.value }}</div>
-                  <div class="text-sm text-navyBlue-600">{{ stat.label }}</div>
+                <div
+                  class="bg-secondary-subBlue/50 group-hover:bg-secondary-subBlue/30 rounded-lg p-3 text-center transition-all duration-500 group-hover:scale-105">
+                  <div
+                    class="text-xl font-bold text-primary-darkblue group-hover:text-primary-yellow transition-colors duration-500">
+                    {{ stat.value }}</div>
+                  <div
+                    class="text-sm text-primary-darkblue group-hover:text-primary-darkblue/80 transition-colors duration-500">
+                    {{ stat.label }}</div>
                 </div>
                 {% endfor %}
               </div>
 
-              <div class="text-black1 line-clamp-3">{{ program.desc }}</div>
+              <div class="text-black1 line-clamp-3 group-hover:text-black1/90 transition-colors duration-300">{{
+                program.desc }}</div>
 
               <!-- Features -->
               <div class="flex flex-wrap gap-2">
                 {% for feature in program.features %}
-                <span class="px-3 py-1 rounded-full bg-navyBlue-50 text-navyBlue-600 text-sm">{{ feature }}</span>
+                <span
+                  class="px-3 py-1 rounded-full bg-secondary-subBlue group-hover:bg-primary-yellow/20 text-primary-darkblue group-hover:text-primary-darkblue text-sm transition-all duration-300 hover:scale-105">{{
+                  feature }}</span>
                 {% endfor %}
               </div>
 
               <!-- Action Button -->
               <a href="#"
-                class="inline-flex items-center gap-2 text-navyBlue-600 font-medium group-hover:gap-3 transition-all">
+                class="inline-flex items-center gap-2 text-primary-darkblue group-hover:text-primary-yellow font-medium group-hover:gap-3 transition-all">
                 Tìm hiểu thêm
-                <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none"
-                  viewBox="0 0 24 24" stroke="currentColor">
+                <svg
+                  class="w-4 h-4 rounded-full px-0.5 group-hover:bg-primary-yellow group-hover:text-white transition-all duration-300"
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
                   </path>
                 </svg>
