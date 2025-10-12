@@ -15,64 +15,8 @@ export default class HomeAccredited extends BaseModule {
 
   // Initialize configuration data
   initializeConfig() {
-    this.quartersConfig = {
-      centerLogo: "assets/images/logo-circle.png",
-      canvasSize: 500,
-      centerRadius: 42,
-      segmentGap: 6,
-      quarterGap: 4,
-      outerCornerRadius: 15,
-      rotationOffset: 0,
-      currentRotationOffset: 0,
-      targetRotationOffset: 0,
-      rotationAnimationSpeed: 0.18,
-      quarterColors: [
-        { bg: '#e8f5e8', border: '#4CAF50', text: '#2E7D32' }, // VNU-CEA - Green
-        { bg: '#fff3e0', border: '#FF9800', text: '#E65100' }, // AUN-QA - Orange
-        { bg: '#e3f2fd', border: '#2196F3', text: '#0D47A1' }, // ABET - Blue
-        { bg: '#fce4ec', border: '#E91E63', text: '#880E4F' }, // Other - Pink
-        { bg: '#f3e5f5', border: '#9C27B0', text: '#4A148C' }, // New - Purple
-        { bg: '#e0f2f1', border: '#009688', text: '#004D40' }  // New - Teal
-      ],
-      quarters: [
-        {
-          id: "vnu-cea",
-          tabId: "tab1",
-          title: "VNU-CEA",
-          active: false
-        },
-        {
-          id: "aun-qa",
-          tabId: "tab2",
-          title: "AUN-QA",
-          active: true
-        },
-        {
-          id: "abet",
-          tabId: "tab3",
-          title: "ABET",
-          active: false
-        },
-        {
-          id: "other",
-          tabId: "tab4",
-          title: "Other",
-          active: false
-        },
-        {
-          id: "iso",
-          tabId: "tab5",
-          title: "ISO",
-          active: false
-        },
-        {
-          id: "vnu-hcm",
-          tabId: "tab6",
-          title: "VNU-HCM",
-          active: false
-        }
-      ]
-    };
+    const homeAccreditedConfig = require('../../accredited.json');
+    this.quartersConfig = JSON.parse(JSON.stringify(homeAccreditedConfig));
   }
 
   // Khởi tạo và lưu trữ các DOM elements
@@ -462,6 +406,9 @@ export default class HomeAccredited extends BaseModule {
       ctx.fill();
       ctx.restore();
     }
+    // Draw quarter image
+    const image = this.loadedImages.get(quarter.id);
+    this.drawQuarterImageInSegment(quarter, image);
     // Draw quarter text
     this.drawQuarterTextInSegment(quarter);
   }
@@ -553,6 +500,72 @@ export default class HomeAccredited extends BaseModule {
       ctx.restore();
 
       cursorAngle += direction * charAngle;
+    }
+
+    ctx.restore();
+  }
+
+  // Draw quarter image limited to half of the slice band
+  drawQuarterImageInSegment(quarter, image) {
+    const ctx = this.ctx;
+    const {
+      centerX,
+      centerY,
+      innerRadius,
+      outerRadius,
+      outerStartAngle,
+      outerEndAngle
+    } = quarter;
+
+    const clipInnerRadius = innerRadius;
+    const clipOuterRadius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const midAngle = (outerStartAngle + outerEndAngle) / 2;
+    const halfSpan = (outerEndAngle - outerStartAngle) / 2;
+    const fallbackLabel = (quarter.id || '').substring(0, 3).toUpperCase();
+
+    ctx.save();
+    try {
+      ctx.translate(centerX, centerY);
+      ctx.rotate(midAngle);
+
+      ctx.beginPath();
+      ctx.moveTo(clipInnerRadius * Math.cos(-halfSpan), clipInnerRadius * Math.sin(-halfSpan));
+      ctx.arc(0, 0, clipOuterRadius, -halfSpan, halfSpan);
+      ctx.lineTo(clipInnerRadius * Math.cos(halfSpan), clipInnerRadius * Math.sin(halfSpan));
+      ctx.arc(0, 0, clipInnerRadius, halfSpan, -halfSpan, true);
+      ctx.closePath();
+      ctx.clip();
+
+      if (image && image.complete) {
+        const drawWidth = (clipOuterRadius - clipInnerRadius) * 2.2;
+        const drawHeight = drawWidth;
+        const centerOffset = (clipInnerRadius + clipOuterRadius) / 2;
+        ctx.drawImage(
+          image,
+          centerOffset - drawWidth / 2,
+          -drawHeight / 2,
+          drawWidth,
+          drawHeight
+        );
+      } else {
+        const colors = this.quartersConfig.quarterColors[quarter.colorIndex];
+        ctx.beginPath();
+        ctx.moveTo(clipInnerRadius * Math.cos(-halfSpan), clipInnerRadius * Math.sin(-halfSpan));
+        ctx.arc(0, 0, clipOuterRadius, -halfSpan, halfSpan);
+        ctx.lineTo(clipInnerRadius * Math.cos(halfSpan), clipInnerRadius * Math.sin(halfSpan));
+        ctx.arc(0, 0, clipInnerRadius, halfSpan, -halfSpan, true);
+        ctx.closePath();
+        ctx.fillStyle = colors?.border || '#ccc';
+        ctx.fill();
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 10px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(fallbackLabel, (clipInnerRadius + clipOuterRadius) / 2, 0);
+      }
+    } catch (error) {
+      console.error('Error drawing quarter image:', error);
     }
 
     ctx.restore();

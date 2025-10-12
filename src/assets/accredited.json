@@ -1,0 +1,88 @@
+{
+  "centerLogo": "assets/images/logo-circle.png",
+  "canvasSize": 500,
+  "centerRadius": 42,
+  "segmentGap": 6,
+  "quarterGap": 4,
+  "outerCornerRadius": 15,
+  "rotationOffset": 0,
+  "currentRotationOffset": 0,
+  "targetRotationOffset": 0,
+  "rotationAnimationSpeed": 0.18,
+  "quarterColors": [
+    {
+      "bg": "#e8f5e8",
+      "border": "#4CAF50",
+      "text": "#2E7D32"
+    },
+    {
+      "bg": "#fff3e0",
+      "border": "#FF9800",
+      "text": "#E65100"
+    },
+    {
+      "bg": "#e3f2fd",
+      "border": "#2196F3",
+      "text": "#0D47A1"
+    },
+    {
+      "bg": "#fce4ec",
+      "border": "#E91E63",
+      "text": "#880E4F"
+    },
+    {
+      "bg": "#f3e5f5",
+      "border": "#9C27B0",
+      "text": "#4A148C"
+    },
+    {
+      "bg": "#e0f2f1",
+      "border": "#009688",
+      "text": "#004D40"
+    }
+  ],
+  "quarters": [
+    {
+      "id": "vnu-cea",
+      "tabId": "tab1",
+      "image": "assets/images/cea-circle.png",
+      "title": "VNU-CEA",
+      "active": false
+    },
+    {
+      "id": "aun-qa",
+      "tabId": "tab2",
+      "image": "assets/images/aun-circle.png",
+      "title": "AUN-QA",
+      "active": true
+    },
+    {
+      "id": "abet",
+      "tabId": "tab3",
+      "image": "assets/images/abet-circle.png",
+      "title": "ABET",
+      "active": false
+    },
+    {
+      "id": "other",
+      "tabId": "tab4",
+      "image": "assets/images/abet-circle.png",
+      "title": "Other",
+      "active": false
+    },
+    {
+      "id": "iso",
+      "tabId": "tab5",
+      "image": "assets/images/abet-circle.png",
+      "title": "ISO",
+      "active": false
+    },
+    {
+      "id": "vnu-hcm",
+      "tabId": "tab6",
+      "image": "assets/images/vnu-circle.png",
+      "title": "VNU-HCM",
+      "active": false
+    }
+  ]
+}

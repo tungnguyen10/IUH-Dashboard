@@ -2,11 +2,8 @@
   <div
     class="w-full max-w-[1200px] px-4 mx-auto pb-6 md:pb-[40px] flex flex-col"
   >
-    <h2
-      class="text-2xl lg:text-titleDK md:leading-[1] text-left lg:text-center font-bold text-titleColor h-10 lg:h-[50px]"
-    >
-      Đối tác
-    </h2>
+    {% include '../common/_Title.twig' with {'title': 'Đối tác', titleClass:"flex-col items-center", }
+    %}
     <div class="w-full relative">
       <div
         class="swiper-button-partner-prev hidden lg:block absolute top-1/2 -left-4 -translate-y-1/2 z-[3] cursor-pointer size-[30px] lg:size-[50px] p-[5px] rounded-full bg-white drop-shadow-btn-slide transition-all duration-500 ease-in hover:bg-gradient-to-r from-navyBlue-800 to-navyBlue-700 hover:text-white"

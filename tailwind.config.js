@@ -27,6 +27,9 @@ module.exports = {
         "btn-slide": "2px 2px 10px rgba(0, 0, 0, 0.05)",
         "gallery-item": "4px 4px 20px 0px rgba(0, 0, 0, 0.15)",
         partner: "4px 4px 15px 0px rgba(0, 0, 0, 0.05)",
+        'inset-blue': 'inset 1px 1px 15px 0 rgba(142, 216, 248, 0.5)',
+        'gold': '2px 2px 15px 0 rgba(249, 178, 0, 0.15)',
+
       },
       animation: {
         rotation360: "rotation360 10s linear infinite",
