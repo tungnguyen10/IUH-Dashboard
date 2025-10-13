@@ -4,11 +4,11 @@
     <div class="flex flex-col gap-5 lg:gap-10 w-full lg:max-w-[480px] relative shrink-0 pt-5 lg:pt-[70px]">
        {% include '../common/_Title.twig' with {'title': 'Về chúng tôi'} %}
       <div
-        class="absolute top-[40%] left-[80%] translate-x-[-50%] translate-y-[-50%] size-[200px] lg:size-[290px] z-[-1]">
+        class="absolute top-[40%] left-[80%] opacity-10 translate-x-[-50%] translate-y-[-50%] size-[200px] lg:size-[290px] z-[-1]">
         <img src="assets/images/text-around.png" alt="iuh" class="w-full absolute top-0 left-0 animate-rotation360" />
         <img src="assets/images/iuh.png" alt="iuh" class="w-full" />
       </div>
-      <div class="text-lg leading-[166.667%] font-normal text-black2 text-justify">
+      <div class="text-base md:text-lg leading-[166.667%] font-normal text-black2 text-justify">
         Với mục tiêu và tầm nhìn trở thành Trường đại học hàng đầu của Việt Nam,
         tiên phong trong lĩnh vực giáo dục và nghiên cứu ứng dụng, chuyển giao
         công nghệ và đổi mới sáng tạo ; giá trị cốt lõi Trường Đại học Công
@@ -31,18 +31,18 @@
       </div>
     </div>
     <div class="w-full max-w-[972px] flex-1 bg-about">
-      <div class="swiper swiper_about !py-5 lg:!py-[85px] -!mr-5 lg:!mr-0">
+      <div class="swiper swiper_about !py-5 lg:!py-[85px] !-mr-5 lg:!mr-0">
         <div class="swiper-wrapper">
           {% for i in 1..8 %}
           <div class="swiper-slide">
             <div
-              class="aspect-[280/330] relative group/about cursor-pointer rounded-[10px] overflow-hidden hover:translate-y-[-0.5rem] hover:border hover:border-secondary-subBlue transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
+              class="aspect-[280/330] sm:aspect-[300/350] md:aspect-[280/330] lg:aspect-[300/360] relative group/about cursor-pointer rounded-[10px] overflow-hidden hover:translate-y-[-0.5rem] hover:border hover:border-secondary-subBlue transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
               <a href="#" class="block size-full">
                 <img src="assets/images/about-img.png" alt="about"
                   class="size-full rounded-md object-cover transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/about:scale-110 group-hover/about:brightness-[0.85]" />
               </a>
               <h3
-                class="text-sm lg:text-lg tracking-tight uppercase font-medium p-4 transition-all duration-500 absolute bottom-0 w-full left-0 text-black1 bg-white group-hover/about:opacity-0 group-hover/about:translate-y-full">
+                class="text-xs sm:text-sm md:text-base lg:text-lg tracking-tight uppercase font-medium p-3 sm:p-4 transition-all duration-500 absolute bottom-0 w-full left-0 text-black1 bg-white group-hover/about:opacity-0 group-hover/about:translate-y-full">
                 Thông điệp Hiệu Trưởng
               </h3>
               <div class="absolute inset-0 flex flex-col justify-end overflow-hidden">
@@ -52,12 +52,12 @@
                 <div
                   class="relative z-10 translate-y-[100%] group-hover/about:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]">
                   <h3
-                    class="text-base lg:text-lg tracking-tight uppercase font-medium px-4 py-3 transition-all duration-500 delay-200 text-yellow">
+                    class="text-sm sm:text-base md:text-lg lg:text-xl tracking-tight uppercase font-medium px-3 sm:px-4 py-2 sm:py-3 transition-all duration-500 delay-200 text-yellow">
                     Thông điệp Hiệu Trưởng
                   </h3>
                   <div class="overflow-hidden">
                     <div
-                      class="text-sm lg:text-base px-4 pb-4 lg:pb-6 leading-[150%] font-normal text-white/90 opacity-0 -translate-y-4 transition-all duration-500 delay-250 group-hover/about:opacity-100 group-hover/about:translate-y-0">
+                      class="text-xs sm:text-sm md:text-base lg:text-base px-3 sm:px-4 pb-3 sm:pb-4 lg:pb-6 leading-[150%] font-normal text-white/90 opacity-0 -translate-y-4 transition-all duration-500 delay-250 group-hover/about:opacity-100 group-hover/about:translate-y-0">
                       Tiến sĩ Phan Hồng Hải hiện là Hiệu trưởng Trường Đại học
                       Công nghiệp Thành phố Hồ Chí Minh (IUH).
                     </div>

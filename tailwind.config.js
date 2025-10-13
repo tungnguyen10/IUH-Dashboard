@@ -120,7 +120,6 @@ module.exports = {
         black2: "#424242",
         stroke: "#E3E3E3",
         stroke1: "#F9F9F9",
-        red: "#d32f2f",
         persianRed: {
           50: "#fdf3f3",
           100: "#fde3e3",
@@ -151,6 +150,8 @@ module.exports = {
           subYellow: "#FEF9E3",
         },
         yellow: "#F9B200",
+        red: "#DD2F2C",
+        "red-light": "#FFEBEE",
       },
       spacing: {
         1.25: "5px",

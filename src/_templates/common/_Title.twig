@@ -5,9 +5,9 @@
     class="bg-icon size-10 relative bg-no-repeat bg-center bg-contain group-hover:bg-icon-light transition-all duration-500 ease-in-out animate-toggleIcon"></span>
   {% else %}
   <span
-    class="bg-icon size-10 relative bg-no-repeat bg-center bg-contain group-hover:bg-icon-fill transition-all duration-500 ease-in-out animate-toggleIcon"></span>
+    class="bg-icon size-8 md:size-10 relative bg-no-repeat bg-center bg-contain group-hover:bg-icon-fill transition-all duration-500 ease-in-out animate-toggleIcon"></span>
   {% endif %}
-  <span>{{ title }}</span>
+  <span class="text-center">{{ title }}</span>
   {% if subtitle is defined and subtitle is not empty %}
   <span class=" text-primary-yellow {{ subtitleClass|default('') }}">{{ subtitle }}</span>
   {% endif %}
