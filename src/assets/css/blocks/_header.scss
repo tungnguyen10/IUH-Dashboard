@@ -91,10 +91,10 @@ header {
             padding: 15px 20px;
             justify-content: space-between;
             width: 100%;
-            color: var(--navy-blue-900);
+            color: #153898;
 
             &:hover {
-              background: var(--navy-blue-50);
+              color: #F9B200;
             }
 
             // Rotate arrow on active submenu
@@ -103,6 +103,7 @@ header {
 
               &.rotate-active {
                 transform: rotate(180deg);
+                color: #F9B200;
               }
             }
           }
