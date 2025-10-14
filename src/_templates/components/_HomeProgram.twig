@@ -76,7 +76,7 @@
 
       {% for program in programs %}
       <div
-        class="group aspect-[390/280] md:aspect-[370/294] relative overflow-hidden flex flex-col gap-3 rounded-xl px-5 py-3 border border-secondary-subBlue text-white min-h-[200px] hover:shadow-2xl hover:shadow-primary-yellow/20 transition-all duration-300 ease-out justify-center group-hover:justify-start hover:scale-[1.02] hover:-translate-y-1">
+        class="group aspect-[390/270] md:aspect-[370/294] relative overflow-hidden flex flex-col gap-3 rounded-xl px-5 py-3 border border-secondary-subBlue text-white min-h-[200px] hover:shadow-2xl hover:shadow-primary-yellow/20 transition-all duration-300 ease-out justify-center group-hover:justify-start hover:scale-[1.02] hover:-translate-y-1">
         <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
           <div class="absolute top-0 left-0 size-full z-1">
             <img src="assets/images/ctdt.jpg" alt="iuh" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -85,7 +85,7 @@
           </div>
           <div class="bg-program absolute top-0 z-10 right-0 w-[70%] h-full bg-cover opacity-15 transition-all duration-700 translate-x-full group-hover:opacity-25 group-hover:translate-x-0">
           </div>
-          <div class="absolute top-2 z-10 left-[70%] opacity-40 size-[60px] md:size-[70px] lg:size-[90px] transition-all duration-700 group-hover:opacity-80 group-hover:-translate-x-96 group-hover:scale-110">
+          <div class="absolute top-2 z-10 right-[2%] opacity-40 size-[60px] md:size-[70px] lg:size-[90px] transition-all duration-700 group-hover:opacity-80 group-hover:-translate-x-96 group-hover:scale-110">
             <img src="assets/images/text-around-white.png" alt="iuh" class="w-full absolute top-0 left-0 animate-rotation360 transition-transform duration-700 group-hover:animate-spin" />
             <img src="assets/images/iuh-white.png" alt="iuh" class="w-full transition-transform duration-700 group-hover:rotate-12" />
           </div>
@@ -95,16 +95,16 @@
           {{ program.icon|raw }}
         </div>
 
-        <h2 class="text-xl md:text-xl line-clamp-1 lg:text-2xl font-bold transition-all duration-300 z-10 relative">
+        <h2 class="text-xl line-clamp-1 md:text-2xl font-bold transition-all duration-300 z-10 relative">
           {{ program.title }}
         </h2>
 
-        <div class="text-sm md:text-base line-clamp-3 z-10 transition-all duration-300/90 relative opacity-90 group-hover:opacity-100">
+        <div class="text-base line-clamp-3 z-10 transition-all duration-300/90 relative opacity-90 group-hover:opacity-100">
           {{ program.description }}
         </div>
 
         <div class="w-full bg-primary-darkblue rounded-full overflow-hidden transition-all duration-500 ease-out z-10 mt-auto absolute bottom-3 left-5 right-5 opacity-0 group-hover:relative group-hover:bottom-auto group-hover:left-auto group-hover:right-auto group-hover:opacity-100 group-hover:shadow-lg">
-          <a href="{{ program.link }}" class="flex flex-row justify-center items-center gap-2 text-white text-xs md:text-sm lg:text-base font-medium py-2 lg:py-3 transition-all duration-300 group-hover:gap-3 group-hover:font-semibold">
+          <a href="{{ program.link }}" class="flex flex-row justify-center items-center gap-2 text-white text-sm lg:text-base font-medium py-2.5 lg:py-3 transition-all duration-300 group-hover:gap-3 group-hover:font-semibold">
             Xem chi tiết
             <div class="rounded-full bg-primary-yellow size-4 md:size-5 transition-all duration-300 group-hover:rotate-45 group-hover:scale-110">
               <svg xmlns="http://www.w3.org/2000/svg" class="size-full transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 25" fill="none">

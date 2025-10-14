@@ -3,62 +3,26 @@
     class="w-full max-w-[1200px] px-4 mx-auto py-10 lg:py-16 flex flex-col"
   >
     <div class="iuh-awards-grid gap-4">
-      <div class="w-full bg-secondary-subBlue rounded-lg awardsCounting">
-        <a href="#">
-          <div class="awardsCounting-content">
-            <div class="awardsCounting-content-title">100</div>
-            <div class="awardsCounting-content-plus">+</div>
-          </div>
-          <div class="awardsCounting-content-text">CÔNG BỐ QUỐC TẾ</div>
-        </a>
-      </div>
-      <div class="w-full bg-secondary-subBlue rounded-lg awardsCounting">
-        <a href="#">
-          <div class="awardsCounting-content">
-            <div class="awardsCounting-content-title">234</div>
-            <div class="awardsCounting-content-plus">+</div>
-          </div>
-          <div class="awardsCounting-content-text">ĐỀ TÀI NCKH</div>
-        </a>
-      </div>
-      <div class="w-full bg-secondary-subBlue rounded-lg awardsCounting">
-        <a href="#">
-          <div class="awardsCounting-content">
-          <div class="awardsCounting-content-title">10000</div>
-            <div class="awardsCounting-content-plus">+</div>
-          </div>
-          <div class="awardsCounting-content-text">
-            TOP 10 ĐẠI HỌC TẠI VIỆT NAM
-          </div>
-        </a>
-      </div>
-      <div class="w-full bg-secondary-subBlue rounded-lg awardsCounting">
-        <a href="#">
-          <div class="awardsCounting-content">
-            <div class="awardsCounting-content-title">10</div>
-            <div class="awardsCounting-content-plus">+</div>
-          </div>
-          <div class="awardsCounting-content-text">SINH VIÊN</div>
-        </a>
-      </div>
-      <div class="w-full bg-secondary-subBlue rounded-lg awardsCounting">
-        <a href="#">
-          <div class="awardsCounting-content">
-          <div class="awardsCounting-content-title">69</div>
-          <div class="awardsCounting-content-plus">+</div>
+      {% set awards = [
+        { number: '100', text: 'CÔNG BỐ QUỐC TẾ', link: '#' },
+        { number: '234', text: 'ĐỀ TÀI NCKH', link: '#' },
+        { number: '10000', text: 'TOP 10 ĐẠI HỌC TẠI VIỆT NAM', link: '#' },
+        { number: '10', text: 'SINH VIÊN', link: '#' },
+        { number: '69', text: 'PHÒNG BAN', link: '#' },
+        { number: '876', text: 'GIẢNG VIÊN', link: '#' }
+      ] %}
+
+      {% for award in awards %}
+        <div class="group w-full bg-secondary-subBlue rounded-lg awardsCounting">
+          <a href="{{ award.link }}">
+            <div class="awardsCounting-content ">
+              <div class="awardsCounting-content-title group-hover:text-white">{{ award.number }}</div>
+              <div class="awardsCounting-content-plus group-hover:text-white">+</div>
+            </div>
+            <div class="awardsCounting-content-text group-hover:text-white">{{ award.text }}</div>
+          </a>
         </div>
-          <div class="awardsCounting-content-text">PHÒNG BAN</div>
-        </a>
-      </div>
-      <div class="w-full bg-secondary-subBlue rounded-lg awardsCounting">
-        <a href="#">
-          <div class="awardsCounting-content">
-            <div class="awardsCounting-content-title">876</div>
-          <div class="awardsCounting-content-plus">+</div>
-        </div>
-          <div class="awardsCounting-content-text">GIẢNG VIÊN</div>
-        </a>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </div>
