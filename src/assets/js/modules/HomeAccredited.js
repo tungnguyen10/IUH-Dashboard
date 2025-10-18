@@ -11,12 +11,15 @@ export default class HomeAccredited extends BaseModule {
     this.bindEvents();
     this.rotationAnimationFrame = null;
     this.rotationAnimating = false;
+    this.imagesLoading = false;
+    this.allImagesLoaded = false;
   }
 
   // Initialize configuration data
   initializeConfig() {
     const homeAccreditedConfig = require('../../accredited.json');
     this.quartersConfig = JSON.parse(JSON.stringify(homeAccreditedConfig));
+    console.log('HomeAccredited: Configuration initialized', this.quartersConfig);
   }
 
   // Khởi tạo và lưu trữ các DOM elements
@@ -45,18 +48,37 @@ export default class HomeAccredited extends BaseModule {
 
     try {
       this.setupCanvas();
+      this.imagesLoading = true;
+      this.allImagesLoaded = false;
+
+      // Wait for all images to load completely
       await this.loadImages();
+
+      // Verify all images are actually loaded
+      const allLoaded = this.areImagesLoaded();
+      if (!allLoaded) {
+        console.warn('Not all images loaded, waiting for completion...');
+        // Wait a bit more and try again
+        await new Promise(resolve => setTimeout(resolve, 500));
+      }
+
+      this.allImagesLoaded = true;
+      this.imagesLoading = false;
+
       this.updateRotationOffset(true);
       this.quartersConfig.currentRotationOffset = this.quartersConfig.targetRotationOffset ?? this.quartersConfig.rotationOffset ?? 0;
       this.quartersConfig.rotationOffset = this.quartersConfig.currentRotationOffset;
       this.calculateQuarterPositions();
+
+      // Only render after all images are confirmed loaded
       this.renderCanvas();
-      console.log('Canvas initialized successfully');
+      console.log('Canvas initialized successfully with all images loaded');
     } catch (error) {
       console.error('Error initializing canvas:', error);
-      // Render without images as fallback
-      this.calculateQuarterPositions();
-      this.renderCanvas();
+      this.imagesLoading = false;
+      this.allImagesLoaded = false;
+      // Don't render if images failed to load
+      console.error('Canvas rendering aborted due to image loading failure');
     }
   }
 
@@ -90,49 +112,84 @@ export default class HomeAccredited extends BaseModule {
   loadImage(src, key) {
     return new Promise((resolve) => {
       const img = new Image();
+
+      let imageLoaded = false;
+      let timeoutId = null;
+
       img.onload = () => {
-        this.loadedImages.set(key, img);
-        console.log(`Successfully loaded image: ${src}`);
-        resolve(img);
+        if (imageLoaded) return; // Prevent double execution
+        imageLoaded = true;
+
+        if (timeoutId) clearTimeout(timeoutId);
+
+        // Ensure image is fully decoded before storing
+        if (img.complete && img.naturalWidth > 0) {
+          this.loadedImages.set(key, img);
+          console.log(`✓ Successfully loaded image: ${src}`);
+          resolve(img);
+        } else {
+          console.warn(`Image loaded but not ready: ${src}`);
+          // Wait a bit for image to be ready
+          setTimeout(() => {
+            this.loadedImages.set(key, img);
+            resolve(img);
+          }, 100);
+        }
       };
+
       img.onerror = (error) => {
-        console.warn(`Failed to load image: ${src}`, error);
+        if (imageLoaded) return;
+        imageLoaded = true;
+
+        if (timeoutId) clearTimeout(timeoutId);
+
+        console.warn(`✗ Failed to load image: ${src}`, error);
+
         // Create a fallback colored rectangle instead of failing
         const fallbackCanvas = document.createElement('canvas');
         fallbackCanvas.width = 100;
         fallbackCanvas.height = 100;
         const ctx = fallbackCanvas.getContext('2d');
 
-        // Use different colors based on key
-        const colors = {
-          'centerLogo': '#1e40af',
-          'vnu-cea': '#4CAF50',
-          'aun-qa': '#FF9800',
-          'abet': '#2196F3',
-          'other': '#E91E63',
-          'iso': '#9C27B0',
-          'international': '#009688'
-        };
+        // Use quarterColors from config based on quarter index
+        let bgColor = '#cccccc';
+        let textColor = '#ffffff';
 
-        ctx.fillStyle = colors[key] || '#gray';
+        if (key !== 'centerLogo') {
+          const quarterIndex = this.quartersConfig.quarters.findIndex(q => q.id === key);
+          if (quarterIndex !== -1 && this.quartersConfig.quarterColors[quarterIndex]) {
+            const colors = this.quartersConfig.quarterColors[quarterIndex];
+            bgColor = colors.border;
+            textColor = '#ffffff';
+          }
+        } else {
+          // For center logo, use primary brand color
+          bgColor = '#1e40af';
+          textColor = '#ffffff';
+        }
+
+        ctx.fillStyle = bgColor;
         ctx.fillRect(0, 0, 100, 100);
-        ctx.fillStyle = '#ffffff';
-        ctx.font = '12px Arial';
+        ctx.fillStyle = textColor;
+        ctx.font = 'bold 12px Arial';
         ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
         ctx.fillText(key.toUpperCase(), 50, 50);
 
-        // Convert canvas to image
+        // Convert canvas to image and wait for it to be ready
         const fallbackImg = new Image();
+        fallbackImg.onload = () => {
+          this.loadedImages.set(key, fallbackImg);
+          console.log(`✓ Fallback image created for: ${key}`);
+          resolve(fallbackImg);
+        };
         fallbackImg.src = fallbackCanvas.toDataURL();
-        this.loadedImages.set(key, fallbackImg);
-
-        resolve(fallbackImg);
       };
 
       // Add timeout to prevent hanging
-      setTimeout(() => {
-        if (!this.loadedImages.has(key)) {
-          console.warn(`Image load timeout: ${src}`);
+      timeoutId = setTimeout(() => {
+        if (!imageLoaded && !this.loadedImages.has(key)) {
+          console.warn(`⏱ Image load timeout: ${src}`);
           img.onerror(new Error('Timeout'));
         }
       }, 10000); // 10 second timeout
@@ -143,7 +200,6 @@ export default class HomeAccredited extends BaseModule {
 
   // Load tất cả images với better error handling
   async loadImages() {
-    const imagePromises = [];
     const imagesToLoad = [
       { src: this.quartersConfig.centerLogo, key: 'centerLogo' },
       ...this.quartersConfig.quarters.map(quarter => ({
@@ -152,22 +208,37 @@ export default class HomeAccredited extends BaseModule {
       }))
     ];
 
-    console.log('Starting to load images:', imagesToLoad);
+    console.log('📦 Starting to load images:', imagesToLoad.map(i => i.key));
 
-    for (const { src, key } of imagesToLoad) {
-      imagePromises.push(
-        this.loadImage(src, key).catch(error => {
-          console.error(`Critical error loading ${src}:`, error);
-          return null; // Continue even if one image fails
-        })
-      );
-    }
+    // Use Promise.all to wait for ALL images (including fallbacks)
+    const imagePromises = imagesToLoad.map(({ src, key }) =>
+      this.loadImage(src, key).catch(error => {
+        console.error(`Critical error loading ${src}:`, error);
+        // Still return null but don't break the chain
+        return null;
+      })
+    );
 
     try {
-      await Promise.allSettled(imagePromises);
-      console.log('All images processed. Loaded images:', Array.from(this.loadedImages.keys()));
+      // Wait for ALL promises to complete
+      const results = await Promise.all(imagePromises);
+
+      // Verify all images are loaded
+      const loadedCount = results.filter(r => r !== null).length;
+      const expectedCount = imagesToLoad.length;
+
+      console.log(`✓ Images loaded: ${loadedCount}/${expectedCount}`);
+      console.log('Loaded image keys:', Array.from(this.loadedImages.keys()));
+
+      // Ensure we have at least fallback images for all
+      if (loadedCount < expectedCount) {
+        console.warn('Some images failed to load, but fallbacks should be in place');
+      }
+
+      return results;
     } catch (error) {
       console.error('Error in loadImages:', error);
+      throw error; // Propagate error to prevent rendering
     }
   }
 
@@ -255,6 +326,12 @@ export default class HomeAccredited extends BaseModule {
   // Render toàn bộ canvas
   renderCanvas() {
     if (!this.ctx) return;
+
+    // Only render if images are loaded or loading is complete
+    if (this.imagesLoading && !this.allImagesLoaded) {
+      console.log('⏳ Waiting for images to load before rendering...');
+      return;
+    }
 
     this.clearCanvas();
     this.renderQuarters();
@@ -921,13 +998,20 @@ export default class HomeAccredited extends BaseModule {
   }
 
   // Utility: Add new quarter dynamically
-  addQuarter(quarterData) {
+  async addQuarter(quarterData) {
     this.quartersConfig.quarters.push(quarterData);
     this.updateRotationOffset();
     this.calculateQuarterPositions();
-    this.loadImage(quarterData.image, quarterData.id).then(() => {
+
+    // Wait for image to load before rendering
+    try {
+      await this.loadImage(quarterData.image, quarterData.id);
       this.renderCanvas();
-    });
+    } catch (error) {
+      console.error('Error loading quarter image:', error);
+      // Still render with fallback
+      this.renderCanvas();
+    }
   }
 
   // Utility: Remove quarter
@@ -942,7 +1026,14 @@ export default class HomeAccredited extends BaseModule {
   // Add method to check if all images are loaded
   areImagesLoaded() {
     const expectedImages = ['centerLogo', ...this.quartersConfig.quarters.map(q => q.id)];
-    return expectedImages.every(key => this.loadedImages.has(key));
+    const allLoaded = expectedImages.every(key => this.loadedImages.has(key));
+
+    if (!allLoaded) {
+      const missing = expectedImages.filter(key => !this.loadedImages.has(key));
+      console.log('Missing images:', missing);
+    }
+
+    return allLoaded;
   }
 
   destroy() {
