@@ -29,9 +29,9 @@ export default class HomeAccredited extends BaseModule {
       const homeAccreditedConfig = JSON.parse(configText);
       this.quartersConfig = JSON.parse(JSON.stringify(homeAccreditedConfig));
 
-      console.log('HomeAccredited: Configuration initialized', this.quartersConfig);
+      // console.log('HomeAccredited: Configuration initialized', this.quartersConfig);
     } catch (error) {
-      console.error('Error parsing data-config:', error);
+      // console.error('Error parsing data-config:', error);
       this.quartersConfig = null;
     }
   }
@@ -84,13 +84,13 @@ export default class HomeAccredited extends BaseModule {
 
       // Only render after all images are confirmed loaded
       this.renderCanvas();
-      console.log('Canvas initialized successfully with all images loaded');
+      // console.log('Canvas initialized successfully with all images loaded');
     } catch (error) {
       console.error('Error initializing canvas:', error);
       this.imagesLoading = false;
       this.allImagesLoaded = false;
       // Don't render if images failed to load
-      console.error('Canvas rendering aborted due to image loading failure');
+      // console.error('Canvas rendering aborted due to image loading failure');
     }
   }
 
@@ -137,10 +137,10 @@ export default class HomeAccredited extends BaseModule {
         // Ensure image is fully decoded before storing
         if (img.complete && img.naturalWidth > 0) {
           this.loadedImages.set(key, img);
-          console.log(`✓ Successfully loaded image: ${src}`);
+          // console.log(`✓ Successfully loaded image: ${src}`);
           resolve(img);
         } else {
-          console.warn(`Image loaded but not ready: ${src}`);
+          // console.warn(`Image loaded but not ready: ${src}`);
           // Wait a bit for image to be ready
           setTimeout(() => {
             this.loadedImages.set(key, img);
@@ -192,7 +192,7 @@ export default class HomeAccredited extends BaseModule {
         const fallbackImg = new Image();
         fallbackImg.onload = () => {
           this.loadedImages.set(key, fallbackImg);
-          console.log(`✓ Fallback image created for: ${key}`);
+          // console.log(`✓ Fallback image created for: ${key}`);
           resolve(fallbackImg);
         };
         fallbackImg.src = fallbackCanvas.toDataURL();
@@ -220,7 +220,7 @@ export default class HomeAccredited extends BaseModule {
       }))
     ];
 
-    console.log('📦 Starting to load images:', imagesToLoad.map(i => i.key));
+    // console.log('📦 Starting to load images:', imagesToLoad.map(i => i.key));
 
     // Use Promise.all to wait for ALL images (including fallbacks)
     const imagePromises = imagesToLoad.map(({ src, key }) =>
@@ -239,8 +239,8 @@ export default class HomeAccredited extends BaseModule {
       const loadedCount = results.filter(r => r !== null).length;
       const expectedCount = imagesToLoad.length;
 
-      console.log(`✓ Images loaded: ${loadedCount}/${expectedCount}`);
-      console.log('Loaded image keys:', Array.from(this.loadedImages.keys()));
+      // console.log(`✓ Images loaded: ${loadedCount}/${expectedCount}`);
+      // console.log('Loaded image keys:', Array.from(this.loadedImages.keys()));
 
       // Ensure we have at least fallback images for all
       if (loadedCount < expectedCount) {
@@ -341,7 +341,7 @@ export default class HomeAccredited extends BaseModule {
 
     // Only render if images are loaded or loading is complete
     if (this.imagesLoading && !this.allImagesLoaded) {
-      console.log('⏳ Waiting for images to load before rendering...');
+      // console.log('⏳ Waiting for images to load before rendering...');
       return;
     }
 
