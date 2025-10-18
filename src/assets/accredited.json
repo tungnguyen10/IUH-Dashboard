@@ -29,16 +29,6 @@
       "bg": "#fce4ec",
       "border": "#E91E63",
       "text": "#880E4F"
-    },
-    {
-      "bg": "#f3e5f5",
-      "border": "#9C27B0",
-      "text": "#4A148C"
-    },
-    {
-      "bg": "#e0f2f1",
-      "border": "#009688",
-      "text": "#004D40"
     }
   ],
   "quarters": [
@@ -68,20 +58,6 @@
       "tabId": "tab4",
       "image": "assets/images/abet-circle.png",
       "title": "Other",
-      "active": false
-    },
-    {
-      "id": "iso",
-      "tabId": "tab5",
-      "image": "assets/images/abet-circle.png",
-      "title": "ISO",
-      "active": false
-    },
-    {
-      "id": "vnu-hcm",
-      "tabId": "tab6",
-      "image": "assets/images/vnu-circle.png",
-      "title": "VNU-HCM",
       "active": false
     }
   ],

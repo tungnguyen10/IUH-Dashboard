@@ -5,6 +5,10 @@ export default class HomeAccredited extends BaseModule {
 
   // Method khởi tạo - được gọi khi module được đăng ký
   register() {
+    this.canvas = document.getElementById('quarters-canvas');
+    this.tabPanes = document.querySelectorAll(".tab-pane");
+    this.quartersConfig = null;
+
     this.initializeConfig();
     this.initializeElements();
     this.initCanvas();
@@ -17,15 +21,23 @@ export default class HomeAccredited extends BaseModule {
 
   // Initialize configuration data
   initializeConfig() {
-    const homeAccreditedConfig = require('../../accredited.json');
-    this.quartersConfig = JSON.parse(JSON.stringify(homeAccreditedConfig));
-    console.log('HomeAccredited: Configuration initialized', this.quartersConfig);
+    try {
+      const configText = this.canvas.dataset.config;
+      if (!configText) throw new Error('No data-config found');
+
+      // Parse JSON trực tiếp từ attribute
+      const homeAccreditedConfig = JSON.parse(configText);
+      this.quartersConfig = JSON.parse(JSON.stringify(homeAccreditedConfig));
+
+      console.log('HomeAccredited: Configuration initialized', this.quartersConfig);
+    } catch (error) {
+      console.error('Error parsing data-config:', error);
+      this.quartersConfig = null;
+    }
   }
 
   // Khởi tạo và lưu trữ các DOM elements
   initializeElements() {
-    this.canvas = document.querySelector("#quarters-canvas");
-    this.tabPanes = document.querySelectorAll(".tab-pane");
 
     if (!this.canvas || !this.tabPanes.length) {
       console.warn('HomeAccredited: Required elements not found');

@@ -5322,23 +5322,54 @@
 
     <div class="w-full flex flex-col lg:flex-row gap-5 items-center mt-10 lg:mt-14">
       <div class="canvas-quarters-container">
-        <canvas id="quarters-canvas" class="w-full aspect-square md:w-[500px] !h-auto"></canvas>
+        <canvas id="quarters-canvas" class="w-full aspect-square md:w-[500px] !h-auto" data-config='{
+    "centerLogo": "assets/images/logo-circle.png",
+    "canvasSize": 500,
+    "centerRadius": 42,
+    "segmentGap": 6,
+    "quarterGap": 4,
+    "outerCornerRadius": 15,
+    "rotationOffset": 0,
+    "rotationAnimationSpeed": 0.18,
+    "quarterColors": [
+      { "bg": "#e8f5e8", "border": "#4CAF50", "text": "#2E7D32" },
+      { "bg": "#fff3e0", "border": "#FF9800", "text": "#E65100" },
+      { "bg": "#e3f2fd", "border": "#2196F3", "text": "#0D47A1" },
+      { "bg": "#fce4ec", "border": "#E91E63", "text": "#880E4F" },
+      { "bg": "#f3e5f5", "border": "#9C27B0", "text": "#4A148C" },
+      { "bg": "#e0f2f1", "border": "#009688", "text": "#004D40" }
+
+    ],
+    "quarters": [
+      { "id": "vnu-cea", "tabId": "tab1", "image": "assets/images/cea-circle.png", "title": "VNU-CEA", "active": false },
+      { "id": "aun-qa", "tabId": "tab2", "image": "assets/images/aun-circle.png", "title": "AUN-QA", "active": true },
+      { "id": "abet", "tabId": "tab3", "image": "assets/images/abet-circle.png", "title": "ABET", "active": false },
+      { "id": "other", "tabId": "tab4", "image": "assets/images/abet-circle.png", "title": "Other", "active": false },
+      { "id": "iso", "tabId": "tab5", "image": "assets/images/iso-circle.png", "title": "ISO", "active": false },
+      { "id": "international", "tabId": "tab6", "image": "assets/images/international-circle.png", "title": "International", "active": false }
+    ],
+    "centerLogoAnimation": {
+      "pulse": { "minScale": 0.8, "maxScale": 1.0, "speed": 0.02 },
+      "borderSpeed": 0.05
+    }
+  }'>
+        </canvas>
       </div>
 
       <!-- Tab content -->
-      <div class="tab-content">
-        <div class="tab-pane" id="tab1">
+      <div class=" tab-content">
+        
+                <div class="tab-pane " id="tab1">
           <div class="w-full flex flex-row gap-5 items-center rounded-lg p-3 bg-white shadow-accredited">
-            <div class="w-full max-w-[100px] lg:max-w-[180px] shrink-0">
-              <img src="assets/images/vnu-1.png" alt="" class="w-full" />
+            <div class="w-full max-w-[100px] lg:max-w-[180px] aspect-video overflow-hidden shrink-0">
+              <img src="assets/images/vnu-1.png" alt="" class="w-full h-full object-cover" />
             </div>
             <div class="text-base lg:text-lg font-semibold uppercase text-black1">
-              Accreditation Board for Engineering and Technology - (Hội đồng
-              Kiểm định Kỹ thuật và Công nghệ, Hoa Kỳ)
+              Accreditation Board for Engineering and Technology - (Hội đồng Kiểm định Kỹ thuật và Công nghệ, Hoa
+        Kỳ)
             </div>
           </div>
           <div class="grid grid-cols-1 gap-y-1 lg:grid-cols-2 lg:gap-y-1 lg:gap-x-5 mt-6 lg:mt-14">
-            
                         <a href="#"
               class="flex flex-row gap-2 items-center text-base font-semibold text-primary-darkblue hover:text-primary-yellow">
               <span class="size-5 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" class="size-full"
@@ -5461,18 +5492,16 @@
             </a>
                       </div>
         </div>
-        <div class="tab-pane active" id="tab2">
+                <div class="tab-pane active" id="tab2">
           <div class="w-full flex flex-row gap-5 items-center rounded-lg p-3 bg-white shadow-accredited">
-            <div class="w-full max-w-[100px] lg:max-w-[180px] shrink-0">
-              <img src="assets/images/aun-1.png" alt="" class="w-full" />
+            <div class="w-full max-w-[100px] lg:max-w-[180px] aspect-video overflow-hidden shrink-0">
+              <img src="assets/images/aun-1.png" alt="" class="w-full h-full object-cover" />
             </div>
             <div class="text-base lg:text-lg font-semibold uppercase text-black1">
-              ASEAN University Network - Quality Assurance (Mạng lưới Đảm bảo
-              chất lượng các trường đại học ASEAN)
+              ASEAN University Network - Quality Assurance (Mạng lưới Đảm bảo chất lượng các trường đại học ASEAN)
             </div>
           </div>
           <div class="grid grid-cols-1 gap-y-1 lg:grid-cols-2 lg:gap-y-1 lg:gap-x-5 mt-6 lg:mt-14">
-            
                         <a href="#"
               class="flex flex-row gap-2 items-center text-base font-semibold text-primary-darkblue hover:text-primary-yellow">
               <span class="size-5 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" class="size-full"
@@ -5595,18 +5624,17 @@
             </a>
                       </div>
         </div>
-        <div class="tab-pane" id="tab3">
+                <div class="tab-pane " id="tab3">
           <div class="w-full flex flex-row gap-5 items-center rounded-lg p-3 bg-white shadow-accredited">
-            <div class="w-full max-w-[100px] lg:max-w-[180px] shrink-0">
-              <img src="assets/images/abet-1.png" alt="" class="w-full" />
+            <div class="w-full max-w-[100px] lg:max-w-[180px] aspect-video overflow-hidden shrink-0">
+              <img src="assets/images/abet-1.png" alt="" class="w-full h-full object-cover" />
             </div>
             <div class="text-base lg:text-lg font-semibold uppercase text-black1">
-              Accreditation Board for Engineering and Technology (Hội đồng Kiểm
-              định Kỹ thuật và Công nghệ, Hoa Kỳ)
+              Accreditation Board for Engineering and Technology (Hội đồng Kiểm định Kỹ thuật và Công nghệ, Hoa
+        Kỳ)
             </div>
           </div>
           <div class="grid grid-cols-1 gap-y-1 lg:grid-cols-2 lg:gap-y-1 lg:gap-x-5 mt-6 lg:mt-14">
-            
                         <a href="#"
               class="flex flex-row gap-2 items-center text-base font-semibold text-primary-darkblue hover:text-primary-yellow">
               <span class="size-5 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" class="size-full"
@@ -5729,17 +5757,16 @@
             </a>
                       </div>
         </div>
-        <div class="tab-pane" id="tab4">
+                <div class="tab-pane " id="tab4">
           <div class="w-full flex flex-row gap-5 items-center rounded-lg p-3 bg-white shadow-accredited">
-            <div class="w-full max-w-[100px] lg:max-w-[180px] shrink-0 ">
-              <img src="assets/images/partner-1.png" alt="" class="w-full" />
+            <div class="w-full max-w-[100px] lg:max-w-[180px] aspect-video overflow-hidden shrink-0">
+              <img src="assets/images/partner-1.png" alt="" class="w-full h-full object-cover" />
             </div>
             <div class="text-base lg:text-lg font-semibold uppercase text-black1">
               Other Accreditation Bodies
             </div>
           </div>
-        <div class="grid grid-cols-1 gap-y-1 lg:grid-cols-2 lg:gap-y-1 lg:gap-x-5 mt-6 lg:mt-14">
-            
+          <div class="grid grid-cols-1 gap-y-1 lg:grid-cols-2 lg:gap-y-1 lg:gap-x-5 mt-6 lg:mt-14">
                         <a href="#"
               class="flex flex-row gap-2 items-center text-base font-semibold text-primary-darkblue hover:text-primary-yellow">
               <span class="size-5 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" class="size-full"
@@ -5862,19 +5889,16 @@
             </a>
                       </div>
         </div>
-
-        <!-- New Tab 5: ISO -->
-        <div class="tab-pane" id="tab5">
+                <div class="tab-pane " id="tab5">
           <div class="w-full flex flex-row gap-5 items-center rounded-lg p-3 bg-white shadow-accredited">
-            <div class="w-full max-w-[100px] lg:max-w-[180px] shrink-0">
-              <img src="assets/images/iso-1.png" alt="" class="w-full" />
+            <div class="w-full max-w-[100px] lg:max-w-[180px] aspect-video overflow-hidden shrink-0">
+              <img src="assets/images/iso-1.png" alt="" class="w-full h-full object-cover" />
             </div>
             <div class="text-base lg:text-lg font-semibold uppercase text-black1">
               ISO - International Organization for Standardization (Tổ chức Tiêu chuẩn hóa Quốc tế)
             </div>
           </div>
           <div class="grid grid-cols-1 gap-y-1 lg:grid-cols-2 lg:gap-y-1 lg:gap-x-5 mt-6 lg:mt-14">
-            
                         <a href="#"
               class="flex flex-row gap-2 items-center text-base font-semibold text-primary-darkblue hover:text-primary-yellow">
               <span class="size-5 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" class="size-full"
@@ -5997,19 +6021,16 @@
             </a>
                       </div>
         </div>
-
-        <!-- New Tab 6: International -->
-        <div class="tab-pane" id="tab6">
+                <div class="tab-pane " id="tab6">
           <div class="w-full flex flex-row gap-5 items-center rounded-lg p-3 bg-white shadow-accredited">
-            <div class="w-full max-w-[100px] lg:max-w-[180px] shrink-0">
-              <img src="assets/images/international-1.png" alt="" class="w-full" />
+            <div class="w-full max-w-[100px] lg:max-w-[180px] aspect-video overflow-hidden shrink-0">
+              <img src="assets/images/international-1.png" alt="" class="w-full h-full object-cover" />
             </div>
             <div class="text-base lg:text-lg font-semibold uppercase text-black1">
               International Accreditation Bodies (Các tổ chức kiểm định quốc tế khác)
             </div>
           </div>
-         <div class="grid grid-cols-1 gap-y-1 lg:grid-cols-2 lg:gap-y-1 lg:gap-x-5 mt-6 lg:mt-14">
-            
+          <div class="grid grid-cols-1 gap-y-1 lg:grid-cols-2 lg:gap-y-1 lg:gap-x-5 mt-6 lg:mt-14">
                         <a href="#"
               class="flex flex-row gap-2 items-center text-base font-semibold text-primary-darkblue hover:text-primary-yellow">
               <span class="size-5 shrink-0"><svg xmlns="http://www.w3.org/2000/svg" class="size-full"
@@ -6132,7 +6153,7 @@
             </a>
                       </div>
         </div>
-      </div>
+              </div>
     </div>
 
 
