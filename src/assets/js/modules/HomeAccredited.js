@@ -17,6 +17,22 @@ export default class HomeAccredited extends BaseModule {
     this.rotationAnimating = false;
     this.imagesLoading = false;
     this.allImagesLoaded = false;
+
+    // FPS tracking - Main animation
+    this.lastFrameTime = 0;
+    this.frameCount = 0;
+    this.fpsStartTime = performance.now();
+    this.targetFPS = 60;
+    this.frameInterval = 1000 / this.targetFPS;
+    this.lastRenderTime = 0;
+    this.animationStopped = false;
+
+    // FPS tracking - Rotation animation (separate)
+    this.rotationLastFrameTime = 0;
+    this.rotationFrameCount = 0;
+    this.rotationFpsStartTime = 0;
+
+    // console.log('🎯 HomeAccredited initialized with 60 FPS control');
   }
 
   // Initialize configuration data
@@ -667,8 +683,8 @@ export default class HomeAccredited extends BaseModule {
     const centerY = this.quartersConfig.canvasSize / 2;
     const logoRadius = this.quartersConfig.centerRadius;
 
-    // Calculate pulse animation
-    const time = Date.now() * 0.002; // Control speed of pulse
+    // Calculate pulse animation với FPS control
+    const time = performance.now() * 0.002; // Control speed of pulse
     const pulseScale = 1.04 + Math.sin(time) * 0.04; // Pulse between 1.0 and 1.08
     const pulseOpacity = 0.8 + Math.sin(time) * 0.2; // Opacity between 0.6 and 1.0
     const animatedRadius = logoRadius * pulseScale;
@@ -720,9 +736,9 @@ export default class HomeAccredited extends BaseModule {
       this.drawFallbackLogo(centerX, centerY, logoRadius);
     }
 
-    // Continue animation if not explicitly stopped
-    if (!this.animationStopped) {
-      requestAnimationFrame(() => this.renderCanvas());
+    // Continue pulse animation với FPS control nếu không bị stop
+    if (!this.animationStopped && !this.rotationAnimating) {
+      this.scheduleNextFrame();
     }
   }
 
@@ -730,11 +746,58 @@ export default class HomeAccredited extends BaseModule {
   drawFallbackLogo(centerX, centerY) {
     this.ctx.save();
     this.ctx.fillStyle = '#1e40af';
-    this.ctx.font = 'bold 24px Arial';
+    this.ctx.font = 'bold 24px Inter';
     this.ctx.textAlign = 'center';
     this.ctx.textBaseline = 'middle';
     this.ctx.fillText('IUH', centerX, centerY);
     this.ctx.restore();
+  }
+
+  // FPS controlled animation scheduling cho pulse animation
+  scheduleNextFrame() {
+    if (this.animationStopped || this.rotationAnimating) return;
+
+    const now = performance.now();
+    const elapsed = now - this.lastRenderTime;
+
+    if (elapsed >= this.frameInterval) {
+      // this.trackFPS(now);
+      this.lastRenderTime = now - (elapsed % this.frameInterval);
+      requestAnimationFrame(() => {
+        if (!this.animationStopped && !this.rotationAnimating) {
+          this.renderCanvas();
+        }
+      });
+    } else {
+      // Schedule for the next appropriate time
+      const timeToNextFrame = this.frameInterval - elapsed;
+      setTimeout(() => {
+        if (!this.animationStopped && !this.rotationAnimating) {
+          requestAnimationFrame(() => this.renderCanvas());
+        }
+      }, timeToNextFrame);
+    }
+  }
+
+  // Track and log FPS cho main animation
+  trackFPS(currentTime) {
+    this.frameCount++;
+
+    if (currentTime - this.fpsStartTime >= 1000) { // Every second
+      const actualFPS = Math.round((this.frameCount * 1000) / (currentTime - this.fpsStartTime));
+
+      if (actualFPS < 55) {
+        console.warn(`🎯 Main Animation FPS: ${actualFPS} (below target 60 FPS)`);
+      } else if (actualFPS > 65) {
+        console.log(`⚡ Main Animation FPS: ${actualFPS} (above target, optimizing...)`);
+      } else {
+        console.log(`✅ Main Animation FPS: ${actualFPS} (optimal)`);
+      }
+
+      // Reset counters
+      this.frameCount = 0;
+      this.fpsStartTime = currentTime;
+    }
   }
 
   // Bind events cho canvas và tab panes
@@ -971,6 +1034,12 @@ export default class HomeAccredited extends BaseModule {
         this.rotationAnimationFrame = null;
       }
       this.rotationAnimating = false;
+      this.rotationLastFrameTime = 0;
+      // console.log('🔄 Rotation set immediately');
+      // Resume pulse animation after immediate rotation
+      if (!this.animationStopped) {
+        this.scheduleNextFrame();
+      }
       return;
     }
 
@@ -979,34 +1048,84 @@ export default class HomeAccredited extends BaseModule {
       this.rotationAnimationFrame = null;
     }
 
-    const step = () => {
-      const targetOffset = this.quartersConfig.targetRotationOffset ?? 0;
-      current = this.quartersConfig.currentRotationOffset ?? 0;
-      let delta = targetOffset - current;
-      delta = ((delta + Math.PI) % (2 * Math.PI)) - Math.PI;
+    // Stop pulse animation during rotation
+    this.rotationAnimating = true;
+    this.rotationLastFrameTime = 0;
+    this.rotationFrameCount = 0;
+    this.rotationFpsStartTime = 0;
 
-      const speed = this.quartersConfig.rotationAnimationSpeed ?? 0.18;
-      if (Math.abs(delta) < 0.0005) {
-        current = targetOffset;
+    const step = (timestamp) => {
+      // FPS control for rotation animation - 60 FPS guaranteed
+      if (!this.rotationLastFrameTime) this.rotationLastFrameTime = timestamp;
+      const elapsed = timestamp - this.rotationLastFrameTime;
+
+      if (elapsed >= this.frameInterval) {
+        const targetOffset = this.quartersConfig.targetRotationOffset ?? 0;
+        current = this.quartersConfig.currentRotationOffset ?? 0;
+        let delta = targetOffset - current;
+        delta = ((delta + Math.PI) % (2 * Math.PI)) - Math.PI;
+
+        const speed = this.quartersConfig.rotationAnimationSpeed ?? 0.18;
+
+        if (Math.abs(delta) < 0.0005) {
+          // Rotation completed
+          current = targetOffset;
+          this.quartersConfig.currentRotationOffset = current;
+          this.quartersConfig.rotationOffset = this.normalizeAngle(current);
+          this.calculateQuarterPositions();
+          this.renderCanvas();
+          this.rotationAnimating = false;
+          this.rotationAnimationFrame = null;
+          this.rotationLastFrameTime = 0;
+          // console.log('🔄✅ Rotation animation completed at 60fps');
+
+          // Resume pulse animation after rotation
+          if (!this.animationStopped) {
+            this.scheduleNextFrame();
+          }
+          return;
+        }
+
+        current += delta * Math.min(Math.max(speed, 0.05), 0.35);
         this.quartersConfig.currentRotationOffset = current;
         this.quartersConfig.rotationOffset = this.normalizeAngle(current);
         this.calculateQuarterPositions();
         this.renderCanvas();
-        this.rotationAnimating = false;
-        this.rotationAnimationFrame = null;
-        return;
+
+        // Track FPS for rotation animation
+        // this.trackRotationFPS(timestamp);
+
+        // Update frame time accounting for frame interval
+        this.rotationLastFrameTime = timestamp - (elapsed % this.frameInterval);
       }
 
-      current += delta * Math.min(Math.max(speed, 0.05), 0.35);
-      this.quartersConfig.currentRotationOffset = current;
-      this.quartersConfig.rotationOffset = this.normalizeAngle(current);
-      this.calculateQuarterPositions();
-      this.renderCanvas();
-      this.rotationAnimating = true;
       this.rotationAnimationFrame = requestAnimationFrame(step);
     };
 
+    // console.log('🔄 Starting rotation animation at 60fps');
     this.rotationAnimationFrame = requestAnimationFrame(step);
+  }
+
+  // Track rotation animation FPS separately
+  trackRotationFPS(currentTime) {
+    if (!this.rotationFpsStartTime) this.rotationFpsStartTime = currentTime;
+    this.rotationFrameCount++;
+
+    if (currentTime - this.rotationFpsStartTime >= 1000) { // Every second
+      const actualFPS = Math.round((this.rotationFrameCount * 1000) / (currentTime - this.rotationFpsStartTime));
+
+      if (actualFPS < 55) {
+        console.warn(`🔄 Rotation FPS: ${actualFPS} (below target 60 FPS)`);
+      } else if (actualFPS > 65) {
+        console.log(`🔄⚡ Rotation FPS: ${actualFPS} (above target, optimizing...)`);
+      } else {
+        console.log(`🔄✅ Rotation FPS: ${actualFPS} (optimal)`);
+      }
+
+      // Reset rotation FPS counters
+      this.rotationFrameCount = 0;
+      this.rotationFpsStartTime = currentTime;
+    }
   }
 
   // Utility: Add new quarter dynamically
@@ -1049,10 +1168,26 @@ export default class HomeAccredited extends BaseModule {
   }
 
   destroy() {
+    // console.log('🛑 Destroying HomeAccredited module - stopping all animations');
+
+    // Stop all animations
     this.animationStopped = true;
+    this.rotationAnimating = false;
+
+    // Cancel animation frames
     if (this.rotationAnimationFrame) {
       cancelAnimationFrame(this.rotationAnimationFrame);
       this.rotationAnimationFrame = null;
     }
+
+    // Reset all timing variables
+    this.lastFrameTime = 0;
+    this.frameCount = 0;
+    this.lastRenderTime = 0;
+    this.rotationLastFrameTime = 0;
+    this.rotationFrameCount = 0;
+    this.rotationFpsStartTime = 0;
+
+    // console.log('✅ All animations stopped and resources cleaned up');
   }
 }

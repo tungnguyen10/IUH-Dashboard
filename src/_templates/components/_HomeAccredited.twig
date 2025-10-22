@@ -1,4 +1,4 @@
-<div class="iuhFadeInScroll w-full relative iuh-accredited" data-module="HomeAccredited">
+<div class="iuhFadeInScroll w-full relative iuh-accredited overflow-hidden" data-module="HomeAccredited">
   <div class="w-full max-w-[1200px] px-4 mx-auto py-10 lg:py-16 flex flex-col">
     {% include '../common/_Title.twig' with {'title': 'Các chương trình đạt kiểm định', 'subtitle':'TRONG NƯỚC VÀ QUỐC
     TẾ', titleClass:"flex-col items-center", subtitleClass:"text-lg lg:text-2xl font-bold uppercase"}
@@ -6,7 +6,7 @@
 
     <div class="w-full flex flex-col lg:flex-row gap-5 items-center mt-10 lg:mt-14">
       <div class="canvas-quarters-container">
-        <canvas id="quarters-canvas" class="w-full aspect-square md:w-[500px] !h-auto" data-config='{
+        <canvas id="quarters-canvas" class="w-full aspect-square md:w-[500px] !h-auto cursor-pointer" data-config='{
     "centerLogo": "assets/images/logo-circle.png",
     "canvasSize": 500,
     "centerRadius": 42,
